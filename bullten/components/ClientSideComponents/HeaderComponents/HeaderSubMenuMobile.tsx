@@ -1,4 +1,4 @@
-import { HeaderMenu } from "@/components/CommonComponents/HeaderComponents/headerTypes";
+import { HeaderMenu, SubHeader, SubHeaderLinks } from "@/components/CommonComponents/HeaderComponents/headerTypes";
 import Link from "next/link";
 import React from "react";
 
@@ -20,24 +20,28 @@ const HeaderSubMenuMobile = ({
   // console.log(openSubMenu, menuKey);
   return (
     <div
-      className={`${
-        openSubMenu === menuKey ? "block" : "hidden"
-      } open w-full p-2 rounded-xl`}
+      className={`${openSubMenu === menuKey ? "block" : "hidden"
+        } open w-full p-2 rounded-xl`}
     >
-      {headerMenu?.sub_headers?.map((subHeader) => {
+      {headerMenu?.subheader?.map((subHeader: SubHeader) => {
         return (
-          <Link
-            href={`${headerMenu?.path}/${subHeader?.slug}`}
-            key={subHeader?.id}
-            onClick={() => {
-              setOpenSubMenu(undefined);
-              setOpenMobileMenu(false);
-            }}
-          >
-            <div className="py-3" key={subHeader?.id}>
-              {subHeader?.title}
-            </div>
-          </Link>
+          <div>
+            {subHeader?.Subheader_heading }
+            {subHeader?.subheaders?.map((subHeaderLinks: SubHeaderLinks) =>
+            <Link
+              href={`${headerMenu?.path}/${subHeaderLinks?.slug}`}
+              key={subHeaderLinks?.id}
+              onClick={() => {
+                setOpenSubMenu(undefined);
+                setOpenMobileMenu(false);
+              }}
+            >
+              <div className="py-3" key={subHeaderLinks?.id}>
+                {subHeaderLinks?.title}
+              </div>
+            </Link>
+            )}
+          </div>
         );
       })}
     </div>

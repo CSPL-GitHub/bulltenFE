@@ -30,7 +30,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
     []
   );
 
-  // console.log("new" , headerResponse?.result?.header)
+  console.log("new", headerResponse?.result?.header)
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -40,7 +40,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
   }, [handleScroll]);
 
   return (
-    <div className={`w-full fixed ${"lg:top-3"} top-5 start-0 z-10`}>
+    <div className={`w-full fixed ${"lg:top-3"} top-5 start-0 z-10 bg-bullt-tertiary`}>
       <div className="container mx-auto sm:px-8 px-4 ">
         <div
           className="w-full flex justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] relative rounded-lg z-50 px-3"
@@ -94,20 +94,20 @@ const HeaderMenu = ({ headerResponse }: Props) => {
               ? headerResponse?.result?.header
                 ?.map((headerMenu) => {
                   return (
-                    <div>
+                    <div
+                      onMouseLeave={() => {
+                        setOpenSubMenu(undefined);
+                      }}>
                       <div
                         className="flex flex-col justify-center items-center relative"
                         key={headerMenu?.id}
-                        onMouseLeave={() => {
-                          setOpenSubMenu(undefined);
-                        }}
                       >
                         {headerMenu?.subheader?.length > 0 ? (
                           <>
                             <h6
-                              className={`flex relative cursor-default text-lg ${moveDown
-                                ? "font-thin text-tgh-primary"
-                                : "font-semiBold text-tgh-tertiary"
+                              className={`flex relative cursor-default text-lg items-center min-h-16 ${moveDown
+                                ? "font-thin text-bullt-primary "
+                                : "font-semiBold text-bullt-text-tertiary"
                                 }`}
                               onMouseEnter={() => {
                                 setOpenSubMenu(headerMenu?.id);
@@ -118,13 +118,14 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                               <MdOutlineKeyboardArrowDown size={20} />
                             </h6>
 
+
                           </>
                         ) : (
                           <Link href={`${headerMenu?.path}`}>
                             <h6
                               className={`flex relative cursor-pointer text-lg ${moveDown
-                                ? "font-thin text-tgh-primary"
-                                : "font-semiBold text-tgh-tertiary"
+                                ? "font-thin text-bullt-primary"
+                                : "font-semiBold text-bullt-text-tertiary"
                                 }`}
                             >
                               {headerMenu?.title}

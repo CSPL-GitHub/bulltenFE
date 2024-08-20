@@ -1,7 +1,16 @@
 export type SubHeader = {
+  subheaders: SubHeaderLinks[];
+  Subheader_heading: string;
+};
+
+export type SubHeaderLinks = {
   id: number;
   title: string;
+  description: string;
   slug: string;
+  image: string; 
+  image_alt_text: string;
+  Subheader_heading: string;
 };
 
 export type HeaderMenu = {
