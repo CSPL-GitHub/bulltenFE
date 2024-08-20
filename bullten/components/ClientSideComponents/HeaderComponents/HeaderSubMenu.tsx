@@ -1,37 +1,7 @@
-// import { SubHeader } from "@/components/ServerSideComponents/HeaderComponents/headerTypes";
-// import React from "react";
-
-// type Props = {
-//   openSubMenu: number | undefined;
-//   menuKey: number;
-//   subMenus: SubHeader[];
-// };
-
-// const HeaderSubMenu = ({ openSubMenu, menuKey, subMenus }: Props) => {
-//   // console.log(openSubMenu, menuKey);
-//   return (
-//     <div
-//       className={`${
-//         openSubMenu === menuKey ? "block" : "hidden"
-//       } w-auto  px-3 py-2 `}
-//     >
-//       {subMenus?.map((subHeader) => {
-//         return (
-//           <p className="py-1  " key={subHeader?.id}>
-//             {subHeader?.title}
-//           </p>
-//         );
-//       })}
-//     </div>
-//   );
-// };
-
-// export default HeaderSubMenu;
-
-
-import { HeaderMenu, SubHeader } from "@/components/CommonComponents/HeaderComponents/headerTypes";
+import { HeaderMenu, SubHeader, SubHeaderLinks } from "@/components/CommonComponents/HeaderComponents/headerTypes";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 type Props = {
   openSubMenu: number | undefined;
@@ -50,31 +20,52 @@ const HeaderSubMenu = ({
 }: Props) => {
   return (
     <div
-      className={` open w-[100vw] absolute top-full left-0 right-0 ${
-        openSubMenu === menuKey ? "block" : "hidden"
-      } rounded-md shadow-md py-2 z-50`}
+      className={` open container absolute top-full left-0 right-0  ${openSubMenu === menuKey ? "block" : "hidden"
+        } grid grid-cols-3 rounded-md shadow-md z-50 px-16 py-9`}
       style={{
         ...(moveDown
           ? {
-              background: `var(--tgh-tertiary)`,
-              backdropFilter: "blur(35px)",
-            }
+            background: `var(--tgh-tertiary)`,
+            backdropFilter: "blur(35px)",
+          }
           : {
-              background: `linear-gradient(137deg, rgba(255, 255, 255, 0.70) 24.15%, rgba(255, 255, 255, 0.62) 125.95%)`,
-              backdropFilter: "blur(35px)",
-            }),
+            background: `linear-gradient(137deg, rgba(255, 255, 255, 0.70) 24.15%, rgba(255, 255, 255, 0.62) 125.95%)`,
+            backdropFilter: "blur(35px)",
+          }),
       }}
     >
       {headerMenu?.subheader?.map((subHeader: SubHeader) => (
-        <Link
-          href={`${headerMenu?.path}/${subHeader?.slug}`}
-          key={subHeader?.id}
-          onClick={() => setOpenSubMenu(undefined)}
-        >
-          <p className="px-2 py-2 open hover:underline underline-offset-4" key={subHeader?.id}>
-            {subHeader?.title}
-          </p>
-        </Link>
+        <div>
+          <h2 className="text-bullt-tertiary font-semibold text-xl">
+            {subHeader?.Subheader_heading}
+          </h2>
+          {subHeader?.subheaders?.map((subHeaderLinks: SubHeaderLinks) =>
+            <Link
+              href={`${headerMenu?.path}/${subHeaderLinks?.slug}`}
+              key={subHeaderLinks?.id}
+              onClick={() => setOpenSubMenu(undefined)}
+              className="grid grid-cols-7"
+            >
+              <div className="relative h-[50px] col-span-2">
+                <Image
+                  className="sm:rounded-[20%] rounded-[20%]"
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${subHeaderLinks?.image}`}
+                  alt={subHeaderLinks?.image_alt_text}
+                  // fill={true}
+                />
+              </div>
+
+              <div className="col-span-5">
+                <p className="text-lg py-2 open hover:underline underline-offset-4" key={subHeaderLinks?.id}>
+                  {subHeaderLinks?.title}
+                </p>
+                <p className="text-xs">
+                  {subHeaderLinks?.description}
+                </p>
+              </div>
+            </Link>
+          )}
+        </div>
       ))}
     </div>
   );
