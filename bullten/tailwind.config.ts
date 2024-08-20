@@ -9,15 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "bullt-primary": "#212121",
-        "bullt-secondary": "#535E73",
-        "bullt-tertiary": "#132d8b",
-        "bullt-quaternary": "#080F2C",
-        "bullt-quinary": "#A0ACA5",
-        "bullt-background": "#FAFAFA",
-        "bullt-text-primary": "#1A202C",
-        "bullt-text-secondary": "#CCCCCC",
-        "bullt-text-tertiary": "#ffffff",
+        "bullt-primary": "#000000", //black
+        "bullt-secondary": "#FAFAFA", //white
+        "bullt-tertiary": "#FFBF00", //yellow
+        "bullt-quaternary": "#01204E", // dark blue
+        "bullt-quinary": "#3A1078", //purple
+        "bullt-background": "#FAFAFA", //white
+        "bullt-text-primary": "#01204E", //dark blue
+        "bullt-text-secondary": "#CCCCCC", // gray
+        "bullt-text-tertiary": "#ffffff", //white
         "bullt-text-quaternary": "#535E73",
         "bullt-text-quinary": "#B2955D",
       },
