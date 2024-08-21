@@ -16,13 +16,13 @@ const config: Config = {
         "bullt-quinary": "#3A1078", //purple
         "bullt-background": "#FAFAFA", //white
         "bullt-text-primary": "#01204E", //dark blue
-        "bullt-text-secondary": "#CCCCCC", // gray
+        "bullt-text-secondary": "#FAFAFA", // gray
         "bullt-text-tertiary": "#ffffff", //white
         "bullt-text-quaternary": "#535E73",
         "bullt-text-quinary": "#B2955D",
       },
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(180deg, #8f79d2 0%, #4529a3 100%)',
+        "custom-gradient": "linear-gradient(180deg, #8f79d2 0%, #4529a3 100%)",
       },
     },
   },

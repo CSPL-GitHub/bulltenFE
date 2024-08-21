@@ -7,92 +7,91 @@ import { IoCallOutline, IoMailOpenOutline } from "react-icons/io5";
 import { MdCall } from "react-icons/md";
 import FooterMap from "./FooterMap";
 import { footerApi } from "@/apis/HomePageApis";
+import FooterMobileMenu from "./FooterMobileMenu";
 
 const Footer: React.FC = async () => {
   const footerResponse = await footerApi();
+  console.log(footerResponse.result.Discription);
   if (footerResponse?.result?.hasOwnProperty("error")) {
     console.log("error in Footer API");
   }
-  console.log("footer", footerResponse);
   return (
     <>
       {footerResponse?.result ? (
         <footer>
-          <FooterMap />
-
-          <div className="w-full mt-16 rounded-lg lg:rounded-none pt-6 lg:pt-16 pb-7 px-3 lg:px-10 bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-blue-700 via-blue-800 to-gray-900">
-            <div className="container mx-auto grid grid-cols-12 gap-3 ">
-              <div className="lg:col-span-3 col-span-12 md:col-span-12 flex flex-col items-center">
-                <div className=" bg-gray-200 shadow-sm rounded-lg p-3 ">
+          <div className="w-full mt-16 rounded-lg lg:rounded-none px-3 lg:px-8 bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-blue-700 via-blue-800 to-gray-900">
+            <FooterMap />
+            <div className="bg-bullt-secondary  mb-3 mt-[-40px] shadow-sm rounded-lg container mx-auto gap-3 ">
+              <div className="flex justify-between border-b border-bullt-primary px-4 py-2">
+                <div className="w-[300px] h-[70px] relative">
                   <Link href="/">
-                    <div className="w-full h-[70px] relative">
-                      {/* <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${footerResponse?.result?.logo}`}
-                    alt={footerResponse?.result?.logo_alternate_text}
-                    className="sm:rounded-[20%] rounded-[20%]"
-                    fill={true}
-                  /> */}
-                      <Image
-                        className="rounded-[20%] object-contain"
-                        src="/logo-bullten.png"
-                        alt=""
-                        fill={true}
-                      />
-                    </div>
+                    <Image
+                      className="object-contain"
+                      src="/logo-bullten.png"
+                      alt=""
+                      fill={true}
+                    />
                   </Link>
-                  <span className="">
-                    {/* <h5 className="font-bold  text-xl">
-                    {footerResponse?.result?.title}
-                    About Us
-                  </h5> */}
-                    <h6 className="py-4 text-sm text-justify">
-                      {/* {footerResponse?.result?.description} */}
-                      About Us We are bounded to provide all time customer
-                      support to our customers, at any time they are needed. You
-                      can contact us anytime. We will be there with you for any
-                      help needed from your side and will try our best to
-                      provide you with the solutions to overcome your problems.
-                    </h6>
-                  </span>
-                  <div className="w-full flex items-center justify-center py-3  gap-8">
-                    {footerResponse?.result?.socialMediaLinks?.map(
-                      (socialMedia: any, index: number) => (
-                        <div
-                          className="w-[40px] h-[40px] p-1 relative"
-                          key={index}
-                        >
-                          <a href={socialMedia.link}>
-                            <Image
-                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${socialMedia?.icon}`}
-                              alt={socialMedia?.alt_txt}
-                              style={{
-                                position: "absolute",
-                                objectFit: "contain",
-                              }}
-                              fill={true}
-                            />
-                          </a>
-                        </div>
-                      )
-                    )}
-                  </div>
+                </div>
+
+                <div className="w-full flex items-center justify-end py-3 gap-2 lg:gap-4">
+                  {footerResponse?.result?.socialMediaLinks?.map(
+                    (socialMedia: any, index: number) => (
+                      <div
+                        className="w-[35px] h-[35px] lg:w-[40px] lg:h-[40px] p-1 relative rounded-full "
+                        key={index}
+                      >
+                        <a href={socialMedia.link}>
+                          <Image
+                            className="rounded-full"
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${socialMedia?.icon}`}
+                            alt={socialMedia?.alt_txt}
+                            style={{
+                              position: "absolute",
+                              objectFit: "contain",
+                            }}
+                            fill={true}
+                          />
+                        </a>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
-              <div className="w-full lg:col-span-9 col-span-12 flex lg:flex-row flex-col gap-3 lg:ml-6 ml-0">
+
+              <div className="w-full lg:col-span-9 col-span-12 flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 px-4 lg:px-6 bg-bullt-primary">
+                <div className=" flex flex-col items-center ">
+                  <div className=" flex justify-between flex-col items-center w-full">
+                    <div className="">
+                      {footerResponse?.result?.Discription?.map(
+                        (content: any, index: number) => (
+                          <div key={index}>
+                            <h5 className="font-bold text-xl  text-bullt-text-secondary">
+                              {content?.footerHeading}
+                            </h5>
+                            <h5 className="text-base text-justify text-bullt-text-secondary pt-4">
+                              {content?.footerDescription}
+                            </h5>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                </div>
                 {footerResponse?.result?.FooterLinks?.map(
                   (menu: any, index: number) => (
                     <div
-                      className="w-full col-span-5 text-center lg:text-left"
+                      className="w-full col-span-5 text-center lg:text-left ml-0 lg:ml-6 "
                       key={index}
                     >
-                      <div className="w-full flex flex-col justify-center item-center gap-2 mt-6 lg:mt-0">
-                        <h5 className="font-bold text-xl lg:text-md  text-bullt-secondary">
+                      <div className="w-full hidden lg:flex flex-col justify-center item-center gap-2 mt-6 lg:mt-0 ">
+                        <h5 className="font-bold text-2xl lg:text-md  text-bullt-secondary">
                           {menu?.menuHeading}
                         </h5>
                         {menu?.menuPages?.map(
                           (menus: any, pageIndex: number) => (
                             <Link href={menus?.path} key={pageIndex}>
-                              <h6 className="py-2 text-base lg:text-sm font-normal text-bullt-secondary hover:font-semibold hover:text-gray-400">
+                              <h6 className="py-2 text-base lg:text-sm font-semibold text-bullt-secondary hover:font-bold hover:text-gray-400">
                                 {menus?.title}
                               </h6>
                             </Link>
@@ -102,19 +101,31 @@ const Footer: React.FC = async () => {
                     </div>
                   )
                 )}
-              </div>
-
-              <div className="w-full lg:col-span-4 col-span-12 flex flex-col items-center justify-start sm:p-1 p-0">
-                <div className="lg:block hidden">{/* <Newsletter /> */}</div>
+                <div className="lg:hidden block">
+                  <FooterMobileMenu
+                    Menus={footerResponse?.result?.FooterLinks}
+                  />
+                </div>
               </div>
             </div>
-            <div className="w-full flex justify-center flex-wrap gap-2 py-2 border-t-[1px] border-tgh-primary/[0.2] ">
-              <h6 className="text-tgh-secondary break-words text-sm">
-                {/* {footerResponse?.result?.copyright} */}
-              </h6>
-              <h6 className="text-tgh-secondary break-words text-sm">
-                {/* {footerResponse?.result?.policy} */}
-              </h6>
+            <div className="w-full container mx-auto flex justify-center lg:justify-between flex-wrap gap-2 py-4 border-t-[1px] border-tgh-primary/[0.2] ">
+              <div>
+                <h6 className="break-words text-center  text-base text-bullt-secondary">
+                  {footerResponse?.result?.copyRightText}{" "}
+                  {footerResponse?.result?.policyText}
+                </h6>
+              </div>
+              <div className="flex gap-2">
+                {footerResponse?.result?.legalinformation.map(
+                  (info: any, index: number) => (
+                    <Link key={index} href={info?.link}>
+                      <h6 className="break-words text-base text-bullt-secondary">
+                        {info?.heading}
+                      </h6>
+                    </Link>
+                  )
+                )}
+              </div>
             </div>
           </div>
         </footer>
