@@ -30,6 +30,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
     []
   );
 
+  var resolution = window.innerWidth;
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -48,6 +49,9 @@ const HeaderMenu = ({ headerResponse }: Props) => {
               ? {
                 background: `#ffffff`,
                 backdropFilter: "blur(35px)",
+              }
+              : resolution < 800 ? {
+                background: "#ffffff"
               }
               : { background: "transparent", backdropFilter: "blur(0px)" }),
           }}
@@ -72,13 +76,13 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                 {openMobileMenu ? (
                   <RxCross1
                     className="m-2"
-                    style={moveDown ? { color: "black" } : { color: "white" }}
+                    style={moveDown ? { color: "black" } : resolution < 800 ? {color: "black"} : { color: "white" }}
                     size={35}
                   />
                 ) : (
                   <RxHamburgerMenu
                     className="m-2"
-                    style={moveDown ? { color: "black" } : { color: "white" }}
+                    style={moveDown ? { color: "black" } : resolution < 800 ? {color: "black"} : { color: "white" }}
                     size={40}
                   />
                 )}

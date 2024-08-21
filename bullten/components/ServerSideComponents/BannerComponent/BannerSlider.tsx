@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
 import HomePageBannerCard from "./HomePageBannerCard";
 import { Banner, Banners } from "@/types/BannerTypes";
@@ -9,11 +9,23 @@ type Props = {
 };
 
 const BannerSlider = ({ banners }: Props) => {
+
+  const [infinite , setInfinite] = useState<boolean>()
+
+  useEffect(() => {
+    if(banners?.length === 1 ){
+      setInfinite(false);
+    }
+    else{
+      setInfinite(true);
+    }
+  }, [])
+
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const settings = {
-    dots: true,
-    infinite: false,
+    dots: infinite,
+    infinite: infinite,
     autoplay: false,
     arrows: false,
     speed: 2000,
