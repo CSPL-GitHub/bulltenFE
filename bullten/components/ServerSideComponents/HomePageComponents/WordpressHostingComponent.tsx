@@ -9,10 +9,10 @@ const WordPressHoistingComponent = async (props: Props) => {
     const WordPressHoistingApiResponse = await WordPressHoistingApi()
     console.log("WordPressHoistingApiResponse", WordPressHoistingApiResponse)
     return (
-        <section className="sm:p-12 p-4 bg-bullt-quinary sm:px-6 px-3">
+        <section className="sm:p-12  bg-bullt-quinary sm:px-6 px-4">
             <div className="sm:grid grid-cols-2 justify-center">
                 <div className="sm:grid sm:grid-col-1 grid-col-2 px-2">
-                    <div className="flex gap-2 border-b-[1px] sm:w-[350px] w-full border-bullt-text-quinary">
+                    <div className="flex gap-2 border-b-[1px] sm:w-[330px] sm:h-7 w-full border-bullt-text-quinary">
                         <p className='text-bullt-text-tertiary font-bold text-lg'>{WordPressHoistingApiResponse?.result?.lblw1}</p>
                         <p className='text-bullt-text-quinary  font-bold text-lg'>{WordPressHoistingApiResponse?.result?.lblw2}</p>
                     </div>

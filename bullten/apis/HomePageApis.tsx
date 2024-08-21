@@ -1,7 +1,7 @@
 import { apiCore } from "./APICore";
 
 export const headerApi = async () => {
-  const response = await apiCore("/bullten_new/bullten_new", {}, "POST");
+  const response = await apiCore("/api/header", {}, "POST");
   return response;
 };
 
@@ -14,6 +14,20 @@ export const WordPressHoistingApi = async () => {
   const response = await apiCore(`/api/hosting`, {}, "POST");
   return response;
 };
+ 
+export const OurPatnarApi = async () => {
+  const response = await apiCore("/api/ourpartner", {}, "POST");
+  return response;
+};
+export const FaqSectionApi = async () => {
+  const response = await apiCore("/api/faqs", {}, "POST");
+  return response;
+};
+export const WhyUsSectionApi = async () => {
+  const response = await apiCore("/api/whyus", {}, "POST");
+  return response;
+};
+
 
 export const footerApi = async () => {
   const response = await apiCore("/api/footer", {}, "POST");
