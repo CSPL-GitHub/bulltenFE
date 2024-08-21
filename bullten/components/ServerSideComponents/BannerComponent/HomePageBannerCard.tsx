@@ -8,36 +8,31 @@ type Props = {
 
 const HomePageBannerCard = ({ banner }: Props) => {
   return (
-    <>
-      <div className="isolate  bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-indigo-500 via-indigo-300 to-indigo-100">
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              {banner?.link}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span aria-hidden="true" className="absolute inset-0" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-          <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              {banner?.label}
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              {banner?.title}
-            </p>
-            <div className="mt-10 flex items-center justify-center">
-              <HomePageButtonOne
-                alignmentType={2}
-                buttonText={banner?.button_text}
-                route={`/order-online`}
-              />
-            </div>
-          </div>
+   <div>
+     <section className="isolate bg-custom-gradient h-screen ">
+      <div className="container mx-auto pt-40 ">
+        <div className="w-[50%] text-bullt-secondary flex flex-col gap-9">
+          <h4 className="">
+            {banner?.label}
+          </h4>
+          <h2 className="text-bullt-secondary font-extrabold text-5xl">
+            {banner?.title}
+          </h2>
+          <h3>
+            {banner?.link}
+          </h3>
+          <HomePageButtonOne
+            alignmentType={1}
+            buttonText={banner?.button_text}
+            route={banner?.button_link}
+          />
         </div>
       </div>
-    </>
+    </section>
+   
+   </div>
+
+    
   );
 };
 

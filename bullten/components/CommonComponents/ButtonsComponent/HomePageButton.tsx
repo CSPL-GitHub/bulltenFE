@@ -42,7 +42,7 @@ const HomePageButtonOne = ({ alignmentType, buttonText, route }: Props) => {
       }`}
     >
       <button
-        className="text-lg text-bold border-2 border-bullt-primary bg-bullt-primary hover:bg-tertiary text-textSecondary hover:text-primary rounded-secondaryRadius inline-block font-bold sm:cursor-pointer px-4 py-3"
+        className="text-lg text-bold border-2 border-bullt-text-quinary bg-bullt-text-quinary hover:bg-bullt-secondary text-bullt-secondary hover:text-bullt-tertiary rounded-sm px-4 py-3"
         onClick={handleClick}
       >
         {buttonText}

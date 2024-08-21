@@ -23,24 +23,11 @@ const HeaderSubMenuMobile = ({
       className={`${openSubMenu === menuKey ? "block" : "hidden"
         } open w-full p-2 rounded-xl`}
     >
-      {headerMenu?.subheader?.map((subHeader: SubHeader) => {
+      {headerMenu?.subheader?.map((subHeader: SubHeader, index:number) => {
         return (
-          <div>
+          <div key={index}>
             {subHeader?.Subheader_heading }
-            {subHeader?.subheaders?.map((subHeaderLinks: SubHeaderLinks) =>
-            <Link
-              href={`${headerMenu?.path}/${subHeaderLinks?.slug}`}
-              key={subHeaderLinks?.id}
-              onClick={() => {
-                setOpenSubMenu(undefined);
-                setOpenMobileMenu(false);
-              }}
-            >
-              <div className="py-3" key={subHeaderLinks?.id}>
-                {subHeaderLinks?.title}
-              </div>
-            </Link>
-            )}
+            
           </div>
         );
       })}
