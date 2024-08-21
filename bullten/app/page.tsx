@@ -12,12 +12,11 @@ export default async function Home() {
   return (
     <main className=" flex min-h-screen flex-col items-center justify-between">
       <div className="container">
-        {/* <BannerSlider banners={homePageBannerContentApi.result.banners} /> */}
-        <WhyBulletinComponent/>
-        <OurPatnarComponent/>
+        <BannerSlider banners={homePageBannerContentApi.result.banners} />
+        <WhyBulletinComponent />
+        <OurPatnarComponent />
         <WordPressHoistingComponent />
-        <FaqSection/>
-       
+        <FaqSection />
       </div>
     </main>
   );
