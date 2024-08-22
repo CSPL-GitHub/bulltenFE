@@ -12,15 +12,13 @@ import FooterMobileMenu from "./FooterMobileMenu";
 const Footer: React.FC = async () => {
   const footerResponse = await footerApi();
   const footerMapResponse = await footerMapApi();
+  console.log("footerMapResponse", footerMapResponse);
 
-  if (footerResponse?.result?.hasOwnProperty("error")) {
-    console.log("error in Footer API");
-  }
   return (
     <>
       {footerResponse?.result ? (
         <footer className="bg-bullt-background/[0.9]">
-          <FooterMap footerMapResponse={footerMapResponse?.result} />
+          <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />
 
           <div className="w-full rounded-lg lg:rounded-none px-3 lg:px-8 bg-bullt-text-primary">
             <div className=" mb-3 pt-8 shadow-sm rounded-lg container mx-auto gap-3 ">

@@ -9,12 +9,12 @@ import React from "react";
 const WhyBulletinComponent = async () => {
   const WhyUsSection = await WhyUsSectionApi();
   const WhyUsSectionApiResponse = WhyUsSection?.result;
-  console.log("WhyUsSectionApiResponse?.data", WhyUsSectionApiResponse);
+  console.log("WhyUsSectionApiResponse", WhyUsSectionApiResponse);
 
   return (
     <>
-      {WhyUsSectionApiResponse?.active === true ? (
-        <section className="flex flex-col sm:flex-row shadow-md bg-bullt-background py-12 sm:px-12 px-3 rounded-md ">
+      {WhyUsSectionApiResponse?.Active === true ? (
+        <section className="flex flex-col sm:flex-row shadow-md bg-bullt-background py-12 w-full px-3 rounded-md ">
           <div className="relative w-full sm:w-1/2">
             <div className="h-[300px] lg:h-[400px] w-full relative">
               <Image
@@ -42,14 +42,14 @@ const WhyBulletinComponent = async () => {
 
               {WhyUsSectionApiResponse?.data?.heading ? (
                 <>
-                  <MainHeadingComponent>
+                  <MainHeadingComponent paddingTop={1}>
                     {WhyUsSectionApiResponse?.data?.heading}
                   </MainHeadingComponent>
                 </>
               ) : null}
               {WhyUsSectionApiResponse?.data?.description ? (
                 <>
-                  <ParaGraphText>
+                  <ParaGraphText paddingTop={1}>
                     {WhyUsSectionApiResponse?.data?.description}
                   </ParaGraphText>
                 </>
@@ -63,7 +63,7 @@ const WhyBulletinComponent = async () => {
                           <span className="text-bullt-tertiary text-xl font-semibold text-center">
                             &#10003;
                           </span>
-                          <BulletPointTextComponent>
+                          <BulletPointTextComponent paddingTop={1}>
                             {data?.name}
                           </BulletPointTextComponent>
                         </div>

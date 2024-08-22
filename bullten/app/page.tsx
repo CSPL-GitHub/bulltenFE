@@ -1,4 +1,4 @@
-import { HomePageBannerApi } from "@/apis/HomePageApis";
+import { HomePageBannerApi, TestimonialsApi } from "@/apis/HomePageApis";
 import BannerSlider from "@/components/ServerSideComponents/BannerComponent/BannerSlider";
 import FaqSection from "@/components/ServerSideComponents/HomePageComponents/FaqsectionComponent";
 import SupportSection from "@/components/ServerSideComponents/HomePageComponents/SupportComponent";
@@ -12,12 +12,13 @@ import CounterComponent from "@/components/ServerSideComponents/HomePageComponen
 import TestimonialSlider from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/TestimonialSlider";
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
+  const TestimonialsContent = await TestimonialsApi();
   return (
     <main className="w-full">
       <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-        {homePageBannerContentApi?.result?.Active === &&
-          homePageBannerContentApi?.result?.banners?.length > 0 && (
-            <BannerSlider banners={homePageBannerContentApi?.result?.banners} />
+        {homePageBannerContentApi?.result?.Active === true &&
+          homePageBannerContentApi?.result?.banner?.length > 0 && (
+            <BannerSlider banners={homePageBannerContentApi?.result?.banner} />
           )}
       </Suspense>
       <div className="container flex flex-col items-center justify-center mx-auto">
@@ -33,14 +34,15 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <FaqSection />
         </Suspense>
-        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialSlider />
-        </Suspense> */}
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <CounterComponent />{" "}
+          <CounterComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <BlogsComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <TestimonialSlider TestimonialsContent={TestimonialsContent} />
         </Suspense>
       </div>
     </main>

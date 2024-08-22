@@ -7,27 +7,30 @@ type Props = {};
 
 const WordPressHoistingComponent = async (props: Props) => {
   const WordPressHoistingApiResponse = await WordPressHoistingApi();
+  console.log(
+    "WordPressHoistingApiResponse",
+    WordPressHoistingApiResponse?.result
+  );
   return (
     <>
-      {WordPressHoistingApiResponse?.result?.Active === true ?
+      {WordPressHoistingApiResponse?.result?.Active === true ? (
         <section className="sm:p-12  bg-bullt-quaternary sm:px-6 px-4">
-
           <div className="sm:grid grid-cols-2 justify-center">
             <div className="sm:grid sm:grid-col-1 grid-col-2 px-2">
               <div className="flex gap-2 border-b-[1px] sm:w-[330px] sm:h-8 w-full border-bullt-text-quinary sm:py-0 py-3">
                 <p className="text-bullt-secondary font-bold text-lg ">
-                  {WordPressHoistingApiResponse?.result?.lblw1}
+                  {WordPressHoistingApiResponse?.result?.host_data?.lblw1}
                 </p>
                 <p className="text-bullt-text-quinary  font-bold text-lg">
-                  {WordPressHoistingApiResponse?.result?.lblw2}
+                  {WordPressHoistingApiResponse?.result?.host_data?.lblw2}
                 </p>
               </div>
               <h1 className="sm:py-5 text-bullt-secondary font-bold sm:text-4xl py-5 text-2xl">
-                {WordPressHoistingApiResponse?.result?.heading}
+                {WordPressHoistingApiResponse?.result?.host_data?.heading}
               </h1>
               <div className="h-[400px] w-full relative">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${WordPressHoistingApiResponse?.result?.img}`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${WordPressHoistingApiResponse?.result?.host_data?.img}`}
                   alt="all"
                   style={{
                     position: "absolute",
@@ -39,11 +42,11 @@ const WordPressHoistingComponent = async (props: Props) => {
               </div>
             </div>
             <CartSliderComponent
-              data={WordPressHoistingApiResponse?.result?.hosting}
+              data={WordPressHoistingApiResponse?.result?.host_data?.hosting}
             />
           </div>
         </section>
-        : null}
+      ) : null}
     </>
   );
 };

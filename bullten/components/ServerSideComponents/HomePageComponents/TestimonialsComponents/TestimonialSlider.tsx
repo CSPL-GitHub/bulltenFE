@@ -32,6 +32,7 @@ type Props = {
 };
 
 const TestimonialSlider = ({ TestimonialsContent }: Props) => {
+  console.log("TestimonialsContent", TestimonialsContent);
   const testimonialData = TestimonialsContent?.result?.data;
   const testimonials = testimonialData?.reviews || [];
   const [infinite, setInfinite] = useState<boolean>(true);
@@ -88,7 +89,7 @@ const TestimonialSlider = ({ TestimonialsContent }: Props) => {
 
   return (
     <>
-      {TestimonialsContent?.result?.Active && testimonialData?.active ? (
+      {TestimonialsContent?.result?.Active === true ? (
         <div className="rounded-md w-full bg-bullt-secondary/[0.01] py-10 border-0 shadow-sm">
           <MainHeadingComponent alignmentType={2}>
             {testimonialData?.title}
