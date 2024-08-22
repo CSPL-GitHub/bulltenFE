@@ -1,7 +1,10 @@
+"use client"
 import { HeaderMenu, SubHeader, SubHeaderLinks } from "@/components/CommonComponents/HeaderComponents/headerTypes";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import HeaderUseCases from "./HeaderUseCases";
 
 type Props = {
   openSubMenu: number | undefined;
@@ -11,7 +14,7 @@ type Props = {
   setOpenMobileMenu: any;
   setActiveSubMenu: any;
   activeSubMenu: any;
-  handleSubheaderClick:any
+  handleSubheaderClick: any
 };
 
 const HeaderSubMenuMobile = ({
@@ -25,6 +28,8 @@ const HeaderSubMenuMobile = ({
   handleSubheaderClick, // New prop
 }: Props) => {
 
+  console.log("menu", headerMenu)
+
   return (
     <div
       className={`${openSubMenu === menuKey || activeSubMenu ? "block" : "hidden"} open w-full p-2 rounded-xl`}
@@ -33,10 +38,11 @@ const HeaderSubMenuMobile = ({
         return (
           <div key={index}>
             <div
-              className="cursor-pointer"
+              className="cursor-pointer flex items-center justify-between"
               onClick={() => handleSubheaderClick(subHeader)} // Trigger hiding of other menus
             >
               <h3 className="text-xl px-3 py-3 hover:bg-bullt-quaternary/[0.1] ">{subHeader?.Subheader_heading}</h3>
+              <MdOutlineKeyboardArrowRight size={25} />
             </div>
             {/* Conditionally render subheader links only if it matches the active subheader */}
             {activeSubMenu === subHeader && (
@@ -67,6 +73,7 @@ const HeaderSubMenuMobile = ({
                     </div>
                   </Link>
                 ))}
+                <HeaderUseCases insideSubMenu={subHeader} />
               </div>
             )}
           </div>

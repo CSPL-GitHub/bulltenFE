@@ -1,15 +1,16 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
+import { Banner } from "@/types/BannerTypes";
+import React, { useEffect, useRef, useState } from "react";
 import HomePageBannerCard from "./HomePageBannerCard";
-import { Banner, Banners } from "@/types/BannerTypes";
+
 
 type Props = {
   banners: Banner[];
 };
 
 const BannerSlider = ({ banners }: Props) => {
-
+  const sliderRef = useRef<HTMLDivElement>(null);
   const [infinite , setInfinite] = useState<boolean>()
 
   useEffect(() => {
@@ -20,8 +21,6 @@ const BannerSlider = ({ banners }: Props) => {
       setInfinite(true);
     }
   }, [])
-
-  const sliderRef = useRef<HTMLDivElement>(null);
 
   const settings = {
     dots: infinite,

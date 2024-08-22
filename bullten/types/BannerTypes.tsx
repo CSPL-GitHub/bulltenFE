@@ -9,4 +9,3 @@ export type Banner = {
   button_link: string;
 };
 
-export type Banners = Banner[];

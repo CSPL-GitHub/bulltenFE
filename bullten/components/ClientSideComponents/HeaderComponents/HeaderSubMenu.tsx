@@ -51,15 +51,15 @@ const HeaderSubMenu = ({
     >
       <div className="col-span-2 border-r-2">
         {headerMenu?.subheader?.map((subHeader: SubHeader, index: number) => (
-          <div key={index} className="flex justify-between cursor-pointer px-3 py-2 rounded-sm hover:bg-bullt-quaternary/[0.2] group"
+          <div key={index} className={`flex justify-between item-center cursor-pointer px-3 py-2 rounded-sm hover:bg-bullt-quaternary/[0.1] group ${subheaderIndex === index ? "bg-bullt-quaternary/[0.1]" : "bg-white"}`}
             onMouseEnter={() => {
               setInsideSubMenu(subHeader);
               setSubHeaderIndex(index);
             }}>
-            <h2 className="text-bullt-text-primary font-semibold text-lg col-span-2">
+            <h2 className="text-bullt-quaternary font-medium text-lg col-span-2">
               {subHeader?.Subheader_heading}
             </h2>
-            <MdOutlineKeyboardArrowRight size={20} className="group-hover:flex hidden" />
+            <MdOutlineKeyboardArrowRight size={20} className={`text-bullt-quaternary mt-1 ${subheaderIndex === index ? "flex" : "hidden"}`} />
           </div>
         ))}
       </div>
