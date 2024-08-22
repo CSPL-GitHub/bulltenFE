@@ -44,3 +44,8 @@ export const footerMapApi = async () => {
   const response = await apiCore("/api/map", {}, "POST");
   return response;
 };
+
+export const TestimonialsApi = async () => {
+  const response = await apiCore("/api/testimonials", {}, "POST");
+  return response;
+};

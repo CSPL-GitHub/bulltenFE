@@ -3,68 +3,46 @@ import React, { useEffect, useRef, useState } from "react";
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
 import TestimonialsCard from "./TestimonialsCard";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 
-const TestimonialSlider = () => {
-  const testimonials = [
-    {
-      id: 1,
-      rating: "Trustpilot",
-      text: "Needless to say we are extremely satisfied. If you need any help or assistance we'd be happy to help. Just reply to this email. Trusted by Agency proud to work with many well-known brands.",
-      name: "Carrie Roberts",
-      role: "Co-Founder",
-      image: "/path/to/image.jpg",
-    },
-    {
-      id: 2,
-      rating: "Google",
-      text: "Needless to say we are extremely satisfied. If you need any help or assistance we'd be happy to help. Just reply to this email. Trusted by Agency proud to work with many well-known brands.",
-      name: "Carrie Roberts",
-      role: "Co-Founder",
-      image: "/path/to/image.jpg",
-    },
-    {
-      id: 3,
-      rating: "Trustpilot",
-      text: "Needless to say we are extremely satisfied. If you need any help or assistance we'd be happy to help. Just reply to this email. Trusted by Agency proud to work with many well-known brands.",
-      name: "Carrie Roberts",
-      role: "Co-Founder",
-      image: "/path/to/image.jpg",
-    },
-    {
-      id: 1,
-      rating: "Trustpilot",
-      text: "Needless to say we are extremely satisfied. If you need any help or assistance we'd be happy to help. Just reply to this email. Trusted by Agency proud to work with many well-known brands.",
-      name: "Carrie Roberts",
-      role: "Co-Founder",
-      image: "/path/to/image.jpg",
-    },
-    {
-      id: 2,
-      rating: "Google",
-      text: "Needless to say we are extremely satisfied. If you need any help or assistance we'd be happy to help. Just reply to this email. Trusted by Agency proud to work with many well-known brands.",
-      name: "Carrie Roberts",
-      role: "Co-Founder",
-      image: "/path/to/image.jpg",
-    },
-    {
-      id: 3,
-      rating: "Trustpilot",
-      text: "Needless to say we are extremely satisfied. If you need any help or assistance we'd be happy to help. Just reply to this email. Trusted by Agency proud to work with many well-known brands.",
-      name: "Carrie Roberts",
-      role: "Co-Founder",
-      image: "/path/to/image.jpg",
-    },
-  ];
-  console.log(testimonials, "weyuirywruiefh");
+type Review = {
+  title: string;
+  client_image: string;
+  description: string;
+  alt_text: string;
+  name: string;
+  role: string;
+};
+
+type TestimonialData = {
+  title: string;
+  description: string;
+  active: boolean;
+  reviews: Review[];
+};
+
+type Props = {
+  TestimonialsContent: {
+    result: {
+      Active: boolean;
+      data: TestimonialData;
+    };
+  };
+};
+
+const TestimonialSlider = ({ TestimonialsContent }: Props) => {
+  const testimonialData = TestimonialsContent?.result?.data;
+  const testimonials = testimonialData?.reviews || [];
   const [infinite, setInfinite] = useState<boolean>(true);
 
   useEffect(() => {
-    if (testimonials?.length === 1) {
+    if (testimonials.length <= 3) {
       setInfinite(false);
     } else {
       setInfinite(true);
     }
-  }, []);
+  }, [testimonials.length]);
 
   const sliderRef = useRef<HTMLDivElement>(null);
   const settings = {
@@ -83,7 +61,7 @@ const TestimonialSlider = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
+          infinite: infinite,
           dots: true,
         },
       },
@@ -92,7 +70,7 @@ const TestimonialSlider = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: infinite,
           dots: true,
         },
       },
@@ -101,7 +79,7 @@ const TestimonialSlider = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: infinite,
           dots: true,
         },
       },
@@ -109,21 +87,27 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div className="rounded-md w-full bg-bullt-secondary/[0.01] py-10 border-0 shadow-sm">
-      <h2 className="text-3xl font-bold mb-8 text-center">
-        {" "}
-        We love our Customers & They love us too
-      </h2>
-      <div className="w-full container mx-auto sm:px-8 px-4">
-        <SliderFrame settings={settings} selector={sliderRef}>
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="px-4">
-              <TestimonialsCard testimonial={testimonial} />
-            </div>
-          ))}
-        </SliderFrame>
-      </div>
-    </div>
+    <>
+      {TestimonialsContent?.result?.Active && testimonialData?.active ? (
+        <div className="rounded-md w-full bg-bullt-secondary/[0.01] py-10 border-0 shadow-sm">
+          <MainHeadingComponent alignmentType={2}>
+            {testimonialData?.title}
+          </MainHeadingComponent>
+          <ParaGraphText alignmentType={2}>
+            {testimonialData?.description}
+          </ParaGraphText>
+          <div className="w-full container mx-auto sm:px-8 px-4">
+            <SliderFrame settings={settings} selector={sliderRef}>
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="px-4">
+                  <TestimonialsCard testimonial={testimonial} />
+                </div>
+              ))}
+            </SliderFrame>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 
