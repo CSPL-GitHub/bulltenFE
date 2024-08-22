@@ -52,34 +52,36 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   };
 
   return (
-    <div className="w-full mx-auto text-center sm:px-12 mb-5" ref={ref}>
-      <div className="grid grid-cols-2 sm:grid-cols-4 sm:gap-12 gap-6">
-        {counterData?.counters?.map((counter, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-xl p-4 rounded-xl transform transition-transform hover:scale-105"
-          >
-            <div className="sm:text-3xl text-2xl font-extrabold text-gray-800 flex flex-row items-center justify-center gap-2">
-              <span>
-                {startCount ? (
-                  <CountUp
-                    end={counter.count}
-                    duration={2}
-                    formattingFn={formatNumber}
-                  />
-                ) : (
-                  0
-                )}
-              </span>
-              <span className="text-3xl">+</span>
-            </div>
-            <p className="sm:text-lg text-md text-gray-500 mt-2">
-              {counter.countname}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
+  <> {counterData?.counters?.length> 0 ?<> <div className="w-full mx-auto text-center sm:px-10 mb-5" ref={ref}>
+  <div className="grid grid-cols-2 sm:grid-cols-4 sm:gap-12 gap-6">
+    {counterData?.counters?.map((counter, index) => (
+      <div
+        key={index}
+        className="bg-white shadow-xl p-4 rounded-xl transform transition-transform hover:scale-105"
+      >
+        <div className="sm:text-3xl text-2xl font-extrabold text-gray-800 flex flex-row items-center justify-center gap-2">
+          <span>
+            {startCount ? (
+              <CountUp
+                end={counter.count}
+                duration={2}
+                formattingFn={formatNumber}
+              />
+            ) : (
+              0
+            )}
+          </span>
+          <span className="text-3xl">+</span>
+        </div>
+        <p className="sm:text-lg text-md text-gray-500 mt-2">
+          {counter.countname}
+        </p>
+      </div>  
+    ))}
+  </div>
+</div></>:null }
+  </>
+  
   );
 };
 

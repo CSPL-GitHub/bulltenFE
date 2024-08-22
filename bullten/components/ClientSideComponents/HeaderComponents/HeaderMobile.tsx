@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowLeft } from "react-icons/md";
@@ -43,7 +44,7 @@ const HeaderMobile = ({
     <div
       className={`${
         openMobileMenu ? "block" : "hidden"
-      } open absolute top-full start-0 lg:hidden w-full h-auto max-h-[80vh] overflow-y-auto z-50 rounded-sm py-4 `}
+      } open absolute top-full start-0 lg:hidden w-full h-auto min-h-[80vh] max-h-[80vh] overflow-y-auto z-50 rounded-sm py-4 `}
       style={{
         background: `#ffffff`,
         backdropFilter: "blur(35px)",

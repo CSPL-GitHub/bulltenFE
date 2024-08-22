@@ -11,15 +11,15 @@ const BlogsComponent = async () => {
     return (
         <>
             {blogResponse?.result?.Active ? <>
-                <div className="flex flex-col justify-center  items-center gap-2 px-4">
-                    <div className="text-center py-6">
-                        <SloganHeadingComponent> {blogResponse?.result?.data?.label}</SloganHeadingComponent>
-                        <h1 className="text-4xl font-extrabold text-gray-800">
-                        {blogResponse?.result?.data?.heading}
-                        </h1>
-                        <ParaGraphText> {blogResponse?.result?.data?.description}</ParaGraphText>
+                <div className="flex flex-col justify-center items-center gap-2 px-4  bg-gradient-to-r from-blue-50 to-blue-50">
+                    <div className="text-center py-2">
+                        {blogResponse?.result?.data?.label ? <><SloganHeadingComponent alignmentType={2} paddingTop={1}>{blogResponse?.result?.data?.label}</SloganHeadingComponent></> : null}
+                        {blogResponse?.result?.data?.heading ? <h1 className="text-4xl font-bold text-gray-800">
+                            {blogResponse?.result?.data?.heading}
+                        </h1> : null}
+                        {blogResponse?.result?.data?.description ? <><ParaGraphText alignmentType={2} paddingTop={1}>{blogResponse?.result?.data?.description}</ParaGraphText></> : null}
                     </div>
-                    <div className="w-full grid grid-cols-12 py-8 px-4 gap-5">
+                    {blogResponse?.result?.data?.blogs?.length > 0 ? <> <div className="w-full grid grid-cols-12 py-2 sm:px-4 px-2 gap-5 sm:mb-7">
                         {blogResponse?.result?.data?.blogs?.map((blog: any) => (
                             <div
                                 className="lg:col-span-4 sm:col-span-4 col-span-12 w-full  flex flex-col justify-center items-center border rounded-xl p-4 gap-3"
@@ -66,7 +66,8 @@ const BlogsComponent = async () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div></> : null}
+
                 </div>
             </> : null}</>
 

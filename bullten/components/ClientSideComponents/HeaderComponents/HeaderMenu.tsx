@@ -39,7 +39,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
   }, [handleScroll]);
 
   return (
-    <header className={`w-full fixed ${"lg:top-0"} top-0 start-0 z-10 bg-bullt-secondary`}>
+    <header className={`w-full fixed ${"lg:top-0"} top-0 start-0 z-10 `}>
       <div className=" mx-auto ">
         <div
           className={`w-full relative z-50 px-3 ${moveDown ? "" : "bg-custom-gradient"}`}
@@ -56,9 +56,9 @@ const HeaderMenu = ({ headerResponse }: Props) => {
           <div className="flex justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] container mx-auto">
             <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center">
               <Link href="/">
-                <div className="w-[180px] h-[70px] relative">
+                <div className="w-[200px] h-[70px] relative">
                   <Image
-                    className="sm:rounded-[20%] rounded-[20%] object-contain"
+                    className="sm:rounded-[20%] rounded-[20%] object-cover"
                     src="/logo-bullten.png"
                     alt={headerResponse?.result?.logo_alternate_text}
                     fill={true}
