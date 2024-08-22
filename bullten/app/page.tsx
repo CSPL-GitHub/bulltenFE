@@ -10,6 +10,7 @@ import Skeleton from "react-loading-skeleton";
 import BlogsComponent from "@/components/ServerSideComponents/HomePageComponents/BlogComponent";
 import CounterComponent from "@/components/ServerSideComponents/HomePageComponents/CounterComponent";
 import TestimonialSlider from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/TestimonialSlider";
+import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/OurPatnarComponent";
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
   const TestimonialsContent = await TestimonialsApi();
@@ -30,6 +31,9 @@ export default async function Home() {
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WordPressHoistingComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OurPatnarComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <FaqSection />
