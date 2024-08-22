@@ -1,3 +1,4 @@
+"use client"
 import { HeaderMenu, SubHeader, SubHeaderLinks } from "@/components/CommonComponents/HeaderComponents/headerTypes";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
