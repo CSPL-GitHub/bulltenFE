@@ -6,21 +6,23 @@ import React, { useState } from 'react';
 
 const FaqSection = async () => {
 
-    
+
     const FaqSection = await FaqSectionApi();
-    const FaqSectionApiResponse = FaqSection?.result?.[0]
+    const FaqSectionApiResponse = FaqSection?.result
     return (
-        <section className="bg-gray-50 py-16 sm:px-10 px-4">
-            <div className="sm:flex gap-5 ">
+        <>
+        {FaqSection?.result?.active === "True" ? <>
+         <section className="bg-gray-50 py-16 sm:px-10 px-4">
+            <div className="sm:flex gap-5">
                 <div className="sm:w-1/2">
-                    <h1 className="sm:text-4xl text-2xl text-gray-600 font-bold mb-4">{FaqSectionApiResponse?.heading}</h1>
-                    <p className="text-gray-600">
-                    {FaqSectionApiResponse?.description}
-                    </p>
-                    <div className="sm:h-[450px] h-[300px] w-full relative ">
+                    {FaqSectionApiResponse?.data?.heading ? <><h1 className="sm:text-4xl text-2xl text-gray-600 font-bold mb-4">{FaqSectionApiResponse?.data?.heading}</h1></> : null}
+                    {FaqSectionApiResponse?.data?.description ? <><p className="text-gray-600">
+                        {FaqSectionApiResponse?.data?.description}
+                    </p></> : null}
+                    {FaqSectionApiResponse?.data?.img?<><div className="sm:h-[450px] h-[300px] w-full relative ">
                         <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqSectionApiResponse?.img}`}
-                            alt={FaqSectionApiResponse?.img_alt_text}
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqSectionApiResponse?.data.img}`}
+                            alt={FaqSectionApiResponse?.data?.img_alt_text}
                             style={{
                                 position: "absolute",
                                 objectFit: "contain",
@@ -29,11 +31,13 @@ const FaqSection = async () => {
                             fill={true}
                             className='rounded-md'
                         />
-                    </div>
+                    </div></>:null} 
+                    
                 </div>
-                <FaqQuestionComponent FaqSectionApiResponse={FaqSectionApiResponse?.questions} />
+                <FaqQuestionComponent FaqSectionApiResponse={FaqSectionApiResponse?.data?.questions} />
             </div>
         </section>
+        </>:null}</>
     );
 };
 
