@@ -1,34 +1,47 @@
-import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
-import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
-import CounterSectionComponent from "@/components/ClientSideComponents/HomePageComponents/CounterSectionComponent";
-import { CounteSectionApi } from "@/apis/HomePageApis";
+import { HomePageBannerApi, TestimonialsApi } from "@/apis/HomePageApis";
+import BannerSlider from "@/components/ServerSideComponents/BannerComponent/BannerSlider";
+import FaqSection from "@/components/ServerSideComponents/HomePageComponents/FaqsectionComponent";
+import SupportSection from "@/components/ServerSideComponents/HomePageComponents/SupportComponent";
+import WhyBulletinComponent from "@/components/ServerSideComponents/HomePageComponents/WhyBulletinComponent";
+import WordPressHoistingComponent from "@/components/ServerSideComponents/HomePageComponents/WordpressHostingComponent";
+import Image from "next/image";
+import { Suspense } from "react";
+import Skeleton from "react-loading-skeleton";
+import BlogsComponent from "@/components/ServerSideComponents/HomePageComponents/BlogComponent";
+import CounterComponent from "@/components/ServerSideComponents/HomePageComponents/CounterComponent";
+import TestimonialSlider from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/TestimonialSlider";
+export default async function Home() {
+  const homePageBannerContentApi = await HomePageBannerApi();
+  const TestimonialsContent = await TestimonialsApi();
 
-const CounterComponent: React.FC = async () => {
-  const response = await CounteSectionApi();
-  const counterData = response?.result;
-  console.log("counterData", counterData);
   return (
-    <>
-      {counterData?.active === true ? (
-        <>
-          <div className="w-full sm:p-0 p-4 sm:py-16 bg-gradient-to-r from-blue-50 to-blue-50">
-            <div className="flex flex-col items-center justify-center mx-auto gap-6">
-              <div className="sm:w-1/2 text-center">
-                <SloganHeadingComponent>
-                  {counterData?.data?.label}
-                </SloganHeadingComponent>
-                <h1 className="text-4xl font-extrabold text-gray-800">
-                  {counterData?.data?.heading}
-                </h1>
-                <ParaGraphText>{counterData?.data?.description}</ParaGraphText>
-              </div>
-              <CounterSectionComponent counterData={counterData?.data} />
-            </div>
-          </div>
-        </>
-      ) : null}
-    </>
+    <main className="w-full">
+      <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <BannerSlider banners={homePageBannerContentApi.result.banners} />
+      </Suspense>
+      <div className="container flex flex-col items-center justify-center mx-auto">
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <SupportSection />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <WhyBulletinComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <WordPressHoistingComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <FaqSection />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <TestimonialSlider TestimonialsContent={TestimonialsContent} />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <CounterComponent />{" "}
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <BlogsComponent />
+        </Suspense>
+      </div>
+    </main>
   );
-};
-
-export default CounterComponent;
+}
