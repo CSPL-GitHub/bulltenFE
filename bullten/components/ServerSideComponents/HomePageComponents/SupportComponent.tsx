@@ -21,7 +21,6 @@ const SupportSection = () => {
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex items-center mb-2">
               <div className="rounded-full p-2 mr-2 bg-bullt-quaternary/[0.05]">
-                {/* Icon for Live Chat */}
                 <svg
                   className="w-6 h-6 text-bullt-quaternary"
                   fill="currentColor"
@@ -46,7 +45,7 @@ const SupportSection = () => {
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex items-center mb-4">
               <div className="rounded-full p-2 bg-blue-100">
-                {/* Icon for Call Center */}
+               
                 <svg
                   className="w-6 h-6 text-blue-500"
                   fill="currentColor"
@@ -68,7 +67,7 @@ const SupportSection = () => {
           <div className="bg-white p-6 rounded-lg shadow">
             <div className="flex items-center mb-4">
               <div className="rounded-full p-2 bg-blue-100">
-                {/* Icon for Sales Team */}
+             
                 <svg
                   className="w-6 h-6 text-blue-500"
                   fill="currentColor"

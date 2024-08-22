@@ -11,7 +11,7 @@ const FaqSection = async () => {
     const FaqSectionApiResponse = FaqSection?.result
     return (
         <>
-        {FaqSection?.result?.active === "True" ? <>
+        {FaqSection?.result?.active === true ? <>
          <section className="bg-gray-50 py-16 sm:px-10 px-4">
             <div className="sm:flex gap-5">
                 <div className="sm:w-1/2">

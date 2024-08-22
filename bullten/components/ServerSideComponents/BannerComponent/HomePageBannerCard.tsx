@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import HomePageButtonOne from "@/components/CommonComponents/ButtonsComponent/HomePageButton";
+import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import { Banner } from "@/types/BannerTypes";
 import Image from "next/image";
 import React from "react";
@@ -10,33 +11,25 @@ type Props = {
 
 const HomePageBannerCard = ({ banner }: Props) => {
   return (
-    <section className="isolate bg-primary-gradient sm:min-h-[80vh] h-full">
-      <div className=" grid grid-cols-12 items-center container sm:px-8 px-4 mx-auto ">
-
-        {banner?.image_url ?
-          <div className="sm:col-span-6 col-span-12 h-[200px] relative mt-32 sm:hidden flex">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${banner?.image_url}`}
-              alt={banner?.alt_text}
-              fill={true}
-            />
-          </div> :
-          null}
-
-        <div className="sm:col-span-6 col-span-12 sm:pt-32 sm:py-0 py-5">
-          <div className=" text-bullt-secondary flex flex-col gap-5">
-            {banner?.label ?
-              <h4 className="">
-                {banner?.label}
-              </h4> : null}
-            {banner?.title ?
-              <h2 className="text-bullt-secondary font-extrabold sm:text-4xl text-2xl">
-                {banner?.title}
-              </h2> : null}
-            {banner?.link ?
-              <h3>
-                {banner?.link}
-              </h3> : null}
+    <section className="relative bg-[url('https://img.freepik.com/free-vector/abstract-purple-background_698452-1613.jpg?w=826&t=st=1724331358~exp=1724331958~hmac=a0912fc3cdd2f36cd67cf5f675a2dfaba73154dae995176905cea4f094eb076d')] bg-cover bg-no-repeat bg-center min-h-[95vh] h-full flex items-center justify-center">
+      <div
+        className="absolute inset-0 bg-black opacity-30 z-[-1]"
+        aria-hidden="true"
+      />
+      <div className="container mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between relative z-10">
+        <div className="flex flex-col items-start justify-start w-[50%]">
+          {banner?.label && (
+            <SloganHeadingComponent>{banner?.label}</SloganHeadingComponent>
+          )}
+          {banner?.title && (
+            <h2 className="text-white font-extrabold text-3xl sm:text-5xl mb-1">
+              {banner?.title}
+            </h2>
+          )}
+          {banner?.link && (
+            <h3 className="text-white  text-lg mb-4">{banner?.link}</h3>
+          )}
+          <div className="shadow-xl">
             <HomePageButtonOne
               alignmentType={1}
               buttonText={banner?.button_text}
@@ -45,18 +38,20 @@ const HomePageBannerCard = ({ banner }: Props) => {
           </div>
         </div>
 
-        <div className="sm:col-span-6 col-span-12 h-[400px] relative mt-32 mx-20 sm:flex hidden">
-          <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_URL}${banner?.image_url}`}
-            alt={banner?.alt_text}
-            fill={true}
-          />
-        </div>
+        {banner?.image_url && (
+          <div className="flex-1 lg:flex lg:justify-center mt-8 lg:mt-0">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}${banner?.image_url}`}
+              alt={banner?.alt_text || "Banner Image"}
+              layout="responsive"
+              width={500}
+              height={300}
+              className="object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        )}
       </div>
-
     </section>
-
-
   );
 };
 
