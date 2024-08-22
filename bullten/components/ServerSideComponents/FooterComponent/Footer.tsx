@@ -6,12 +6,13 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { IoCallOutline, IoMailOpenOutline } from "react-icons/io5";
 import { MdCall } from "react-icons/md";
 import FooterMap from "./FooterMap";
-import { footerApi } from "@/apis/HomePageApis";
+import { footerApi, footerMapApi } from "@/apis/HomePageApis";
 import FooterMobileMenu from "./FooterMobileMenu";
 
 const Footer: React.FC = async () => {
   const footerResponse = await footerApi();
-  console.log(footerResponse.result.Discription);
+  const footerMapResponse = await footerMapApi();
+  console.log(footerMapResponse.result?.heading);
   if (footerResponse?.result?.hasOwnProperty("error")) {
     console.log("error in Footer API");
   }
@@ -19,10 +20,10 @@ const Footer: React.FC = async () => {
     <>
       {footerResponse?.result ? (
         <footer>
-          <div className="w-full mt-16 rounded-lg lg:rounded-none px-3 lg:px-8 bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-blue-700 via-blue-800 to-gray-900">
-            <FooterMap />
-            <div className="bg-bullt-secondary  mb-3 mt-[-40px] shadow-sm rounded-lg container mx-auto gap-3 ">
-              <div className="flex justify-between border-b border-bullt-primary px-4 py-2">
+          <div className="w-full rounded-lg lg:rounded-none px-3 lg:px-8 bg-bullt-quaternary">
+            <FooterMap footerMapResponse={footerMapResponse?.result} />
+            <div className=" mb-3 mt-[-40px] shadow-sm rounded-lg container mx-auto gap-3 ">
+              <div className="flex justify-between border-b border-bullt-primary px-4 py-2 bg-bullt-secondary">
                 <div className="w-[300px] h-[70px] relative">
                   <Link href="/">
                     <Image
@@ -58,8 +59,7 @@ const Footer: React.FC = async () => {
                   )}
                 </div>
               </div>
-
-              <div className="w-full lg:col-span-9 col-span-12 flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 px-4 lg:px-6 bg-bullt-primary">
+              <div className="w-full lg:col-span-9 col-span-12 flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 px-4 lg:px-6 ">
                 <div className=" flex flex-col items-center ">
                   <div className=" flex justify-between flex-col items-center w-full">
                     <div className="">
@@ -85,7 +85,7 @@ const Footer: React.FC = async () => {
                       key={index}
                     >
                       <div className="w-full hidden lg:flex flex-col justify-center item-center gap-2 mt-6 lg:mt-0 ">
-                        <h5 className="font-bold text-2xl lg:text-md  text-bullt-secondary">
+                        <h5 className="font-bold text-2xl lg:text-xl text-bullt-secondary">
                           {menu?.menuHeading}
                         </h5>
                         {menu?.menuPages?.map(

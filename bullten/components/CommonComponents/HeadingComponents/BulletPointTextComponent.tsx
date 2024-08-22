@@ -7,7 +7,7 @@ type Props = {
 const BulletPointTextComponent = ({ children }: Props) => {
   return (
     <div>
-      <h5 className="flex text-red-700 items-center justify-center sm:text-[2.2rem] text-[1.5rem] font-bold py-3">
+      <h5 className="flex items-center justify-center text-[2.2rem] lg:text-[1.1rem] font-normal ">
         {children}
       </h5>
     </div>
