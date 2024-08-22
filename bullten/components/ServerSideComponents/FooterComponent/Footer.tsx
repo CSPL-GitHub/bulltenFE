@@ -12,18 +12,19 @@ import FooterMobileMenu from "./FooterMobileMenu";
 const Footer: React.FC = async () => {
   const footerResponse = await footerApi();
   const footerMapResponse = await footerMapApi();
-  console.log(footerMapResponse.result?.heading);
+
   if (footerResponse?.result?.hasOwnProperty("error")) {
     console.log("error in Footer API");
   }
   return (
     <>
       {footerResponse?.result ? (
-        <footer>
-          <div className="w-full rounded-lg lg:rounded-none px-3 lg:px-8 bg-bullt-quaternary">
-            <FooterMap footerMapResponse={footerMapResponse?.result} />
-            <div className=" mb-3 mt-[-40px] shadow-sm rounded-lg container mx-auto gap-3 ">
-              <div className="flex justify-between border-b border-bullt-primary px-4 py-2 bg-bullt-secondary">
+        <footer className="bg-bullt-background/[0.9]">
+          <FooterMap footerMapResponse={footerMapResponse?.result} />
+
+          <div className="w-full rounded-lg lg:rounded-none px-3 lg:px-8 bg-bullt-text-primary">
+            <div className=" mb-3 pt-8 shadow-sm rounded-lg container mx-auto gap-3 ">
+              <div className="flex justify-between border-b border-bullt-primary px-4 py-2 bg-bullt-secondary rounded-md">
                 <div className="w-[300px] h-[70px] relative">
                   <Link href="/">
                     <Image
@@ -110,7 +111,7 @@ const Footer: React.FC = async () => {
             </div>
             <div className="w-full container mx-auto flex justify-center lg:justify-between flex-wrap gap-2 py-4 border-t-[1px] border-tgh-primary/[0.2] ">
               <div>
-                <h6 className="break-words text-center  text-base text-bullt-secondary">
+                <h6 className="break-words text-center  text-sm text-bullt-secondary">
                   {footerResponse?.result?.copyRightText}{" "}
                   {footerResponse?.result?.policyText}
                 </h6>
@@ -119,7 +120,7 @@ const Footer: React.FC = async () => {
                 {footerResponse?.result?.legalinformation.map(
                   (info: any, index: number) => (
                     <Link key={index} href={info?.link}>
-                      <h6 className="break-words text-base text-bullt-secondary">
+                      <h6 className="break-words text-sm text-bullt-secondary">
                         {info?.heading}
                       </h6>
                     </Link>

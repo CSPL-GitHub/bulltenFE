@@ -7,8 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 type Props = { data: any };
 
 const CartSliderComponent: React.FC<Props> = ({ data }) => {
-  console.log("datafile", data);
-
   return (
     <div className="py-7 sm:px-12 ">
       {data?.map((item: any, index: number) => (
