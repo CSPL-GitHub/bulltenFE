@@ -2,15 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "CustomFont";
+  src: url("/bullten/public/fonts/DMSans_36pt-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
-  font-family: "HelveticaNeue";
+  font-family: "CustomFont", sans-serif;
 }
 @media only screen and (min-width: 1680px) {
   .container {
     max-width: 1680px;
   }
-
 }
 
 :root {
@@ -26,10 +31,9 @@ body {
     --background-end-rgb: 0, 0, 0;
   }
 }
-.scroll{
+.scroll {
   scrollbar-width: none;
 }
-
 
 /* @layer utilities {
   .text-balance {
@@ -38,4 +42,3 @@ body {
 } */
 
 /* <<<<<<<<<<<<<-- slider dots  css ----------->>>>>>> */
-

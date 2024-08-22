@@ -27,7 +27,14 @@ export const WhyUsSectionApi = async () => {
   const response = await apiCore("/api/whyus", {}, "POST");
   return response;
 };
-
+export const CounteSectionApi = async () => {
+  const response = await apiCore("/api/counters", {}, "POST");
+  return response;
+};
+export const BlogSectionApi = async () => {
+  const response = await apiCore("/api/blogs", {}, "POST");
+  return response;
+};
 export const footerApi = async () => {
   const response = await apiCore("/api/footer", {}, "POST");
   return response;

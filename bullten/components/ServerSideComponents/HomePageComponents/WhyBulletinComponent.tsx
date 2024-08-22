@@ -11,9 +11,9 @@ const WhyBulletinComponent = async () => {
   const WhyUsSectionApiResponse = WhyUsSection?.result?.[0];
 
   return (
-    <section className="flex flex-col sm:flex-row  shadow-md bg-white/[0.2] py-12 px-12 rounded-md ">
+    <section className="flex flex-col sm:flex-row shadow-md bg-bullt-background py-12 sm:px-12 px-3 rounded-md ">
       <div className="relative w-full sm:w-1/2">
-        <div className="h-[300px] lg:h-[400px] w-full relative ">
+        <div className="h-[300px] lg:h-[400px] w-full relative">
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_URL}${WhyUsSectionApiResponse?.img}`}
             alt={WhyUsSectionApiResponse?.img_alt_text}
@@ -23,7 +23,7 @@ const WhyBulletinComponent = async () => {
               inset: 0,
             }}
             fill={true}
-            className="rounded-md"
+            className="rounded-lg"
           />
         </div>
       </div>
@@ -39,10 +39,10 @@ const WhyBulletinComponent = async () => {
 
           <ParaGraphText>{WhyUsSectionApiResponse?.description} </ParaGraphText>
 
-          <div className="grid grid-cols-2 gap-2 text-gray-700">
+          <div className="sm:grid sm:grid-cols-2 gap-2 text-gray-700">
             {WhyUsSectionApiResponse?.Feature.map((data: any, index: any) => (
               <div key={index} className="flex items-center gap-2">
-                <span className="text-bullt-tertiary text-lg font-semibold">
+                <span className="text-bullt-tertiary text-xl font-semibold text-center">
                   &#10003;
                 </span>
                 <BulletPointTextComponent>

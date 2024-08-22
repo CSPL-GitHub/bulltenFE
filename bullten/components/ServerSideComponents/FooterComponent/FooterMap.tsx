@@ -1,4 +1,6 @@
 "use client";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import React, { useState } from "react";
 import {
   ComposableMap,
@@ -16,15 +18,15 @@ type MarkerType = {
 
 const FooterMap = (footerMapResponse: any) => {
   const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
-  console.log(
-    footerMapResponse?.footerMapResponse.heading,
-    "footerMapResponsefooterMapResponse"
-  );
+
   return (
-    <div className="h-auto lg:h-[700px]">
-      <h1 className="text-bullt-primary  text-4xl text-center pt-5">
-        {footerMapResponse?.footerMapResponse.heading}
-      </h1>
+    <div className="px-4 lg:px-0 h-auto lg:h-[700px] bg-bullt-secondary/[0.8] shadow-md my-2">
+      <MainHeadingComponent paddingTop={3} alignmentType={2}>
+        {footerMapResponse?.footerMapResponse?.heading}
+      </MainHeadingComponent>
+      <ParaGraphText>
+        {footerMapResponse?.footerMapResponse?.description}
+      </ParaGraphText>
       <ComposableMap className="h-full w-full">
         <defs>
           <clipPath id="circleClip">
