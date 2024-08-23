@@ -54,3 +54,18 @@ export const SupportSectionAPI = async () => {
   const response = await apiCore("/api/supports", {}, "POST");
   return response;
 };
+
+export const trustedComponies = async () => {
+  const response = await apiCore("/api/trustedcompanys", {}, "POST");
+  return response;
+};
+
+export const serverFeaturesApi = async () => {
+  const response = await apiCore("/api/serverfeature", {}, "POST");
+  return response;
+};
+
+export const chatSupportApiData = async () => {
+  const response = await apiCore("/api/chatsupport", {}, "POST");
+  return response;
+};
