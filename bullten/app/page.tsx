@@ -34,14 +34,15 @@ export default async function Home() {
           <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <DomainSearchComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyBulletinComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WordPressHoistingComponent />
         </Suspense>
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-        <DomainSearchComponent/>
-        </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
         </Suspense>

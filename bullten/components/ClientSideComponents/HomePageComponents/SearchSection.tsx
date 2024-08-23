@@ -1,47 +1,45 @@
-"use client"
-import Link from 'next/link';
-import React, { useState } from 'react'
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 type Props = {
   data: any;
-}
+};
 
 const SearchSection: React.FC<Props> = ({ data }) => {
   const [selectedDomain, setSelectedDomain] = useState(".net");
-  const [input,setInput]=useState("")
-  const [domainNam,setDomainName] = useState<string>("")
+  const [input, setInput] = useState("");
+  const [domainNam, setDomainName] = useState<string>("");
   const handleDomainClick = (domain: string) => {
     setSelectedDomain(domain);
   };
 
   return (
-    <div > 
-      <div className="flex px-4 items-center justify-center w-full mb-8 border-[1px] rounded-md border-gray-300">
+    <div>
+      <div className="flex  items-center justify-center w-full mb-8 border-[1px] rounded-md border-gray-300">
         <input
           type="text"
-          value={input}
-          placeholder="Domain.com" 
-           onChange={(e) => setDomainName(e.target.value)}
-
-          className="flex-1 px-6 py-3 focus:outline-none"/>
+          placeholder="Domain.com"
+          onChange={(e) => setDomainName(e.target.value)}
+          className="flex-1 px-6 py-3 focus:outline-none bg-transparent"
+        />
         <select
           value={selectedDomain}
           onChange={(e) => setSelectedDomain(e.target.value)}
-          className="py-4 text-xl font-semibold focus:outline-none bg-white sm:mr-5"
+          className="py-4 text-xl font-semibold focus:outline-none bg-transparent sm:mr-5"
         >
           {data?.domain_search?.map((option: any, index: any) => (
-            <option className='text-md' key={index} value={option?.extension}>
+            <option className="text-md" key={index} value={option?.extension}>
               {option?.Name}
             </option>
           ))}
         </select>
-        <Link  href={`${data?.link}/${domainNam}`}>
-        <button className="px-8 py-5 bg-black text-white font-semibold rounded-r-md transition">
-          <FaSearch />
-        </button>
+        <Link href={`${data?.link}/${domainNam}`}>
+          <button className="px-8 py-5 bg-black text-white font-semibold rounded-r-md transition">
+            <FaSearch />
+          </button>
         </Link>
-       
       </div>
       <div className="flex flex-wrap justify-center gap-4">
         {data?.domain_search?.map((option: any, index: any) => (
@@ -61,7 +59,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SearchSection;
