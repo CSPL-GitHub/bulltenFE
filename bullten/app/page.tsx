@@ -16,6 +16,7 @@ import CounterComponent from "@/components/ServerSideComponents/HomePageComponen
 import TestimonialSlider from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/TestimonialSlider";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
 import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/OurPatnarComponent";
+import DomainSearchComponent from "@/components/ServerSideComponents/HomePageComponents/SearchComponent";
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
   const TestimonialsContent = await TestimonialsApi();
@@ -38,7 +39,9 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WordPressHoistingComponent />
         </Suspense>
-
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <DomainSearchComponent/>
+        </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
         </Suspense>

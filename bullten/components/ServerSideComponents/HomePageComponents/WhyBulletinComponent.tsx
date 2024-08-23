@@ -43,7 +43,7 @@ const WhyBulletinComponent = async () => {
 
               {WhyUsSectionApiResponse?.data?.heading ? (
                 <>
-                  <MainHeadingComponent paddingTop={1}>
+                  <MainHeadingComponent alignmentType={1} paddingTop={1}>
                     {WhyUsSectionApiResponse?.data?.heading}
                   </MainHeadingComponent>
                 </>

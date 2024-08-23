@@ -42,24 +42,24 @@ const HeaderMenu = ({ headerResponse }: Props) => {
     <header className={`w-full fixed ${"lg:top-0"} top-0 start-0 z-10 `}>
       <div className=" mx-auto ">
         <div
-          className={`w-full relative z-50 px-3 ${moveDown ? "" : "bg-custom-gradient"}`}
+          className={`w-full relative z-50 px-3 `}
           style={{
             ...(moveDown
               ? {
                 background: `#ffffff`,
                 backdropFilter: "blur(35px)",
               }
-              : {  backdropFilter: "blur(0px)" }),
+              : { background: `#ffffff`, backdropFilter: "blur(0px)" }),
           }}
         >
 
           <div className="flex justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] container mx-auto">
             <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center">
               <Link href="/">
-                <div className="w-[200px] h-[70px] relative">
+                <div className="sm:w-[300px] w-[200px] h-[70px] relative">
                   <Image
-                    className="sm:rounded-[20%] rounded-[20%] object-cover"
-                    src="/logo-bullten.png"
+                    className="sm:rounded-[20%] rounded-[20%] object-contain "
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${headerResponse?.result?.logo}`}
                     alt={headerResponse?.result?.logo_alternate_text}
                     fill={true}
                   />
@@ -71,14 +71,14 @@ const HeaderMenu = ({ headerResponse }: Props) => {
               >
                 {openMobileMenu ? (
                   <RxCross1
-                    className="m-2"
-                    style={moveDown ? { color: "black" } : { color: "white" }}
+                    className="m-2 text-bullt-primary"
+                    // style={moveDown ? { color: "black" } : { color: "white" }}
                     size={35}
                   />
                 ) : (
                   <RxHamburgerMenu
-                    className="m-2"
-                    style={moveDown ? { color: "black" } : { color: "white" }}
+                    className="m-2 text-bullt-primary"
+                    // style={moveDown ? { color: "black" } : { color: "white" }}
                     size={40}
                   />
                 )}
@@ -89,7 +89,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                 headerResponse={headerResponse}
               />
             </div>
-            <div className="w-full lg:flex hidden gap-20 justify-center items-center ">
+            <div className="w-full lg:flex hidden gap-10 justify-end items-center ">
               {headerResponse?.result?.header?.length > 0
                 ? headerResponse?.result?.header
                   ?.map((headerMenu) => {
@@ -105,10 +105,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           {headerMenu?.subheader?.length > 0 ? (
                             <>
                               <h2
-                                className={`flex relative cursor-default text-base items-center min-h-16 font-semiBold ${moveDown
-                                  ? " text-bullt-primary "
-                                  : " text-bullt-secondary"
-                                  }`}
+                                className={`flex relative cursor-default text-lg items-center min-h-16 font-semiBold text-bullt-primary`}
                                 onMouseEnter={() => {
                                   setOpenSubMenu(headerMenu?.id);
                                 }}
@@ -123,10 +120,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           ) : (
                             <Link href={`${headerMenu?.path}`}>
                               <h6
-                                className={`flex relative cursor-pointer font-semiBold text-base ${moveDown
-                                  ? "text-bullt-primary"
-                                  : "text-bullt-secondary"
-                                  }`}
+                                className={`flex relative cursor-pointer font-semiBold text-lg text-bullt-primary`}
                               >
                                 {headerMenu?.title}
                               </h6>

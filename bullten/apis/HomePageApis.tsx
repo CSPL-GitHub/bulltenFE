@@ -39,6 +39,10 @@ export const footerApi = async () => {
   const response = await apiCore("/api/footer", {}, "POST");
   return response;
 };
+export const DomainsearchApi = async () => {
+  const response = await apiCore(`/api/domainsearch`, {}, "POST");
+  return response;
+};
 
 export const footerMapApi = async () => {
   const response = await apiCore("/api/map", {}, "POST");
