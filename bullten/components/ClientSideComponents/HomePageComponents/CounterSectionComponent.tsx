@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 
 type Counter = {
+  description: string;
   count: number;
   countname: string;
 };
@@ -16,13 +17,13 @@ type Props = {
 const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   const [startCount, setStartCount] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
-
+  console.log("counterData", counterData);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (entries[0]?.isIntersecting) {
           setStartCount(true);
-          observer.disconnect();
+          observer?.disconnect();
         }
       },
       {
@@ -30,13 +31,13 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (ref?.current) {
+      observer?.observe(ref?.current);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (ref?.current) {
+        observer?.unobserve(ref?.current);
       }
     };
   }, []);
@@ -53,17 +54,19 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
 
   return (
     <>
-      {counterData?.counters?.length > 0 ? (
-        <>
-          {" "}
-          <div className="w-full mx-auto text-center sm:px-10 mb-5" ref={ref}>
-            <div className="grid grid-cols-2 sm:grid-cols-4 sm:gap-12 gap-6">
-              {counterData?.counters?.map((counter, index) => (
-                <div
-                  key={index}
-                  className="bg-white shadow-xl p-4 rounded-xl transform transition-transform hover:scale-105"
-                >
-                  <div className="sm:text-3xl text-2xl font-extrabold text-gray-800 flex flex-row items-center justify-center gap-2">
+      {counterData?.counters?.length > 0 && (
+        <div
+          className="w-full mx-auto text-center px-0 sm:px-10 py-6 bg-bullt-background"
+          ref={ref}
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            {counterData?.counters?.map((counter, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-md sm:shadow-lg p-3 sm:p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+              >
+                <div className="flex flex-col items-start justify-start">
+                  <div className="flex flex-row gap-2 items-center justify-center text-xl sm:text-4xl font-extrabold text-bullt-text-primary h-[40px] sm:h-[60px]">
                     <span>
                       {startCount ? (
                         <CountUp
@@ -75,17 +78,19 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                         0
                       )}
                     </span>
-                    <span className="text-3xl">+</span>
+                    <span className="text-bullt-text-primary text-center text-[10px] leading-[10px] sm:text-sm">
+                      {counter?.countname}
+                    </span>
                   </div>
-                  <p className="sm:text-lg text-md text-gray-500 mt-2">
-                    {counter?.countname}
+                  <p className="text-bullt-tertiary font-semibold text-[10px] sm:text-sm mt-2 sm:mt-3 hover:text-bullt-quinary transition-colors duration-300">
+                    {counter?.description}
                   </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        </>
-      ) : null}
+        </div>
+      )}
     </>
   );
 };

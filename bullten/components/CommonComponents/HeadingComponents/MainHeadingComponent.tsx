@@ -18,7 +18,7 @@ const MainHeadingComponent = ({
     <div>
       <h2
         className={classNames(
-          `flex items-center text-[2rem] lg:text-[2.3rem] font-bold  ${
+          `flex items-center text-[2rem] lg:text-[2.3rem] font-bold leading-[45px]  ${
             paddingTop === 1
               ? "py-1"
               : paddingTop === 2

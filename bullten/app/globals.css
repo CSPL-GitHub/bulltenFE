@@ -34,6 +34,9 @@ body {
 .scroll {
   scrollbar-width: none;
 }
+.overflow-style-none::-webkit-scrollbar {
+  display: none;
+}
 
 /* @layer utilities {
   .text-balance {

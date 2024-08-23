@@ -14,7 +14,7 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <div className="scroll sm:w-1/2 space-y-2 py-6 h-[550px] overflow-y-auto sm:px-10">
+    <div className="sm:w-1/2 space-y-2 py-6 h-[550px] overflow-style-none overflow-y-auto sm:px-10">
       {FaqSectionApiResponse?.map((item: any, index: any) => (
         <div
           key={index}
