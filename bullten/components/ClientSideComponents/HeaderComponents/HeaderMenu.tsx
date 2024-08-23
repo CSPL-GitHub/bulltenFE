@@ -30,7 +30,6 @@ const HeaderMenu = ({ headerResponse }: Props) => {
     []
   );
 
-  // console.log("new" , headerResponse?.result?.header)
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -40,113 +39,110 @@ const HeaderMenu = ({ headerResponse }: Props) => {
   }, [handleScroll]);
 
   return (
-    <div className={`w-full fixed ${"lg:top-3"} top-5 start-0 z-10`}>
-      <div className="container mx-auto sm:px-8 px-4 ">
+    <header className={`w-full fixed ${"lg:top-0"} top-0 start-0 z-10 `}>
+      <div className=" mx-auto ">
         <div
-          className="w-full flex justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] relative rounded-lg z-50 px-3"
+          className={`w-full relative z-50 px-3 `}
           style={{
             ...(moveDown
               ? {
-                background: `linear-gradient(137deg, rgba(255, 255, 255, 0.70) 24.15%, rgba(255, 255, 255, 0.62) 125.95%)`,
+                background: `#ffffff`,
                 backdropFilter: "blur(35px)",
               }
-              : { background: "transparent", backdropFilter: "blur(0px)" }),
+              : { background: `#ffffff`, backdropFilter: "blur(0px)" }),
           }}
         >
 
-          <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center">
-            <Link href="/">
-              <div className="w-[120px] h-[70px] relative">
-                <Image
-                  className="sm:rounded-[20%] rounded-[20%]"
-                  src="/logo-bullten.png"
-                  alt={headerResponse?.result?.logo_alternate_text}
-                  fill={true}
-                />
+          <div className="flex justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] container mx-auto">
+            <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center">
+              <Link href="/">
+                <div className="sm:w-[300px] w-[200px] h-[70px] relative">
+                  <Image
+                    className="sm:rounded-[20%] rounded-[20%] object-contain "
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${headerResponse?.result?.logo}`}
+                    alt={headerResponse?.result?.logo_alternate_text}
+                    fill={true}
+                  />
+                </div>
+              </Link>
+              <div
+                className="block lg:hidden"
+                onClick={() => setOpenMobileMenu(!openMobileMenu)}
+              >
+                {openMobileMenu ? (
+                  <RxCross1
+                    className="m-2 text-bullt-primary"
+                    // style={moveDown ? { color: "black" } : { color: "white" }}
+                    size={35}
+                  />
+                ) : (
+                  <RxHamburgerMenu
+                    className="m-2 text-bullt-primary"
+                    // style={moveDown ? { color: "black" } : { color: "white" }}
+                    size={40}
+                  />
+                )}
               </div>
-            </Link>
-            <div
-              className="block lg:hidden"
-              onClick={() => setOpenMobileMenu(!openMobileMenu)}
-            >
-              {openMobileMenu ? (
-                <RxCross1
-                  className="m-2"
-                  style={moveDown ? { color: "black" } : { color: "white" }}
-                  size={35}
-                />
-              ) : (
-                <RxHamburgerMenu
-                  className="m-2"
-                  style={moveDown ? { color: "black" } : { color: "white" }}
-                  size={40}
-                />
-              )}
+              <HeaderMobile
+                openMobileMenu={openMobileMenu}
+                setOpenMobileMenu={setOpenMobileMenu}
+                headerResponse={headerResponse}
+              />
             </div>
-            <HeaderMobile
-              openMobileMenu={openMobileMenu}
-              setOpenMobileMenu={setOpenMobileMenu}
-              headerResponse={headerResponse}
-            />
-          </div>
-          <div className="w-full lg:flex hidden gap-20 justify-center items-center">
-            {headerResponse?.result?.header?.length > 0
-              ? headerResponse?.result?.header
-                ?.map((headerMenu) => {
-                  return (
-                    <div>
+            <div className="w-full lg:flex hidden gap-10 justify-end items-center ">
+              {headerResponse?.result?.header?.length > 0
+                ? headerResponse?.result?.header
+                  ?.map((headerMenu) => {
+                    return (
                       <div
-                        className="flex flex-col justify-center items-center relative"
-                        key={headerMenu?.id}
+                      key={headerMenu?.id}
                         onMouseLeave={() => {
                           setOpenSubMenu(undefined);
-                        }}
-                      >
-                        {headerMenu?.subheader?.length > 0 ? (
-                          <>
-                            <h6
-                              className={`flex relative cursor-default text-lg ${moveDown
-                                ? "font-thin text-tgh-primary"
-                                : "font-semiBold text-tgh-tertiary"
-                                }`}
-                              onMouseEnter={() => {
-                                setOpenSubMenu(headerMenu?.id);
-                              }}
-                            >
-                              {headerMenu?.title}
+                        }}>
+                        <div
+                          className="flex flex-col justify-center items-center relative"
+                        >
+                          {headerMenu?.subheader?.length > 0 ? (
+                            <>
+                              <h2
+                                className={`flex relative cursor-default text-lg items-center min-h-16 font-semiBold text-bullt-primary`}
+                                onMouseEnter={() => {
+                                  setOpenSubMenu(headerMenu?.id);
+                                }}
+                              >
+                                {headerMenu?.title}
 
-                              <MdOutlineKeyboardArrowDown size={20} />
-                            </h6>
+                                <MdOutlineKeyboardArrowDown size={20} />
+                              </h2>
 
-                          </>
-                        ) : (
-                          <Link href={`${headerMenu?.path}`}>
-                            <h6
-                              className={`flex relative cursor-pointer text-lg ${moveDown
-                                ? "font-thin text-tgh-primary"
-                                : "font-semiBold text-tgh-tertiary"
-                                }`}
-                            >
-                              {headerMenu?.title}
-                            </h6>
-                          </Link>
-                        )}
+
+                            </>
+                          ) : (
+                            <Link href={`${headerMenu?.path}`}>
+                              <h6
+                                className={`flex relative cursor-pointer font-semiBold text-lg text-bullt-primary`}
+                              >
+                                {headerMenu?.title}
+                              </h6>
+                            </Link>
+                          )}
+                        </div>
+                        <HeaderSubMenu
+                          openSubMenu={openSubMenu}
+                          menuKey={headerMenu?.id}
+                          headerMenu={headerMenu}
+                          moveDown={moveDown}
+                          setOpenSubMenu={setOpenSubMenu}
+                        />
                       </div>
-                      <HeaderSubMenu
-                        openSubMenu={openSubMenu}
-                        menuKey={headerMenu?.id}
-                        headerMenu={headerMenu}
-                        moveDown={moveDown}
-                        setOpenSubMenu={setOpenSubMenu}
-                      />
-                    </div>
-                  );
-                })
-              : null}
+                    );
+                  })
+                : null}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

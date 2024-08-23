@@ -9,17 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "bullt-primary": "#212121",
-        "bullt-secondary": "#535E73",
-        "bullt-tertiary": "#132d8b",
-        "bullt-quaternary": "#080F2C",
-        "bullt-quinary": "#A0ACA5",
-        "bullt-background": "#FAFAFA",
-        "bullt-text-primary": "#1A202C",
-        "bullt-text-secondary": "#CCCCCC",
-        "bullt-text-tertiary": "#ffffff",
+        "bullt-primary": "#000000", //black
+        "bullt-secondary": "#FFFF", //white
+        "bullt-tertiary": "#f69b00", //yellow
+        "bullt-quaternary": "#00008B", // dark blue
+        "bullt-quinary": "#00008B", //purple
+        "bullt-background": "#FAFAFA", //white
+        "bullt-text-primary": "#00008B", //dark blue
+        "bullt-text-secondary": "#FAFAFA", // gray
+        "bullt-text-tertiary": "#00008B", //white
         "bullt-text-quaternary": "#535E73",
-        "bullt-text-quinary": "#B2955D",
+        "bullt-text-quinary": "#f69b00",
+      },
+      backgroundImage: {
+        "primary-gradient": "linear-gradient(90deg, #10249f 0%, #0042c8 100%)", // Black to dark blue
+        "secondary-gradient":
+          "linear-gradient(270deg, #FAFAFA 0%, #f69b00 100%)", // White to yellow
+        "tertiary-gradient": "linear-gradient(90deg, #f69b00 0%, #4529a3 100%)", // Yellow to purple
+        "quaternary-gradient":
+          "linear-gradient(90deg, #01204E 0%, #535E73 100%)", // Dark blue to grayish blue
+        "quinary-gradient": "linear-gradient(180deg, #4529a3 0%, #8f79d2 100%)", // Purple to lighter purple
+        "senary-gradient": "linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 100%)", // White to light blue
       },
     },
   },
