@@ -15,7 +15,7 @@ import BlogsComponent from "@/components/ServerSideComponents/HomePageComponents
 import CounterComponent from "@/components/ServerSideComponents/HomePageComponents/CounterComponent";
 import TestimonialSlider from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/TestimonialSlider";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
-import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/OurPatnarComponent";
+import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/OurPatnarComponent";
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
   const TestimonialsContent = await TestimonialsApi();
