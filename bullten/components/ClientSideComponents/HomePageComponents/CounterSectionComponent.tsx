@@ -66,7 +66,7 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                 className="bg-white shadow-md sm:shadow-lg p-3 sm:p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
               >
                 <div className="flex flex-col items-start justify-start">
-                  <div className="flex flex-row gap-2 items-center justify-center text-xl sm:text-4xl font-extrabold text-bullt-text-primary h-[40px] sm:h-[60px]">
+                  <div className="flex flex-row gap-2 items-center justify-center text-xl sm:text-4xl font-extrabold text-black h-[40px] sm:h-[60px]">
                     <span>
                       {startCount ? (
                         <CountUp
@@ -78,11 +78,11 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                         0
                       )}
                     </span>
-                    <span className="text-bullt-text-primary text-center text-[10px] leading-[10px] sm:text-sm">
+                    <span className="text-black text-center text-[10px] leading-[10px] sm:text-sm">
                       {counter?.countname}
                     </span>
                   </div>
-                  <p className="text-bullt-tertiary font-semibold text-[10px] sm:text-sm mt-2 sm:mt-3 hover:text-bullt-quinary transition-colors duration-300">
+                  <p className="text-bullt-tertiary font-semibold text-[10px] sm:text-sm mt-2 sm:mt-3  transition-colors duration-300">
                     {counter?.description}
                   </p>
                 </div>
