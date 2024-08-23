@@ -16,19 +16,20 @@ const WhyBulletinComponent = async () => {
       {WhyUsSectionApiResponse?.Active === true ? (
         <section className="flex flex-col sm:flex-row shadow-md bg-bullt-background py-12 w-full px-3 rounded-md ">
           <div className="relative w-full sm:w-1/2">
-            <div className="h-[300px] lg:h-[400px] w-full relative">
-              <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${WhyUsSectionApiResponse?.data?.img}`}
-                alt={WhyUsSectionApiResponse?.data?.img_alt_text}
-                style={{
-                  position: "absolute",
-                  objectFit: "contain",
-                  inset: 0,
-                }}
-                fill={true}
-                className="rounded-lg"
-              />
-            </div>
+            {WhyUsSectionApiResponse?.data?.img ? <>
+              <div className="h-[300px] lg:h-[400px] w-full relative">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${WhyUsSectionApiResponse?.data?.img}`}
+                  alt={WhyUsSectionApiResponse?.data?.img_alt_text}
+                  style={{
+                    position: "absolute",
+                    objectFit: "contain",
+                    inset: 0,
+                  }}
+                  fill={true}
+                  className="rounded-lg"
+                />
+              </div></> : null}
           </div>
           <div className="sm:w-1/2 w-full px-4">
             <div className="">

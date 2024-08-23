@@ -71,7 +71,7 @@ const BlogsComponent = async () => {
                           </p>
                         </div>
                         <div className="w-full flex justify-center items-center">
-                          <div className="w-full flex justify-center items-center gap-2 px-2 py-2 bg-black hover:bg-white text-white hover:text-black  border-[1px] rounded group cursor-pointer">
+                          <div className="w-full flex justify-center items-center gap-2 px-2 py-2 border-bullt-text-quinary bg-bullt-text-quinary hover:bg-white text-white hover:text-black  border-[1px] rounded group cursor-pointer">
                             <p className="text-semibold transition-transform duration-500">
                               Read Blog
                             </p>
