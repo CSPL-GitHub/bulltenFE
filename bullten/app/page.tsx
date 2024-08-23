@@ -1,4 +1,8 @@
-import { HomePageBannerApi, TestimonialsApi } from "@/apis/HomePageApis";
+import {
+  HomePageBannerApi,
+  SupportSectionAPI,
+  TestimonialsApi,
+} from "@/apis/HomePageApis";
 import BannerSlider from "@/components/ServerSideComponents/BannerComponent/BannerSlider";
 import FaqSection from "@/components/ServerSideComponents/HomePageComponents/FaqsectionComponent";
 import SupportSection from "@/components/ServerSideComponents/HomePageComponents/SupportComponent";
@@ -10,9 +14,12 @@ import Skeleton from "react-loading-skeleton";
 import BlogsComponent from "@/components/ServerSideComponents/HomePageComponents/BlogComponent";
 import CounterComponent from "@/components/ServerSideComponents/HomePageComponents/CounterComponent";
 import TestimonialSlider from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/TestimonialSlider";
+import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
+import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/OurPatnarComponent";
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
   const TestimonialsContent = await TestimonialsApi();
+  const SupportSectionContent = await SupportSectionAPI();
   return (
     <main className="w-full">
       <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
@@ -23,7 +30,7 @@ export default async function Home() {
       </Suspense>
       <div className="container flex flex-col items-center justify-center mx-auto">
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <SupportSection />
+          <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyBulletinComponent />
@@ -32,17 +39,22 @@ export default async function Home() {
           <WordPressHoistingComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <FaqSection />
-        </Suspense>
-
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <BlogsComponent />
+          <ChatService />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OurPatnarComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <FaqSection />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TestimonialSlider TestimonialsContent={TestimonialsContent} />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <BlogsComponent />
         </Suspense>
       </div>
     </main>

@@ -4,28 +4,26 @@ import { Banner } from "@/types/BannerTypes";
 import React, { useEffect, useRef, useState } from "react";
 import HomePageBannerCard from "./HomePageBannerCard";
 
-
 type Props = {
   banners: Banner[];
 };
 
 const BannerSlider = ({ banners }: Props) => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [infinite , setInfinite] = useState<boolean>()
+  const [infinite, setInfinite] = useState<boolean>();
 
   useEffect(() => {
-    if(banners?.length === 1 ){
+    if (banners?.length === 1) {
       setInfinite(false);
-    }
-    else{
+    } else {
       setInfinite(true);
     }
-  }, [])
+  }, []);
 
   const settings = {
     dots: infinite,
     infinite: infinite,
-    autoplay: false,
+    autoplay: true,
     arrows: false,
     speed: 2000,
     slidesToShow: 1,

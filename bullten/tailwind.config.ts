@@ -10,9 +10,9 @@ const config: Config = {
     extend: {
       colors: {
         "bullt-primary": "#000000", //black
-        "bullt-secondary": "#FAFAFA", //white
+        "bullt-secondary": "#FFFF", //white
         "bullt-tertiary": "#f69b00", //yellow
-        "bullt-quaternary": "#261c3a", // dark blue
+        "bullt-quaternary": "#01204E", // dark blue
         "bullt-quinary": "#4529a3", //purple
         "bullt-background": "#FAFAFA", //white
         "bullt-text-primary": "#01204E", //dark blue

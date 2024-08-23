@@ -18,7 +18,7 @@ const ParaGraphText = ({
     <div>
       <h3
         className={classNames(
-          `flex items-center text-[1.2rem] lg:text-[1.1rem] font-normal ${
+          `flex items-center text-[1.2rem] lg:text-[1.1rem] font-normal  ${
             paddingTop === 1
               ? "py-1"
               : paddingTop === 2

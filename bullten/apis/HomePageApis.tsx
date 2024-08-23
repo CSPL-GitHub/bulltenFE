@@ -49,3 +49,8 @@ export const TestimonialsApi = async () => {
   const response = await apiCore("/api/testimonials", {}, "POST");
   return response;
 };
+
+export const SupportSectionAPI = async () => {
+  const response = await apiCore("/api/supports", {}, "POST");
+  return response;
+};

@@ -1,5 +1,7 @@
 import { FaqSectionApi } from "@/apis/HomePageApis";
 import FaqQuestionComponent from "@/components/ClientSideComponents/HomePageComponents/FaqQuestionComponent";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -11,23 +13,24 @@ const FaqSection = async () => {
     <>
       {FaqSection?.result?.Active === true ? (
         <>
-          <section className="bg-gray-50 py-16 sm:px-10 px-4">
+          <section className="bg-bullt-quaternary/[0.02] py-16 px-6 lg:px-16 w-full">
             <div className="sm:flex gap-5">
               <div className="sm:w-1/2">
                 {FaqSectionApiResponse?.data?.heading ? (
-                  <>
-                    <h1 className="sm:text-4xl text-2xl text-gray-600 font-bold mb-4">
-                      {FaqSectionApiResponse?.data?.heading}
-                    </h1>
-                  </>
+                  <MainHeadingComponent
+                    alignmentType={1}
+                    paddingTop={1}
+                    hoverEffect="text-bullt-primary"
+                  >
+                    {FaqSectionApiResponse?.data?.heading}
+                  </MainHeadingComponent>
                 ) : null}
                 {FaqSectionApiResponse?.data?.description ? (
-                  <>
-                    <p className="text-gray-600">
-                      {FaqSectionApiResponse?.data?.description}
-                    </p>
-                  </>
+                  <ParaGraphText paddingTop={1}>
+                    {FaqSectionApiResponse?.data?.description}
+                  </ParaGraphText>
                 ) : null}
+
                 {FaqSectionApiResponse?.data?.img ? (
                   <>
                     <div className="sm:h-[450px] h-[300px] w-full relative ">

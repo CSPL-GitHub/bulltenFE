@@ -1,5 +1,6 @@
 import { WordPressHoistingApi } from "@/apis/HomePageApis";
 import CartSliderComponent from "@/components/ClientSideComponents/HomePageComponents/CartSliderComponent";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import Image from "next/image";
 import React from "react";
 
@@ -14,7 +15,7 @@ const WordPressHoistingComponent = async (props: Props) => {
   return (
     <>
       {WordPressHoistingApiResponse?.result?.Active === true ? (
-        <section className="sm:p-12  bg-bullt-quaternary sm:px-6 px-4">
+        <section className="sm:p-12  bg-bullt-quaternary  px-6 lg:px-16">
           <div className="sm:grid grid-cols-2 justify-center">
             <div className="sm:grid sm:grid-col-1 grid-col-2 px-2">
               <div className="flex gap-2 border-b-[1px] sm:w-[330px] sm:h-8 w-full border-bullt-text-quinary sm:py-0 py-3">
@@ -25,9 +26,11 @@ const WordPressHoistingComponent = async (props: Props) => {
                   {WordPressHoistingApiResponse?.result?.host_data?.lblw2}
                 </p>
               </div>
-              <h1 className="sm:py-5 text-bullt-secondary font-bold sm:text-4xl py-5 text-2xl">
-                {WordPressHoistingApiResponse?.result?.host_data?.heading}
-              </h1>
+              {WordPressHoistingApiResponse?.result?.host_data?.heading ? (
+                <MainHeadingComponent hoverEffect="text-bullt-text-secondary">
+                  {WordPressHoistingApiResponse?.result?.host_data?.heading}
+                </MainHeadingComponent>
+              ) : null}
               <div className="h-[400px] w-full relative">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${WordPressHoistingApiResponse?.result?.host_data?.img}`}
