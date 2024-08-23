@@ -67,7 +67,7 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                     <span>
                       {startCount ? (
                         <CountUp
-                          end={counter.count}
+                          end={counter?.count}
                           duration={2}
                           formattingFn={formatNumber}
                         />
@@ -78,7 +78,7 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                     <span className="text-3xl">+</span>
                   </div>
                   <p className="sm:text-lg text-md text-gray-500 mt-2">
-                    {counter.countname}
+                    {counter?.countname}
                   </p>
                 </div>
               ))}

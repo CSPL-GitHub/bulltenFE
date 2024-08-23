@@ -7,5 +7,6 @@ export type Banner = {
   link: string;
   button_text: string;
   button_link: string;
+  
 };
 
