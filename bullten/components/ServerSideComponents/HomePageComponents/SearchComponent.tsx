@@ -8,7 +8,7 @@ const DomainSearchComponent = async () => {
   return (
     <>
       {DomainsearchApiResponse?.result?.Active === true ? (
-        <section className="w-full flex flex-col justify-center px-4 py-6 bg-gradient-to-b from-blue-100/50 via-blue-100/50 to-transparent  ">
+        <section className="w-full  flex flex-col justify-center px-4 py-6 bg-gradient-to-b from-blue-100/50 via-blue-100/50 to-transparent  ">
           <div className="mx-auto">
             {DomainsearchApiResponse?.result?.data?.label ? (
               <SloganHeadingComponent paddingTop={1} alignmentType={1}>

@@ -38,7 +38,7 @@ export default async function ChatService() {
               <p className="text-gray-200 mb-6 text-base lg:text-[20px]">
                 {chatSupportApiDataResponse?.Chat_Support?.description}
               </p>
-              <button className="w-full sm:w-fit bg-bullt-tertiary hover:bg-bullt-tertiary/80 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold flex items-center justify-center lg:justify-start">
+              <button className="w-full sm:w-fit bg-bullt-tertiary hover:bg-white text-white hover:text-bullt-tertiary px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold flex items-center justify-center lg:justify-start">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${chatSupportApiDataResponse?.Chat_Support?.icon}`}
                   alt={chatSupportApiDataResponse?.Chat_Support?.icon_alt_text}

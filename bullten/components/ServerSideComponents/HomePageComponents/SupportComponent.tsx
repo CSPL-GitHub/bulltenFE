@@ -60,7 +60,7 @@ const SupportSection = ({ supportContent }: Props) => {
                     />
                   )}
                 </div>
-                <h3 className="text-lg font-semibold text-bullt-text-primary">
+                <h3 className="text-lg font-semibold text-black">
                   {data?.title}
                 </h3>
               </div>

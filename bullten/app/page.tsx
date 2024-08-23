@@ -17,6 +17,8 @@ import TestimonialSlider from "@/components/ServerSideComponents/HomePageCompone
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
 import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/OurPatnarComponent";
 import DomainSearchComponent from "@/components/ServerSideComponents/HomePageComponents/SearchComponent";
+import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
+import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
   const TestimonialsContent = await TestimonialsApi();
@@ -31,18 +33,25 @@ export default async function Home() {
       </Suspense>
       <div className="container flex flex-col items-center justify-center mx-auto">
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <TrustedCompaniesLogos />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <DomainSearchComponent />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyBulletinComponent />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WordPressHoistingComponent />
         </Suspense>
-
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <ServerFeatures />
+        </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
         </Suspense>

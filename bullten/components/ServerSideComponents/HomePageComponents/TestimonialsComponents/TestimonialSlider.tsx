@@ -90,7 +90,7 @@ const TestimonialSlider = ({ TestimonialsContent }: Props) => {
   return (
     <>
       {TestimonialsContent?.result?.Active === true ? (
-        <div className="rounded-md w-full bg-bullt-secondary/[0.01] py-10 border-0 shadow-sm">
+        <div className="rounded-md w-full bg-bullt-secondary/[0.01] py-10 border-0 shadow-sm px-3 lg:px-1">
           <MainHeadingComponent alignmentType={2}>
             {testimonialData?.title}
           </MainHeadingComponent>

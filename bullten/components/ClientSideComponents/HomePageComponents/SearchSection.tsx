@@ -22,7 +22,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
           type="text"
           placeholder="Domain.com"
           onChange={(e) => setDomainName(e.target.value)}
-          className="flex-1 px-6 py-3 focus:outline-none bg-transparent"
+          className="flex-1 sm:w-auto w-[100px] sm:px-1 px-2 py-3 focus:outline-none bg-transparent"
         />
         <select
           value={selectedDomain}
@@ -36,7 +36,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
           ))}
         </select>
         <Link href={`${data?.link}/${domainNam}`}>
-          <button className="px-8 py-5 bg-black text-white font-semibold rounded-r-md transition">
+          <button className="sm:px-8 px-4 py-5 bg-bullt-tertiary text-white font-semibold rounded-r-md transition">
             <FaSearch />
           </button>
         </Link>
@@ -48,7 +48,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
             className="flex flex-col items-center border px-5 py-3 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
             onClick={() => handleDomainClick(option.Name)}
           >
-            <span className="font-semibold text-xl text-bullt-tertiary">
+            <span className="font-semibold text-xl text-black">
               {option?.Name}
             </span>
             <div className="flex">
