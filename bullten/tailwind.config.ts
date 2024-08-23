@@ -12,12 +12,12 @@ const config: Config = {
         "bullt-primary": "#000000", //black
         "bullt-secondary": "#FFFF", //white
         "bullt-tertiary": "#f69b00", //yellow
-        "bullt-quaternary": "#f69b00", // dark blue
-        "bullt-quinary": "#f69b00", //purple
+        "bullt-quaternary": "#00008B", // dark blue
+        "bullt-quinary": "#00008B", //purple
         "bullt-background": "#FAFAFA", //white
-        "bullt-text-primary": "#f69b00", //dark blue
+        "bullt-text-primary": "#00008B", //dark blue
         "bullt-text-secondary": "#FAFAFA", // gray
-        "bullt-text-tertiary": "#191970", //white
+        "bullt-text-tertiary": "#00008B", //white
         "bullt-text-quaternary": "#535E73",
         "bullt-text-quinary": "#f69b00",
       },
