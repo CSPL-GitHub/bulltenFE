@@ -14,7 +14,7 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <div className="sm:w-1/2 space-y-2 py-6 h-[550px] overflow-style-none overflow-y-auto sm:px-10">
+    <div className="lg:w-1/2 w-full space-y-2 py-6 h-[550px] overflow-style-none overflow-y-auto lg:px-10">
       {FaqSectionApiResponse?.map((item: any, index: any) => (
         <div
           key={index}
@@ -22,33 +22,24 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse }) => {
         >
           <button
             onClick={() => toggleOpen(index)}
-            className="w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center"
+            className={`w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center ${openIndex === index ?"text-bullt-text-quinary":""}`}
           >
             {item?.heading ? (
-              <SloganHeadingComponent
-                alignmentType={1}
-                paddingTop={1}
-                hoverEffect="text-bullt-primary"
-              >
-                {item?.heading}
-              </SloganHeadingComponent>
+
+              <h1>{item?.heading}</h1>
+
             ) : null}
             <FiPlus
-              className={`text-bullt-text-quinary text-2xl cursor-pointer transform transition-transform duration-300 ${
-                openIndex === index ? "rotate-45" : ""
-              }`}
+              className={`text-bullt-text-quinary text-2xl cursor-pointer transform transition-transform duration-300 ${openIndex === index ? "rotate-45" : ""
+                }`}
             />
           </button>
           {openIndex === index && (
-            <div className="px-6 py-2  border-t border-bullt-primary/[0.2]">
+            <div className={`px-6 py-2  border-t border-bullt-primary/[0.2]  ${openIndex === index ?"text-bullt-text-quinary":""}`}>
               {item?.description ? (
-                <ParaGraphText
-                  alignmentType={1}
-                  paddingTop={1}
-                  hoverEffect="text-bullt-primary"
-                >
+                <p>
                   {item?.description}
-                </ParaGraphText>
+                </p>
               ) : null}
             </div>
           )}

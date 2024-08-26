@@ -8,7 +8,7 @@ const OurPatnarComponent =async (props: Props) => {
   const OurPatnarApiResponse= await OurPatnarApi()
   const data=OurPatnarApiResponse?.result;
   return (
-    <>{data?.Active=== true ?<><section className="bg-gray-50 py-10 w-full px-4">
+    <>{data?.Active=== true ?<><section className="py-6 w-full px-4">
         <div className="mx-auto sm:text-center">
           {data?.partner_data?.heading ?<><h2 className="sm:text-4xl text-2xl font-bold text-gray-800 mb-4">{data?.partner_data?.heading}</h2></>:null}
           {data?.partner_data?.description?<><p className="text-gray-600 mb-7">

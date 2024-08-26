@@ -1,6 +1,9 @@
 import { DomainsearchApi } from "@/apis/HomePageApis";
 import SearchSection from "@/components/ClientSideComponents/HomePageComponents/SearchSection";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+import SubParaGraph from "@/components/CommonComponents/HeadingComponents/SubParaGraph";
 
 const DomainSearchComponent = async () => {
   const DomainsearchApiResponse = await DomainsearchApi();
@@ -8,8 +11,8 @@ const DomainSearchComponent = async () => {
   return (
     <>
       {DomainsearchApiResponse?.result?.Active === true ? (
-        <section className="w-full  flex flex-col justify-center px-4 py-6 bg-gradient-to-b from-blue-100/50 via-blue-100/50 to-transparent  ">
-          <div className="mx-auto">
+        <section className="flex flex-col bg-bullt-quaternary/[0.03] justify-center px-4 py-4 w-full mx-auto container">
+          <div className="bg-bullt-secondary px-8 py-4 rounded-md border border-bullt-primary/[0.1]  -mt-40 z-40 lg:max-w-3xl w-full mx-auto">
             {DomainsearchApiResponse?.result?.data?.label ? (
               <SloganHeadingComponent paddingTop={1} alignmentType={1}>
                 <p className="text-bullt-tertiary">
@@ -18,10 +21,16 @@ const DomainSearchComponent = async () => {
               </SloganHeadingComponent>
             ) : null}
             {DomainsearchApiResponse?.result?.data?.heading ? (
-              <h1 className="sm:text-3xl text-2xl font-bold text-gray-900 mb-6">
+              <p className="sm:text-3xl text-2xl font-bold text-gray-900 mb-6">
                 {DomainsearchApiResponse?.result?.data?.heading}
-              </h1>
+              </p>
             ) : null}
+            {DomainsearchApiResponse?.result?.data?.description ? (
+              <ParaGraphText paddingTop={1}>
+                {DomainsearchApiResponse?.result?.data?.description}
+              </ParaGraphText>
+            ) : null}
+
             <SearchSection data={DomainsearchApiResponse?.result?.data} />
           </div>
         </section>
