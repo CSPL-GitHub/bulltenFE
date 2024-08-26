@@ -13,9 +13,9 @@ const FaqSection = async () => {
     <>
       {FaqSection?.result?.Active === true ? (
         <>
-          <section className="bg-bullt-quaternary/[0.02] py-16 px-6 lg:px-16 w-full">
-            <div className="sm:flex gap-5">
-              <div className="sm:w-1/2">
+          <section className="bg-bullt-quaternary/[0.02] py-16 px-6 w-full">
+            <div className="flex lg:flex-row flex-col gap-5">
+              <div className="lg:w-1/2 w-full">
                 {FaqSectionApiResponse?.data?.heading ? (
                   <MainHeadingComponent
                     alignmentType={1}

@@ -55,11 +55,8 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   return (
     <>
       {counterData?.counters?.length > 0 && (
-        <div
-          className="w-full mx-auto text-center px-0 sm:px-10 py-6 bg-bullt-background"
-          ref={ref}
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+        <div className="w-full mx-auto text-center px-0  py-6 " ref={ref}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {counterData?.counters?.map((counter, index) => (
               <div
                 key={index}

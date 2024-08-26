@@ -20,7 +20,7 @@ const Footer: React.FC = async () => {
         <footer className="bg-bullt-background/[0.9]">
           <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />
 
-          <div className="w-full rounded-lg lg:rounded-none px-3 lg:px-8 bg-bullt-text-primary">
+          <div className="w-full rounded-lg lg:rounded-none px-3 lg:px-8 bg-bullt-text-primary bg-image-lines">
             <div className=" mb-3 pt-8 shadow-sm rounded-lg container mx-auto gap-3 ">
               <div className="flex justify-between border-b border-bullt-primary px-4 py-2 bg-bullt-secondary rounded-md">
                 <div className="w-[300px] h-[70px] relative">

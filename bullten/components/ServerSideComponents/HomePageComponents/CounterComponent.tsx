@@ -12,7 +12,7 @@ const CounterComponent: React.FC = async () => {
     <>
       {counterData?.Active === true ? (
         <>
-          <div className="w-full py-12 px-8 lg:px-16 bg-white">
+          <div className="w-full py-12 px-6 bg-white">
             <div className="flex flex-col items-center justify-center mx-auto gap-2">
               <div className="flex flex-col sm:flex-row items-start sm:items-center ">
                 <div className="sm:w-[50%] w-full flex flex-col items-start justify-start">

@@ -30,7 +30,6 @@ const HeaderMenu = ({ headerResponse }: Props) => {
     []
   );
 
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -46,14 +45,13 @@ const HeaderMenu = ({ headerResponse }: Props) => {
           style={{
             ...(moveDown
               ? {
-                background: `#ffffff`,
-                backdropFilter: "blur(35px)",
-              }
+                  background: `#ffffff`,
+                  backdropFilter: "blur(35px)",
+                }
               : { background: `#ffffff`, backdropFilter: "blur(0px)" }),
           }}
         >
-
-          <div className="flex justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] container mx-auto">
+          <div className="flex absolute justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] container mx-auto">
             <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center">
               <Link href="/">
                 <div className="sm:w-[300px] w-[200px] h-[70px] relative">
@@ -91,17 +89,15 @@ const HeaderMenu = ({ headerResponse }: Props) => {
             </div>
             <div className="w-full lg:flex hidden gap-10 justify-end items-center ">
               {headerResponse?.result?.header?.length > 0
-                ? headerResponse?.result?.header
-                  ?.map((headerMenu) => {
+                ? headerResponse?.result?.header?.map((headerMenu) => {
                     return (
                       <div
-                      key={headerMenu?.id}
+                        key={headerMenu?.id}
                         onMouseLeave={() => {
                           setOpenSubMenu(undefined);
-                        }}>
-                        <div
-                          className="flex flex-col justify-center items-center relative"
-                        >
+                        }}
+                      >
+                        <div className="flex flex-col justify-center items-center relative">
                           {headerMenu?.subheader?.length > 0 ? (
                             <>
                               <h2
@@ -114,8 +110,6 @@ const HeaderMenu = ({ headerResponse }: Props) => {
 
                                 <MdOutlineKeyboardArrowDown size={20} />
                               </h2>
-
-
                             </>
                           ) : (
                             <Link href={`${headerMenu?.path}`}>

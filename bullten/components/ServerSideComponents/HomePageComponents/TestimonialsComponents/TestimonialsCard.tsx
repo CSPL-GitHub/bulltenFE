@@ -12,9 +12,16 @@ export default function TestimonialsCard({
   testimonial: any;
 }) {
   return (
-    <div className="group w-full min-h-60 relative bg-bullt-secondary rounded-md border-t-4 border-bullt-quaternary hover:rounded-md shadow-md mx-auto mt-12 mb-10  transition-colors duration-300">
+    <div
+      className="group w-full min-h-60 relative bg-bullt-secondary rounded-md border-bullt-quaternary  hover:rounded-md shadow-md mx-auto mt-12 mb-10  transition-colors duration-300"
+      style={{
+        backgroundImage: 'url("/feature-img.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "right",
+      }}
+    >
       <div className="absolute inset-x-0 top-0 flex justify-center transform -translate-y-1/2">
-        <div className="w-24 h-24 relative flex justify-center bg-bullt-quaternary  group-hover:bg-bullt-secondary rounded-full shadow-md items-center transition-colors duration-300">
+        <div className="w-24 h-24 relative flex justify-center bg-bullt-quaternary  group-hover:bg-bullt-secondary rounded-full shadow-lg items-center transition-colors duration-300">
           <FaQuoteRight className="text-bullt-secondary  group-hover:text-bullt-quaternary text-4xl transition-colors duration-300" />
         </div>
       </div>

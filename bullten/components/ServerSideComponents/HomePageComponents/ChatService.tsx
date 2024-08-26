@@ -10,7 +10,7 @@ export default async function ChatService() {
   return (
     <>
       {chatSupportApiDataResponse?.Active === true ? (
-        <div className="flex flex-row items-center justify-center bg-blue-900 w-full px-6 py-12 lg:px-16 mx-auto">
+        <div className="flex flex-row items-center justify-center bg-blue-900 w-full px-6 py-12  mx-auto  bg-image-curve-lines">
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <div className="relative flex-shrink-0 mb-6 lg:mb-0 lg:mr-10">
               <div className="rounded-full border-4 border-darkblue-800 p-2">

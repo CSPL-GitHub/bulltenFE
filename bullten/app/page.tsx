@@ -17,10 +17,14 @@ import TestimonialSlider from "@/components/ServerSideComponents/HomePageCompone
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
 import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/OurPatnarComponent";
 import DomainSearchComponent from "@/components/ServerSideComponents/HomePageComponents/SearchComponent";
+import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
+import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
+
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
   const TestimonialsContent = await TestimonialsApi();
   const SupportSectionContent = await SupportSectionAPI();
+
   return (
     <main className="w-full">
       <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
@@ -29,34 +33,51 @@ export default async function Home() {
             <BannerSlider banners={homePageBannerContentApi?.result?.banner} />
           )}
       </Suspense>
-      <div className="container flex flex-col items-center justify-center mx-auto">
+      <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <DomainSearchComponent />
+      </Suspense>
+      {/* Main container with consistent spacing */}
+      <div className="container mx-auto lg:px-8 px-3 bg-bullt-quaternary/[0.03]">
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <TrustedCompaniesLogos />
+        </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyBulletinComponent />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WordPressHoistingComponent />
         </Suspense>
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-        <DomainSearchComponent/>
-        </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ChatService />
         </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <ServerFeatures />
+        </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <OurPatnarComponent />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <FaqSection />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TestimonialSlider TestimonialsContent={TestimonialsContent} />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <BlogsComponent />
         </Suspense>

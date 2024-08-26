@@ -10,10 +10,10 @@ type Props = { data: any };
 
 const CartSliderComponent: React.FC<Props> = ({ data }) => {
   return (
-    <div className="py-7 sm:px-12 ">
+    <div className="py-7 px-2 lg:px-12 ">
       {data?.map((item: any, index: number) => (
-        <div key={index} className="px-2 group py-2 ">
-          <div className="bg-bullt-quinary border-[1px] border-bullt-quinary p-6 rounded-lg shadow-lg group-hover:bg-bullt-secondary transition-colors ease-in duration-100">
+        <div key={index} className="px-2 group py-2">
+          <div className="bg-white bg-opacity-20 backdrop-blur-md border-[1px] border-bullt-quinary p-6 rounded-lg shadow-lg group-hover:bg-bullt-secondary transition-colors ease-in duration-100">
             {item?.heading ? (
               <SubHeadingComponents
                 alignmentType={1}
@@ -23,13 +23,10 @@ const CartSliderComponent: React.FC<Props> = ({ data }) => {
                 {item?.heading}
               </SubHeadingComponents>
             ) : null}
-            {/* <p className="text-[#FFFFFF] sm:mt-2 group-hover:text-bullt-primary ">
-              
-            </p> */}
             {item?.description ? (
               <ParaGraphText
                 paddingTop={1}
-                hoverEffect="text-bullt-secondary group-hover:text-bullt-primary transition-colors duration-300 "
+                hoverEffect="text-bullt-secondary group-hover:text-bullt-primary transition-colors duration-300"
               >
                 {item?.description}
               </ParaGraphText>

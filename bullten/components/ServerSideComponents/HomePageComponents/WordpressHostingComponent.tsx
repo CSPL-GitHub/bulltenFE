@@ -15,9 +15,9 @@ const WordPressHoistingComponent = async (props: Props) => {
   return (
     <>
       {WordPressHoistingApiResponse?.result?.Active === true ? (
-        <section className="sm:p-12  bg-bullt-quaternary  px-6 lg:px-16">
-          <div className="sm:grid grid-cols-2 justify-center">
-            <div className="sm:grid sm:grid-col-1 grid-col-2 px-2">
+        <section className="sm:p-12  bg-bullt-quaternary px-6 bg-image-lines">
+          <div className="grid grid-cols-1 lg:grid-cols-2 justify-center">
+            <div className="grid grid-col-2 lg:grid-col-2 px-2">
               <div className="flex gap-2 border-b-[1px] sm:w-[330px] sm:h-8 w-full border-bullt-text-quinary sm:py-0 py-3">
                 <p className="text-bullt-secondary font-bold text-lg ">
                   {WordPressHoistingApiResponse?.result?.host_data?.lblw1}

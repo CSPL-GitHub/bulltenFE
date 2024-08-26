@@ -3,6 +3,7 @@ import SliderFrame from "@/components/ClientSideComponents/SliderComponents/Slid
 import { Banner } from "@/types/BannerTypes";
 import React, { useEffect, useRef, useState } from "react";
 import HomePageBannerCard from "./HomePageBannerCard";
+import BannerWithImage from "./BannerWithImage";
 
 type Props = {
   banners: Banner[];
@@ -35,7 +36,7 @@ const BannerSlider = ({ banners }: Props) => {
   return (
     <SliderFrame settings={settings} selector={sliderRef}>
       {banners?.map((banner: Banner) => {
-        return <HomePageBannerCard banner={banner} key={banner?.id} />;
+        return <BannerWithImage banner={banner} key={banner?.id} />;
       })}
     </SliderFrame>
   );

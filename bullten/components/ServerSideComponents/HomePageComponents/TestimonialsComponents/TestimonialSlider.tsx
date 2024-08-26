@@ -69,7 +69,7 @@ const TestimonialSlider = ({ TestimonialsContent }: Props) => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: infinite,
           dots: true,
@@ -90,7 +90,7 @@ const TestimonialSlider = ({ TestimonialsContent }: Props) => {
   return (
     <>
       {TestimonialsContent?.result?.Active === true ? (
-        <div className="rounded-md w-full bg-bullt-secondary/[0.01] py-10 border-0 shadow-sm">
+        <div className="rounded-md w-full bg-no-repeat bg-cover bg-center py-10 px-6  border-0 shadow-sm">
           <MainHeadingComponent alignmentType={2}>
             {testimonialData?.title}
           </MainHeadingComponent>
