@@ -36,7 +36,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
           </button>
         </Link>
       </div>
-      <div className="flex flex-wrap justify-center gap-3">
+      {/* <div className="flex flex-wrap justify-center gap-3">
         {data?.domain_search?.map((option: any, index: any) => (
           <div
             key={index}
@@ -52,7 +52,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

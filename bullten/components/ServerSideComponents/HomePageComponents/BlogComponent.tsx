@@ -5,6 +5,7 @@ import { BlogSectionApi } from "@/apis/HomePageApis";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import BlogCartComponent from "@/components/ClientSideComponents/HomePageComponents/BlogCartComponent";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 
 const BlogsComponent = async () => {
   const blogResponse = await BlogSectionApi();
@@ -13,19 +14,21 @@ const BlogsComponent = async () => {
     <>
       {blogResponse?.result?.Active === true ? (
         <>
-          <div className="flex flex-col justify-center items-center gap-2 px-4 py-2">
-            <div className="text-center">
+          <section className="px-4 pb-10">
+            <div className="text-center py-5">
               {blogResponse?.result?.data?.label ? (
-                <>
+                <div className="text-bullt-text-quinary ">
                   <SloganHeadingComponent alignmentType={2} paddingTop={1}>
                     {blogResponse?.result?.data?.label}
                   </SloganHeadingComponent>
-                </>
+                  </div>
+              
               ) : null}
               {blogResponse?.result?.data?.heading ? (
-                <h1 className="text-4xl font-bold text-gray-800">
+                <MainHeadingComponent alignmentType={2} paddingTop={1}>
                   {blogResponse?.result?.data?.heading}
-                </h1>
+                </MainHeadingComponent>
+               
               ) : null}
               {blogResponse?.result?.data?.description ? (
                 <>
@@ -35,9 +38,9 @@ const BlogsComponent = async () => {
                 </>
               ) : null}
             </div>
-          
-          </div>
-          <BlogCartComponent blogResponse={blogResponse}/>
+            <BlogCartComponent blogResponse={blogResponse}/>
+          </section>
+         
         </>
       ) : null}
     </>

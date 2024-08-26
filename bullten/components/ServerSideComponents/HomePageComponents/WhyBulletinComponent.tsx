@@ -14,7 +14,7 @@ const WhyBulletinComponent = async () => {
   return (
     <>
       {WhyUsSectionApiResponse?.Active === true ? (
-        <section className="flex flex-col lg:flex-row bg-bullt-secondary gap-6 py-6 my-4  px-6 w-full rounded-md">
+        <section className="flex flex-col lg:flex-row  gap-2 py-6 px-6 w-full rounded-md">
           <div className="relative w-full lg:w-1/2">
             {WhyUsSectionApiResponse?.data?.img ? (
               <>

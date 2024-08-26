@@ -1,24 +1,38 @@
-import { OurPatnarApi } from '@/apis/HomePageApis'
-import OurPatnarTabComponent from '@/components/ClientSideComponents/HomePageComponents/OurPatnarTabComponent'
-import React from 'react'
+import { OurPatnarApi } from '@/apis/HomePageApis';
+import OurPatnarTabComponent from '@/components/ClientSideComponents/HomePageComponents/OurPatnarTabComponent';
+import React from 'react';
 
-type Props = {}
+type Props = {};
 
-const OurPatnarComponent =async (props: Props) => {
-  const OurPatnarApiResponse= await OurPatnarApi()
-  const data=OurPatnarApiResponse?.result;
+const OurPatnarComponent = async (props: Props) => {
+  const OurPatnarApiResponse = await OurPatnarApi();
+  const data = OurPatnarApiResponse?.result;
+
   return (
-    <>{data?.Active=== true ?<><section className="py-6 w-full px-4">
-        <div className="mx-auto sm:text-center">
-          {data?.partner_data?.heading ?<><h2 className="sm:text-4xl text-2xl font-bold text-gray-800 mb-4">{data?.partner_data?.heading}</h2></>:null}
-          {data?.partner_data?.description?<><p className="text-gray-600 mb-7">
-           {data?.partner_data?.description}
-          </p></>:null}  
-          <OurPatnarTabComponent data={data?.partner_data}/>
-        </div>
-      </section></>:null}</>
-    
-  )
-}
+    <>
+      {data?.Active === true ? (
+        <section className="py-12 px-4 sm:px-12 ">
+          <div className="container mx-auto flex flex-wrap lg:flex-nowrap items-center justify-between">
+            <div className="lg:w-[70%] w-full px-4 sm:px-0">
+              {data?.partner_data?.heading ? (
+                <h2 className="text-[2rem] lg:text-[2.3rem] font-semibold text-gray-900">
+                  {data?.partner_data?.heading}
+                </h2>
+              ) : null}
+              {data?.partner_data?.description ? (
+                <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-8">
+                  {data?.partner_data?.description}
+                </p>
+              ) : null}
+            </div>
+            <div className="w-full flex justify-center lg:justify-end">
+              <OurPatnarTabComponent data={data?.partner_data} />
+            </div>
+          </div>
+        </section>
+      ) : null}
+    </>
+  );
+};
 
-export default OurPatnarComponent
+export default OurPatnarComponent;

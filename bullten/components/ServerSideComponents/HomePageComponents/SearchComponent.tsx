@@ -12,7 +12,7 @@ const DomainSearchComponent = async () => {
     <>
       {DomainsearchApiResponse?.result?.Active === true ? (
         <section className="flex flex-col bg-bullt-quaternary/[0.03] justify-center px-4 py-4 w-full mx-auto container">
-          <div className="bg-bullt-secondary px-8 py-4 rounded-md border border-bullt-primary/[0.1]  -mt-40 z-40 lg:max-w-3xl w-full mx-auto">
+          <div className="bg-bullt-secondary px-8 py-4 rounded-md border border-bullt-primary/[0.1]  lg:max-w-3xl w-full mx-auto">
             {DomainsearchApiResponse?.result?.data?.label ? (
               <SloganHeadingComponent paddingTop={1} alignmentType={1}>
                 <p className="text-bullt-tertiary">

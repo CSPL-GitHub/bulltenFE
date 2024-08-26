@@ -1,36 +1,29 @@
 "use client";
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
-import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import React, { useState } from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { BsArrowRightCircle, BsFillArrowRightCircleFill } from "react-icons/bs";
 
 type Props = { data: any };
 
 const CartSliderComponent: React.FC<Props> = ({ data }) => {
-  return (
-    <div className="py-7 px-2 lg:px-12 ">
+   return (
+    <div className="py-7 px-2 lg:px-6">
       {data?.map((item: any, index: number) => (
-        <div key={index} className="px-2 group py-2">
-          <div className="bg-white bg-opacity-20 backdrop-blur-md border-[1px] border-bullt-quinary p-6 rounded-lg shadow-lg group-hover:bg-bullt-secondary transition-colors ease-in duration-100">
-            {item?.heading ? (
-              <SubHeadingComponents
-                alignmentType={1}
-                paddingTop={1}
-                hoverEffect="text-bullt-secondary group-hover:text-bullt-primary transition-colors duration-300"
-              >
-                {item?.heading}
-              </SubHeadingComponents>
-            ) : null}
-            {item?.description ? (
-              <ParaGraphText
-                paddingTop={1}
-                hoverEffect="text-bullt-secondary group-hover:text-bullt-primary transition-colors duration-300"
-              >
-                {item?.description}
-              </ParaGraphText>
-            ) : null}
+        <div key={index} className="px-2 py-2">
+          <div className="bg-white text-black border-[1px] border-white/10 rounded-lg p-4 group transition hover:bg-white hover:text-black hover:border-purple-500">
+            <div className="flex justify-between items-center">
+            </div>
+            <h3 className="text-lg font-semibold mb-2 text-black group-hover:text-">
+              {item?.heading}
+            </h3>
+            <p className="text-sm text-black group-hover:text-black">
+              {item?.description}
+            </p>
+            {/* <div className="flex items-center justify-between mt-4">
+              <span className="text-sm text-white/50 group-hover:text-black">
+                {item?.date}
+              </span>
+            </div> */}
           </div>
         </div>
       ))}

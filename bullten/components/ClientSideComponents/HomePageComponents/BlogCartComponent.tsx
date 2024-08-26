@@ -11,7 +11,7 @@ type Props = {
 }
 
 const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
-    const sliderRef = useRef<HTMLDivElement>(null);
+
 
     const settings = {
         dots: true,
@@ -19,7 +19,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
         autoplay: true,
         arrows: false,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         centerPadding: "0px",
         responsive: [
@@ -47,7 +47,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
                     {blogResponse?.result?.data?.blogs?.map((blog: any) => (
                         <div key={blog?.id} className="px-2">
                             <div className="w-full flex flex-col justify-center items-center border rounded-xl p-3 gap-3">
-                                <div className="w-full h-[220px] relative">
+                                <div className="w-full h-[180px] relative">
                                     {blog?.title ? (
                                         <label className="bg-black text-white text-xs absolute bottom-1  px-4 py-1 rounded flex justify-end items-end z-[9]">
                                             {blog?.title}
@@ -58,19 +58,19 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
                                         alt={blog?.alt_text}
                                         style={{
                                             position: "absolute",
-                                            objectFit: "cover",
+                                            objectFit: "contain",
                                             inset: 0,
                                             borderRadius: "0.25rem 0.25rem 0 0 ",
                                         }}
                                         fill={true}
                                     />
                                 </div>
-                                <div className="w-full h-[200px] flex flex-col justify-between items-center">
+                                <div className="w-full h-[175px] flex flex-col justify-between items-center">
                                     <div className="w-full">
                                         <h3 className="w-full sm:text-lg text-lg font-semibold line-clamp-2">
                                             {blog?.subtitle}
                                         </h3>
-                                        <p className="w-full text-md line-clamp-3">
+                                        <p className="w-full text-sm line-clamp-3">
                                             {blog?.description}
                                         </p>
                                     </div>

@@ -35,7 +35,7 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse }) => {
             />
           </button>
           {openIndex === index && (
-            <div className={`px-6 py-2  border-t border-bullt-primary/[0.2]  ${openIndex === index ?"text-bullt-text-quinary":""}`}>
+            <div className={`px-6 py-2  border-t border-bullt-primary/[0.2]  ${openIndex === index ?"":""}`}>
               {item?.description ? (
                 <p>
                   {item?.description}
