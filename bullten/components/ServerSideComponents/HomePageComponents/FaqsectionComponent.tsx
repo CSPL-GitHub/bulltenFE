@@ -13,9 +13,9 @@ const FaqSection = async () => {
     <>
       {FaqSection?.result?.Active === true ? (
         <>
-          <section className="bg-bullt-quaternary/[0.02] py-16 px-6 w-full">
-            <div className="flex lg:flex-row flex-col gap-5">
-              <div className="lg:w-1/2 w-full">
+          <section className="bg-blue-50 py-8 px-6 lg:px-8 w-full">
+            <div className="sm:flex gap-5">
+              <div className="sm:w-1/2 ">
                 {FaqSectionApiResponse?.data?.heading ? (
                   <MainHeadingComponent
                     alignmentType={1}
@@ -33,7 +33,7 @@ const FaqSection = async () => {
 
                 {FaqSectionApiResponse?.data?.img ? (
                   <>
-                    <div className="sm:h-[450px] h-[300px] w-full relative ">
+                    <div className="sm:h-[400px] h-[300px] w-full relative ">
                       <Image
                         src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqSectionApiResponse?.data.img}`}
                         alt={FaqSectionApiResponse?.data?.img_alt_text}

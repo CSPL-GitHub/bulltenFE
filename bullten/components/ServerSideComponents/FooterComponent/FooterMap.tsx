@@ -7,39 +7,28 @@ import {
   Geographies,
   Geography,
   Marker,
-  ZoomableGroup,
 } from "react-simple-maps";
 
 type Props = {};
 type MarkerType = {
+  flagUrl: any;
   name: string;
   coordinates: [number, number];
-  flagUrl: string; // URL to the flag image
 };
 
-const FooterMap = (footerMapResponse: any) => {
-  const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
+const FooterMap = ({ footerMapResponse }: any) => {
+  const [hoveredMarker, setHoveredMarker] = useState<any | null>(null);
 
   return (
-    <div className="px-4 lg:px-0 h-auto lg:h-[700px] bg-bullt-secondary/[0.8] shadow-md my-2">
+    <div className="px-4 lg:px-0 h-auto lg:h-[700px]  shadow-md my-2">
       <MainHeadingComponent paddingTop={3} alignmentType={2}>
-        {footerMapResponse?.footerMapResponse?.heading}
+        {footerMapResponse?.heading}
       </MainHeadingComponent>
       <ParaGraphText alignmentType={2}>
-        {footerMapResponse?.footerMapResponse?.description}
+        {footerMapResponse?.description}
       </ParaGraphText>
       <ComposableMap className="h-full w-full">
-        <defs>
-          <clipPath id="circleClip">
-            <circle cx="3" cy="3" r="10" />
-          </clipPath>
-        </defs>
-        <Geographies
-          geography="/features.json"
-          fill="#bfbfbf"
-          stroke="#bfbfbf"
-          strokeWidth={0.9}
-        >
+        <Geographies geography="/features.json" fill="#1E3A8A" stroke="#1E3A8A">
           {({ geographies }) =>
             geographies.map((geo) => (
               <Geography key={geo.rsmKey} geography={geo} />
@@ -47,50 +36,56 @@ const FooterMap = (footerMapResponse: any) => {
           }
         </Geographies>
 
-        {footerMapResponse?.footerMapResponse?.locationMarkers?.map(
-          (markers: MarkerType, index: number) => (
+        {footerMapResponse?.locationMarkers?.map(
+          (marker: MarkerType, index: number) => (
             <Marker
               key={index}
-              coordinates={markers?.coordinates}
-              onMouseEnter={() => setHoveredMarker(markers?.name)}
+              coordinates={marker.coordinates}
+              onMouseEnter={() => setHoveredMarker(marker)}
               onMouseLeave={() => setHoveredMarker(null)}
             >
-              <image
-                href={`${process.env.NEXT_PUBLIC_BASE_URL}${markers?.flagUrl}`}
-                x={-15}
-                y={-15}
-                width={35}
-                height={35}
-                clipPath="url(#circleClip)"
-                preserveAspectRatio="xMidYMid meet"
-              />
-              {hoveredMarker === markers?.name && (
+              <circle cx={0} cy={0} r={4} fill="#FF8C00" />{" "}
+              {hoveredMarker === marker && (
                 <g>
                   <line
                     x1="0"
-                    y1="-15"
+                    y1="0"
                     x2="0"
-                    y2="-90"
-                    stroke="#f69b00"
+                    y2="-60"
+                    stroke="#FF8C00"
                     strokeWidth="2"
+                    strokeDasharray="4"
                   />
                   <rect
                     x={-50}
                     y={-90}
                     width={100}
                     height={30}
-                    fill="#f69b00"
-                    rx={5}
-                    ry={5}
+                    fill="#FF8C00"
+                    rx={8}
+                    ry={8}
+                    style={{ opacity: 0.9 }}
                   />
                   <text
+                    x="0"
+                    y="-70"
                     textAnchor="middle"
-                    y={-70}
                     style={{
                       fill: "#fff",
+                      fontSize: "12px",
+                      fontWeight: "bold",
                     }}
                   >
-                    {markers?.name}
+                    <image
+                      href={`${process.env.NEXT_PUBLIC_BASE_URL}${marker?.flagUrl}`}
+                      x={-15}
+                      y={-15}
+                      width={35}
+                      height={35}
+                      clipPath="url(#circleClip)"
+                      preserveAspectRatio="xMidYMid meet"
+                    />
+                    {marker?.name}
                   </text>
                 </g>
               )}
