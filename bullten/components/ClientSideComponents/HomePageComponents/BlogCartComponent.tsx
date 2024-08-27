@@ -44,7 +44,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
         <Slider {...settings}>
           {blogResponse?.result?.data?.blogs?.map((blog: any) => (
             <div key={blog?.id} className="px-1">
-              <div className="w-full flex flex-col justify-center items-center border rounded-xl p-3 gap-3">
+              <div className="w-full flex flex-col justify-center items-center border rounded-xl p-3 gap-3 bg-white">
                 <div className="w-full h-[180px] relative">
                   {blog?.title ? (
                     <label className="bg-black text-white text-xs absolute bottom-1  px-4 py-1 rounded flex justify-end items-end z-[9]">
