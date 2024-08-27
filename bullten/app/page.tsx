@@ -55,10 +55,6 @@ export default async function Home() {
           <WordPressHoistingComponent />
         </Suspense>
 
-        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <CounterComponent />
-        </Suspense> */}
-
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ServerFeatures />
         </Suspense>
@@ -84,6 +80,9 @@ export default async function Home() {
 
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <BlogsComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <CounterComponent />
         </Suspense>
       </div>
     </main>

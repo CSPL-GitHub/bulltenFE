@@ -1,52 +1,39 @@
-import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
-import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import CounterSectionComponent from "@/components/ClientSideComponents/HomePageComponents/CounterSectionComponent";
 import { CounteSectionApi, footerMapApi } from "@/apis/HomePageApis";
-import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
-import Image from "next/image";
-import FooterMap from "../FooterComponent/FooterMap";
 
 const CounterComponent: React.FC = async () => {
   const response = await CounteSectionApi();
   const counterData = response?.result;
-  const footerMapResponse = await footerMapApi();
+
   return (
     <>
-      {counterData?.Active === true ? (
-        <>
-          <div className="container w-full pt-10 mx-auto ">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <div className="flex flex-col sm:flex-row items-start sm:items-start ">
-                <div className="sm:w-[50%] w-full flex flex-col items-start justify-start">
-                  {counterData?.data?.label && (
-                    <h2 className="text-bullt-text-quinary font-semibold">
-                      {counterData?.data?.label}
-                    </h2>
-                  )}
-                  {counterData?.data?.heading && (
-                    <MainHeadingComponent alignmentType={2} paddingTop={1}>
-                      {counterData?.data?.heading}
-                    </MainHeadingComponent>
-                  )}
-                  {counterData?.data?.description && (
-                    <ParaGraphText alignmentType={2} paddingTop={1}>
-                      {counterData?.data?.description}
-                    </ParaGraphText>
-                  )}
-
-                  <CounterSectionComponent counterData={counterData?.data} />
-                </div>
-
-                <div className="sm:w-1/2 flex justify-center sm:justify-end mt-4 sm:mt-0 relative">
-                  <FooterMap
-                    footerMapResponse={footerMapResponse?.result?.map_data}
-                  />
-                </div>
+      {counterData?.Active === true && (
+        <div className="relative bg-fixed bg-cover bg-center bg-no-repeat bg-[url('https://img.freepik.com/premium-photo/strengthening-information-security-measures-secure-digital-data-protection-concept-cybersecurity-data-encryption-secure-networks-access-controls-risk-assessment_918839-342123.jpg?uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')] sm:rounded-lg rounded-none">
+          <div className="bg-gradient-to-b from-black/80 to-black/60 w-full pt-10 pb-14 mx-auto sm:rounded-lg rounded-none">
+            <div className="container flex sm:flex-row flex-col items-start justify-start gap-6 px-4 md:px-8 lg:px-12">
+              <div>
+                {counterData?.data?.label && (
+                  <h2 className="text-bullt-text-quinary font-semibold">
+                    {" "}
+                    {counterData?.data?.label}
+                  </h2>
+                )}
+                {counterData?.data?.heading && (
+                  <h1 className="text-white text-start font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
+                    {counterData?.data?.heading}
+                  </h1>
+                )}
+                {counterData?.data?.description && (
+                  <p className="text-gray-200 text-start text-lg md:text-xl lg:text-2xl max-w-4xl">
+                    {counterData?.data?.description}
+                  </p>
+                )}
               </div>
+              <CounterSectionComponent counterData={counterData?.data} />
             </div>
           </div>
-        </>
-      ) : null}
+        </div>
+      )}
     </>
   );
 };

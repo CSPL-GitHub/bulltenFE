@@ -17,7 +17,7 @@ type Props = {
 const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   const [startCount, setStartCount] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
-  console.log("counterData", counterData);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -55,31 +55,32 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   return (
     <>
       {counterData?.counters?.length > 0 && (
-        <div className="w-full mx-auto text-center px-0  py-6" ref={ref}>
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+        <div
+          className="w-full sm:mx-auto mx-0 text-center sm:px-4 rounded-lg"
+          ref={ref}
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-12">
             {counterData?.counters?.map((counter, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md sm:shadow-sm p-3 sm:p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-lg border-2 border-bullt-quaternary/[0.2]"
+                className="bg-white/0 shadow-lg p-3 rounded-md transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border-[0.2px] border-white/70 hover:border-primary"
               >
-                <div className="flex flex-col items-start justify-start">
-                  <div className="flex flex-row gap-2 items-center justify-center text-xl sm:text-4xl font-bold text-black h-[40px] sm:h-[40px] ">
-                    <span>
-                      {startCount ? (
-                        <CountUp
-                          end={counter?.count}
-                          duration={2}
-                          formattingFn={formatNumber}
-                        />
-                      ) : (
-                        0
-                      )}
-                    </span>
-                    <span className="text-black font-normal text-center text-[10px] leading-[10px] sm:text-sm">
-                      {counter?.countname}
-                    </span>
+                <div className="flex flex-col items-center justify-center gap-1">
+                  <div className="text-2xl sm:text-3xl font-bold text-white">
+                    {startCount ? (
+                      <CountUp
+                        end={counter?.count}
+                        duration={2}
+                        formattingFn={formatNumber}
+                      />
+                    ) : (
+                      0
+                    )}
                   </div>
-                  <p className="text-bullt-tertiary font-normal text-[14px] sm:text-lg mt-2 sm:mt-3 transition-colors duration-300">
+                  <span className="text-lg sm:text-xl text-bullt-tertiary font-extrabold">
+                    {counter?.countname}
+                  </span>
+                  <p className="text-gray-200 font-normal text-sm sm:text-base  transition-colors duration-300">
                     {counter?.description}
                   </p>
                 </div>

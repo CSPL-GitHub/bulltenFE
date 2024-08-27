@@ -19,7 +19,7 @@ const Footer: React.FC = async () => {
     <>
       {footerResponse?.result ? (
         <footer className="container mx-auto w-full pt-10 px-6 rounded-md">
-          <CounterComponent />
+          <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />{" "}
           <div className="w-full rounded-lg lg:rounded-none relative ">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
