@@ -1,67 +1,62 @@
 import { serverFeaturesApi } from "@/apis/HomePageApis";
-import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
-import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
-import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
 import Image from "next/image";
 import React from "react";
 
 const ServerFeatures = async () => {
   const serverFeaturesData = await serverFeaturesApi();
-  return (
-    <>
-      {serverFeaturesData?.result?.Active === true ? (
-        <div className=" w-full flex flex-col items-center py-16 px-6">
-          <MainHeadingComponent
-            alignmentType={2}
-            paddingTop={1}
-            hoverEffect=" text-blue-900 "
-          >
-            {serverFeaturesData?.result?.data?.title}
-          </MainHeadingComponent>
-          <ParaGraphText
-            alignmentType={2}
-            paddingTop={3}
-            hoverEffect="text-gray-700"
-          >
-            {serverFeaturesData?.result?.data?.description}
-          </ParaGraphText>
+  const isActive = serverFeaturesData?.result?.Active;
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-            {serverFeaturesData?.result?.data?.server_feature.map(
-              (product: any, index: number) => (
-                <div
-                  key={index}
-                  className="bg-white p-8 rounded-md shadow-sm text-left flex flex-col items-start transition-transform duration-300 ease-in-out hover:shadow-md hover:scale-105"
-                >
-                  {product.icon && (
-                    <div className="w-16 h-16 mb-4 relative">
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${product?.icon}`}
-                        alt={product?.alt_text}
-                        className="rounded-full object-cover"
-                        fill={true}
-                      />
-                    </div>
-                  )}
-                  <SubHeadingComponents
-                    alignmentType={2}
-                    paddingTop={1}
-                    hoverEffect=" text-blue-800 "
-                  >
-                    {product.title}
-                  </SubHeadingComponents>
-                  {product.description ? (
-                    <ParaGraphText hoverEffect="text-gray-600">
-                      {product.description}
-                    </ParaGraphText>
-                  ) : null}
-                </div>
-              )
-            )}
-          </div>
+  if (!isActive) return null;
+
+  const { title, description, server_feature } =
+    serverFeaturesData?.result?.data || {};
+
+  return (
+    <section
+      className="relative bg-fixed bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url('https://img.freepik.com/free-photo/black-prism-concept-ai-generated_268835-7011.jpg?size=626&ext=jpg&uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')`,
+      }}
+    >
+      <div className="bg-gradient-to-b from-black/30 to-black/40 w-full pt-16 pb-16 mx-auto flex flex-col items-center">
+        <div className="max-w-4xl text-center text-white space-y-4">
+          {title && (
+            <h2 className="text-3xl font-bold leading-tight">{title}</h2>
+          )}
+          {description && (
+            <p className="text-lg leading-relaxed">{description}</p>
+          )}
         </div>
-      ) : null}
-    </>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 w-full max-w-6xl">
+          {server_feature?.map((feature: any, index: number) => (
+            <div
+              key={index}
+              className=" px-4 py-2 rounded-lg shadow-lg text-center flex flex-col items-center transition-transform duration-300 ease-in-out hover:scale-105"
+            >
+              {feature.icon && (
+                <div className="w-20 h-20 mb-4 relative">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.icon}`}
+                    alt={feature?.alt_text || "Feature Icon"}
+                    className="object-contain"
+                    fill={true}
+                  />
+                </div>
+              )}
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {feature.title}
+              </h3>
+              {feature.description && (
+                <p className="text-gray-200 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
