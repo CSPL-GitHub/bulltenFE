@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Rubik } from "next/font/google";
 import Header from "@/components/CommonComponents/HeaderComponents/Header";
 import Footer from "@/components/ServerSideComponents/FooterComponent/Footer";
+
+const inter = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BullTen",
@@ -15,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Header />
         {children}
         <Footer />

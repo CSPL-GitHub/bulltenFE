@@ -1,5 +1,8 @@
 import CounterSectionComponent from "@/components/ClientSideComponents/HomePageComponents/CounterSectionComponent";
 import { CounteSectionApi, footerMapApi } from "@/apis/HomePageApis";
+import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 
 const CounterComponent: React.FC = async () => {
   const response = await CounteSectionApi();
@@ -8,25 +11,27 @@ const CounterComponent: React.FC = async () => {
   return (
     <>
       {counterData?.Active === true && (
-        <div className="relative bg-fixed bg-cover bg-center bg-no-repeat bg-[url('https://img.freepik.com/premium-photo/strengthening-information-security-measures-secure-digital-data-protection-concept-cybersecurity-data-encryption-secure-networks-access-controls-risk-assessment_918839-342123.jpg?uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')]">
-          <div className="bg-gradient-to-b from-black/80 to-black/60 w-full pt-10 pb-14 mx-auto">
+        <div className="my-16 relative bg-fixed bg-cover bg-center bg-no-repeat bg-[url('https://img.freepik.com/premium-photo/strengthening-information-security-measures-secure-digital-data-protection-concept-cybersecurity-data-encryption-secure-networks-access-controls-risk-assessment_918839-342123.jpg?uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')]">
+          <div className="bg-gradient-to-b from-black/80 to-black/60 w-full py-16 mx-auto">
             <div className="container flex sm:flex-row flex-col items-start justify-start gap-6 px-4 md:px-8 lg:px-12">
               <div>
                 {counterData?.data?.label && (
-                  <h2 className="text-bullt-text-quinary font-semibold">
-                    {" "}
+                  <SloganHeadingComponent paddingTop={1} alignmentType={1}>
                     {counterData?.data?.label}
-                  </h2>
+                  </SloganHeadingComponent>
                 )}
                 {counterData?.data?.heading && (
-                  <h1 className="text-white text-start font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
+                  <MainHeadingComponent
+                    hoverEffect="leading-tight text-bullt-secondary"
+                    paddingTop={1}
+                  >
                     {counterData?.data?.heading}
-                  </h1>
+                  </MainHeadingComponent>
                 )}
                 {counterData?.data?.description && (
-                  <p className="text-gray-200 text-start text-lg md:text-xl lg:text-2xl max-w-4xl">
+                  <ParaGraphText hoverEffect="max-w-4xl text-bullt-secondary">
                     {counterData?.data?.description}
-                  </p>
+                  </ParaGraphText>
                 )}
               </div>
               <CounterSectionComponent counterData={counterData?.data} />

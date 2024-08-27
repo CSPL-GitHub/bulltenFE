@@ -13,7 +13,7 @@ const BlogsComponent = async () => {
     <>
       {blogResponse?.result?.Active === true ? (
         <>
-          <section className="w-full py-6 px-6 bg-bullt-quaternary/[0.03] rounded-md">
+          <section className="w-full py-16 px-6 bg-bullt-quaternary/[0.03] rounded-md">
             <div className="text-center py-5">
               {blogResponse?.result?.data?.label ? (
                 <div className="text-bullt-text-quinary ">

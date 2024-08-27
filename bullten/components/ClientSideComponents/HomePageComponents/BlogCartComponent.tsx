@@ -43,19 +43,19 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
         <Slider {...settings}>
           {blogResponse?.result?.data?.blogs?.map((blog: any) => (
             <div key={blog?.id} className="px-2 ">
-              <div className="relative w-full h-[550px] overflow-hidden rounded-lg shadow-lg group">
+              <div className="relative w-full h-[450px] overflow-hidden rounded-lg shadow-lg group">
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${blog?.img}`}
                   alt="Cart Image"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
-                <div className="absolute h-[40%] bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-black/50 rounded-b-lg text-white backdrop-blur-sm">
+                <div className="absolute h-[50%] bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-black/50 rounded-b-lg text-white backdrop-blur-sm">
                   <div className="w-full h-[80%]">
                     <h3 className="text-lg font-semibold line-clamp-2">
                       {blog?.subtitle}
                     </h3>
-                    <p className="text-sm line-clamp-3 mt-2">
+                    <p className="text-base line-clamp-3 mt-2">
                       {blog?.description}
                     </p>
                   </div>

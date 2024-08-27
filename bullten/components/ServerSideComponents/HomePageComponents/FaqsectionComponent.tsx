@@ -8,7 +8,6 @@ import React, { useState } from "react";
 const FaqSection = async () => {
   const FaqSection = await FaqSectionApi();
   const FaqSectionApiResponse = FaqSection?.result;
-  console.log("FaqSectionApiResponse", FaqSectionApiResponse);
   return (
     <>
       {FaqSection?.result?.Active === true ? (

@@ -31,9 +31,9 @@ const SupportSection = ({ supportContent }: Props) => {
   return (
     <>
       {supportContent?.Active === true ? (
-        <div className=" w-full py-12 px-6  bg-bullt-quaternary/[0.03] rounded-md">
+        <div className=" w-full py-12 px-6  bg-bullt-secondary rounded-md">
           <div className="w-full mx-auto flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-2/5 w-full">
+            {/* <div className="lg:w-2/5 w-full">
               {supportContent?.data?.heading && (
                 <MainHeadingComponent>
                   {supportContent?.data?.heading}
@@ -44,9 +44,9 @@ const SupportSection = ({ supportContent }: Props) => {
                   {supportContent?.data?.description}
                 </ParaGraphText>
               )}
-            </div>
+            </div> */}
 
-            <div className="lg:w-2/3 w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
               {supportContent?.data?.supports?.map((data, index) => (
                 <div
                   key={index}
@@ -63,21 +63,35 @@ const SupportSection = ({ supportContent }: Props) => {
                         />
                       )}
                     </div>
-                    <h3 className="text-lg font-semibold text-bullt-text-primary">
-                      {data?.title}
-                    </h3>
+
+                    {data?.title ? (
+                      <SubHeadingComponents
+                        hoverEffect="text-bullt-quaternary"
+                        paddingTop={1}
+                      >
+                        {data?.title}
+                      </SubHeadingComponents>
+                    ) : null}
                   </div>
-                  {
-                    <ParaGraphText alignmentType={1} paddingTop={1}>
+                  {data?.description ? (
+                    <ParaGraphText
+                      alignmentType={1}
+                      paddingTop={1}
+                      hoverEffect="text-bullt-primary"
+                    >
                       {data?.description}
                     </ParaGraphText>
-                  }
+                  ) : null}
+
                   {data?.buttontext && (
                     <Link href={data?.btnlink}>
-                      <p className="text-bullt-tertiary font-bold text-sm  hover:text-bullt-quinary transition-colors duration-300 flex items-center">
-                        {data?.buttontext}{" "}
+                      <SubHeadingComponents
+                        paddingTop={1}
+                        hoverEffect="text-bullt-quinary transition-colors duration-300 flex items-center "
+                      >
+                        {data?.buttontext}
                         <FaLongArrowAltRight className="ms-1" size={10} />
-                      </p>
+                      </SubHeadingComponents>
                     </Link>
                   )}
                 </div>

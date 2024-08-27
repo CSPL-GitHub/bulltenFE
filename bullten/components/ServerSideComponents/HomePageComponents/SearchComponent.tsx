@@ -3,6 +3,7 @@ import SearchSection from "@/components/ClientSideComponents/HomePageComponents/
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
 import SubParaGraph from "@/components/CommonComponents/HeadingComponents/SubParaGraph";
 
 const DomainSearchComponent = async () => {
@@ -12,18 +13,20 @@ const DomainSearchComponent = async () => {
     <>
       {DomainsearchApiResponse?.result?.Active === true ? (
         <section className="flex flex-col  justify-center px-4 py-4 w-full mx-auto container">
-          <div className="bg-bullt-secondary px-8 py-4 rounded-md border border-bullt-primary/[0.1] -mt-24 z-10 lg:max-w-3xl w-full mx-auto">
+          <div className="bg-bullt-secondary px-4 py-4 rounded-md border border-bullt-primary/[0.1] -mt-24 z-10 lg:max-w-4xl w-full mx-auto">
             {DomainsearchApiResponse?.result?.data?.label ? (
-              <SloganHeadingComponent paddingTop={1} alignmentType={1}>
-                <p className="text-bullt-tertiary">
-                  {DomainsearchApiResponse?.result?.data?.label}
-                </p>
+              <SloganHeadingComponent
+                paddingTop={1}
+                alignmentType={1}
+                hoverEffect="text-bullt-tertiary"
+              >
+                {DomainsearchApiResponse?.result?.data?.label}
               </SloganHeadingComponent>
             ) : null}
             {DomainsearchApiResponse?.result?.data?.heading ? (
-              <p className="sm:text-3xl text-2xl font-bold text-gray-900 mb-6">
+              <MainHeadingComponent alignmentType={1}>
                 {DomainsearchApiResponse?.result?.data?.heading}
-              </p>
+              </MainHeadingComponent>
             ) : null}
             {DomainsearchApiResponse?.result?.data?.description ? (
               <ParaGraphText paddingTop={1}>

@@ -23,9 +23,9 @@ const FooterMap = ({ footerMapResponse }: any) => {
   return (
     <div className="px-4 lg:px-0 h-auto w-full flex sm:flex-row items-start justify-center flex-col">
       <div className="sm:w-[50%] w-full sm:py-10 py-0">
-        <h6 className="text-bullt-text-quinary font-semibold">
+        <SloganHeadingComponent alignmentType={1} paddingTop={1}>
           Global Hosting, Unmatched Performance
-        </h6>
+        </SloganHeadingComponent>
         <MainHeadingComponent paddingTop={1} alignmentType={2}>
           {footerMapResponse?.heading}
         </MainHeadingComponent>

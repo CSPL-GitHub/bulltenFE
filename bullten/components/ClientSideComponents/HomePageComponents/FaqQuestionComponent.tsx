@@ -2,6 +2,7 @@
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
+import SubParaGraph from "@/components/CommonComponents/HeadingComponents/SubParaGraph";
 import React, { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 type Props = {
@@ -22,24 +23,27 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse }) => {
         >
           <button
             onClick={() => toggleOpen(index)}
-            className={`w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center ${openIndex === index ?"text-bullt-text-quinary":""}`}
+            className={`w-full text-left px-6 py-3 focus:outline-none flex justify-between items-center ${
+              openIndex === index ? "text-bullt-text-quinary" : ""
+            }`}
           >
             {item?.heading ? (
-
-              <h1>{item?.heading}</h1>
-
+              <ParaGraphText paddingTop={1}>{item?.heading}</ParaGraphText>
             ) : null}
             <FiPlus
-              className={`text-bullt-text-quinary text-2xl cursor-pointer transform transition-transform duration-300 ${openIndex === index ? "rotate-45" : ""
-                }`}
+              className={`text-bullt-text-quinary text-2xl cursor-pointer transform transition-transform duration-300 ${
+                openIndex === index ? "rotate-45" : ""
+              }`}
             />
           </button>
           {openIndex === index && (
-            <div className={`px-6 py-2  border-t border-bullt-primary/[0.2]  ${openIndex === index ?"":""}`}>
+            <div
+              className={`px-6 py-2  border-t border-bullt-primary/[0.2]  ${
+                openIndex === index ? "" : ""
+              }`}
+            >
               {item?.description ? (
-                <p>
-                  {item?.description}
-                </p>
+                <SubParaGraph paddingTop={2}>{item?.description}</SubParaGraph>
               ) : null}
             </div>
           )}

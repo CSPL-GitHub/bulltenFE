@@ -3,8 +3,8 @@ import classNames from "classnames";
 
 type Props = {
   children: React.ReactNode;
-  paddingTop?: number; // Accepts padding as a Tailwind class or custom string
-  hoverEffect?: string; // Accepts hover effect classes
+  paddingTop?: number;
+  hoverEffect?: string;
   alignmentType?: number;
 };
 

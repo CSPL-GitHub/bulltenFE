@@ -18,7 +18,7 @@ const SloganHeadingComponent = ({
     <div>
       <h4
         className={classNames(
-          `flex items-center text-[1.2rem] lg:text-[1.1rem] font-semibold ${
+          `flex items-center text-[1.2rem] lg:text-[1.1rem] font-semibold text-bullt-tertiary ${
             paddingTop === 1
               ? "py-1"
               : paddingTop === 2

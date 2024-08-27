@@ -38,7 +38,7 @@ export default function TestimonialsCard({
 
           {testimonial?.role ? (
             <SubParaGraph
-              py={1}
+              paddingTop={1}
               alignmentType={1}
               hoverEffect="text-sm text-gray-500 group-hover:text-bullt-secondary transition-colors duration-300"
             >

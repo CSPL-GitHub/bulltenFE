@@ -12,14 +12,9 @@ const ServerFeatures = async () => {
     serverFeaturesData?.result?.data || {};
 
   return (
-    <section
-      className="relative bg-fixed bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url('https://img.freepik.com/free-photo/black-prism-concept-ai-generated_268835-7011.jpg?size=626&ext=jpg&uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')`,
-      }}
-    >
-      <div className="bg-gradient-to-b from-black/30 to-black/40 w-full pt-16 pb-16 mx-auto flex flex-col items-center">
-        <div className="max-w-4xl text-center text-white space-y-4">
+    <section className="relative bg-fixed bg-cover py-16 ">
+      <div className="bg-bullt-quaternary/[0.04] w-full pt-16 pb-16 mx-auto flex flex-col items-center px-6">
+        <div className="max-w-4xl text-center text-black space-y-4">
           {title && (
             <h2 className="text-3xl font-bold leading-tight">{title}</h2>
           )}
@@ -32,7 +27,7 @@ const ServerFeatures = async () => {
           {server_feature?.map((feature: any, index: number) => (
             <div
               key={index}
-              className=" px-4 py-2 rounded-lg shadow-lg text-center flex flex-col items-center transition-transform duration-300 ease-in-out hover:scale-105"
+              className=" px-4 py-4 rounded-lg shadow-lg  text-center flex flex-col items-center transition-transform duration-300 ease-in-out hover:scale-105"
             >
               {feature.icon && (
                 <div className="w-20 h-20 mb-4 relative">
@@ -44,11 +39,11 @@ const ServerFeatures = async () => {
                   />
                 </div>
               )}
-              <h3 className="text-xl font-semibold text-white mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {feature.title}
               </h3>
               {feature.description && (
-                <p className="text-gray-200 text-sm leading-relaxed">
+                <p className="text-gray-900 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               )}

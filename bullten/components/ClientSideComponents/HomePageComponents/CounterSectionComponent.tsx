@@ -1,4 +1,8 @@
 "use client";
+import HighlightingTextComponent from "@/components/CommonComponents/HeadingComponents/HighlightingTextComponent";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 
@@ -77,12 +81,17 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                       0
                     )}
                   </div>
-                  <span className="text-lg sm:text-xl text-bullt-tertiary font-extrabold">
+                  <HighlightingTextComponent>
                     {counter?.countname}
-                  </span>
-                  <p className="text-gray-200 font-normal text-sm sm:text-base  transition-colors duration-300">
+                  </HighlightingTextComponent>
+                  <ParaGraphText
+                    alignmentType={2}
+                    paddingTop={1}
+                    hoverEffect="text-bullt-secondary"
+                  >
+                    {" "}
                     {counter?.description}
-                  </p>
+                  </ParaGraphText>
                 </div>
               </div>
             ))}

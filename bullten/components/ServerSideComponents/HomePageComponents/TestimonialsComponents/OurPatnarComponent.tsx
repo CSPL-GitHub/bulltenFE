@@ -9,31 +9,37 @@ type Props = {};
 const OurPatnarComponent = async (props: Props) => {
   const OurPatnarApiResponse = await OurPatnarApi();
   const data = OurPatnarApiResponse?.result;
-  const img = require("../../../../public/about.jpg")
+  const img = require("../../../../public/about.jpg");
 
   return (
     <>
       {data?.Active === true ? (
-        <section
-          className="w-full lg:flex px-4 py-6">
+        <section className="w-full lg:flex gap-4 py-20">
           <div className="lg:w-1/2 w-full">
-            <div className="h-[550px] lg:w-[550px] w-full relative mx-auto">
+            <div className="h-[550px] lg:w-full w-full relative ">
               <Image
+                className="rounded-lg "
                 src={img}
                 alt="all"
                 style={{
                   position: "absolute",
-                  objectFit: "cover",
+                  objectFit: "contain",
+                  objectPosition: "top",
                   inset: 0,
                 }}
                 fill={true}
               />
             </div>
           </div>
-          <div className="container flex flex-col lg:w-1/2 w-full">
-            <div className="w-full px-4 py-4">
-              {data?.partner_data?.label ? <><p className="text-bullt-tertiary text-xl">
-                {data?.partner_data?.label}</p></> : null}
+          <div className="container flex flex-col lg:w-1/2 gap-6 w-full">
+            <div className="w-full flex flex-col gap-4 px-6">
+              {data?.partner_data?.label ? (
+                <>
+                  <p className="text-bullt-tertiary text-xl">
+                    {data?.partner_data?.label}
+                  </p>
+                </>
+              ) : null}
               {data?.partner_data?.heading ? (
                 <h2 className="text-[2rem] lg:text-[2.3rem] font-semibold text-bullt-primary">
                   {data?.partner_data?.heading}
