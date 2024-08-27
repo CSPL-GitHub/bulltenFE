@@ -9,26 +9,23 @@ import MainHeadingComponent from "@/components/CommonComponents/HeadingComponent
 
 const BlogsComponent = async () => {
   const blogResponse = await BlogSectionApi();
-  console.log("blogResponse", blogResponse?.result);
   return (
     <>
       {blogResponse?.result?.Active === true ? (
         <>
-          <section className="px-4 pb-10">
+          <section className="w-full py-12 px-6 bg-bullt-quaternary/[0.03] rounded-md">
             <div className="text-center py-5">
               {blogResponse?.result?.data?.label ? (
                 <div className="text-bullt-text-quinary ">
                   <SloganHeadingComponent alignmentType={2} paddingTop={1}>
                     {blogResponse?.result?.data?.label}
                   </SloganHeadingComponent>
-                  </div>
-              
+                </div>
               ) : null}
               {blogResponse?.result?.data?.heading ? (
                 <MainHeadingComponent alignmentType={2} paddingTop={1}>
                   {blogResponse?.result?.data?.heading}
                 </MainHeadingComponent>
-               
               ) : null}
               {blogResponse?.result?.data?.description ? (
                 <>
@@ -38,9 +35,8 @@ const BlogsComponent = async () => {
                 </>
               ) : null}
             </div>
-            <BlogCartComponent blogResponse={blogResponse}/>
+            <BlogCartComponent blogResponse={blogResponse} />
           </section>
-         
         </>
       ) : null}
     </>

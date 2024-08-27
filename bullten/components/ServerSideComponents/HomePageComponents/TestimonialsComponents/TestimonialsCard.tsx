@@ -1,6 +1,5 @@
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
-import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
 import SubParaGraph from "@/components/CommonComponents/HeadingComponents/SubParaGraph";
 import Image from "next/image";
 import React from "react";
@@ -12,63 +11,57 @@ export default function TestimonialsCard({
   testimonial: any;
 }) {
   return (
-    <div
-      className="group w-full min-h-60 relative bg-bullt-secondary rounded-md border-bullt-quaternary  hover:rounded-md shadow-md mx-auto mt-12 mb-10  transition-colors duration-300"
-      style={{
-        backgroundImage: 'url("/feature-img.png")',
-        backgroundSize: "cover",
-        backgroundPosition: "right",
-      }}
-    >
-      <div className="absolute inset-x-0 top-0 flex justify-center transform -translate-y-1/2">
-        <div className="w-24 h-24 relative flex justify-center bg-bullt-quaternary  group-hover:bg-bullt-secondary rounded-full shadow-lg items-center transition-colors duration-300">
-          <FaQuoteRight className="text-bullt-secondary  group-hover:text-bullt-quaternary text-4xl transition-colors duration-300" />
+    <div className="group w-full max-w-lg min-h-60 border relative bg-white rounded-lg shadow-lg mx-auto mt-12 mb-10 p-6 hover:shadow-xl hover:bg-bullt-quaternary transition-all duration-300">
+      <div className="flex items-center gap-4 mb-4">
+        {testimonial?.client_image ? (
+          <div className="w-16 h-16 relative">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial?.client_image}`}
+              alt={testimonial?.alt_text}
+              className="w-full h-full rounded-full object-cover"
+              fill={true}
+            />
+          </div>
+        ) : (
+          <div className="w-16 h-16 bg-gray-300 rounded-full" />
+        )}
+        <div>
+          {testimonial?.name ? (
+            <SloganHeadingComponent
+              paddingTop={1}
+              alignmentType={1}
+              hoverEffect=" text-gray-800 group-hover:text-bullt-secondary transition-colors duration-300"
+            >
+              {testimonial?.name}
+            </SloganHeadingComponent>
+          ) : null}
+
+          {testimonial?.role ? (
+            <SubParaGraph
+              py={1}
+              alignmentType={1}
+              hoverEffect="text-sm text-gray-500 group-hover:text-bullt-secondary transition-colors duration-300"
+            >
+              {testimonial?.role}
+            </SubParaGraph>
+          ) : null}
         </div>
       </div>
-      <div className="w-full h-full pt-14 px-4 pb-3 flex flex-col justify-between items-start gap-2 group-hover:bg-bullt-quaternary group-hover:rounded-md  transition-colors duration-300">
+
+      <div className="relative">
+        <FaQuoteRight className="absolute top-0 left-0 text-bullt-quaternary text-2xl opacity-20" />
         {testimonial?.description ? (
           <ParaGraphText
             paddingTop={3}
             alignmentType={1}
-            hoverEffect="group-hover:text-bullt-secondary transition-colors duration-300"
+            hoverEffect="text-gray-700 italic group-hover:text-bullt-secondary transition-colors duration-300"
           >
             {testimonial?.description}
           </ParaGraphText>
         ) : null}
-        <div className="flex flex-row gap-2 justify-center items-start">
-          {testimonial?.client_image ? (
-            <div className="w-14 h-14 relative">
-              <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial?.client_image}`}
-                alt={testimonial?.alt_text}
-                className="w-full h-full absolute top-0 start-0 rounded-full object-cover"
-                fill={true}
-              />
-            </div>
-          ) : null}
-          <div className="flex flex-col">
-            {testimonial?.name ? (
-              <SloganHeadingComponent
-                paddingTop={1}
-                alignmentType={1}
-                hoverEffect="group-hover:text-bullt-secondary transition-colors duration-300"
-              >
-                {testimonial?.name}
-              </SloganHeadingComponent>
-            ) : null}
-
-            {testimonial?.role ? (
-              <SubParaGraph
-                py={1}
-                alignmentType={1}
-                hoverEffect="group-hover:text-bullt-secondary transition-colors duration-300"
-              >
-                {testimonial?.role}
-              </SubParaGraph>
-            ) : null}
-          </div>
-        </div>
       </div>
+
+      <div className="absolute inset-x-0 bottom-0 h-1 w-full bg-gradient-to-r from-bullt-quaternary to-transparent group-hover:from-bullt-secondary transition-colors duration-300"></div>
     </div>
   );
 }

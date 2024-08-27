@@ -1,20 +1,22 @@
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import CounterSectionComponent from "@/components/ClientSideComponents/HomePageComponents/CounterSectionComponent";
-import { CounteSectionApi } from "@/apis/HomePageApis";
+import { CounteSectionApi, footerMapApi } from "@/apis/HomePageApis";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import Image from "next/image";
+import FooterMap from "../FooterComponent/FooterMap";
 
 const CounterComponent: React.FC = async () => {
   const response = await CounteSectionApi();
   const counterData = response?.result;
+  const footerMapResponse = await footerMapApi();
   return (
     <>
       {counterData?.Active === true ? (
         <>
-          <div className="w-full py-12 px-6 bg-white">
-            <div className="flex flex-col items-center justify-center mx-auto gap-2">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center ">
+          <div className="container w-full pt-10 mx-auto ">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-start ">
                 <div className="sm:w-[50%] w-full flex flex-col items-start justify-start">
                   {counterData?.data?.label && (
                     <h2 className="text-bullt-text-quinary font-semibold">
@@ -31,18 +33,16 @@ const CounterComponent: React.FC = async () => {
                       {counterData?.data?.description}
                     </ParaGraphText>
                   )}
+
+                  <CounterSectionComponent counterData={counterData?.data} />
                 </div>
 
                 <div className="sm:w-1/2 flex justify-center sm:justify-end mt-4 sm:mt-0 relative">
-                  <img
-                    className="w-full  bg-transparent object-cover"
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${counterData?.data?.img}`}
-                    alt={counterData?.data?.image_alt_text}
+                  <FooterMap
+                    footerMapResponse={footerMapResponse?.result?.map_data}
                   />
                 </div>
               </div>
-
-              <CounterSectionComponent counterData={counterData?.data} />
             </div>
           </div>
         </>

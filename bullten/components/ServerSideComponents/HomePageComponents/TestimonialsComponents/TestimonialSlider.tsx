@@ -90,14 +90,14 @@ const TestimonialSlider = ({ TestimonialsContent }: Props) => {
   return (
     <>
       {TestimonialsContent?.result?.Active === true ? (
-        <div className="rounded-md w-full bg-no-repeat bg-cover bg-center py-10 px-6  border-0 shadow-sm">
+        <div className="rounded-md w-full bg-no-repeat bg-cover bg-center py-12 px-6 border-0 shadow-sm">
           <MainHeadingComponent alignmentType={2}>
             {testimonialData?.title}
           </MainHeadingComponent>
           <ParaGraphText alignmentType={2}>
             {testimonialData?.description}
           </ParaGraphText>
-          <div className="w-full container mx-auto sm:px-8 px-4">
+          <div className="w-full container mx-auto ">
             <SliderFrame settings={settings} selector={sliderRef}>
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="px-4">

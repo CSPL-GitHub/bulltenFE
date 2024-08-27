@@ -20,13 +20,13 @@ const FooterMap = ({ footerMapResponse }: any) => {
   const [hoveredMarker, setHoveredMarker] = useState<any | null>(null);
 
   return (
-    <div className="px-4 lg:px-0 h-auto lg:h-[700px]  shadow-md my-2">
-      <MainHeadingComponent paddingTop={3} alignmentType={2}>
+    <div className="px-4 lg:px-0 h-auto lg:h-[600px] w-full">
+      {/* <MainHeadingComponent paddingTop={3} alignmentType={2}>
         {footerMapResponse?.heading}
       </MainHeadingComponent>
       <ParaGraphText alignmentType={2}>
         {footerMapResponse?.description}
-      </ParaGraphText>
+      </ParaGraphText> */}
       <ComposableMap className="h-full w-full">
         <Geographies geography="/features.json" fill="#1E3A8A" stroke="#1E3A8A">
           {({ geographies }) =>
@@ -44,7 +44,7 @@ const FooterMap = ({ footerMapResponse }: any) => {
               onMouseEnter={() => setHoveredMarker(marker)}
               onMouseLeave={() => setHoveredMarker(null)}
             >
-              <circle cx={0} cy={0} r={4} fill="#FF8C00" />{" "}
+              <circle cx={0} cy={0} r={7} fill="#FF8C00" />{" "}
               {hoveredMarker === marker && (
                 <g>
                   <line
@@ -80,8 +80,8 @@ const FooterMap = ({ footerMapResponse }: any) => {
                       href={`${process.env.NEXT_PUBLIC_BASE_URL}${marker?.flagUrl}`}
                       x={-15}
                       y={-15}
-                      width={35}
-                      height={35}
+                      width={45}
+                      height={45}
                       clipPath="url(#circleClip)"
                       preserveAspectRatio="xMidYMid meet"
                     />

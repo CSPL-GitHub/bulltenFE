@@ -13,7 +13,7 @@ const FaqSection = async () => {
     <>
       {FaqSection?.result?.Active === true ? (
         <>
-          <section className="bg-blue-50 py-8 px-6 lg:px-8 w-full">
+          <section className="w-full py-12 px-6 bg-bullt-quaternary/[0.03] rounded-md">
             <div className="sm:flex gap-5">
               <div className="sm:w-1/2 ">
                 {FaqSectionApiResponse?.data?.heading ? (

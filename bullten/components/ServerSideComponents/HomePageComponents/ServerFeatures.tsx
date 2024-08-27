@@ -10,36 +10,48 @@ const ServerFeatures = async () => {
   return (
     <>
       {serverFeaturesData?.result?.Active === true ? (
-        <div className="bg-gray-100 w-full flex flex-col items-center py-16 px-6">
-          <MainHeadingComponent alignmentType={2} paddingTop={1}>
+        <div className=" w-full flex flex-col items-center py-16 px-6">
+          <MainHeadingComponent
+            alignmentType={2}
+            paddingTop={1}
+            hoverEffect=" text-blue-900 "
+          >
             {serverFeaturesData?.result?.data?.title}
           </MainHeadingComponent>
-          <ParaGraphText alignmentType={2}>
+          <ParaGraphText
+            alignmentType={2}
+            paddingTop={3}
+            hoverEffect="text-gray-700"
+          >
             {serverFeaturesData?.result?.data?.description}
           </ParaGraphText>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
             {serverFeaturesData?.result?.data?.server_feature.map(
               (product: any, index: number) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col hover:bg- justify-center items-center transition-transform duration-300 ease-in-out hover:-translate-y-2"
+                  className="bg-white p-8 rounded-md shadow-sm text-left flex flex-col items-start transition-transform duration-300 ease-in-out hover:shadow-md hover:scale-105"
                 >
                   {product.icon && (
-                    <div className="w-14 h-14 relative">
+                    <div className="w-16 h-16 mb-4 relative">
                       <Image
                         src={`${process.env.NEXT_PUBLIC_BASE_URL}${product?.icon}`}
                         alt={product?.alt_text}
-                        className="w-full h-full absolute top-0 start-0 rounded-full object-cover"
+                        className="rounded-full object-cover"
                         fill={true}
                       />
                     </div>
                   )}
-                  <SubHeadingComponents alignmentType={2} paddingTop={3}>
+                  <SubHeadingComponents
+                    alignmentType={2}
+                    paddingTop={1}
+                    hoverEffect=" text-blue-800 "
+                  >
                     {product.title}
                   </SubHeadingComponents>
                   {product.description ? (
-                    <ParaGraphText paddingTop={1}>
+                    <ParaGraphText hoverEffect="text-gray-600">
                       {product.description}
                     </ParaGraphText>
                   ) : null}

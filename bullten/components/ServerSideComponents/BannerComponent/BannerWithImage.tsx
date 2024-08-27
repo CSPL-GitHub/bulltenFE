@@ -56,10 +56,8 @@ const BannerWithImage = ({ banner }: Props) => {
               {banner?.title}
             </h2>
 
-            <h3 className="text-white text-lg mb-4">
-              <h3 className="text-white text-xl font-semibold mb-4">
-                {banner?.link}
-              </h3>
+            <h3 className="text-white text-xl font-semibold mb-4">
+              {banner?.link}
             </h3>
 
             <div className="flex sm:flex-row flex-col gap-3 text-bullt-secondary">

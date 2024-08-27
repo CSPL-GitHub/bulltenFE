@@ -19,6 +19,7 @@ import OurPatnarComponent from "@/components/ServerSideComponents/HomePageCompon
 import DomainSearchComponent from "@/components/ServerSideComponents/HomePageComponents/SearchComponent";
 import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
 import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
+import WhyChooseWebHosting from "@/components/ServerSideComponents/HomePageComponents/WhyChooseWebHosting";
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
@@ -37,7 +38,7 @@ export default async function Home() {
         <DomainSearchComponent />
       </Suspense>
       {/* Main container with consistent spacing */}
-      <div className="container mx-auto lg:px-8 px-3 bg-bullt-quaternary/[0.03]">
+      <div className="container mx-auto ">
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TrustedCompaniesLogos />
         </Suspense>
@@ -54,20 +55,23 @@ export default async function Home() {
           <WordPressHoistingComponent />
         </Suspense>
 
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
-        </Suspense>
-
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <ChatService />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ServerFeatures />
         </Suspense>
-
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <OurPatnarComponent />
+        </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <WhyChooseWebHosting />
+        </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <ChatService />
         </Suspense>
 
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>

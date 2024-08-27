@@ -1,6 +1,6 @@
-import { OurPatnarApi } from '@/apis/HomePageApis';
-import OurPatnarTabComponent from '@/components/ClientSideComponents/HomePageComponents/OurPatnarTabComponent';
-import React from 'react';
+import { OurPatnarApi } from "@/apis/HomePageApis";
+import OurPatnarTabComponent from "@/components/ClientSideComponents/HomePageComponents/OurPatnarTabComponent";
+import React from "react";
 
 type Props = {};
 
@@ -11,7 +11,7 @@ const OurPatnarComponent = async (props: Props) => {
   return (
     <>
       {data?.Active === true ? (
-        <section className="py-12 px-4 sm:px-12 ">
+        <section className="w-full py-12 px-6  bg-bullt-quaternary/[0.03] rounded-md">
           <div className="container mx-auto flex flex-wrap lg:flex-nowrap items-center justify-between">
             <div className="lg:w-[70%] w-full px-4 sm:px-0">
               {data?.partner_data?.heading ? (

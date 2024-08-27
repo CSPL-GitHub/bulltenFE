@@ -31,7 +31,7 @@ const SupportSection = ({ supportContent }: Props) => {
   return (
     <>
       {supportContent?.Active === true ? (
-        <div className=" w-full py-12 px-6">
+        <div className=" w-full py-12 px-6  bg-bullt-quaternary/[0.03] rounded-md">
           <div className="w-full mx-auto flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/5 w-full">
               {supportContent?.data?.heading && (

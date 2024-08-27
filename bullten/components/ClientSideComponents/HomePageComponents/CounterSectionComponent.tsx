@@ -55,15 +55,15 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   return (
     <>
       {counterData?.counters?.length > 0 && (
-        <div className="w-full mx-auto text-center px-0  py-6 " ref={ref}>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="w-full mx-auto text-center px-0  py-6" ref={ref}>
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {counterData?.counters?.map((counter, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md sm:shadow-lg p-3 sm:p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                className="bg-white shadow-md sm:shadow-sm p-3 sm:p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-lg border-2 border-bullt-quaternary/[0.2]"
               >
                 <div className="flex flex-col items-start justify-start">
-                  <div className="flex flex-row gap-2 items-center justify-center text-xl sm:text-4xl font-extrabold text-black h-[40px] sm:h-[60px]">
+                  <div className="flex flex-row gap-2 items-center justify-center text-xl sm:text-4xl font-bold text-black h-[40px] sm:h-[40px] ">
                     <span>
                       {startCount ? (
                         <CountUp
@@ -75,11 +75,11 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                         0
                       )}
                     </span>
-                    <span className="text-black text-center text-[10px] leading-[10px] sm:text-sm">
+                    <span className="text-black font-normal text-center text-[10px] leading-[10px] sm:text-sm">
                       {counter?.countname}
                     </span>
                   </div>
-                  <p className="text-bullt-tertiary font-semibold text-[10px] sm:text-sm mt-2 sm:mt-3  transition-colors duration-300">
+                  <p className="text-bullt-tertiary font-normal text-[14px] sm:text-lg mt-2 sm:mt-3 transition-colors duration-300">
                     {counter?.description}
                   </p>
                 </div>
