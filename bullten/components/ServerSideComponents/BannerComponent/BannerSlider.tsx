@@ -4,6 +4,7 @@ import { Banner } from "@/types/BannerTypes";
 import React, { useEffect, useRef, useState } from "react";
 import HomePageBannerCard from "./HomePageBannerCard";
 import BannerWithImage from "./BannerWithImage";
+import NewBanner from "./NewBanner";
 
 type Props = {
   banners: Banner[];
@@ -36,7 +37,7 @@ const BannerSlider = ({ banners }: Props) => {
   return (
     <SliderFrame settings={settings} selector={sliderRef}>
       {banners?.map((banner: Banner) => {
-        return <BannerWithImage banner={banner} key={banner?.id} />;
+        return <NewBanner banner={banner} key={banner?.id} />
       })}
     </SliderFrame>
   );

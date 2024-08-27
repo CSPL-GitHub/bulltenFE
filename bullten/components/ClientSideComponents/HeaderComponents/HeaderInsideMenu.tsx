@@ -13,8 +13,8 @@ type Props = {
 
 const HeaderInsideMenu:React.FC<Props> = ({subheaderIndex, insideSubMenu, headerMenu, setOpenSubMenu}) => {
   return (
-    <div className={`${subheaderIndex === subheaderIndex ? "block" : "hidden"} col-span-10 grid grid-cols-8`}>
-        <div className={`col-span-6  ${insideSubMenu?.subheaders?.length > 4 ? " grid grid-cols-2" : ""}`}>
+    <div className={`${subheaderIndex === subheaderIndex ? "block" : "hidden"} col-span-9 grid grid-cols-8 `}>
+        <div className={`col-span-6 py-4 ${insideSubMenu?.subheaders?.length > 4 ? " grid grid-cols-2" : ""}`}>
           {insideSubMenu?.subheaders?.map((subHeaderLinks: any) =>
             <Link
               href={`${headerMenu?.path}/${subHeaderLinks?.slug}`}

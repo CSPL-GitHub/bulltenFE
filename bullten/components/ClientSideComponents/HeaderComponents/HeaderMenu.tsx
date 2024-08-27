@@ -39,22 +39,22 @@ const HeaderMenu = ({ headerResponse }: Props) => {
 
   return (
     <header className={`w-full fixed ${"lg:top-0"} top-0 start-0 z-10 `}>
-      <div className=" mx-auto ">
+      <div className="">
         <div
-          className={`w-full relative z-50 px-3 `}
+          className={`w-full relative z-50 px-3 ${moveDown ? "shadow-sm" : "none" }`}
           style={{
-            ...(moveDown
+            ...(moveDown || openSubMenu
               ? {
                   background: `#ffffff`,
                   backdropFilter: "blur(35px)",
                 }
-              : { background: `#ffffff`, backdropFilter: "blur(0px)" }),
+              : { background: `transparent`, backdropFilter: "blur(0px)" }),
           }}
         >
-          <div className="flex absolute justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] container mx-auto">
+          <div className="flex  justify-between items-center sm:gap-10 min-h-[65px] max-h-[65px] container mx-auto">
             <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center">
               <Link href="/">
-                <div className="sm:w-[300px] w-[200px] h-[70px] relative">
+                <div className="sm:w-[200px] w-[200px] h-[70px] relative">
                   <Image
                     className="sm:rounded-[20%] rounded-[20%] object-contain "
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${headerResponse?.result?.logo}`}
@@ -101,7 +101,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           {headerMenu?.subheader?.length > 0 ? (
                             <>
                               <h2
-                                className={`flex relative cursor-default text-lg items-center min-h-16 font-semiBold text-bullt-primary`}
+                                className={`flex relative cursor-default text-lg items-center min-h-16 font-semiBold ${moveDown || openSubMenu ? "text-bullt-primary" : "text-bullt-secondary"} hover:text-bullt-quaternary hover:border-b-4 border-bullt-quaternary`}
                                 onMouseEnter={() => {
                                   setOpenSubMenu(headerMenu?.id);
                                 }}
@@ -114,7 +114,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           ) : (
                             <Link href={`${headerMenu?.path}`}>
                               <h6
-                                className={`flex relative cursor-pointer font-semiBold text-lg text-bullt-primary`}
+                                className={`flex relative cursor-pointer min-h-16 items-center font-semiBold text-lg  hover:text-bullt-quaternary hover:border-b-4 border-bullt-quaternary ${moveDown || openSubMenu ? "text-bullt-primary" : "text-bullt-secondary"}`}
                               >
                                 {headerMenu?.title}
                               </h6>
