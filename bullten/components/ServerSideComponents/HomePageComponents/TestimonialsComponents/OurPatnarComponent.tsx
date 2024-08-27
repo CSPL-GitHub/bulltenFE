@@ -23,7 +23,7 @@ const OurPatnarComponent = async (props: Props) => {
                 alt="all"
                 style={{
                   position: "absolute",
-                  objectFit: "contain",
+                  objectFit: "cover",
                   objectPosition: "top",
                   inset: 0,
                 }}
