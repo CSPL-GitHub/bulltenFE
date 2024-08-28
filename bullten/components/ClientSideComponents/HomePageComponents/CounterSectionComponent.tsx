@@ -1,5 +1,5 @@
 "use client";
-import HighlightingTextComponent from "@/components/CommonComponents/HeadingComponents/highlightingTextComponent";
+import HighlightingTextComponent from "@/components/CommonComponents/HeadingComponents/HighlightingTextComponent";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";

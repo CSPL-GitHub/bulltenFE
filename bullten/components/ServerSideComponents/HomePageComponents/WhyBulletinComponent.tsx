@@ -49,7 +49,7 @@ const WhyBulletinComponent = async () => {
                   </div>
                 </div>
 
-                <div className="shadow-md bg-white py-4 px-7">
+                <div className="shadow-md bg-white py-14 lg:py-4 px-7">
                   {WhyUsSectionApiResponse?.data?.label ? (
                     <>
                       <SloganHeadingComponent
