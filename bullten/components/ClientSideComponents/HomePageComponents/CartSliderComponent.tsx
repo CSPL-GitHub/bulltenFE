@@ -9,10 +9,10 @@ type Props = { data: any };
 
 const CartSliderComponent: React.FC<Props> = ({ data }) => {
   return (
-    <div className="py-7 px-2 lg:px-6">
+    <div className="">
       {data?.map((item: any, index: number) => (
-        <div key={index} className="px-2 py-2">
-          <div className="bg-white text-black border-[1px] border-white/10 rounded-lg p-4 group transition hover:bg-white hover:text-black hover:border-purple-500">
+        <div key={index} className="px-2 py-2 flex flex-col gap-8">
+          <div className="shadow-md bg-bullt-quaternary/[0.04] text-black border-[1px] border-white/10 rounded-lg p-4 group transition hover:bg-white hover:text-black hover:border-purple-500">
             <div className="flex justify-between items-center"></div>
 
             <SubHeadingComponents alignmentType={1} paddingTop={3}>

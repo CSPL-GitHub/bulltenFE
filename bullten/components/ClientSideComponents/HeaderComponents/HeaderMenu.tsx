@@ -41,7 +41,9 @@ const HeaderMenu = ({ headerResponse }: Props) => {
     <header className={`w-full fixed ${"lg:top-0"} top-0 start-0 z-10 `}>
       <div className="">
         <div
-          className={`w-full relative z-50 px-3 ${moveDown ? "shadow-sm" : "none" }`}
+          className={`w-full relative z-50 px-3 ${
+            moveDown ? "shadow-sm" : "none"
+          }`}
           style={{
             ...(moveDown || openSubMenu
               ? {
@@ -101,7 +103,11 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           {headerMenu?.subheader?.length > 0 ? (
                             <>
                               <h2
-                                className={`flex relative cursor-default text-lg items-center min-h-16 font-semiBold ${moveDown || openSubMenu ? "text-bullt-primary" : "text-bullt-secondary"} hover:text-bullt-quaternary hover:border-b-4 border-bullt-quaternary`}
+                                className={`flex relative cursor-default text-lg items-center min-h-16 font-semiBold ${
+                                  moveDown || openSubMenu
+                                    ? "text-bullt-primary"
+                                    : "text-bullt-secondary"
+                                } hover:text-bullt-quaternary hover:border-b-4 border-bullt-quaternary`}
                                 onMouseEnter={() => {
                                   setOpenSubMenu(headerMenu?.id);
                                 }}
@@ -114,7 +120,11 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           ) : (
                             <Link href={`${headerMenu?.path}`}>
                               <h6
-                                className={`flex relative cursor-pointer min-h-16 items-center font-semiBold text-lg  hover:text-bullt-quaternary hover:border-b-4 border-bullt-quaternary ${moveDown || openSubMenu ? "text-bullt-primary" : "text-bullt-secondary"}`}
+                                className={`flex relative cursor-pointer min-h-16 items-center font-semiBold text-lg  hover:text-bullt-quaternary hover:border-b-4 border-bullt-quaternary ${
+                                  moveDown || openSubMenu
+                                    ? "text-bullt-primary"
+                                    : "text-bullt-secondary"
+                                }`}
                               >
                                 {headerMenu?.title}
                               </h6>

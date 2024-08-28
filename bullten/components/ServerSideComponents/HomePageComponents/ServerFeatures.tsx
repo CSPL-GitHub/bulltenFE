@@ -12,7 +12,7 @@ const ServerFeatures = async () => {
     serverFeaturesData?.result?.data || {};
 
   return (
-    <section className="relative bg-fixed bg-cover py-14 ">
+    <section className="relative bg-fixed bg-cover ">
       <div className="bg-bullt-quaternary/[0.04] w-full pt-16 pb-16 mx-auto flex flex-col items-center px-6">
         <div className="max-w-4xl text-center text-black space-y-4">
           {title && (

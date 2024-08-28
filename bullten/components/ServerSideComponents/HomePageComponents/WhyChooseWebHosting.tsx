@@ -7,13 +7,12 @@ type Props = {};
 const WhyChooseWebHosting = async (props: Props) => {
   const WhyChosoeWebHostingApiResponse = await WhyChooseWebHostingApi();
   const res = WhyChosoeWebHostingApiResponse?.result;
-  console.log(res?.data?.title, "resultssss");
 
   return (
     <>
       {res?.Active === true ? (
         <>
-          <section className="py-12 w-full px-6">
+          <section className="py-6 w-full px-4">
             <div className="mx-auto sm:text-center">
               {res?.data?.title ? (
                 <>
