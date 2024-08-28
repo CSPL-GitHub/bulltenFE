@@ -34,14 +34,19 @@ export default async function Home() {
             <BannerSlider banners={homePageBannerContentApi?.result?.banner} />
           )}
       </Suspense>
-      {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-        <DomainSearchComponent />
-      </Suspense> */}
+     
       {/* Main container with consistent spacing */}
       <div className="container mx-auto ">
+       
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OurPatnarComponent />
+        </Suspense> <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <DomainSearchComponent />
+      </Suspense>
+      <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TrustedCompaniesLogos />
         </Suspense>
+
 
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <SupportSection supportContent={SupportSectionContent?.result} />
@@ -54,34 +59,28 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WordPressHoistingComponent />
         </Suspense>
-
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <ServerFeatures />
-        </Suspense>
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <OurPatnarComponent />
-        </Suspense>
-
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <WhyChooseWebHosting />
-        </Suspense>
-
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <ChatService />
-        </Suspense>
-
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <FaqSection />
-        </Suspense>
-
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialSlider TestimonialsContent={TestimonialsContent} />
-        </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <ServerFeatures />
+        </Suspense>
+        
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <WhyChooseWebHosting />
+        </Suspense>
+       
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <ChatService />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <BlogsComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <FaqSection />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <TestimonialSlider TestimonialsContent={TestimonialsContent} />
         </Suspense>
       </div>
     </main>
