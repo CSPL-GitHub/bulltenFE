@@ -78,8 +78,8 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
         <Slider {...settings}>
           {blogResponse?.result?.data?.blogs?.map((blog: any) => (
             <div key={blog?.id} className="px-2">
-              <div className="relative flex flex-col w-full h-[340px] overflow-hidden rounded-lg shadow-lg group ">
-                <div className="h-[50%] ">
+              <div className="relative flex flex-col w-full h-[370px] overflow-hidden rounded-lg shadow-lg group ">
+                <div className="h-[65%] ">
                   <img
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${blog?.img}`}
                     alt="Blog Image"
@@ -92,7 +92,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
                     </div>
                   )}
                 </div>
-                <div className="px-3 py-1 h-full bg-white rounded-b-lg text-black">
+                <div className="px-3 py-3 h-full bg-white rounded-b-lg text-black">
                   <div className="flex items-center mb-2">
                     {blog?.author && (
                       <div className="text-sm text-gray-500 flex items-center gap-1">

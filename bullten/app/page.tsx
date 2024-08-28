@@ -20,6 +20,7 @@ import DomainSearchComponent from "@/components/ServerSideComponents/HomePageCom
 import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
 import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
 import WhyChooseWebHosting from "@/components/ServerSideComponents/HomePageComponents/WhyChooseWebHosting";
+import TestimonialsSection from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/NewTestimonial";
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
@@ -74,7 +75,9 @@ export default async function Home() {
           <FaqSection />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialSlider TestimonialsContent={TestimonialsContent} />
+          <TestimonialsSection
+            TestimonialsContent={TestimonialsContent?.result}
+          />
         </Suspense>
       </div>
     </main>

@@ -34,39 +34,50 @@ const ServerFeatures = async () => {
           )}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-5 w-full max-w-5xl py-3 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-5 w-full py-3 bg-gray-50 px-2">
           {server_feature?.map((feature: any, index: number) => (
             <div
               key={index}
-              className="relative  group px-4 py-4 shadow-lg overflow-hidden text-center flex flex-col items-center transition-transform duration-300 ease-in-out h-full text-gray-900 hover:text-white "
+              className="relative group px-6 py-6 shadow-lg overflow-hidden text-center flex flex-col items-center transition-transform duration-300 ease-in-out h-full text-gray-900 hover:text-white bg-white"
             >
-              <div className="relative z-10 flex flex-row items-center justify-start gap-6">
+              <div className="relative z-10 flex flex-row items-center justify-start gap-6 px-4">
                 {feature.icon && (
-                  <div className="w-14 h-14 mb-4 relative rounded-full bg-blue-300">
+                  <div className="w-20 h-20 mb-4  relative bg-bullt-quaternary rounded-md group-hover:bg-white transition-colors duration-300">
+                    {/* Original Icon */}
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.icon}`}
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.reverse_icon}`}
                       alt={feature?.alt_text || "Feature Icon"}
-                      className="object-contain p-4"
+                      className="object-contain p-4 text-white group-hover:hidden block fill-current"
                       fill={true}
                     />
+                    {/* Reverse Icon on Hover */}
+                    {feature.reverse_icon && (
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.icon}`}
+                        alt={feature?.alt_text || "Feature Icon on Hover"}
+                        className="object-contain p-4 text-white hidden group-hover:block fill-current"
+                        fill={true}
+                      />
+                    )}
                   </div>
                 )}
-                <h3 className="text-lg sm:w-[200px] w-[150px] text-start font-semibold mb-2">
-                  {feature.title}
+                <h3 className="sm:text-[22px] text-lg sm:w-[200px] w-[150px] text-start font-semibold mb-2">
+                  {feature?.title}
                 </h3>
               </div>
 
               {feature.description && (
-                <p className="text-start text-[12px] leading-relaxed relative z-10">
-                  {feature.description}
+                <p className="text-start sm:text-[14px] px-6 text-[12px] leading-relaxed relative z-10">
+                  {feature?.description}
                 </p>
               )}
 
-              {/* Sliding background image effect */}
+              {/* Sliding background image effect with hover change */}
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-70 transition-transform duration-700 ease-in-out"
+                className={`absolute inset-0 bg-cover bg-center opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-90 transition-transform duration-700 ease-in-out`}
                 style={{
                   backgroundImage: `url('https://img.freepik.com/free-vector/background-design-with-lines-blue-background_1308-4823.jpg?t=st=1724841272~exp=1724844872~hmac=6fbae88717fed9a0c1e99469cd5e7ee6ce7af54b58021f59f166d0b0aa260ac0&w=740')`,
+                  backgroundColor: feature?.hover ? "white" : "blue",
                 }}
               ></div>
             </div>
