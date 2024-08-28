@@ -42,9 +42,9 @@ const NewBanner = ({ banner }: Props) => {
 
   return (
     <section
-      className="relative h-[700px] flex items-center justify-center pt-[70px] -mt-4 container mx-auto rounded-lg"
+      className="relative min-h-[600px] flex items-center justify-center pt-[70px] -mt-4 container mx-auto rounded-lg"
       style={{
-        backgroundImage: `url('${svgBackgroundUrl}')`,
+        backgroundImage: `url('/banner-bg.svg')`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}

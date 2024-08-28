@@ -2,9 +2,8 @@
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
 import { Banner } from "@/types/BannerTypes";
 import React, { useEffect, useRef, useState } from "react";
-import HomePageBannerCard from "./HomePageBannerCard";
+import FinalBannerComponent from "./FinalBannerComponent";
 import BannerWithImage from "./BannerWithImage";
-import NewBanner from "./NewBanner";
 
 type Props = {
   banners: Banner[];
@@ -12,33 +11,47 @@ type Props = {
 
 const BannerSlider = ({ banners }: Props) => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [infinite, setInfinite] = useState<boolean>();
+  const [infinite, setInfinite] = useState<boolean>(true);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   useEffect(() => {
     if (banners?.length === 1) {
       setInfinite(false);
-    } else {
-      setInfinite(true);
     }
-  }, []);
+  }, [banners]);
 
   const settings = {
     dots: infinite,
     infinite: infinite,
-    autoplay: true,
+    autoplay: false,
     arrows: false,
     speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    beforeChange: (oldIndex: number, newIndex: number) => {
+      setCurrentSlide(newIndex);
+    },
     // prevArrow: <AiOutlineLeft />,
     // nextArrow: <AiOutlineRight />,
   };
 
   return (
     <SliderFrame settings={settings} selector={sliderRef}>
-      {banners?.map((banner: Banner) => {
-        return <NewBanner banner={banner} key={banner?.id} />
-      })}
+      {banners?.map((banner: Banner, index: number) => (
+        <>
+          {banner?.image_position === "Background" ?
+            <BannerWithImage
+              banner={banner}
+              key={banner?.id}
+            />
+            :
+            <FinalBannerComponent
+              banner={banner}
+              key={banner?.id}
+            />
+          }
+        </>
+      ))}
     </SliderFrame>
   );
 };
