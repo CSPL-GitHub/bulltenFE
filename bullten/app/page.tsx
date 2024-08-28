@@ -20,7 +20,6 @@ import DomainSearchComponent from "@/components/ServerSideComponents/HomePageCom
 import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
 import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
 import WhyChooseWebHosting from "@/components/ServerSideComponents/HomePageComponents/WhyChooseWebHosting";
-import CompanyOverview from "@/components/ServerSideComponents/HomePageComponents/Test";
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
@@ -48,8 +47,6 @@ export default async function Home() {
           <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense> */}
 
-        <CompanyOverview />
-
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyBulletinComponent />
         </Suspense>
@@ -65,9 +62,9 @@ export default async function Home() {
           <OurPatnarComponent />
         </Suspense>
 
-        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyChooseWebHosting />
-        </Suspense> */}
+        </Suspense>
 
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ChatService />

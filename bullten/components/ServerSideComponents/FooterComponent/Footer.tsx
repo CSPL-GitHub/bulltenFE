@@ -18,7 +18,7 @@ const Footer: React.FC = async () => {
   return (
     <>
       {footerResponse?.result ? (
-        <footer className="container mx-auto w-full pt-10 px-6 rounded-md">
+        <footer className="container mx-auto w-full pt-10 rounded-md">
           <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />{" "}
           <div className="w-full rounded-lg lg:rounded-none relative ">
             <div
@@ -30,8 +30,8 @@ const Footer: React.FC = async () => {
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="relative mb-3 pt-8 shadow-sm rounded-lg container mx-auto gap-3 bg-[#122358]  bg-opacity-90">
-              <div className="w-full lg:col-span-9 col-span-12 flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 px-4 lg:px-6">
+            <div className="relative mb-3 pt-8 shadow-sm rounded-lg container mx-auto gap-3 bg-bullt-primary  bg-opacity-90">
+              <div className="w-full lg:col-span-9 col-span-12 flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 px-4 lg:px-8">
                 <div className="flex flex-col items-center">
                   <div className="flex justify-between flex-col items-center w-full">
                     <div className="">
@@ -103,7 +103,7 @@ const Footer: React.FC = async () => {
                 </div>
               </div>
 
-              <div className="relative w-full container mx-auto flex justify-center lg:justify-between flex-wrap gap-2 py-4 border-t-[1px] px-4 lg:px-6">
+              <div className="relative w-full container mx-auto flex justify-center lg:justify-between flex-wrap gap-2 py-4 px-4 lg:px-6 bg-bullt-quaternary">
                 <div>
                   <h6 className="break-words text-center text-sm text-bullt-secondary">
                     {footerResponse?.result?.copyRightText}{" "}

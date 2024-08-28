@@ -74,11 +74,11 @@ export default async function ChatService() {
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:flex lg:px-8">
               <div className="relative mx-auto my-auto flex flex-col items-center">
                 <div className="flex max-w-5xl justify-center items-center flex-col md:flex-col">
-                  <h2 className="text-center text-3xl text-white leading-tight sm:text-5xl lg:text-7xl font-bold">
+                  <h2 className="text-center text-3xl text-white leading-tight sm:text-5xl lg:text-5xl font-bold">
                     {chatSupportApiDataResponse?.Chat_Support?.heading}
                   </h2>
                   <div className="">
-                    <p className="mt-4 text-center font-medium text-white md:text-xl">
+                    <p className="mt-4 text-center font-medium text-white md:text-lg">
                       {chatSupportApiDataResponse?.Chat_Support?.description}
                     </p>
                     <div className="py-5">
@@ -96,7 +96,7 @@ export default async function ChatService() {
             </div>
           </div>
 
-          <div className="group relative mx-auto -mt-36 mb-20 hidden w-full max-w-6xl overflow-hidden rounded-xl bg-bullt-secondary shadow-sm md:block">
+          <div className="group relative mx-auto -mt-36 mb-20 hidden w-full max-w-6xl overflow-hidden rounded-md bg-bullt-secondary shadow-md md:block">
             <SupportSection supportContent={SupportSectionContent?.result} />
           </div>
         </section>

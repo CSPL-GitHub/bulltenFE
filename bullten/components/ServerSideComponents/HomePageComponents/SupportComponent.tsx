@@ -31,7 +31,7 @@ const SupportSection = ({ supportContent }: Props) => {
   return (
     <>
       {supportContent?.Active === true ? (
-        <div className=" w-full py-12 px-6  bg-bullt-secondary rounded-md">
+        <div className=" w-full py-6 px-6  bg-bullt-secondary rounded-sm shadow-sm">
           <div className="w-full mx-auto flex flex-col lg:flex-row gap-8">
             {/* <div className="lg:w-2/5 w-full">
               {supportContent?.data?.heading && (
@@ -50,7 +50,7 @@ const SupportSection = ({ supportContent }: Props) => {
               {supportContent?.data?.supports?.map((data, index) => (
                 <div
                   key={index}
-                  className=" px-3 py-6 flex flex-col items-start justify-between rounded-lg hover:bg-bullt-secondary border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+                  className=" px-3 py-6 flex flex-col items-start justify-between border-b-4  border-bullt-secondary hover:bg-bullt-secondary  hover:border-b-4 hover:border-bullt-quaternary transition-shadow duration-300"
                 >
                   <div className="flex items-center mb-4">
                     <div className="p-2 bg-bullt-quaternary/10 rounded-full mr-3">

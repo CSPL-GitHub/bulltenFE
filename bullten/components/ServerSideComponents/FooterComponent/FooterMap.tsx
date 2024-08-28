@@ -21,7 +21,7 @@ const FooterMap = ({ footerMapResponse }: any) => {
   const [hoveredMarker, setHoveredMarker] = useState<any | null>(null);
 
   return (
-    <div className="px-4 lg:px-0 h-auto w-full flex sm:flex-row items-start justify-center flex-col">
+    <div className=" h-auto w-full flex sm:flex-row items-start justify-center flex-col px-4 lg:px-8">
       <div className="sm:w-[50%] w-full sm:py-10 py-0">
         <SloganHeadingComponent alignmentType={1} paddingTop={1}>
           Global Hosting, Unmatched Performance
@@ -33,7 +33,7 @@ const FooterMap = ({ footerMapResponse }: any) => {
           {footerMapResponse?.description}
         </ParaGraphText>
       </div>
-      <div className="sm:w-[50%] w-full">
+      <div className="sm:w-[50%] w-full px-8">
         <ComposableMap className="h-full w-full">
           <Geographies
             geography="/features.json"
