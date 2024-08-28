@@ -36,7 +36,7 @@ const HeaderSubMenu = ({
 
   return (
     <div
-      className={`w-[100vw] container mx-auto min-h-[400px] open absolute top-full left-0 right-0  ${openSubMenu === menuKey ? "block" : "hidden"
+      className={` container mx-auto min-h-[400px] open absolute top-full left-0 right-0  ${openSubMenu === menuKey ? "block border-t-4 transition-all duration-300 border-bullt-tertiary" : "hidden"
         } rounded-md shadow-md z-50 bg-bullt-secondary`}
       // style={{
       //   ...(moveDown
