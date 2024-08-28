@@ -148,7 +148,7 @@ const WordPressHoistingComponent = async (props: Props) => {
                 </div>
                 <div className=" lg:w-1/2 flex justify-start md:justify-center items-center px-0 md:px-6">
                   <HomePageButtonOne
-                    alignmentType={1}
+                    alignmentType={3}
                     buttonText={"View All Servers"}
                     route={"/#"}
                   />
@@ -156,7 +156,7 @@ const WordPressHoistingComponent = async (props: Props) => {
               </div>
             </div>
 
-            <div className="group relative mx-auto mt-4 md:-mt-56 mb-20 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent shadow-sm md:block">
+            <div className="group relative mx-auto mt-4 md:-mt-56 mb-20 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent  md:block">
               <HostingSolutionsCardSlider
                 items={WordPressHoistingApiResponse?.result?.host_data?.hosting}
               />

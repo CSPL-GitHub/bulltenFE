@@ -66,9 +66,9 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ServerFeatures />
         </Suspense>
-        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyChooseWebHosting />
-        </Suspense> */}
+        </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ChatService />
         </Suspense>

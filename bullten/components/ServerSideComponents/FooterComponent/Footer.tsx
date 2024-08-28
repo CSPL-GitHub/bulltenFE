@@ -1,14 +1,11 @@
-// import Newsletter from "@/components/ClientSideComponents/NewsletterComponents/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import { IoCallOutline, IoMailOpenOutline } from "react-icons/io5";
-import { MdCall } from "react-icons/md";
+
 import FooterMap from "./FooterMap";
 import { footerApi, footerMapApi } from "@/apis/HomePageApis";
 import FooterMobileMenu from "./FooterMobileMenu";
-import CounterComponent from "../HomePageComponents/CounterComponent";
+import ContactUsStripSection from "../HomePageComponents/ContactUsStripSection";
 
 const Footer: React.FC = async () => {
   const footerResponse = await footerApi();
@@ -18,20 +15,24 @@ const Footer: React.FC = async () => {
   return (
     <>
       {footerResponse?.result ? (
-        <footer className="container mx-auto w-full pt-10 rounded-md">
-          <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />{" "}
+        <footer className=" w-full pt-10 ">
+          <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />
+          <div className="-mb-28 px-6 lg:px-16">
+            <ContactUsStripSection />
+          </div>
+
           <div className="w-full rounded-lg lg:rounded-none relative ">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
                 backgroundImage: `url('/map.png')`,
-                filter: "brightness(0.5)", // Reduces the brightness of the background image
+                filter: "brightness(0.5)",
                 backgroundSize: "contain",
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="relative mb-3 pt-8 shadow-sm rounded-lg container mx-auto gap-3 bg-bullt-primary  bg-opacity-90">
-              <div className="w-full lg:col-span-9 col-span-12 flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 px-4 lg:px-8">
+            <div className="relative pt-32 shadow-sm px-6 lg:px-16  gap-3 bg-bullt-primary bg-opacity-90">
+              <div className="container mx-auto w-full lg:col-span-9 col-span-12  flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 ">
                 <div className="flex flex-col items-center">
                   <div className="flex justify-between flex-col items-center w-full">
                     <div className="">
@@ -102,25 +103,26 @@ const Footer: React.FC = async () => {
                   />
                 </div>
               </div>
-
-              <div className="relative w-full container mx-auto flex justify-center lg:justify-between flex-wrap gap-2 py-4 px-4 lg:px-6 bg-bullt-quaternary">
-                <div>
-                  <h6 className="break-words text-center text-sm text-bullt-secondary">
-                    {footerResponse?.result?.copyRightText}{" "}
-                    {footerResponse?.result?.policyText}
-                  </h6>
-                </div>
-                <div className="flex gap-2">
-                  {footerResponse?.result?.legalinformation.map(
-                    (info: any, index: number) => (
-                      <Link key={index} href={info?.link}>
-                        <h6 className="break-words text-sm text-bullt-secondary">
-                          {info?.heading}
-                        </h6>
-                      </Link>
-                    )
-                  )}
-                </div>
+            </div>
+          </div>
+          <div className="w-full bg-bullt-quaternary ">
+            <div className="relative w-full flex justify-center container mx-auto lg:justify-between flex-wrap gap-2 py-3 px-6 lg:px-16 ">
+              <div>
+                <h6 className="break-words text-center text-sm text-bullt-secondary">
+                  {footerResponse?.result?.copyRightText}{" "}
+                  {footerResponse?.result?.policyText}
+                </h6>
+              </div>
+              <div className="flex gap-2">
+                {footerResponse?.result?.legalinformation.map(
+                  (info: any, index: number) => (
+                    <Link key={index} href={info?.link}>
+                      <h6 className="break-words text-sm text-bullt-secondary">
+                        {info?.heading}
+                      </h6>
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           </div>

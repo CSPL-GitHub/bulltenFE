@@ -21,7 +21,7 @@ const FooterMap = ({ footerMapResponse }: any) => {
   const [hoveredMarker, setHoveredMarker] = useState<any | null>(null);
 
   return (
-    <div className=" h-auto w-full flex sm:flex-row items-start justify-center flex-col px-4 lg:px-8">
+    <div className=" h-auto w-full container mx-auto  flex sm:flex-row items-start justify-center flex-col px-4 lg:px-8">
       <div className="sm:w-[50%] w-full sm:py-10 py-0">
         <SloganHeadingComponent alignmentType={1} paddingTop={1}>
           Global Hosting, Unmatched Performance
