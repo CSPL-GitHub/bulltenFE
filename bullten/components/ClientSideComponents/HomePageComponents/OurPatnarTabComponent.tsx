@@ -14,7 +14,7 @@ const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
     autoplay: true,
     arrows: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     centerPadding: "0px",
     responsive: [

@@ -12,7 +12,7 @@ const DomainSearchComponent = async () => {
   return (
     <>
       {DomainsearchApiResponse?.result?.Active === true ? (
-        <section className="sm:flex sm:justify-center sm:items-center px-4 py-4 w-full  relative bg-blue-50">
+        <section className="sm:flex sm:justify-center sm:items-center px-4 py-4 w-full  relative">
           <div className="w-full sm:w-[50%] flex justify-center items-center" style={{
             backgroundImage: `url(${img1.src})`,
             backgroundSize: 'cover',
