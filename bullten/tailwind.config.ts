@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        shine: "shine 1s",
+      },
+      keyframes: {
+        shine: {
+          "100%": { left: "125%" },
+        },
+      },
       colors: {
         "bullt-primary": "#000000", //black
         "bullt-secondary": "#FFFF", //white

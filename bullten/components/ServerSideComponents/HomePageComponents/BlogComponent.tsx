@@ -9,35 +9,36 @@ import MainHeadingComponent from "@/components/CommonComponents/HeadingComponent
 
 const BlogsComponent = async () => {
   const blogResponse = await BlogSectionApi();
+  console.log("blogResponse", blogResponse);
   return (
     <>
       {blogResponse?.result?.Active === true ? (
-        <>
-          <section className="w-full py-16 px-6 bg-bullt-quaternary/[0.03] rounded-md">
-            <div className="text-center py-5">
-              {blogResponse?.result?.data?.label ? (
-                <div className="text-bullt-text-quinary ">
+        <div className="relative w-full bg-[url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')] bg-cover bg-center bg-no-repeat">
+          <section className="flex sm:flex-row flex-col w-full py-16 px-6  rounded-md backdrop-blur-md">
+            <div className="flex flex-col items-start justify-start sm:w-[40%] w-full sm:mx-10 mx-1">
+              {blogResponse?.result?.data?.label && (
+                <div className="text-bullt-text-quinary">
                   <SloganHeadingComponent alignmentType={2} paddingTop={1}>
                     {blogResponse?.result?.data?.label}
                   </SloganHeadingComponent>
                 </div>
-              ) : null}
-              {blogResponse?.result?.data?.heading ? (
+              )}
+              {blogResponse?.result?.data?.heading && (
                 <MainHeadingComponent alignmentType={2} paddingTop={1}>
                   {blogResponse?.result?.data?.heading}
                 </MainHeadingComponent>
-              ) : null}
-              {blogResponse?.result?.data?.description ? (
-                <>
-                  <ParaGraphText alignmentType={2} paddingTop={1}>
-                    {blogResponse?.result?.data?.description}
-                  </ParaGraphText>
-                </>
-              ) : null}
+              )}
+              {blogResponse?.result?.data?.description && (
+                <ParaGraphText alignmentType={2} paddingTop={1}>
+                  {blogResponse?.result?.data?.description}
+                </ParaGraphText>
+              )}
             </div>
-            <BlogCartComponent blogResponse={blogResponse} />
+            <div className="sm:w-[60%] w-full">
+              <BlogCartComponent blogResponse={blogResponse} />
+            </div>
           </section>
-        </>
+        </div>
       ) : null}
     </>
   );
