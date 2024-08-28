@@ -20,6 +20,7 @@ import DomainSearchComponent from "@/components/ServerSideComponents/HomePageCom
 import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
 import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
 import WhyChooseWebHosting from "@/components/ServerSideComponents/HomePageComponents/WhyChooseWebHosting";
+import NewTestimonial from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/NewTestimonial";
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
@@ -34,28 +35,24 @@ export default async function Home() {
             <BannerSlider banners={homePageBannerContentApi?.result?.banner} />
           )}
       </Suspense>
-     
+
       {/* Main container with consistent spacing */}
-      <div className="container mx-auto ">
-       
+      <div className="container mx-auto mt-6">
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <OurPatnarComponent />
-        </Suspense> <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-        <DomainSearchComponent />
-      </Suspense>
-      <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        </Suspense>{" "}
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <DomainSearchComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TrustedCompaniesLogos />
         </Suspense>
-
-
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense> */}
-
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyBulletinComponent />
         </Suspense>
-
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WordPressHoistingComponent />
         </Suspense>
@@ -65,11 +62,9 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ServerFeatures />
         </Suspense>
-        
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyChooseWebHosting />
         </Suspense>
-       
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ChatService />
         </Suspense>
@@ -80,7 +75,7 @@ export default async function Home() {
           <FaqSection />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialSlider TestimonialsContent={TestimonialsContent} />
+          <NewTestimonial TestimonialsContent={TestimonialsContent?.result} />
         </Suspense>
       </div>
     </main>
