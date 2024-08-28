@@ -20,6 +20,7 @@ import DomainSearchComponent from "@/components/ServerSideComponents/HomePageCom
 import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
 import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
 import WhyChooseWebHosting from "@/components/ServerSideComponents/HomePageComponents/WhyChooseWebHosting";
+import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
@@ -37,15 +38,16 @@ export default async function Home() {
 
       {/* Main container with consistent spacing */}
       <div className="container mx-auto mt-6">
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <OurPatnarComponent />
-        </Suspense>{" "}
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+       
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <DomainSearchComponent />
-        </Suspense>
+        </Suspense> */}
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TrustedCompaniesLogos />
         </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OurPatnarComponent />
+        </Suspense>{" "}
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense> */}
@@ -58,6 +60,9 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
         </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <OperatingComponent/>
+        </Suspense>{" "}
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ServerFeatures />
         </Suspense>

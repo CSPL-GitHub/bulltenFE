@@ -1,8 +1,6 @@
 import CounterSectionComponent from "@/components/ClientSideComponents/HomePageComponents/CounterSectionComponent";
-import { CounteSectionApi, footerMapApi } from "@/apis/HomePageApis";
-import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
-import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
-import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import { CounteSectionApi } from "@/apis/HomePageApis";
+import img1 from "../../../public/counter1.png";
 
 const CounterComponent: React.FC = async () => {
   const response = await CounteSectionApi();
@@ -11,10 +9,16 @@ const CounterComponent: React.FC = async () => {
   return (
     <>
       {counterData?.Active === true && (
-        <div className="my-16 relative bg-fixed bg-cover bg-center bg-no-repeat bg-[url('https://img.freepik.com/premium-photo/strengthening-information-security-measures-secure-digital-data-protection-concept-cybersecurity-data-encryption-secure-networks-access-controls-risk-assessment_918839-342123.jpg?uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')]">
-          <div className="bg-gradient-to-b from-black/80 to-black/60 w-full py-16 mx-auto">
-            <div className="container flex sm:flex-row flex-col items-start justify-start gap-6 px-4 md:px-8 lg:px-12">
-              <div>
+        <div className="my-16 relative">
+           <div className="bg-[#FBAA2E] h-[200px] w-full"></div>
+          <div className="w-[95%] py-16  z-10 -mt-[150px] "  style={{
+            backgroundImage: `url(${img1.src})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+          }}>
+            <div className="">
+              {/* <div>
                 {counterData?.data?.label && (
                   <SloganHeadingComponent paddingTop={1} alignmentType={1}>
                     {counterData?.data?.label}
@@ -33,8 +37,9 @@ const CounterComponent: React.FC = async () => {
                     {counterData?.data?.description}
                   </ParaGraphText>
                 )}
-              </div>
+              </div> */}
               <CounterSectionComponent counterData={counterData?.data} />
+
             </div>
           </div>
         </div>

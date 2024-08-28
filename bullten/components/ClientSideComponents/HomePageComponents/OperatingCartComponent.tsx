@@ -7,7 +7,7 @@ type Props = {
   data: any;
 };
 
-const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
+const OperatingCartComponent: React.FC<Props> = ({ data }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -70,7 +70,7 @@ const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
 
         <div className="py-6">
           <Slider {...settings}>
-            {data?.operating_systems?.map((item: any, index: any) => (
+            {data?.list_titles?.map((item: any, index: any) => (
               <div
                 key={index}
                 className="text-center hover:bg-[#F4F5F8] w-[140px] grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
@@ -103,4 +103,4 @@ const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default OurPatnarTabComponent;
+export default OperatingCartComponent;

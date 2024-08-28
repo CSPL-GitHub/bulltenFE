@@ -80,7 +80,7 @@ const DomainSearchComponent = async () => {
               <SloganHeadingComponent
                 paddingTop={1}
                 alignmentType={1}
-                hoverEffect="text-bullt-tertiary"
+               
               >
                 {DomainsearchApiResponse?.result?.data?.label}
               </SloganHeadingComponent>

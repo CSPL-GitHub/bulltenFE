@@ -1,11 +1,10 @@
 import { OurPatnarApi } from "@/apis/HomePageApis";
-import OurPatnarTabComponent from "@/components/ClientSideComponents/HomePageComponents/OurPatnarTabComponent";
-import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+import OperatingCartComponent from "@/components/ClientSideComponents/HomePageComponents/OperatingCartComponent";
 import React from "react";
 
 type Props = {};
 
-const OurPatnarComponent = async (props: Props) => {
+const OperatingComponent = async (props: Props) => {
   const OurPatnarApiResponse = await OurPatnarApi();
   const data = OurPatnarApiResponse?.result;
 
@@ -33,7 +32,7 @@ const OurPatnarComponent = async (props: Props) => {
               
             </div> */}
             <div className="sm:w-[100%] w-full ">
-              <OurPatnarTabComponent data={data?.partner_data} />
+              <OperatingCartComponent data={data?.partner_data} />
             </div>
           </div>
         </section>
@@ -42,4 +41,4 @@ const OurPatnarComponent = async (props: Props) => {
   );
 };
 
-export default OurPatnarComponent;
+export default OperatingComponent;
