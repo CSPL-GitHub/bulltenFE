@@ -19,61 +19,37 @@ const BannerWithImage = ({ banner }: Props) => {
     threshold: 0.2, // Trigger when 20% of the component is in view
   });
 
-  return (
-    <section
-      ref={ref}
-      className="relative"
-      style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${banner?.image_url})`,
-        backgroundPosition: 'top center',
-       }
-    }
-    >
-      <div className="bg-bullt-primary/[0.4] min-h-[600px] flex items-center justify-center pt-[70px] rounded-lg">
-        <div className="container mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between relative z-10 sm:pt-0 pt-14 py-3">
-          <div className="relative sm:hidden flex items-center justify-center w-40 h-40 rounded-full bg-transparent border border-dashed border-bullt-tertiary">
-            {/* {/ Central Logo /} */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="absolute flex items-center justify-center w-16 h-16 bg-bullt-tertiary rounded-full"
-            >
-              <GoArrowUpRight size={25} />
-            </motion.div>
+  const flipAnimation = {
+    hidden: { rotateY: 90, opacity: 0 },
+    visible: { rotateY: 0, opacity: 1 },
+  };
 
-            {/* {/ Text around the circle /} */}
-            <svg className="absolute inset-0 w-full h-full">
-              <defs>
-                <path
-                  id="circlePath"
-                  d="
-                      M 80, 80
-                      m -60, 0
-                      a 60,60 0 1,1 120,0
-                      a 60,60 0 1,1 -120,0"
-                />
-              </defs>
-              <text
-                className="text-bullt-tertiary"
-                fontSize="15"
-                fill="white"
-                fontWeight="bold"
-              >
-                <textPath href="#circlePath" startOffset="0%" textLength="350">
-                  Best Hosting Providers
-                </textPath>
-              </text>
-            </svg>
-          </div>
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={flipAnimation}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="relative sm:min-h-full min-h-[550px] max-h-[550px]"
+      style={{
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${banner?.image_url})`,
+        backgroundPosition: 'top center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }
+      }
+    >
+      <div className="bg-bullt-primary/[0.4] min-h-[550px] flex items-center justify-center rounded-lg">
+        <div className="container mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between relative z-10 py-3">
+          
 
           <div className="flex flex-col lg:gap-7  gap-2 mt-5 sm:mt-0 items-start justify-center sm:w-[60%] w-full">
             {banner?.label && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
               >
                 <SloganHeadingComponent paddingTop={1} alignmentType={1}>
                   {banner?.label}
@@ -85,7 +61,7 @@ const BannerWithImage = ({ banner }: Props) => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
               >
                 <MainHeadingComponent
                   hoverEffect="leading-tight text-bullt-secondary"
@@ -100,7 +76,7 @@ const BannerWithImage = ({ banner }: Props) => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
               >
                 <ParaGraphText hoverEffect="max-w-4xl text-bullt-secondary text-justify">
                   {banner?.link}
@@ -111,7 +87,7 @@ const BannerWithImage = ({ banner }: Props) => {
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="text-xl text-bold border-2 border-bullt-text-quinary bg-bullt-text-quinary hover:bg-bullt-secondary text-bullt-secondary hover:text-bullt-tertiary rounded-md px-10 py-3"
@@ -159,7 +135,7 @@ const BannerWithImage = ({ banner }: Props) => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 

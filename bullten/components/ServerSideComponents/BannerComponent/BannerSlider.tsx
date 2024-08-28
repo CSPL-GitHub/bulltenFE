@@ -23,9 +23,9 @@ const BannerSlider = ({ banners }: Props) => {
   const settings = {
     dots: infinite,
     infinite: infinite,
-    autoplay: false,
+    autoplay: true,
     arrows: false,
-    speed: 2000,
+    speed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (oldIndex: number, newIndex: number) => {
@@ -38,7 +38,7 @@ const BannerSlider = ({ banners }: Props) => {
   return (
     <SliderFrame settings={settings} selector={sliderRef}>
       {banners?.map((banner: Banner, index: number) => (
-        <>
+        <section className="sm:pt-[130px] pt-[110px] bg-gray-100">
           {banner?.image_position === "Background" ?
             <BannerWithImage
               banner={banner}
@@ -50,7 +50,7 @@ const BannerSlider = ({ banners }: Props) => {
               key={banner?.id}
             />
           }
-        </>
+        </section>
       ))}
     </SliderFrame>
   );
