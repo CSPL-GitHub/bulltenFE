@@ -1,15 +1,16 @@
 "use client";
-import HighlightingTextComponent from "@/components/CommonComponents/HeadingComponents/highlightingTextComponent";
-import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
-import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
+
 
 type Counter = {
   description: string;
   count: number;
   countname: string;
+  image: string;
+
 };
 
 type Props = {
@@ -62,15 +63,29 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
         <div
           className="w-full sm:mx-auto mx-0 text-center sm:px-4 rounded-lg"
           ref={ref}
+
         >
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-12">
             {counterData?.counters?.map((counter, index) => (
               <div
                 key={index}
-                className="bg-white/0 shadow-lg p-3 rounded-md transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border-[0.2px] border-white/70 hover:border-primary"
+                className="p-3"
               >
-                <div className="flex flex-col items-center justify-center gap-1">
-                  <div className="text-2xl sm:text-3xl font-bold text-white">
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <div className="h-[80px] lg:w-[100px] w-[100px] relative mx-autotransition-transform duration-500 transform hover:rotate-y-180">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${counter?.image}`}
+                      alt="all"
+                      className=""
+                      style={{
+                        position: "absolute",
+                        objectFit: "contain",
+                        inset: 0,
+                      }}
+                      fill={true}
+                    />
+                  </div>
+                  <div className="text-3xl sm:text-6xl ">
                     {startCount ? (
                       <CountUp
                         end={counter?.count}
@@ -81,13 +96,12 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                       0
                     )}
                   </div>
-                  <HighlightingTextComponent>
+                  {/* <HighlightingTextComponent>
                     {counter?.countname}
-                  </HighlightingTextComponent>
+                  </HighlightingTextComponent> */}
                   <ParaGraphText
                     alignmentType={2}
                     paddingTop={1}
-                    hoverEffect="text-bullt-secondary"
                   >
                     {" "}
                     {counter?.description}
