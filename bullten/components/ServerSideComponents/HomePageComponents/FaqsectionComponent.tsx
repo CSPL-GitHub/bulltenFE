@@ -2,6 +2,7 @@ import { FaqSectionApi } from "@/apis/HomePageApis";
 import FaqQuestionComponent from "@/components/ClientSideComponents/HomePageComponents/FaqQuestionComponent";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -15,6 +16,11 @@ const FaqSection = async () => {
           <section className="w-full py-12 px-6 bg-bullt-quaternary/[0.03] rounded-md">
             <div className="sm:flex gap-5">
               <div className="sm:w-1/2 ">
+              {FaqSectionApiResponse?.data?.slogen ? (
+                <SloganHeadingComponent alignmentType={1} paddingTop={1}>
+                  {FaqSectionApiResponse?.data?.slogen}
+                </SloganHeadingComponent>  
+              ):null}
                 {FaqSectionApiResponse?.data?.heading ? (
                   <MainHeadingComponent
                     alignmentType={1}

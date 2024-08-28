@@ -40,7 +40,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
         {data?.domain_search?.map((option: any, index: any) => (
           <div
             key={index}
-            className="flex flex-col items-center border px-5 py-1 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
+            className="flex flex-col items-center border px-5 py-1 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer bg-white"
 
           >
             <span className="font-semibold text-xl text-black">
