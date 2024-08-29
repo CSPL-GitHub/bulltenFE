@@ -20,7 +20,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
     const { onClick } = props;
     return (
       <div
-        className="absolute sm:bottom-[22px] -bottom-14 sm:-left-[50%] left-[55%] flex justify-end items-center cursor-pointer rounded-full  p-2"
+        className="absolute -sm:bottom-2 -bottom-14 sm:-left-[30%] left-[55%] flex justify-end items-center cursor-pointer rounded-full  p-2"
         onClick={onClick}
       >
         <p className="bg-gray-300 rounded-full p-2 border border-gray-600">
@@ -35,7 +35,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
     const { onClick } = props;
     return (
       <div
-        className="absolute sm:bottom-[22px] -bottom-14 sm:-left-[60%] right-[55%] flex justify-start items-center cursor-pointer rounded-full p-2 sm:z-0 z-10"
+        className="absolute -sm:bottom-2 -bottom-14 sm:-left-[40%] right-[55%] flex justify-start items-center cursor-pointer rounded-full p-2 sm:z-0 z-10"
         onClick={onClick}
       >
         <p className="bg-gray-300 rounded-full p-2 border border-gray-600">
