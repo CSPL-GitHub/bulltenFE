@@ -12,7 +12,7 @@ import HostingSolutionsCardSlider from "./HostingSolutionsCardSlider";
 
 type Props = {};
 
-const WordPressHoistingComponent = async (props: Props) => {
+const OurServicesComponent = async (props: Props) => {
   const WordPressHoistingApiResponse = await WordPressHoistingApi();
 
   return (
@@ -120,33 +120,33 @@ const WordPressHoistingComponent = async (props: Props) => {
             </div>
           </section> */}
 
-          <section className="container mx-auto w-full py-2">
-            <div className="relative py-16 md:pb-48 overflow-hidden bg-[url('/bg-shap1.png')] bg-cover bg-center px-4 md:px-0">
-              <div className="absolute inset-0 w-full h-full bg-blue-600 opacity-75"></div>
+          <section className="container mx-auto w-full bg-[url('/line.png')] bg-contain bg-no-repeat bg-bottom ">
+            <div className="relative py-12 md:pb-24 overflow-hidden px-4 md:px-0">
+              <div className="absolute inset-0 w-full h-full bg-bullt-quaternary "></div>
               <div className="relative w-full max-w-6xl mx-auto flex flex-col md:flex-row ">
                 <div className="relative lg:w-1/2 mb-4 md:mb-12 ">
-                  <div className="flex gap-1 border-b-[1px] sm:w-[330px] sm:h-10 w-full border-bullt-text-quinary ">
+                  <div className="flex gap-1  sm:w-[330px] sm:h-10 w-full ">
                     <SubHeadingComponents
-                      paddingTop={3}
-                      hoverEffect="pb-3 text-bullt-secondary"
+                      paddingTop={1}
+                      hoverEffect="text-bullt-secondary"
                     >
                       {WordPressHoistingApiResponse?.result?.host_data?.lblw1}
                     </SubHeadingComponents>
-                    <SloganHeadingComponent paddingTop={3}>
+                    {/* <SloganHeadingComponent paddingTop={1}>
                       {WordPressHoistingApiResponse?.result?.host_data?.lblw2}
-                    </SloganHeadingComponent>
+                    </SloganHeadingComponent> */}
                   </div>
                   {WordPressHoistingApiResponse?.result?.host_data?.heading ? (
                     <MainHeadingComponent
                       alignmentType={1}
-                      paddingTop={3}
+                      paddingTop={1}
                       hoverEffect="text-bullt-secondary"
                     >
                       {WordPressHoistingApiResponse?.result?.host_data?.heading}
                     </MainHeadingComponent>
                   ) : null}
                 </div>
-                <div className=" lg:w-1/2 flex justify-start md:justify-center items-center px-0 md:px-6">
+                <div className=" lg:w-1/2 flex justify-start md:justify-center items-center px-0 md:px-0">
                   <HomePageButtonOne
                     alignmentType={3}
                     buttonText={"View All Servers"}
@@ -156,7 +156,7 @@ const WordPressHoistingComponent = async (props: Props) => {
               </div>
             </div>
 
-            <div className="group relative mx-auto -mt-4 sm:-mt-56 sm:mb-20 mb-0 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent  md:block">
+            <div className=" group relative mx-auto -mt-4 sm:-mt-32 sm:mb-20 mb-0 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent  md:block">
               <HostingSolutionsCardSlider
                 items={WordPressHoistingApiResponse?.result?.host_data?.hosting}
               />
@@ -168,4 +168,4 @@ const WordPressHoistingComponent = async (props: Props) => {
   );
 };
 
-export default WordPressHoistingComponent;
+export default OurServicesComponent;

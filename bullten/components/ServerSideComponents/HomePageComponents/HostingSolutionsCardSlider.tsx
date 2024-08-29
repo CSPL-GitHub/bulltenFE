@@ -52,7 +52,7 @@ const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
     infinite: true,
     autoplay: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     // nextArrow: <NextArrow />,
     // prevArrow: <PrevArrow />,
@@ -84,7 +84,7 @@ const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <div className="relative w-full h-[400px] overflow-hidden rounded-sm">
+            <div className="relative w-full h-[300px] overflow-hidden rounded-sm border-0 border-transparent hover:border hover:border-bullt-secondary/[0.1]">
               <div
                 className={`relative w-full h-full transition-transform duration-300 ${
                   hoveredIndex === index ? "scale-110" : "scale-100"
@@ -109,14 +109,14 @@ const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
                   }}
                 ></div>
                 <div
-                  className={`absolute bottom-14 left-10 text-white transition-opacity duration-300 ${
+                  className={`absolute bottom-10 left-6 text-white transition-opacity duration-300 ${
                     hoveredIndex === index ? "opacity-100" : "opacity-0"
                   } overflow-hidden`}
                 >
-                  <div className="w-8 h-8 rounded-full bg-white flex  justify-center mb-4">
-                    <span className="text-black font-bold text-lg">→</span>
+                  <div className="w-8 h-8 rounded-full bg-bullt-tertiary flex  justify-center mb-4">
+                    <span className="text-white font-bold text-lg">→</span>
                   </div>
-                  <p className="text-lg font-bold mb-2 truncate">
+                  <p className="text-md font-bold mb-2 w-1/3 text-wrap">
                     {item.heading}
                   </p>
                   <p className="text-sm">{item.description}</p>

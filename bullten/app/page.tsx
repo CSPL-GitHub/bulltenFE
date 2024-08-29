@@ -5,28 +5,24 @@ import {
 } from "@/apis/HomePageApis";
 import BannerSlider from "@/components/ServerSideComponents/BannerComponent/BannerSlider";
 import FaqSection from "@/components/ServerSideComponents/HomePageComponents/FaqsectionComponent";
-import SupportSection from "@/components/ServerSideComponents/HomePageComponents/SupportComponent";
 import WhyBulletinComponent from "@/components/ServerSideComponents/HomePageComponents/WhyBulletinComponent";
-import WordPressHoistingComponent from "@/components/ServerSideComponents/HomePageComponents/WordpressHostingComponent";
-import Image from "next/image";
 import { Suspense } from "react";
 import Skeleton from "react-loading-skeleton";
 import BlogsComponent from "@/components/ServerSideComponents/HomePageComponents/BlogComponent";
 import CounterComponent from "@/components/ServerSideComponents/HomePageComponents/CounterComponent";
-import TestimonialSlider from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/TestimonialSlider";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
 import OurPatnarComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/OurPatnarComponent";
-import DomainSearchComponent from "@/components/ServerSideComponents/HomePageComponents/SearchComponent";
 import TrustedCompaniesLogos from "@/components/ServerSideComponents/HomePageComponents/TrustedCompaniesLogos";
 import ServerFeatures from "@/components/ServerSideComponents/HomePageComponents/ServerFeatures";
 import WhyChooseWebHosting from "@/components/ServerSideComponents/HomePageComponents/WhyChooseWebHosting";
 import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 import TestimonialsSection from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/NewTestimonial";
+import OurServicesComponent from "@/components/ServerSideComponents/HomePageComponents/OurServices";
+import WhatWeOfferComponent from "@/components/ServerSideComponents/HomePageComponents/WhatWeOfferComponent";
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
   const TestimonialsContent = await TestimonialsApi();
-  const SupportSectionContent = await SupportSectionAPI();
 
   return (
     <main className="w-full">
@@ -55,7 +51,7 @@ export default async function Home() {
           <OurPatnarComponent />
         </Suspense>{" "}
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <WordPressHoistingComponent />
+          <OurServicesComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <OperatingComponent />
@@ -69,9 +65,10 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ChatService />
         </Suspense>
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyChooseWebHosting />
-        </Suspense>
+        </Suspense> */}
+        <WhatWeOfferComponent />
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <BlogsComponent />
         </Suspense>
