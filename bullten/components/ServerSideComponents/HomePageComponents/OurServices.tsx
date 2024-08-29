@@ -121,7 +121,7 @@ const OurServicesComponent = async (props: Props) => {
           </section> */}
 
           <section className="container mx-auto w-full bg-[url('/line.png')] bg-contain bg-no-repeat bg-bottom ">
-            <div className="relative py-12 md:pb-24 overflow-hidden px-4 md:px-0">
+            <div className="relative py-12 md:pb-40 overflow-hidden px-4 md:px-0">
               <div className="absolute inset-0 w-full h-full bg-bullt-quaternary "></div>
               <div className="relative w-full max-w-6xl mx-auto flex flex-col md:flex-row ">
                 <div className="relative lg:w-1/2 mb-4 md:mb-12 ">
@@ -156,7 +156,7 @@ const OurServicesComponent = async (props: Props) => {
               </div>
             </div>
 
-            <div className=" group relative mx-auto -mt-4 sm:-mt-32 sm:mb-20 mb-0 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent  md:block">
+            <div className=" group relative mx-auto -mt-4 sm:-mt-48 sm:mb-20 mb-0 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent  md:block">
               <HostingSolutionsCardSlider
                 items={WordPressHoistingApiResponse?.result?.host_data?.hosting}
               />
