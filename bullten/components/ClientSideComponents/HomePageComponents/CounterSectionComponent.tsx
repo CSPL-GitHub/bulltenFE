@@ -3,14 +3,13 @@ import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaG
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
-import img from "../../../public/logo-bullten.png"
+import img from "../../../public/logo-bullten.png";
 
 type Counter = {
   description: string;
   count: number;
   countname: string;
   image: string;
-
 };
 
 type Props = {
@@ -60,24 +59,17 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   return (
     <>
       {counterData?.counters?.length > 0 && (
-        <div
-          className="w-full  text-center sm:px-4 rounded-lg"
-          ref={ref}
-
-        >
+        <div className="w-full  text-center sm:px-4 rounded-lg" ref={ref}>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-12 justify-start">
             {counterData?.counters?.map((counter, index) => (
-              <div
-                key={index}
-                className="p-3"
-              >
+              <div key={index} className="p-1">
                 <div className="flex flex-col gap-2">
                   <div className="flip-container sm:h-[80px] h-[60px] lg:w-[100px] w-[80px] relative mx-auto perspective-500">
-                    <div className="flipper relative h-full w-full transition-transform duration-2000 transform-style-3d">
+                    <div className="flipper relative h-full w-full">
                       <Image
                         src={`${process.env.NEXT_PUBLIC_BASE_URL}${counter?.image}`}
                         alt="Flipping Image"
-                        className="flip-image backface-hidden"
+                        className=" transition-transform duration-300 ease-in-out hover:scale-x-[-1]"
                         style={{
                           position: "absolute",
                           objectFit: "contain",
@@ -88,7 +80,7 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                     </div>
                   </div>
 
-                  <div className="text-3xl sm:text-5xl font-[600]">
+                  <div className="text-3xl sm:text-[40px] font-[600] py-1">
                     {startCount ? (
                       <CountUp
                         end={counter?.count}
@@ -102,10 +94,7 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                   {/* <HighlightingTextComponent>
                     {counter?.countname}
                   </HighlightingTextComponent> */}
-                  <ParaGraphText
-                    alignmentType={2}
-                    paddingTop={1}>
-
+                  <ParaGraphText alignmentType={2} paddingTop={1}>
                     {counter?.description}
                   </ParaGraphText>
                 </div>
