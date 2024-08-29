@@ -40,8 +40,8 @@ export default function TestimonialsSection({
   const sliderRef = React.useRef<Slider>(null);
 
   return (
-    <section className="w-full bg-blue-50 rounded-lg">
-      <div className="w-full max-w-6xl mx-auto  sm:p-12 p-2 sm:py-10 py-6 sm:my-10 my-6 rounded-lg ">
+    <section className="w-full bg-blue-50 rounded-lg sm:px-0 px-2">
+      <div className="w-full max-w-6xl mx-auto sm:p-12 p-2 sm:py-10 py-6 sm:my-10 my-6 rounded-lg ">
         {/* Header Section */}
         <div className="sm:-mb-[200px] mb-0">
           <div className="text-left mb-8 sm:w-[40%] w-full ">
