@@ -1,103 +1,110 @@
 "use client";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import React, { useState } from "react";
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
-  ZoomableGroup,
 } from "react-simple-maps";
 
 type Props = {};
 type MarkerType = {
+  flagUrl: any;
   name: string;
   coordinates: [number, number];
-  flagUrl: string; // URL to the flag image
 };
 
-const FooterMap = (footerMapResponse: any) => {
-  const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
+const FooterMap = ({ footerMapResponse }: any) => {
+  const [hoveredMarker, setHoveredMarker] = useState<any | null>(null);
 
   return (
-    <div className="px-4 lg:px-0 h-auto lg:h-[700px] bg-bullt-secondary/[0.8] shadow-md my-2">
-      <MainHeadingComponent paddingTop={3} alignmentType={2}>
-        {footerMapResponse?.footerMapResponse?.heading}
-      </MainHeadingComponent>
-      <ParaGraphText alignmentType={2}>
-        {footerMapResponse?.footerMapResponse?.description}
-      </ParaGraphText>
-      <ComposableMap className="h-full w-full">
-        <defs>
-          <clipPath id="circleClip">
-            <circle cx="3" cy="3" r="10" />
-          </clipPath>
-        </defs>
-        <Geographies
-          geography="/features.json"
-          fill="#bfbfbf"
-          stroke="#bfbfbf"
-          strokeWidth={0.9}
-        >
-          {({ geographies }) =>
-            geographies.map((geo) => (
-              <Geography key={geo.rsmKey} geography={geo} />
-            ))
-          }
-        </Geographies>
+    <div className=" h-auto w-full container mx-auto  flex sm:flex-row items-start justify-center flex-col px-4 lg:px-8">
+      <div className="sm:w-[50%] w-full sm:py-10 py-0">
+        <SloganHeadingComponent alignmentType={1} paddingTop={1}>
+          Global Hosting, Unmatched Performance
+        </SloganHeadingComponent>
+        <MainHeadingComponent paddingTop={1} alignmentType={2}>
+          {footerMapResponse?.heading}
+        </MainHeadingComponent>
+        <ParaGraphText alignmentType={2}>
+          {footerMapResponse?.description}
+        </ParaGraphText>
+      </div>
+      <div className="sm:w-[50%] w-full px-8">
+        <ComposableMap className="h-full w-full">
+          <Geographies
+            geography="/features.json"
+            fill="#1E3A8A"
+            stroke="#1E3A8A"
+          >
+            {({ geographies }) =>
+              geographies.map((geo) => (
+                <Geography key={geo.rsmKey} geography={geo} />
+              ))
+            }
+          </Geographies>
 
-        {footerMapResponse?.footerMapResponse?.locationMarkers?.map(
-          (markers: MarkerType, index: number) => (
-            <Marker
-              key={index}
-              coordinates={markers?.coordinates}
-              onMouseEnter={() => setHoveredMarker(markers?.name)}
-              onMouseLeave={() => setHoveredMarker(null)}
-            >
-              <image
-                href={`${process.env.NEXT_PUBLIC_BASE_URL}${markers?.flagUrl}`}
-                x={-15}
-                y={-15}
-                width={35}
-                height={35}
-                clipPath="url(#circleClip)"
-                preserveAspectRatio="xMidYMid meet"
-              />
-              {hoveredMarker === markers?.name && (
-                <g>
-                  <line
-                    x1="0"
-                    y1="-15"
-                    x2="0"
-                    y2="-90"
-                    stroke="#f69b00"
-                    strokeWidth="2"
-                  />
-                  <rect
-                    x={-50}
-                    y={-90}
-                    width={100}
-                    height={30}
-                    fill="#f69b00"
-                    rx={5}
-                    ry={5}
-                  />
-                  <text
-                    textAnchor="middle"
-                    y={-70}
-                    style={{
-                      fill: "#fff",
-                    }}
-                  >
-                    {markers?.name}
-                  </text>
-                </g>
-              )}
-            </Marker>
-          )
-        )}
-      </ComposableMap>
+          {footerMapResponse?.locationMarkers?.map(
+            (marker: MarkerType, index: number) => (
+              <Marker
+                key={index}
+                coordinates={marker.coordinates}
+                onMouseEnter={() => setHoveredMarker(marker)}
+                onMouseLeave={() => setHoveredMarker(null)}
+              >
+                <circle cx={0} cy={0} r={7} fill="#FF8C00" />{" "}
+                {hoveredMarker === marker && (
+                  <g>
+                    <line
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="-60"
+                      stroke="#FF8C00"
+                      strokeWidth="2"
+                      strokeDasharray="4"
+                    />
+                    <rect
+                      x={-50}
+                      y={-90}
+                      width={100}
+                      height={30}
+                      fill="#FF8C00"
+                      rx={8}
+                      ry={8}
+                      style={{ opacity: 0.9 }}
+                    />
+                    <text
+                      x="0"
+                      y="-70"
+                      textAnchor="middle"
+                      style={{
+                        fill: "#fff",
+                        fontSize: "12px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      <image
+                        href={`${process.env.NEXT_PUBLIC_BASE_URL}${marker?.flagUrl}`}
+                        x={-15}
+                        y={-15}
+                        width={45}
+                        height={45}
+                        clipPath="url(#circleClip)"
+                        preserveAspectRatio="xMidYMid meet"
+                      />
+                      {marker?.name}
+                    </text>
+                  </g>
+                )}
+              </Marker>
+            )
+          )}
+        </ComposableMap>
+      </div>
     </div>
   );
 };

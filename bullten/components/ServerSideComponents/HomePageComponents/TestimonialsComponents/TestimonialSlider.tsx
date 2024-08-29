@@ -48,19 +48,19 @@ const TestimonialSlider = ({ TestimonialsContent }: Props) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const settings = {
     dots: infinite,
-    infinite: infinite,
-    autoplay: false,
+    infinite: true,
+    autoplay: true,
     arrows: true,
-    speed: 2000,
+    speed: 800,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 2,
     prevArrow: <AiOutlineLeft />,
     nextArrow: <AiOutlineRight />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 3,
           infinite: infinite,
           dots: true,
@@ -90,14 +90,14 @@ const TestimonialSlider = ({ TestimonialsContent }: Props) => {
   return (
     <>
       {TestimonialsContent?.result?.Active === true ? (
-        <div className="rounded-md w-full bg-bullt-secondary/[0.01] py-10 border-0 shadow-sm px-3 lg:px-1">
+        <div className="rounded-md w-full bg-no-repeat bg-cover bg-center py-12 px-6 border-0 shadow-sm">
           <MainHeadingComponent alignmentType={2}>
             {testimonialData?.title}
           </MainHeadingComponent>
           <ParaGraphText alignmentType={2}>
             {testimonialData?.description}
           </ParaGraphText>
-          <div className="w-full container mx-auto sm:px-8 px-4">
+          <div className="w-full container mx-auto ">
             <SliderFrame settings={settings} selector={sliderRef}>
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="px-4">

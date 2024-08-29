@@ -36,24 +36,24 @@ const HeaderSubMenu = ({
 
   return (
     <div
-      className={`w-[100vw] min-h-[400px] open absolute top-full left-0 right-0  ${openSubMenu === menuKey ? "block" : "hidden"
-        } rounded-md shadow-md z-50 px-16 py-9 `}
-      style={{
-        ...(moveDown
-          ? {
-            background: `#ffffff`,
-            backdropFilter: "blur(35px)",
-          }
-          : {
-            background: `#ffffff`,
-            backdropFilter: "blur(35px)",
-          }),
-      }}
+      className={` container mx-auto min-h-[400px] open absolute top-full left-0 right-0  ${openSubMenu === menuKey ? "block border-t-4 transition-all duration-300 border-bullt-tertiary" : "hidden"
+        } rounded-md shadow-md z-50 bg-bullt-secondary`}
+      // style={{
+      //   ...(moveDown
+      //     ? {
+      //       background: `#fafafa`,
+      //       backdropFilter: "blur(9px)",
+      //     }
+      //     : {
+      //       background: `#fafafa`,
+      //       backdropFilter: "blur(9px)",
+      //     }),
+      // }}
     >
-      <div className="container grid grid-cols-12 mx-auto">
-        <div className="col-span-2 border-r-2">
+      <div className="container grid grid-cols-12 mx-auto bg-bullt-quaternary/[0.02]">
+        <div className="col-span-3 border-r-2 py-4 pr-4">
           {headerMenu?.subheader?.map((subHeader: SubHeader, index: number) => (
-            <div key={index} className={`flex justify-between item-center cursor-pointer px-3 py-2 rounded-sm hover:bg-bullt-quaternary/[0.1] group ${subheaderIndex === index ? "bg-bullt-quaternary/[0.1]" : "bg-white"}`}
+            <div key={index} className={`flex justify-between item-center cursor-pointer px-3 py-2 rounded-sm hover:bg-bullt-quaternary/[0.1]  group ${subheaderIndex === index ? "bg-bullt-quaternary/[0.05]" : "bg-transparent"}`}
               onMouseEnter={() => {
                 setInsideSubMenu(subHeader);
                 setSubHeaderIndex(index);

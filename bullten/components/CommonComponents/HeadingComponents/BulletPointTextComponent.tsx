@@ -18,7 +18,7 @@ const BulletPointTextComponent = ({
     <div>
       <h5
         className={classNames(
-          `flex items-center text-[1.1rem] lg:text-[1rem] font-bold text-bullt-primary/[0.6] ${
+          `flex items-center text-[1.1rem] lg:text-[1rem] font-normal text-bullt-primary/[0.6] ${
             paddingTop === 1
               ? "py-1"
               : paddingTop === 2

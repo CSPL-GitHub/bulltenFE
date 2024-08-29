@@ -15,5 +15,6 @@ export type Banner = {
   icon_2_decsription: string;
   icon_1_header:string;
   icon_2_header:string;
+  image_position:string;
 };
 

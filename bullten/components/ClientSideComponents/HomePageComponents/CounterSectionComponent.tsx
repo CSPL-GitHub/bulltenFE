@@ -1,11 +1,16 @@
 "use client";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
+import img from "../../../public/logo-bullten.png"
 
 type Counter = {
   description: string;
   count: number;
   countname: string;
+  image: string;
+
 };
 
 type Props = {
@@ -17,7 +22,7 @@ type Props = {
 const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
   const [startCount, setStartCount] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
-  console.log("counterData", counterData);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -56,35 +61,53 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
     <>
       {counterData?.counters?.length > 0 && (
         <div
-          className="w-full mx-auto text-center px-0 sm:px-10 py-6 bg-bullt-background"
+          className="w-full  text-center sm:px-4 rounded-lg"
           ref={ref}
+
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-12 justify-start">
             {counterData?.counters?.map((counter, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md sm:shadow-lg p-3 sm:p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                className="p-3"
               >
-                <div className="flex flex-col items-start justify-start">
-                  <div className="flex flex-row gap-2 items-center justify-center text-xl sm:text-4xl font-extrabold text-black h-[40px] sm:h-[60px]">
-                    <span>
-                      {startCount ? (
-                        <CountUp
-                          end={counter?.count}
-                          duration={2}
-                          formattingFn={formatNumber}
-                        />
-                      ) : (
-                        0
-                      )}
-                    </span>
-                    <span className="text-black text-center text-[10px] leading-[10px] sm:text-sm">
-                      {counter?.countname}
-                    </span>
+                <div className="flex flex-col gap-2">
+                  <div className="flip-container sm:h-[80px] h-[60px] lg:w-[100px] w-[80px] relative mx-auto perspective-500">
+                    <div className="flipper relative h-full w-full transition-transform duration-2000 transform-style-3d">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${counter?.image}`}
+                        alt="Flipping Image"
+                        className="flip-image backface-hidden"
+                        style={{
+                          position: "absolute",
+                          objectFit: "contain",
+                          inset: 0,
+                        }}
+                        fill={true}
+                      />
+                    </div>
                   </div>
-                  <p className="text-bullt-tertiary font-semibold text-[10px] sm:text-sm mt-2 sm:mt-3  transition-colors duration-300">
+
+                  <div className="text-3xl sm:text-5xl font-[600]">
+                    {startCount ? (
+                      <CountUp
+                        end={counter?.count}
+                        duration={2}
+                        formattingFn={formatNumber}
+                      />
+                    ) : (
+                      0
+                    )}
+                  </div>
+                  {/* <HighlightingTextComponent>
+                    {counter?.countname}
+                  </HighlightingTextComponent> */}
+                  <ParaGraphText
+                    alignmentType={2}
+                    paddingTop={1}>
+
                     {counter?.description}
-                  </p>
+                  </ParaGraphText>
                 </div>
               </div>
             ))}

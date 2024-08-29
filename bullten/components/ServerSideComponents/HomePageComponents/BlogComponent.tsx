@@ -4,92 +4,50 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { BlogSectionApi } from "@/apis/HomePageApis";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import BlogCartComponent from "@/components/ClientSideComponents/HomePageComponents/BlogCartComponent";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 
 const BlogsComponent = async () => {
   const blogResponse = await BlogSectionApi();
-  console.log("blogResponse", blogResponse?.result);
+  console.log("blogResponse", blogResponse);
   return (
     <>
+      {/* bg-[url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')] */}
       {blogResponse?.result?.Active === true ? (
-        <>
-          <div className="flex flex-col justify-center items-center gap-2 px-4  bg-gradient-to-r from-blue-50 to-blue-50">
-            <div className="text-center py-2">
-              {blogResponse?.result?.data?.label ? (
-                <>
+        <div className="relative w-full  bg-cover bg-center bg-no-repeat">
+          <section className="flex sm:flex-row flex-col items-center justify-center w-full py-16 sm:px-6 px-3  rounded-md backdrop-blur-md">
+            <div
+              className="flex flex-col items-start justify-start sm:w-[40%] w-full sm:h-[530px] h-full sm:mx-10 mx-1 bg-fill bg-center sm:p-20 p-2"
+              style={{
+                backgroundImage: `url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')`,
+              }}
+            >
+              {blogResponse?.result?.data?.label && (
+                <div className="text-bullt-text-quinary">
                   <SloganHeadingComponent alignmentType={2} paddingTop={1}>
                     {blogResponse?.result?.data?.label}
                   </SloganHeadingComponent>
-                </>
-              ) : null}
-              {blogResponse?.result?.data?.heading ? (
-                <h1 className="text-4xl font-bold text-gray-800">
+                </div>
+              )}
+              {blogResponse?.result?.data?.heading && (
+                <MainHeadingComponent alignmentType={2} paddingTop={1}>
                   {blogResponse?.result?.data?.heading}
-                </h1>
-              ) : null}
-              {blogResponse?.result?.data?.description ? (
-                <>
+                </MainHeadingComponent>
+              )}
+              {blogResponse?.result?.data?.description && (
+                <div className="w-[90%]">
                   <ParaGraphText alignmentType={2} paddingTop={1}>
                     {blogResponse?.result?.data?.description}
                   </ParaGraphText>
-                </>
-              ) : null}
-            </div>
-            {blogResponse?.result?.data?.blogs?.length > 0 ? (
-              <>
-                {" "}
-                <div className="w-full grid grid-cols-12 py-2 sm:px-4 px-2 gap-5 sm:mb-7">
-                  {blogResponse?.result?.data?.blogs?.map((blog: any) => (
-                    <div
-                      className="lg:col-span-4 sm:col-span-4 col-span-12 w-full  flex flex-col justify-center items-center border rounded-xl p-4 gap-3"
-                      key={blog?.id}
-                    >
-                      <div className="w-full h-[250px] relative">
-                        {blog?.title ? (
-                          <label className="bg-black text-white text-xs absolute px-4 py-1 rounded  flex justify-start z-[9]">
-                            {blog?.title}
-                          </label>
-                        ) : null}
-                        <Image
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${blog?.img}`}
-                          alt={blog?.alt_text}
-                          style={{
-                            position: "absolute",
-                            objectFit: "cover",
-                            inset: 0,
-                            borderRadius: "0.25rem 0.25rem 0 0",
-                          }}
-                          fill={true}
-                        />
-                      </div>
-                      <div className="w-full h-[200px] flex flex-col justify-between items-center">
-                        <div className="w-full">
-                          <h3 className="w-full sm:text-xl text-lg font-semibold line-clamp-2">
-                            {blog?.subtitle}
-                          </h3>
-                          <p className="w-full text-tgh-secondary text-sm line-clamp-4">
-                            {blog?.description}
-                          </p>
-                        </div>
-                        <div className="w-full flex justify-center items-center">
-                          <div className="w-full flex justify-center items-center gap-2 px-2 py-2 border-bullt-text-quinary bg-bullt-text-quinary hover:bg-white text-white hover:text-black  border-[1px] rounded group cursor-pointer">
-                            <p className="text-semibold transition-transform duration-500">
-                              Read Blog
-                            </p>
-                            <div className="sm:opacity-0 opacity-100 sm:group-hover:opacity-100 transform transition-opacity duration-500">
-                              <div className="sm:hidden sm:group-hover:block block">
-                                <AiOutlineArrowRight size={20} />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
                 </div>
-              </>
-            ) : null}
-          </div>
-        </>
+              )}
+            </div>
+
+            <div className="sm:w-[60%] w-full z-10 sm:-ml-32 ml-0 ">
+              <BlogCartComponent blogResponse={blogResponse} />
+            </div>
+          </section>
+        </div>
       ) : null}
     </>
   );

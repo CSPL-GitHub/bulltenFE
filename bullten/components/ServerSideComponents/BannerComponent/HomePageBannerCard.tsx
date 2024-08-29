@@ -31,7 +31,6 @@ const HomePageBannerCard = ({ banner }: Props) => {
         <div className="flex flex-col sm:gap-7 gap-2 mt-5 sm:mt-0 items-start justify-center sm:w-[60%] w-full">
           {banner?.label ? (
             <h2 className="text-white font-bold text-sm sm:text-xl mb-1 uppercase">
-              {" "}
               {banner?.label}
             </h2>
           ) : null}

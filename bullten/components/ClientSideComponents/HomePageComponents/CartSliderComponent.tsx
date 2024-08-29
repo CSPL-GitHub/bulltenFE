@@ -1,39 +1,29 @@
 "use client";
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
+import React, { useState } from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { BsArrowRightCircle, BsFillArrowRightCircleFill } from "react-icons/bs";
 
 type Props = { data: any };
 
 const CartSliderComponent: React.FC<Props> = ({ data }) => {
   return (
-    <div className="py-7 sm:px-8 ">
+    <div className="">
       {data?.map((item: any, index: number) => (
-        <div key={index} className="px-2 group py-2 ">
-          <div className="bg-bullt-text-tertiary border-[1px] border-bullt-text-quaternary p-3 rounded-lg shadow-lg group-hover:bg-bullt-secondary transition-colors ease-in duration-100">
-            {item?.heading ? (
-              <SubHeadingComponents
-                alignmentType={1}
-                paddingTop={1}
-                hoverEffect="text-bullt-secondary group-hover:text-bullt-primary transition-colors duration-300"
-              >
-                {item?.heading}
-              </SubHeadingComponents>
-            ) : null}
-            {/* <p className="text-[#FFFFFF] sm:mt-2 group-hover:text-bullt-primary ">
-              
-            </p> */}
-            {item?.description ? (
-              <ParaGraphText
-                paddingTop={1}
-                hoverEffect="text-bullt-secondary group-hover:text-bullt-primary transition-colors duration-300 "
-              >
-                {item?.description}
-              </ParaGraphText>
-            ) : null}
+        <div key={index} className="px-2 py-2 flex flex-col gap-8">
+          <div className="shadow-md bg-bullt-quaternary/[0.04] text-black border-[1px] border-white/10 rounded-lg p-4 group transition hover:bg-white hover:text-black hover:border-purple-500">
+            <div className="flex justify-between items-center"></div>
+
+            <SubHeadingComponents alignmentType={1} paddingTop={3}>
+              {item?.heading}
+            </SubHeadingComponents>
+            <ParaGraphText paddingTop={1}> {item?.description}</ParaGraphText>
+            {/* <div className="flex items-center justify-between mt-4">
+              <span className="text-sm text-white/50 group-hover:text-black">
+                {item?.date}
+              </span>
+            </div> */}
           </div>
         </div>
       ))}

@@ -73,3 +73,13 @@ export const chatSupportApiData = async () => {
   const response = await apiCore("/api/chatsupport", {}, "POST");
   return response;
 };
+
+export const WhyChooseWebHostingApi = async () => {
+  const response = await apiCore("/api/webhosting", {}, "POST");
+  return response;
+};
+
+export const ContactUsStripApi = async () => {
+  const response = await apiCore("/api/freetrial", {}, "POST");
+  return response;
+};
