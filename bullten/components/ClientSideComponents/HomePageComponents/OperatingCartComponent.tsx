@@ -30,7 +30,6 @@ const OperatingCartComponent: React.FC<Props> = ({ data }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-
         },
       },
     ],
@@ -68,7 +67,7 @@ const OperatingCartComponent: React.FC<Props> = ({ data }) => {
           </button>
         </nav> */}
 
-        <div className="py-6">
+        <div className="sm:py-6 py-2">
           <Slider {...settings}>
             {data?.list_titles?.map((item: any, index: any) => (
               <div
@@ -94,7 +93,6 @@ const OperatingCartComponent: React.FC<Props> = ({ data }) => {
                   {item.heading}
                 </h3>
               </div>
-
             ))}
           </Slider>
         </div>

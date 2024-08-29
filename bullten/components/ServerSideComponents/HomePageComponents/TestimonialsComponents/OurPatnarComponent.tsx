@@ -12,7 +12,7 @@ const OurPatnarComponent = async (props: Props) => {
   return (
     <>
       {data?.Active === true ? (
-        <section className="w-full sm:flex justify-center items-center gap-4 px-4 py-10">
+        <section className="w-full sm:flex justify-center items-center gap-4 px-4 sm:py-8 py-0">
           <div className="sm:flex w-full">
             {/* <div className="w-full sm:w-[30%] flex flex-col justify-center sm:py-0 py-4">
               {data?.partner_data?.label && (

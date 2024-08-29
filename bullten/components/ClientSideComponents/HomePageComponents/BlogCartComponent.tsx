@@ -20,7 +20,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
     const { onClick } = props;
     return (
       <div
-        className="absolute sm:bottom-[22px] -bottom-12 sm:-left-[50%] left-[55%] flex justify-end items-center cursor-pointer rounded-full  p-2"
+        className="absolute sm:bottom-[22px] -bottom-14 sm:-left-[50%] left-[55%] flex justify-end items-center cursor-pointer rounded-full  p-2"
         onClick={onClick}
       >
         <p className="bg-gray-300 rounded-full p-2 border border-gray-600">
@@ -35,7 +35,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
     const { onClick } = props;
     return (
       <div
-        className="absolute sm:bottom-[22px] -bottom-12 sm:-left-[60%] right-[55%] flex justify-start items-center cursor-pointer rounded-full p-2 sm:z-0 z-10"
+        className="absolute sm:bottom-[22px] -bottom-14 sm:-left-[60%] right-[55%] flex justify-start items-center cursor-pointer rounded-full p-2 sm:z-0 z-10"
         onClick={onClick}
       >
         <p className="bg-gray-300 rounded-full p-2 border border-gray-600">
@@ -79,11 +79,11 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
           {blogResponse?.result?.data?.blogs?.map((blog: any) => (
             <div key={blog?.id} className="px-2">
               <div className="relative flex flex-col w-full h-[370px] overflow-hidden rounded-lg shadow-lg group ">
-                <div className="h-[65%] ">
+                <div className="h-[70%] ">
                   <img
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${blog?.img}`}
                     alt="Blog Image"
-                    className="w-full h-[200px] object-cover transition-transform duration-500 "
+                    className="w-full h-[220px] object-cover transition-transform duration-500 "
                   />{" "}
                   <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
                   {blog?.date && (

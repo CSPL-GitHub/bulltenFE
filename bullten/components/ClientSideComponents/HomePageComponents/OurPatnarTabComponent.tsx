@@ -30,7 +30,6 @@ const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-
         },
       },
     ],
@@ -68,7 +67,7 @@ const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
           </button>
         </nav> */}
 
-        <div className="py-6">
+        <div className="sm:py-6 py-1">
           <Slider {...settings}>
             {data?.operating_systems?.map((item: any, index: any) => (
               <div
@@ -76,7 +75,7 @@ const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
                 className="text-center hover:bg-[#F4F5F8] w-[140px] grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
               >
                 {item.img ? (
-                  <div className="h-[140px] lg:w-[270px] w-[120px] relative mx-auto">
+                  <div className="sm:h-[140px] h-[100px] lg:w-[270px] w-[120px] relative mx-auto">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.img}`}
                       alt="all"
@@ -94,7 +93,6 @@ const OurPatnarTabComponent: React.FC<Props> = ({ data }) => {
                   {item.heading}
                 </h3>
               </div>
-
             ))}
           </Slider>
         </div>

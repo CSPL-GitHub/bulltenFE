@@ -12,9 +12,10 @@ const BlogsComponent = async () => {
   console.log("blogResponse", blogResponse);
   return (
     <>
+      {/* bg-[url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')] */}
       {blogResponse?.result?.Active === true ? (
-        <div className="relative w-full bg-[url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')] bg-cover bg-center bg-no-repeat">
-          <section className="flex sm:flex-row flex-col w-full py-16 px-6  rounded-md backdrop-blur-md">
+        <div className="relative w-full bg-blue-100 bg-cover bg-center bg-no-repeat">
+          <section className="flex sm:flex-row flex-col w-full py-16 sm:px-6 px-3  rounded-md backdrop-blur-md">
             <div className="flex flex-col items-start justify-start sm:w-[40%] w-full sm:mx-10 mx-1">
               {blogResponse?.result?.data?.label && (
                 <div className="text-bullt-text-quinary">

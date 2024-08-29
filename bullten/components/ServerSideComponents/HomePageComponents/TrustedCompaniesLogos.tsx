@@ -12,8 +12,8 @@ const TrustedCompaniesLogos = async () => {
   return (
     <>
       {trustedComponiesData?.result?.Active === true ? (
-        <div className="w-full mx-auto py-12 px-6">
-          <div className="flex flex-col gap-1 justify-center items-center">
+        <div className="w-full mx-auto sm:py-10 py-2 px-4">
+          <div className="flex flex-col sm:justify-center sm:items-center items-start">
             <SloganHeadingComponent alignmentType={2} paddingTop={1}>
               Companies we serve
             </SloganHeadingComponent>
@@ -23,14 +23,14 @@ const TrustedCompaniesLogos = async () => {
             </MainHeadingComponent>
           </div>
 
-          <div className="w-full grid grid-cols-4 justify-center mt-4 gap-4">
+          <div className="w-full grid sm:grid-cols-4 grid-cols-3 justify-center mt-2 sm:gap-4 gap-0">
             {logos?.map((logo: any, index: number) => (
               <div
                 key={index}
                 className="text-center hover:bg-[#F4F5F8]  grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
               >
                 {logo?.img ? (
-                  <div className="h-[100px] lg:w-[170px] w-[100px] relative mx-auto">
+                  <div className="sm:h-[100px] h-[50px] lg:w-[170px] w-[100px] relative mx-auto">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${logo?.img}`}
                       alt="all"

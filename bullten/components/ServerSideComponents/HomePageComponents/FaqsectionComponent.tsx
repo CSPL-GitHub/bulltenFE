@@ -13,14 +13,14 @@ const FaqSection = async () => {
     <>
       {FaqSection?.result?.Active === true ? (
         <>
-          <section className="w-full py-12 px-6 bg-bullt-quaternary/[0.03] rounded-md">
+          <section className="w-full sm:py-12 py-4 my-3 sm:px-6 px-2 bg-bullt-quaternary/[0.03] rounded-md">
             <div className="sm:flex gap-5">
-              <div className="sm:w-1/2 ">
-              {FaqSectionApiResponse?.data?.slogen ? (
-                <SloganHeadingComponent alignmentType={1} paddingTop={1}>
-                  {FaqSectionApiResponse?.data?.slogen}
-                </SloganHeadingComponent>  
-              ):null}
+              <div className="sm:w-1/2 sm:px-8 px-4">
+                {FaqSectionApiResponse?.data?.slogen ? (
+                  <SloganHeadingComponent alignmentType={1} paddingTop={1}>
+                    {FaqSectionApiResponse?.data?.slogen}
+                  </SloganHeadingComponent>
+                ) : null}
                 {FaqSectionApiResponse?.data?.heading ? (
                   <MainHeadingComponent
                     alignmentType={1}

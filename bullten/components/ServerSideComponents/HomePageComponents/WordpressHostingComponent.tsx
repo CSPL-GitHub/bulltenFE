@@ -120,9 +120,9 @@ const WordPressHoistingComponent = async (props: Props) => {
             </div>
           </section> */}
 
-          <section className="container mx-auto w-full py-16">
+          <section className="container mx-auto w-full py-2">
             <div className="relative py-16 md:pb-48 overflow-hidden bg-[url('/bg-shap1.png')] bg-cover bg-center px-4 md:px-0">
-              <div className="absolute inset-0 w-full h-full bg-bullt-primary  opacity-80"></div>
+              <div className="absolute inset-0 w-full h-full bg-blue-600 opacity-75"></div>
               <div className="relative w-full max-w-6xl mx-auto flex flex-col md:flex-row ">
                 <div className="relative lg:w-1/2 mb-4 md:mb-12 ">
                   <div className="flex gap-1 border-b-[1px] sm:w-[330px] sm:h-10 w-full border-bullt-text-quinary ">
@@ -156,7 +156,7 @@ const WordPressHoistingComponent = async (props: Props) => {
               </div>
             </div>
 
-            <div className="group relative mx-auto mt-4 md:-mt-56 mb-20 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent  md:block">
+            <div className="group relative mx-auto -mt-4 sm:-mt-56 sm:mb-20 mb-0 px-4 md:px-0 w-full max-w-6xl overflow-hidden rounded-sm bg-transparent  md:block">
               <HostingSolutionsCardSlider
                 items={WordPressHoistingApiResponse?.result?.host_data?.hosting}
               />

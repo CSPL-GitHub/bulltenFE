@@ -15,7 +15,7 @@ const WhyBulletinComponent = async () => {
     <>
       {WhyUsSectionApiResponse?.Active === true ? (
         <>
-          <div className="container mx-auto relative py-12">
+          <div className="container mx-auto relative sm:py-10 py-3">
             <div className=" mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 ">
                 <div className="relative">
@@ -49,7 +49,7 @@ const WhyBulletinComponent = async () => {
                   </div>
                 </div>
 
-                <div className="shadow-md bg-white py-14 lg:py-4 px-7">
+                <div className="shadow-md bg-white py-14 lg:py-4 px-2">
                   {WhyUsSectionApiResponse?.data?.label ? (
                     <>
                       <SloganHeadingComponent
@@ -85,7 +85,7 @@ const WhyBulletinComponent = async () => {
                                 key={index}
                                 className="flex items-center gap-2"
                               >
-                                <span className="text-bullt-tertiary text-xl font-semibold text-center">
+                                <span className=" text-bullt-quaternary text-xl font-semibold text-center">
                                   &#10003;
                                 </span>
                                 <BulletPointTextComponent paddingTop={1}>

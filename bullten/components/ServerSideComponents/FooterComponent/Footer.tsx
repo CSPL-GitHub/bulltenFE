@@ -15,7 +15,7 @@ const Footer: React.FC = async () => {
   return (
     <>
       {footerResponse?.result ? (
-        <footer className=" w-full pt-10 ">
+        <footer className=" w-full ">
           <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />
           <div className="-mb-28 px-6 lg:px-16">
             <ContactUsStripSection />

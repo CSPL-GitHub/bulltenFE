@@ -45,9 +45,6 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TrustedCompaniesLogos />
         </Suspense>
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <OurPatnarComponent />
-        </Suspense>{" "}
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <SupportSection supportContent={SupportSectionContent?.result} />
         </Suspense> */}
@@ -55,22 +52,25 @@ export default async function Home() {
           <WhyBulletinComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <WordPressHoistingComponent />
-        </Suspense>
+          <OurPatnarComponent />
+        </Suspense>{" "}
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <CounterComponent />
+          <WordPressHoistingComponent />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <OperatingComponent />
         </Suspense>{" "}
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <CounterComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ServerFeatures />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <WhyChooseWebHosting />
+          <ChatService />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <ChatService />
+          <WhyChooseWebHosting />
         </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <BlogsComponent />
