@@ -54,6 +54,20 @@
       --background-end-rgb: 0, 0, 0;
     }
   }
+
+  .custom-bounce {
+    animation: custom-bounce 3s infinite; /* Adjusted speed here */
+  }
+  
+  @keyframes custom-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); /* Adjusted bounce height */
+    }
+  }
+
   .scroll {
     scrollbar-width: none;
   }
