@@ -1,6 +1,8 @@
 "use client";
 import BulletPointTextComponent from "@/components/CommonComponents/HeadingComponents/BulletPointTextComponent";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
+import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
 import Image from "next/image";
 import React, { useState } from "react";
 import { SiTicktick } from "react-icons/si";
@@ -9,7 +11,7 @@ type TabContent = {
   title: string;
   description?: string | boolean;
   image?: string;
-  alt_text?: string | boolean;
+  alt_text?: string;
 };
 
 type Tab = {
@@ -44,9 +46,9 @@ const WhyChooseWebHostingTabsComponent: React.FC<Props> = ({ content }) => {
                 className="w-full"
               >
                 <div
-                  className={`cursor-pointer w-full p-4 rounded-md text-center font-semibold transition-colors duration-300 ${
+                  className={`cursor-pointer w-full p-4 rounded-sm text-center font-semibold transition-colors duration-300 ${
                     activeTab === tab.heading
-                      ? "bg-blue-600 text-white"
+                      ? "bg-bullt-tertiary text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-blue-200"
                   }`}
                 >
@@ -68,16 +70,24 @@ const WhyChooseWebHostingTabsComponent: React.FC<Props> = ({ content }) => {
             );
 
           return (
-            <div className="py-6 px-4 shadow-md ">
+            <div className="py-6 px-4 shadow-sm border mt-4 rounded-md">
               {currentTab.title && (
-                <h3 className="text-3xl font-semibold text-gray-800 mb-4">
+                <SubHeadingComponents
+                  alignmentType={2}
+                  paddingTop={1}
+                  hoverEffect=" text-gray-800 text-[2rem]"
+                >
                   {currentTab.title}
-                </h3>
+                </SubHeadingComponents>
               )}
               {currentTab.description && (
-                <p className="text-lg text-gray-700 mb-6">
+                <ParaGraphText
+                  alignmentType={2}
+                  paddingTop={1}
+                  hoverEffect="text-gray-700 text-justify "
+                >
                   {currentTab.description}
-                </p>
+                </ParaGraphText>
               )}
 
               {currentTab.record === "Multiple" ? (
@@ -86,10 +96,10 @@ const WhyChooseWebHostingTabsComponent: React.FC<Props> = ({ content }) => {
                     <div className="sm:grid sm:grid-cols-2 gap-4 py-3">
                       {currentTab.tabContent.map((item, index) => (
                         <div className="flex items-center gap-2">
-                          <SiTicktick className="text-bullt-text-quinary" />
-                          <h4 className="text-lg font-medium text-gray-800">
+                          <SiTicktick className="text-bullt-quaternary" />
+                          <BulletPointTextComponent paddingTop={1}>
                             {item.title}
-                          </h4>
+                          </BulletPointTextComponent>
                         </div>
                       ))}
                     </div>
@@ -97,23 +107,43 @@ const WhyChooseWebHostingTabsComponent: React.FC<Props> = ({ content }) => {
                 </>
               ) : (
                 currentTab.tabContent.map((item, index) => (
-                  <div key={index} className="p-4 mb-4">
-                    {item?.image && (
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                        alt="all"
-                        className=""
-                        fill={true}
-                      />
-                    )}
-                    <h4 className="text-xl font-semibold text-gray-800">
+                  <div key={index} className=" flex flex-col gap-2 mb-4">
+                    <SubHeadingComponents
+                      alignmentType={2}
+                      paddingTop={1}
+                      hoverEffect="text-gray-800"
+                    >
                       {item.title}
-                    </h4>
-                    {item.description && (
-                      <p className="text-md text-gray-700 mt-2">
-                        {item.description}
-                      </p>
-                    )}
+                    </SubHeadingComponents>
+                    <div className="flex flex-col lg:flex-row gap-2 justify-start items-start">
+                      {item?.image && (
+                        <div className="lg:w-1/3 sm:h-[200px] h-[300px] w-full relative ">
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                            alt={"img"}
+                            style={{
+                              position: "absolute",
+                              objectFit: "contain",
+                              inset: 0,
+                            }}
+                            fill={true}
+                            className="rounded-md w-full h-full"
+                          />
+                        </div>
+                      )}
+
+                      <div className="w-full lg:w-2/3">
+                        {item.description && (
+                          <ParaGraphText
+                            alignmentType={1}
+                            paddingTop={1}
+                            hoverEffect="text-gray-700 text-justify "
+                          >
+                            {item.description}
+                          </ParaGraphText>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 ))
               )}

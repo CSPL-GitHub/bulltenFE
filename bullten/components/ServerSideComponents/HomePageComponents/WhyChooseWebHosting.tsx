@@ -16,7 +16,7 @@ const WhyChooseWebHosting = async (props: Props) => {
     <>
       {res?.Active === true ? (
         <>
-          <section className="py-16 w-full px-8 bg-bullt-quaternary/[0.01]">
+          <section className="py-16 w-full px-4 lg:px-8 bg-bullt-quaternary/[0.01]">
             <div className="mx-auto flex flex-col lg:flex-row gap-4">
               <div className="w-full mb-6 lg:mb-0">
                 <div className="flex flex-col justify-start ">

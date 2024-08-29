@@ -113,7 +113,7 @@ const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
                     hoveredIndex === index ? "opacity-100" : "opacity-0"
                   } overflow-hidden`}
                 >
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center mb-4">
+                  <div className="w-8 h-8 rounded-full bg-white flex  justify-center mb-4">
                     <span className="text-black font-bold text-lg">→</span>
                   </div>
                   <p className="text-lg font-bold mb-2 truncate">

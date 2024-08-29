@@ -8,10 +8,14 @@ const ContactUsStripSection = async () => {
     <>
       {ContactUsStripSectionContent?.result?.Active === true ? (
         <div
-          className="container z-10 relative w-full  mx-auto h-64 bg-cover bg-center bg-no-repeat rounded-md"
-          style={{ backgroundImage: "url('/01.jpg')" }}
+          className="container z-10 relative w-full  mx-auto h-52 bg-cover bg-center bg-no-repeat rounded-lg"
+          style={{
+            backgroundImage: `url(${`${process.env.NEXT_PUBLIC_BASE_URL}${ContactUsStripSectionContent?.result?.FreeTrial?.img}`})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className="absolute inset-0 bg-blue-600 opacity-75"></div>
+          <div className="absolute inset-0 bg-blue-600 opacity-75 rounded-lg"></div>
           <div className="relative z-10 flex flex-col lg:flex-row justify-around w-full gap-4 mx-auto items-center h-full px-6 text-center lg:text-left rounded-md">
             <div className="w-full lg:w-1/2">
               <h2 className="text-white font-semibold tracking-wider uppercase">
