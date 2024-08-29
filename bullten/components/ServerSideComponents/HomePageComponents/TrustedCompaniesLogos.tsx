@@ -15,7 +15,7 @@ const TrustedCompaniesLogos = async () => {
         <div className="w-full mx-auto sm:py-10 py-2 px-4">
           <div className="flex flex-col sm:justify-center sm:items-center items-start">
             <SloganHeadingComponent alignmentType={2} paddingTop={1}>
-              Companies we serve
+              {trustedComponiesData?.result?.data?.slogan}
             </SloganHeadingComponent>
 
             <MainHeadingComponent alignmentType={2} paddingTop={1}>

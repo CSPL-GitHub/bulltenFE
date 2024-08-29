@@ -17,7 +17,7 @@ const WhyBulletinComponent = async () => {
         <>
           <div className="container mx-auto relative sm:py-10 py-3">
             <div className=" mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 ">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="relative">
                   <div className="aspect-w-3 aspect-h-4 lg:aspect-none">
                     <img
@@ -28,7 +28,7 @@ const WhyBulletinComponent = async () => {
                       className="rounded-l-lg shadow-lg"
                     />
                   </div>
-                  <div className="absolute bottom-0 left-0 transform translate-x-8 translate-y-8 bg-white p-4 rounded-lg shadow-lg">
+                  {/* <div className="absolute bottom-0 left-0 transform translate-x-8 translate-y-8 bg-white p-4 rounded-lg shadow-lg">
                     <div className="flex items-center">
                       <img
                         src="https://wp2022.kodesolution.com/oitech/wp-content/uploads/2024/01/divider9.jpg" // Replace with your actual image path
@@ -39,17 +39,17 @@ const WhyBulletinComponent = async () => {
                       />
                       <div className="ml-4">
                         <p className="text-lg font-semibold text-gray-800">
-                          3600+
+                          {WhyUsSectionApiResponse?.data?.small_box?.}
                         </p>
                         <p className="text-sm text-gray-500">
                           Satisfied Client
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
-                <div className="shadow-md bg-white py-14 lg:py-4 px-2">
+                <div className=" bg-white py-14 lg:py-4 px-2">
                   {WhyUsSectionApiResponse?.data?.label ? (
                     <>
                       <SloganHeadingComponent
