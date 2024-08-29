@@ -24,6 +24,8 @@ export type HeaderResponse = {
   result: {
     logo: string;
     logo_alternate_text: string;
+    email: string;
+    phone: string;
     header: HeaderMenu[];
   };
 };

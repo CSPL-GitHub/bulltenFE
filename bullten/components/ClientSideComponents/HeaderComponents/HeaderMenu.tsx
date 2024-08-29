@@ -10,7 +10,7 @@ import Link from "next/link";
 import { HeaderResponse } from "@/components/CommonComponents/HeaderComponents/headerTypes";
 import Image from "next/image";
 import { HiOutlineMailOpen } from "react-icons/hi";
-import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter } from "react-icons/fa";
+import { FaCartArrowDown, FaPhoneAlt , FaUser } from "react-icons/fa";
 
 type Props = {
   headerResponse: HeaderResponse;
@@ -42,22 +42,25 @@ const HeaderMenu = ({ headerResponse }: Props) => {
   return (
     <header className="w-full flex items-center justify-center fixed top-0 start-0 z-20">
       <div className={`container mx-auto rounded-md border-1`}>
-        <div className="sm:h-8 bg-bullt-secondary flex items-center sm:border-0 border-b border-bullt-quaternary sm:py-0 py-1">
+        <div className="sm:h-8 bg-bullt-tertiary flex items-center sm:border-0 border-b border-bullt-quaternary sm:py-0 py-1">
           <div className="container mx-auto flex justify-between px-3">
             <div className="flex sm:flex-row flex-col sm:gap-5">
-              <div className="flex gap-2 text-bullt-quaternary text-base">
+              <div className="flex gap-2 text-bullt-secondary text-base">
                 <HiOutlineMailOpen className="my-auto" />
-                <p>test@mail.com</p>
+                <a href={`mailto:${headerResponse?.result?.email}`}>
+                  {headerResponse?.result?.email}
+                </a>
               </div>
-              <div className="flex gap-2 text-bullt-quaternary">
+              <div className="flex gap-2 text-bullt-secondary">
                 <FaPhoneAlt className="my-auto" />
-                <p> (+91) 975-225-5794</p>
+                <a href={`tel:${headerResponse?.result?.phone}`}>
+                  {headerResponse?.result?.phone}
+                </a>
               </div>
             </div>
-            <div className="flex item-center text-bullt-quaternary gap-3">
-              <FaFacebook size={18} className="my-auto" />
-              <FaInstagram size={18} className="my-auto" />
-              <FaTwitter size={18} className="my-auto" />
+            <div className="flex item-center text-bullt-secondary gap-5">
+              <FaUser size={18} className="my-auto" />
+              <FaCartArrowDown size={18} className="my-auto" />
             </div>
           </div>
         </div>
@@ -109,7 +112,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                   headerResponse={headerResponse}
                 />
               </div>
-              <div className="w-full lg:flex hidden gap-10 justify-end items-center bg-bullt-primary">
+              <div className="w-full lg:flex hidden gap-10 justify-end items-center bg-bullt-primary px-4">
                 {headerResponse?.result?.header?.length > 0
                   ? headerResponse?.result?.header?.map((headerMenu) => {
                     return (
