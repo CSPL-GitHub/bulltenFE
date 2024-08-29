@@ -10,9 +10,9 @@ const CounterComponent: React.FC = async () => {
   return (
     <>
       {counterData?.Active === true && (
-        <div className="sm:py-2 py-6relative">
+        <div className="sm:py-2 py-6 relative">
            <div className="bg-bullt-quaternary h-[180px] w-full"></div>
-          <div className="w-[98%] py-16  z-10 -mt-[150px] "  style={{
+          <div className="w-[98%] py-10  z-10 -mt-[150px] "  style={{
             backgroundImage: `url(${img1.src})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',

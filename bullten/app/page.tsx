@@ -41,45 +41,70 @@ export default async function Home() {
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TrustedCompaniesLogos />
         </Suspense>
-        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <SupportSection supportContent={SupportSectionContent?.result} />
-        </Suspense> */}
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <WhyBulletinComponent />
-        </Suspense>
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <OurPatnarComponent />
-        </Suspense>{" "}
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <OurServicesComponent />
-        </Suspense>
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <OperatingComponent />
-        </Suspense>{" "}
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <CounterComponent />
-        </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ServerFeatures />
         </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OperatingComponent />
+        </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OurServicesComponent />
+        </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <WhyBulletinComponent />
+        </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <WhatWeOfferComponent />
+        </Suspense>
+
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <CounterComponent />
+        </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <ChatService />
         </Suspense>
-        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <WhyChooseWebHosting />
-        </Suspense> */}
-        <WhatWeOfferComponent />
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <BlogsComponent />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <FaqSection />
         </Suspense>
+
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TestimonialsSection
             TestimonialsContent={TestimonialsContent?.result}
           />
         </Suspense>
+        
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OurServicesComponent />
+        </Suspense> */}
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <SupportSection supportContent={SupportSectionContent?.result} />
+        </Suspense> */}
+
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <OurPatnarComponent />
+        </Suspense> */}
+
+
+
+
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <WhyChooseWebHosting />
+        </Suspense> */}
+
+
+
+
       </div>
     </main>
   );
