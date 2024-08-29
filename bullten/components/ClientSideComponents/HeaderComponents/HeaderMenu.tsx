@@ -10,7 +10,7 @@ import Link from "next/link";
 import { HeaderResponse } from "@/components/CommonComponents/HeaderComponents/headerTypes";
 import Image from "next/image";
 import { HiOutlineMailOpen } from "react-icons/hi";
-import { FaCartArrowDown, FaPhoneAlt , FaUser } from "react-icons/fa";
+import { FaCartArrowDown, FaFacebook, FaInstagram, FaPhoneAlt , FaTwitter, FaUser } from "react-icons/fa";
 
 type Props = {
   headerResponse: HeaderResponse;
@@ -58,9 +58,11 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                 </a>
               </div>
             </div>
-            <div className="flex item-center text-bullt-secondary gap-5">
+            <div className="flex item-center text-bullt-secondary gap-4">
               <FaUser size={18} className="my-auto" />
               <FaCartArrowDown size={18} className="my-auto" />
+              <FaFacebook size={18} className="my-auto" />
+              <FaInstagram size={18} className="my-auto" />
             </div>
           </div>
         </div>

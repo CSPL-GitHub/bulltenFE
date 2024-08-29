@@ -5,19 +5,22 @@ import img1 from "../../../public/counter1.png";
 const CounterComponent: React.FC = async () => {
   const response = await CounteSectionApi();
   const counterData = response?.result;
-  console.log("counterData",counterData)
+  console.log("counterData", counterData);
 
   return (
     <>
       {counterData?.Active === true && (
-        <div className="sm:py-2 py-6 relative">
-           <div className="bg-bullt-quaternary h-[180px] w-full"></div>
-          <div className="w-[98%] py-10  z-10 -mt-[150px] "  style={{
-            backgroundImage: `url(${img1.src})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-          }}>
+        <div className="sm:py-2 py-4 sm:my-6 my-2 relative">
+          <div className="bg-bullt-quaternary h-[180px] w-full"></div>
+          <div
+            className="w-[90%] py-6  z-10 -mt-[130px] "
+            style={{
+              backgroundImage: `url(${img1.src})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+          >
             <div className="">
               {/* <div>
                 {counterData?.data?.label && (
