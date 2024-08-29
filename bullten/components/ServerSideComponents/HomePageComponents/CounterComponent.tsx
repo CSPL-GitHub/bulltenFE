@@ -5,13 +5,14 @@ import img1 from "../../../public/counter1.png";
 const CounterComponent: React.FC = async () => {
   const response = await CounteSectionApi();
   const counterData = response?.result;
+  console.log("counterData",counterData)
 
   return (
     <>
       {counterData?.Active === true && (
-        <div className="my-16 relative">
-           <div className="bg-[#FBAA2E] h-[200px] w-full"></div>
-          <div className="w-[95%] py-16  z-10 -mt-[150px] "  style={{
+        <div className="sm:py-2 py-6relative">
+           <div className="bg-bullt-quaternary h-[180px] w-full"></div>
+          <div className="w-[98%] py-16  z-10 -mt-[150px] "  style={{
             backgroundImage: `url(${img1.src})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -39,7 +40,6 @@ const CounterComponent: React.FC = async () => {
                 )}
               </div> */}
               <CounterSectionComponent counterData={counterData?.data} />
-
             </div>
           </div>
         </div>

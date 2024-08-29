@@ -3,7 +3,7 @@ import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaG
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
-
+import img from "../../../public/logo-bullten.png"
 
 type Counter = {
   description: string;
@@ -61,31 +61,34 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
     <>
       {counterData?.counters?.length > 0 && (
         <div
-          className="w-full sm:mx-auto mx-0 text-center sm:px-4 rounded-lg"
+          className="w-full  text-center sm:px-4 rounded-lg"
           ref={ref}
 
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-12 justify-start">
             {counterData?.counters?.map((counter, index) => (
               <div
                 key={index}
                 className="p-3"
               >
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <div className="h-[80px] lg:w-[100px] w-[100px] relative mx-autotransition-transform duration-500 transform hover:rotate-y-180">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${counter?.image}`}
-                      alt="all"
-                      className=""
-                      style={{
-                        position: "absolute",
-                        objectFit: "contain",
-                        inset: 0,
-                      }}
-                      fill={true}
-                    />
+                <div className="flex flex-col gap-2">
+                  <div className="flip-container sm:h-[80px] h-[60px] lg:w-[100px] w-[80px] relative mx-auto perspective-500">
+                    <div className="flipper relative h-full w-full transition-transform duration-2000 transform-style-3d">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${counter?.image}`}
+                        alt="Flipping Image"
+                        className="flip-image backface-hidden"
+                        style={{
+                          position: "absolute",
+                          objectFit: "contain",
+                          inset: 0,
+                        }}
+                        fill={true}
+                      />
+                    </div>
                   </div>
-                  <div className="text-3xl sm:text-6xl ">
+
+                  <div className="text-3xl sm:text-5xl font-[500]">
                     {startCount ? (
                       <CountUp
                         end={counter?.count}
@@ -101,9 +104,8 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                   </HighlightingTextComponent> */}
                   <ParaGraphText
                     alignmentType={2}
-                    paddingTop={1}
-                  >
-                    {" "}
+                    paddingTop={1}>
+
                     {counter?.description}
                   </ParaGraphText>
                 </div>

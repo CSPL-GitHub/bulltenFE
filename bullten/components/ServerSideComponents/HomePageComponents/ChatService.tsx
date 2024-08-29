@@ -4,15 +4,15 @@ import MainHeadingComponent from "@/components/CommonComponents/HeadingComponent
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import Image from "next/image";
 import SupportSection from "./SupportComponent";
+import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 
 export default async function ChatService() {
-  let chatSupportApiDataResponse = await chatSupportApiData();
-  chatSupportApiDataResponse = chatSupportApiDataResponse?.result;
+
   const SupportSectionContent = await SupportSectionAPI();
 
   return (
     <>
-      {chatSupportApiDataResponse?.Active === true ? (
+      {SupportSectionContent?.result?.Active === true ? (
         // <div className="flex flex-row items-center justify-center bg-blue-900 w-full px-6 py-12  mx-auto ">
         //   <div className="flex flex-col lg:flex-row items-center justify-center">
         //     <div className="relative flex-shrink-0 mb-6 lg:mb-0 lg:mr-10">
@@ -69,34 +69,30 @@ export default async function ChatService() {
         //   </div>
         // </div>
         <section className="">
-          <div className="relative py-20 md:pb-40 bg-fixed bg-cover bg-center bg-no-repeat bg-[url('/01.jpg')]">
-            <div className="absolute inset-0 bg-black opacity-70"></div>
-            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:flex lg:px-8">
-              <div className="relative mx-auto my-auto flex flex-col items-center">
-                <div className="flex max-w-5xl justify-center items-center flex-col md:flex-col">
-                  <h2 className="text-center text-3xl text-white leading-tight sm:text-5xl lg:text-5xl font-bold">
-                    {chatSupportApiDataResponse?.Chat_Support?.heading}
-                  </h2>
-                  <div className="">
-                    <p className="mt-4 text-center font-medium text-white md:text-lg">
-                      {chatSupportApiDataResponse?.Chat_Support?.description}
-                    </p>
-                    <div className="py-5">
-                      <HomePageButtonOne
-                        alignmentType={2}
-                        buttonText={
-                          chatSupportApiDataResponse?.Chat_Support?.button_text
-                        }
-                        route={"#"}
-                      />
-                    </div>
-                  </div>
+          <div className="relative sm:h-[350px] h-[380px] sm:py-12 py-6 md:pb-40 bg-fixed bg-cover bg-top bg-no-repeat bg-[url('/01.jpg')]">
+            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="relative flex justify-center items-center px-6 ">
+              <div className="sm:flex justify-center items-center">
+                <div className="sm:w-[70%] w-full">
+                  <SloganHeadingComponent alignmentType={1} paddingTop={1} hoverEffect="text-bullt-secondary">
+                    {SupportSectionContent?.result?.data?.slogan}
+                  </SloganHeadingComponent>
+                  <MainHeadingComponent alignmentType={1} hoverEffect="text-bullt-secondary">
+                    {SupportSectionContent?.result?.data?.heading}
+                  </MainHeadingComponent>
+                </div>
+                <div className="py-5 sm:w-[30%]">
+                  <HomePageButtonOne
+                    alignmentType={2}
+                    buttonText={SupportSectionContent?.result?.data?.buttontext}
+                    route={"#"} />
+
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="group relative mx-auto -mt-36 mb-20 hidden w-full max-w-6xl overflow-hidden rounded-md bg-bullt-secondary shadow-md md:block">
+          <div className="group sm:h-[200px] relative mx-auto sm:-mt-20  -mt-12 rounded-md bg-bullt-secondary shadow-md md:block sm:w-[83%] w-[95%]">
             <SupportSection supportContent={SupportSectionContent?.result} />
           </div>
         </section>

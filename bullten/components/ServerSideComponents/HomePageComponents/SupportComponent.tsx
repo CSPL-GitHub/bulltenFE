@@ -29,78 +29,50 @@ type Props = {
 
 const SupportSection = ({ supportContent }: Props) => {
   return (
-    <>
-      {supportContent?.Active === true ? (
-        <div className=" w-full py-6 px-6  bg-bullt-secondary rounded-sm shadow-sm">
-          <div className="w-full mx-auto flex flex-col lg:flex-row gap-8">
-            {/* <div className="lg:w-2/5 w-full">
-              {supportContent?.data?.heading && (
-                <MainHeadingComponent>
-                  {supportContent?.data?.heading}
-                </MainHeadingComponent>
+    <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 justify-center items-center">
+      {supportContent?.data?.supports?.map((data, index) => (
+        <div
+          key={index}
+          className="px-5 py-6 flex flex-col items-start justify-between border-b-2  border-bullt-secondary hover:bg-bullt-secondary  hover:border-b-3 hover:border-bullt-quaternary transition-shadow duration-300"
+        >
+          <div className="flex items-center mb-4 gap-5">
+            <div className="p-6 bg-bullt-quaternary/10 rounded-full w-[25%] ">
+              {data?.icon && (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.icon}`}
+                  alt={data?.alt_text}
+                  width={50}
+                  height={50}
+                />
               )}
-              {supportContent?.data?.description && (
-                <ParaGraphText alignmentType={2} paddingTop={1}>
-                  {supportContent?.data?.description}
-                </ParaGraphText>
-              )}
-            </div> */}
+            </div>
 
-            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-              {supportContent?.data?.supports?.map((data, index) => (
-                <div
-                  key={index}
-                  className=" px-3 py-6 flex flex-col items-start justify-between border-b-4  border-bullt-secondary hover:bg-bullt-secondary  hover:border-b-4 hover:border-bullt-quaternary transition-shadow duration-300"
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="p-2 bg-bullt-quaternary/10 rounded-full mr-3">
-                      {data?.icon && (
-                        <Image
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.icon}`}
-                          alt={data?.alt_text}
-                          width={40}
-                          height={40}
-                        />
-                      )}
-                    </div>
+            <div className="w-[60%]">
+              {data?.title ? (
+                <p className=" text-lg font-semibold">
+                  {data?.title}
+                </p>
+              ) : null}
 
-                    {data?.title ? (
-                      <SubHeadingComponents
-                        hoverEffect="text-bullt-quaternary"
-                        paddingTop={1}
-                      >
-                        {data?.title}
-                      </SubHeadingComponents>
-                    ) : null}
-                  </div>
-                  {data?.description ? (
-                    <ParaGraphText
-                      alignmentType={1}
-                      paddingTop={1}
-                      hoverEffect="text-bullt-primary"
-                    >
-                      {data?.description}
-                    </ParaGraphText>
-                  ) : null}
-
-                  {data?.buttontext && (
-                    <Link href={data?.btnlink}>
-                      <SubHeadingComponents
-                        paddingTop={1}
-                        hoverEffect="text-bullt-quinary transition-colors duration-300 flex items-center "
-                      >
-                        {data?.buttontext}
-                        <FaLongArrowAltRight className="ms-1" size={10} />
-                      </SubHeadingComponents>
-                    </Link>
-                  )}
-                </div>
-              ))}
+              {data?.description ? (
+                <p className="py-3 text-sm">
+                  {data?.description}
+                </p>
+              ) : null}
             </div>
           </div>
+
+          {data?.buttontext && (
+            <Link href={data?.btnlink} className="text-end">
+              <p className="text-bullt-quaternary flex justify-center items-center gap-2">
+                {data?.buttontext}
+                <FaLongArrowAltRight className="ms-1" size={17} />
+              </p>
+            </Link>
+          )}
         </div>
-      ) : null}
-    </>
+      ))}
+    </div>
   );
 };
 

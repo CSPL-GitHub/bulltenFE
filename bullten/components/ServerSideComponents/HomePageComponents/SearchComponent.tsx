@@ -20,7 +20,7 @@ const DomainSearchComponent = async () => {
             backgroundPosition: 'center',
           }}>
 
-            <div className="relative w-[250px] h-[250px] lg:w-[370px] lg:h-[370px]">
+            {/* <div className="relative w-[250px] h-[250px] lg:w-[370px] lg:h-[370px]">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_URL}${DomainsearchApiResponse?.result?.data?.img}`}
                 alt="Main Image"
@@ -71,7 +71,7 @@ const DomainSearchComponent = async () => {
                 />
               </div>
 
-            </div>
+            </div> */}
           </div>
 
 

@@ -8,12 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      perspective: {
+        '500': '500px',
+      },
+      transformStyle: {
+        'preserve-3d': 'preserve-3d',
+      },
       animation: {
         shine: "shine 1s",
       },
       keyframes: {
         shine: {
           "100%": { left: "125%" },
+        },
+      },
+      variants: {
+        extend: {
+          transform: ['hover'],
         },
       },
       colors: {
@@ -42,5 +53,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  
 };
 export default config;

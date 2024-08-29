@@ -1,5 +1,6 @@
 import { OurPatnarApi } from "@/apis/HomePageApis";
 import OperatingCartComponent from "@/components/ClientSideComponents/HomePageComponents/OperatingCartComponent";
+import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import React from "react";
 
 type Props = {};
@@ -11,8 +12,8 @@ const OperatingComponent = async (props: Props) => {
   return (
     <>
       {data?.Active === true ? (
-        <section className="w-full sm:flex justify-center items-center gap-4 px-4 sm:py-6 py-0">
-          <div className="sm:flex w-full">
+        <section className="w-full sm:flex justify-center items-center gap-4 px-4 sm:py-4 py-0">
+          <div className="text-center w-full">
             {/* <div className="w-full sm:w-[30%] flex flex-col justify-center sm:py-0 py-4">
               {data?.partner_data?.label && (
                 <SloganHeadingComponent alignmentType={1} paddingTop={1}>
@@ -31,6 +32,11 @@ const OperatingComponent = async (props: Props) => {
               )}
               
             </div> */}
+            {data?.partner_data?.tab_one && (
+                <MainHeadingComponent alignmentType={2}>
+                  {data?.partner_data?.tab_two}
+                </MainHeadingComponent>
+              )}
             <div className="sm:w-[100%] w-full ">
               <OperatingCartComponent data={data?.partner_data} />
             </div>
