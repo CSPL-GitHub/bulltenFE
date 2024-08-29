@@ -25,7 +25,7 @@ const BannerSlider = ({ banners }: Props) => {
     infinite: infinite,
     autoplay: true,
     arrows: false,
-    speed: 4000,
+    speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (oldIndex: number, newIndex: number) => {
@@ -44,11 +44,15 @@ const BannerSlider = ({ banners }: Props) => {
               banner={banner}
               key={banner?.id}
             />
-            :
-            <FinalBannerComponent
-              banner={banner}
-              key={banner?.id}
-            />
+            : banner?.image_position === "Text_position" ?
+              <BannerWithImage
+                banner={banner}
+                key={banner?.id}
+              /> :
+              <FinalBannerComponent
+                banner={banner}
+                key={banner?.id}
+              />
           }
         </section>
       ))}

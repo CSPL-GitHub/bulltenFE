@@ -13,7 +13,7 @@ type Props = {
 
 const HeaderInsideMenu:React.FC<Props> = ({subheaderIndex, insideSubMenu, headerMenu, setOpenSubMenu}) => {
   return (
-    <div className={`${subheaderIndex === subheaderIndex ? "block" : "hidden"} col-span-9 grid grid-cols-8 `}>
+    <div className={`${subheaderIndex === subheaderIndex ? "block" : "hidden"} col-span-9 grid grid-cols-8 max-h-[400px] overflow-y-hidden scroll`}>
         <div className={`col-span-6 py-4 ${insideSubMenu?.subheaders?.length > 4 ? " grid grid-cols-2" : ""}`}>
           {insideSubMenu?.subheaders?.map((subHeaderLinks: any) =>
             <Link
@@ -32,10 +32,10 @@ const HeaderInsideMenu:React.FC<Props> = ({subheaderIndex, insideSubMenu, header
               </div>
 
               <div className="col-span-5">
-                <p className="text-lg py-2 open " key={subHeaderLinks?.id}>
+                <p className="text-lg py-1 open " key={subHeaderLinks?.id}>
                   {subHeaderLinks?.title}
                 </p>
-                <p className="text-xs">
+                <p className="text-sm">
                   {subHeaderLinks?.description}
                 </p>
               </div>
