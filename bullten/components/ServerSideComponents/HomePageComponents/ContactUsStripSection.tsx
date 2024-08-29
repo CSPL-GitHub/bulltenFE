@@ -8,7 +8,7 @@ const ContactUsStripSection = async () => {
     <>
       {ContactUsStripSectionContent?.result?.Active === true ? (
         <div
-          className="container z-10 relative w-full  mx-auto h-52 bg-cover bg-center bg-no-repeat rounded-lg"
+          className="container z-10 relative w-full py-5 mx-auto h-60 lg:h-44 bg-cover bg-center bg-no-repeat rounded-lg"
           style={{
             backgroundImage: `url(${`${process.env.NEXT_PUBLIC_BASE_URL}${ContactUsStripSectionContent?.result?.FreeTrial?.img}`})`,
             backgroundSize: "cover",
@@ -16,18 +16,18 @@ const ContactUsStripSection = async () => {
           }}
         >
           <div className="absolute inset-0 bg-blue-600 opacity-75 rounded-lg"></div>
-          <div className="relative z-10 flex flex-col lg:flex-row justify-around w-full gap-4 mx-auto items-center h-full px-6 text-center lg:text-left rounded-md">
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-white font-semibold tracking-wider uppercase">
-                Get Consultations
+          <div className="relative max-w-6xl z-10 flex flex-col lg:flex-row justify-around w-full gap-4 mx-auto items-center h-full px-6 text-center lg:text-left rounded-md">
+            <div className="w-full lg:w-3/4">
+              <h2 className="text-white text-base lg:text-lg font-semibold tracking-wider ">
+                {ContactUsStripSectionContent?.result?.FreeTrial?.slogan}
               </h2>
-              <h1 className="mt-2 text-3xl lg:text-5xl font-bold text-white">
+              <h6 className="mt-2 text-2xl lg:text-4xl font-bold text-white">
                 {ContactUsStripSectionContent?.result?.FreeTrial?.heading}
-              </h1>
+              </h6>
             </div>
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/4">
               <HomePageButtonOne
-                alignmentType={2}
+                alignmentType={3}
                 buttonText={
                   ContactUsStripSectionContent?.result?.FreeTrial?.button_text
                 }

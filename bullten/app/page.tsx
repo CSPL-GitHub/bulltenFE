@@ -58,9 +58,9 @@ export default async function Home() {
           <WhyBulletinComponent />
         </Suspense>
 
-        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhatWeOfferComponent />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <CounterComponent />
@@ -83,7 +83,7 @@ export default async function Home() {
             TestimonialsContent={TestimonialsContent?.result}
           />
         </Suspense>
-        
+
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <OurServicesComponent />
         </Suspense> */}
@@ -95,16 +95,9 @@ export default async function Home() {
           <OurPatnarComponent />
         </Suspense> */}
 
-
-
-
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <WhyChooseWebHosting />
         </Suspense> */}
-
-
-
-
       </div>
     </main>
   );
