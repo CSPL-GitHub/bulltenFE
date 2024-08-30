@@ -21,11 +21,11 @@ const FooterMap = ({ footerMapResponse }: any) => {
   const [hoveredMarker, setHoveredMarker] = useState<any | null>(null);
 
   return (
-    <div className="relative bg-bullt-primary/[0.01] h-auto w-full container mx-auto flex lg:flex-row  items-start justify-center flex-col px-4 lg:px-8">
-      <div
+    <div className=" bg-bullt-primary/[0.01] h-auto w-full container mx-auto flex lg:flex-row  items-start justify-center flex-col px-4 lg:px-8">
+      {/* <div
         className="absolute z-0 inset-0 bg-cover bg-center opacity-50 custom-bounce"
         style={{ backgroundImage: "url('/bg-shap1.png')" }}
-      ></div>
+      ></div> */}
       <div className="lg:w-2/5 w-full sm:py-10 py-0">
         <SloganHeadingComponent alignmentType={1} paddingTop={1}>
           Global Hosting, Unmatched Performance
