@@ -10,7 +10,7 @@ const WhyBulletinComponent = async () => {
   const WhyUsSectionApiResponse = WhyUsSection?.result;
   return (
     <> {WhyUsSectionApiResponse?.Active === true ? (
-      <> <div className="container relative  py-3">
+      <> <div className="container relative sm:py-6 py-2">
         <div className="">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative">

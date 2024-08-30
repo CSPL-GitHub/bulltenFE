@@ -120,7 +120,7 @@ const OurServicesComponent = async (props: Props) => {
             </div>
           </section> */}
 
-          <section className="container py-2 lg:py-6 relative overflow-hidden px-4 lg:px-8 mx-auto w-full bg-cover bg-no-repeat bg-bottom ">
+          <section className="container py-2 lg:py-4 relative overflow-hidden px-4 lg:px-8 mx-auto w-full bg-cover bg-no-repeat bg-bottom ">
             <div className="">
               {/* <div className=" "></div> */}
               <div className="relative w-full mx-auto flex flex-col md:flex-row px-4 lg:py-0 py-2">

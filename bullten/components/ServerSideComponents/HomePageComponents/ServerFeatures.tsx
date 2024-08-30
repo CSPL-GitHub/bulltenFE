@@ -17,7 +17,7 @@ const ServerFeatures = async () => {
   );
   return (
     <section className="relative bg-fixed bg-cover">
-      <div className=" w-full sm:py-6 py-2 mx-auto flex flex-col items-center sm:px-6 px-0">
+      <div className=" w-full sm:py-4 py-2 mx-auto flex flex-col items-center sm:px-6 px-0">
         <div className="max-w-4xl text-center text-black">
           <div className="w-full flex items-center justify-center">
             {slogen && (
@@ -34,7 +34,7 @@ const ServerFeatures = async () => {
           )}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 gap-2 my-5 w-full sm:py-3 py-6 bg-gray-100 sm:px-6 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 gap-2 my-5 w-full sm:py-6 py-6 bg-gray-100 sm:px-6 px-4">
           {server_feature?.map((feature: any, index: number) => (
             <div
               key={index}

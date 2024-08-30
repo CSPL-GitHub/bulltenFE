@@ -12,7 +12,7 @@ const TrustedCompaniesLogos = async () => {
   return (
     <>
       {trustedComponiesData?.result?.Active === true ? (
-        <div className="w-full mx-auto sm:py-10 py-2 px-4">
+        <div className="w-full mx-auto sm:py-4 py-2 px-4">
           <div className="flex flex-col sm:justify-center sm:items-center items-start">
             <SloganHeadingComponent alignmentType={2} paddingTop={1}>
               {trustedComponiesData?.result?.data?.slogan}

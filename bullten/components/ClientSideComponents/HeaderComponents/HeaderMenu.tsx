@@ -77,10 +77,10 @@ const HeaderMenu = ({ headerResponse }: Props) => {
 
               }
               )} */}
-              <a href="https://www.facebook.com/BullTen">
+              <a href="https://www.facebook.com/BullTen" className="my-auto" >
                 <FaFacebook size={18} className="my-auto" />
               </a>
-              <a href="https://www.linkedin.com/company/bullten-web-hosting-solutions/">
+              <a href="https://www.linkedin.com/company/bullten-web-hosting-solutions/" className="my-auto" >
                 <FaLinkedin size={18} className="my-auto" />
               </a>
             </div>
