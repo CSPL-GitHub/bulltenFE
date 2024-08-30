@@ -15,9 +15,9 @@ const BlogsComponent = async () => {
       {/* bg-[url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')] */}
       {blogResponse?.result?.Active === true ? (
         <div className="relative w-full  bg-cover bg-center bg-no-repeat">
-          <section className="flex lg:flex-row flex-col items-center justify-center w-full py-16 sm:px-6 px-3  rounded-md backdrop-blur-md">
+          <section className="flex lg:flex-row flex-col items-center justify-center w-full py-16 rounded-md backdrop-blur-md">
             <div
-              className="flex flex-col items-start justify-start lg:w-[40%] w-full lg:h-[530px] h-full lg:mx-10 mx-1 bg-fill bg-center lg:p-20 sm:p-5 p-2"
+              className="flex flex-col items-start justify-start lg:w-[50%] w-full lg:h-[530px] h-full  mx-1 bg-fill bg-center lg:p-20 sm:p-5 px-4 py-2"
               style={{
                 backgroundImage: `url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')`,
               }}

@@ -78,7 +78,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
         <Slider {...settings}>
           {blogResponse?.result?.data?.blogs?.map((blog: any) => (
             <div key={blog?.id} className="px-2">
-              <div className="relative flex flex-col w-full h-[370px] overflow-hidden rounded-lg shadow-lg group ">
+              <div className="relative flex flex-col w-full h-[370px] overflow-hidden rounded-lg shadow-lg group">
                 <div className="h-[70%] ">
                   <img
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${blog?.img}`}

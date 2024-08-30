@@ -22,7 +22,7 @@ const OperatingCartComponent: React.FC<Props> = ({ data }) => {
   return (
     <div className="sm:px-4">
       <div className="">
-        <div className="py-2 grid sm:grid-cols-4 grid-cols-2 justify-center items-center">
+        <div className="py-2 grid sm:grid-cols-4 grid-cols-2 gap-3 justify-center items-center">
           {data?.list_titles?.slice(0, visibleItems).map((item: any, index: any) => (
             <div
               key={index}
@@ -49,11 +49,10 @@ const OperatingCartComponent: React.FC<Props> = ({ data }) => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-2 mb-5">
+        <div className="text-center mt-2">
           <button
             onClick={toggleVisibility}
-            className="bg-bullt-tertiary text-white px-4 py-2 rounded-md hover:bg-bullt-secondary hover:text-black border-[1px] transition-all"
-          >
+            className="bg-bullt-tertiary text-white text-xl px-5 py-2 rounded-md hover:bg-bullt-secondary hover:text-bullt-tertiary  border-[2px] border-bullt-tertiary transition-all">
             {isExpanded ? "See Less" : "See More"}
           </button>
 
