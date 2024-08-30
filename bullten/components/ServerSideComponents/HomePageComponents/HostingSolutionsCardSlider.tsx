@@ -108,6 +108,10 @@ const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
                   {item.description}
                 </p>
 
+                {/* <ParaGraphText hoverEffect="line-clamp-3 text-lg text-center ">
+                  {item.description}
+                </ParaGraphText> */}
+
                 <div className="mt-4">
                   <HomePageButtonOne
                     alignmentType={2}

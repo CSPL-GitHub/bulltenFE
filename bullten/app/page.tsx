@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
     };
   } else {
     return {
-      title: "Reliable & Affordable Web Hosting Services | Bullten.com",
+      title: "Bullten.com | Reliable & Affordable Web Hosting Services  ",
       description:
         "Experience top-tier web hosting with Bullten.com. Choose from our range of shared, VPS, and dedicated hosting plans. Enjoy 99.9% uptime, 24/7 support, and free SSL. Get started today!",
       keywords:
@@ -55,9 +55,8 @@ export default async function Home() {
             <BannerSlider banners={homePageBannerContentApi?.result?.banner} />
           )}
       </Suspense>
-
       {/* Main container with consistent spacing */}
-      <div className="container mx-auto mt-6">
+      <div className="container mx-auto mt-7">
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <DomainSearchComponent />
         </Suspense>

@@ -38,7 +38,7 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse, FaqAllDa
         ) : null}
       </div>
 
-      <div className=" w-full space-y-2 py-6 h-[550px] overflow-style-none overflow-y-auto ">
+      <div className=" w-full space-y-2 sm:py-6 py-3 h-[550px] overflow-style-none overflow-y-auto ">
 
         {FaqSectionApiResponse?.map((item: any, index: any) => (
           <div

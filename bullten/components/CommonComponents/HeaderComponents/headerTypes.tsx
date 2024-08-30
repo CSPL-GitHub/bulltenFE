@@ -26,6 +26,7 @@ export type HeaderResponse = {
     logo_alternate_text: string;
     email: string;
     phone: string;
+    socialmedialinks_data: any;
     header: HeaderMenu[];
   };
 };

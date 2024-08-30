@@ -10,7 +10,8 @@ import Link from "next/link";
 import { HeaderResponse } from "@/components/CommonComponents/HeaderComponents/headerTypes";
 import Image from "next/image";
 import { HiOutlineMailOpen } from "react-icons/hi";
-import { FaCartArrowDown, FaFacebook, FaInstagram, FaPhoneAlt , FaTwitter, FaUser } from "react-icons/fa";
+import { FaCartArrowDown, FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaUser } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
 
 type Props = {
   headerResponse: HeaderResponse;
@@ -58,11 +59,30 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                 </a>
               </div>
             </div>
-            <div className="flex item-center text-bullt-secondary gap-4">
+            <div className="flex item-center text-bullt-secondary gap-4 relative">
               <FaUser size={18} className="my-auto" />
               <FaCartArrowDown size={18} className="my-auto" />
-              <FaFacebook size={18} className="my-auto" />
-              <FaInstagram size={18} className="my-auto" />
+              {/* {headerResponse?.result?.socialmedialinks_data?.map((social_icons: any) => {
+                return (
+                  social_icons?.icon ?
+                    <a href={social_icons?.link}>
+                      <Image
+                        className=" object-contain w-2 h-2"
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${social_icons?.icon}`}
+                        alt={social_icons?.alt_txt}
+                        fill={true}
+                      />
+                    </a> : null
+                )
+
+              }
+              )} */}
+              <a href="https://www.facebook.com/BullTen" className="my-auto" >
+                <FaFacebook size={18} className="my-auto" />
+              </a>
+              <a href="https://www.linkedin.com/company/bullten-web-hosting-solutions/" className="my-auto" >
+                <FaLinkedin size={18} className="my-auto" />
+              </a>
             </div>
           </div>
         </div>

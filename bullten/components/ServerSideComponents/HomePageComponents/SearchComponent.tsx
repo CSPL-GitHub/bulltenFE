@@ -76,7 +76,7 @@ const DomainSearchComponent = async () => {
             </div> 
           </div>*/}
 
-          <div className="flex flex-col gap-2 justify-center items-center py-8 lg:max-w-5xl w-full mx-auto bg-bullt-secondary shadow-sm px-6 -mt-24 lg:-mt-32 rounded-md border border-bullt-secondary">
+          <div className="flex flex-col gap-2 justify-center items-center sm:py-8 py-2 lg:max-w-5xl w-full mx-auto bg-bullt-secondary shadow-sm sm:px-6 px-2 sm:-mt-24 lg:-mt-24 rounded-md border-1 border-bullt-secondary">
             {DomainsearchApiResponse?.result?.data?.label ? (
               <SloganHeadingComponent paddingTop={1} alignmentType={1}>
                 {DomainsearchApiResponse?.result?.data?.label}

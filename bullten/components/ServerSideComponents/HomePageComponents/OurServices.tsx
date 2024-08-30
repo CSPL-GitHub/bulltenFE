@@ -120,11 +120,11 @@ const OurServicesComponent = async (props: Props) => {
             </div>
           </section> */}
 
-          <section className="container py-16 relative overflow-hidden px-4 lg:px-8 mx-auto w-full bg-cover bg-no-repeat bg-bottom ">
+          <section className="container py-2 lg:py-4 relative overflow-hidden px-4 lg:px-8 mx-auto w-full bg-cover bg-no-repeat bg-bottom ">
             <div className="">
-              <div className=" "></div>
-              <div className="relative w-full mx-auto flex flex-col md:flex-row px-4 lg:py-0 py-6">
-                <div className=" lg:w-1/2 mb-4 md:mb-12 ">
+              {/* <div className=" "></div> */}
+              <div className="relative w-full mx-auto flex flex-col md:flex-row px-4 lg:py-0 py-2">
+                <div className=" lg:w-1/2 mb-4 ">
                   <div className="flex gap-1 sm:w-[330px] sm:h-10 w-full ">
                     <SloganHeadingComponent
                       paddingTop={1}
@@ -143,7 +143,7 @@ const OurServicesComponent = async (props: Props) => {
                     </MainHeadingComponent>
                   ) : null}
                 </div>
-                <div className=" lg:w-1/2 flex justify-start md:justify-center items-center px-0 md:px-0">
+                <div className=" lg:w-1/2 flex justify-start md:justify-center items-center pb-4 ">
                   <HomePageButtonOne
                     alignmentType={3}
                     buttonText={"View All Servers"}

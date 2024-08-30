@@ -12,9 +12,8 @@ const OperatingComponent = async (props: Props) => {
   return (
     <>
       {data?.Active === true ? (
-        <section className="w-full sm:flex justify-center items-center gap-4 px-4 sm:py-4 py-0">
+        <section className="w-full sm:flex justify-center items-center gap-4 px-4 sm:py-4 py-2 sm:pb-0 pb-2">
           <div className="text-center w-full">
-           
             {data?.partner_data?.tab_one && (
               <MainHeadingComponent alignmentType={2}>
                 {data?.partner_data?.tab_two}

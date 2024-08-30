@@ -12,7 +12,7 @@ const SearchSection: React.FC<Props> = ({ data }) => {
 
   return (
     <div className="w-full ">
-      <div className="flex items-center justify-center w-full mb-8 border-[1px] bg-white rounded-md border-gray-300">
+      <div className="flex items-center justify-center w-full sm:mb-8 mb-3 border-[1px] bg-white rounded-md border-gray-300">
         <input
           type="text"
           placeholder="Domain.com"
