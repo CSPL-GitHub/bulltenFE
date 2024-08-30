@@ -12,15 +12,17 @@ const DomainSearchComponent = async () => {
   return (
     <>
       {DomainsearchApiResponse?.result?.Active === true ? (
-        <section className="sm:flex sm:justify-center sm:items-center px-4 py-4 w-full  relative">
-          <div className="w-full sm:w-[50%] flex justify-center items-center" style={{
-            backgroundImage: `url(${img1.src})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-          }}>
-
-            {/* <div className="relative w-[250px] h-[250px] lg:w-[370px] lg:h-[370px]">
+        <section className="container mx-auto sm:flex sm:justify-center sm:items-center px-4 py-4 w-full  relative">
+          {/*  <div
+            className="w-full sm:w-[50%] flex justify-center items-center"
+            style={{
+              backgroundImage: `url(${img1.src})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+          >
+             <div className="relative w-[250px] h-[250px] lg:w-[370px] lg:h-[370px]">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_URL}${DomainsearchApiResponse?.result?.data?.img}`}
                 alt="Main Image"
@@ -71,17 +73,12 @@ const DomainSearchComponent = async () => {
                 />
               </div>
 
-            </div> */}
-          </div>
+            </div> 
+          </div>*/}
 
-
-          <div className="py-4   lg:max-w-4xl sm:w-[50%] w-full mx-auto">
+          <div className="flex flex-col gap-2 justify-center items-center py-8 lg:max-w-5xl w-full mx-auto bg-bullt-secondary shadow-sm px-6 -mt-24 lg:-mt-32 rounded-md border border-bullt-secondary">
             {DomainsearchApiResponse?.result?.data?.label ? (
-              <SloganHeadingComponent
-                paddingTop={1}
-                alignmentType={1}
-               
-              >
+              <SloganHeadingComponent paddingTop={1} alignmentType={1}>
                 {DomainsearchApiResponse?.result?.data?.label}
               </SloganHeadingComponent>
             ) : null}

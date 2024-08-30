@@ -21,6 +21,7 @@ import TestimonialsSection from "@/components/ServerSideComponents/HomePageCompo
 import OurServicesComponent from "@/components/ServerSideComponents/HomePageComponents/OurServices";
 import WhatWeOfferComponent from "@/components/ServerSideComponents/HomePageComponents/WhatWeOfferComponent";
 import { Metadata } from "next";
+import DomainSearchComponent from "@/components/ServerSideComponents/HomePageComponents/SearchComponent";
 export async function generateMetadata(): Promise<Metadata | undefined> {
   let HomePageSeoData = await HomePageSEOApi();
   HomePageSeoData = HomePageSeoData?.result;
@@ -57,9 +58,9 @@ export default async function Home() {
 
       {/* Main container with consistent spacing */}
       <div className="container mx-auto mt-6">
-        {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+        <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <DomainSearchComponent />
-        </Suspense> */}
+        </Suspense>
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
           <TrustedCompaniesLogos />
         </Suspense>
