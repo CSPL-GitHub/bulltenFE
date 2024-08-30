@@ -54,7 +54,7 @@ const ContactForm: React.FC = () => {
     <div className="flex justify-center items-center bg-transparent">
       <form
         onSubmit={handleSubmit(FormSubmit)}
-        className="bg-black/20 rounded-lg shadow-lg max-w-lg w-full space-y-4 p-6"
+        className="bg-black/20 rounded-lg shadow-lg max-w-[90%] w-full space-y-4 sm:p-6"
       >
         <p className="text-bullt-secondary text-4xl text-center">Let’s get in touch</p>
 
@@ -146,7 +146,7 @@ const ContactForm: React.FC = () => {
 
         <button
           type="submit"
-          className="w-full bg-bullt-tertiary text-bullt-secondary hover:text-bullt-tertiary py-2 px-4 rounded-md shadow hover:bg-bullt-text-secondary border-2 border-bullt-tertiary"
+          className="w-full font-semibold text-lg bg-bullt-tertiary text-bullt-secondary hover:text-bullt-tertiary py-3 px-4 rounded-md shadow hover:bg-bullt-text-secondary border-2 border-bullt-tertiary"
         >
           Send Message
         </button>
