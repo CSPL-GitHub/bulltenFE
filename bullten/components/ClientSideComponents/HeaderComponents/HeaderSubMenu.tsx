@@ -32,7 +32,7 @@ const HeaderSubMenu = ({
     }
   }, [headerMenu]);
 
-  console.log("insideSubMenu", subheaderIndex);
+  // console.log("insideSubMenu", subheaderIndex);
 
   return (
     <div

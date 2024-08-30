@@ -41,7 +41,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
 
   return (
     <header className="w-full flex items-center justify-center fixed top-0 start-0 z-20">
-      <div className={`container mx-auto rounded-md border-1`}>
+      <div className={`w-full mx-auto rounded-md border-1`}>
         <div className="sm:h-8 bg-bullt-tertiary flex items-center sm:border-0 border-b border-bullt-quaternary sm:py-0 py-1">
           <div className="container mx-auto flex justify-between px-3">
             <div className="flex sm:flex-row flex-col sm:gap-5">
@@ -68,7 +68,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
         </div>
         <div className="bg-bullt-secondary">
           <div
-            className={`w-full relative z-50 shadow-lg`}
+            className={`w-full relative z-50 shadow-lg lg:bg-header-background-gradient bg-none`}
           // style={{
           //   ...(moveDown || openSubMenu
           //     ? {
@@ -78,10 +78,10 @@ const HeaderMenu = ({ headerResponse }: Props) => {
           //     : { background: `transparent`, backdropFilter: "blur(0px)" }),
           // }}
           >
-            <div className="flex justify-between items-center sm:gap-10 sm:min-h-[100px] max-h-[100px] container mx-auto">
+            <div className="flex justify-between items-center sm:gap-10 sm:min-h-[100px] max-h-[100px] container mx-auto" >
               <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center ">
                 <Link href="/">
-                  <div className="sm:w-[200px] w-[200px] h-[50px] relative flex justify-center ">
+                  <div className="sm:w-[200px] w-[200px] h-[50px] relative flex justify-center bg-bullt-secondary">
                     <Image
                       className="sm:rounded-[20%] rounded-[20%] object-contain "
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${headerResponse?.result?.logo}`}
@@ -115,6 +115,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                 />
               </div>
               <div className="w-full lg:flex hidden gap-10 justify-end items-center bg-bullt-primary px-4">
+                {/* <div className="bg-bullt-primary absolute 2xl:w-[1300px] xl:w-[800px] sm:[1000px] mr-0  top-0 right-0 h-[100px]"></div> */}
                 {headerResponse?.result?.header?.length > 0
                   ? headerResponse?.result?.header?.map((headerMenu) => {
                     return (

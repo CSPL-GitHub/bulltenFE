@@ -15,7 +15,7 @@ const ContactUsStripSection = async () => {
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-blue-600 opacity-75 rounded-lg"></div>
+          <div className="absolute inset-0 bg-bullt-quaternary/[0.7] opacity-75 rounded-lg"></div>
           <div className="relative max-w-6xl z-10 flex flex-col lg:flex-row justify-around w-full gap-4 mx-auto items-center h-full px-6 text-center lg:text-left rounded-md">
             <div className="w-full lg:w-3/4">
               <h2 className="text-white text-base lg:text-lg font-semibold tracking-wider ">

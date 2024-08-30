@@ -9,15 +9,15 @@ type Props = {
 
 const SearchSection: React.FC<Props> = ({ data }) => {
   const [domainNam, setDomainName] = useState<string>("");
- 
+
   return (
-    <div className="">
+    <div className="w-full ">
       <div className="flex items-center justify-center w-full mb-8 border-[1px] bg-white rounded-md border-gray-300">
         <input
           type="text"
           placeholder="Domain.com"
           onChange={(e) => setDomainName(e.target.value)}
-          className="flex-1 sm:w-auto w-[100px] sm:px-1 px-4 py-3 focus:outline-none bg-transparent"
+          className="flex-1 sm:w-auto w-[100px] sm:px-1 px-4 py-3 focus:outline-none bg-transparent placeholder:pl-2 placeholder:text-[20px]"
         />
         {/* <select
           value={selectedDomain}

@@ -6,6 +6,9 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
+import Image from "next/image";
+import HomePageButtonOne from "@/components/CommonComponents/ButtonsComponent/HomePageButton";
+import SubHeadingComponents from "@/components/CommonComponents/HeadingComponents/SubHeadingComponents";
 
 // Update the Props type to accept an array of items
 type Props = {
@@ -17,8 +20,6 @@ type Props = {
 };
 
 const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   // const NextArrow = (props: any) => {
   //   const { onClick } = props;
   //   return (
@@ -78,48 +79,41 @@ const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
     <div className="relative w-full">
       <Slider {...settings}>
         {items.map((item, index) => (
-          <div
-            key={index}
-            className="w-full px-2"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <div className="relative w-full h-[300px] overflow-hidden rounded-sm border-0 border-transparent hover:border hover:border-bullt-secondary/[0.1]">
-              <div
-                className={`relative w-full h-full transition-transform duration-300 ${
-                  hoveredIndex === index ? "scale-110" : "scale-100"
-                }`}
-                style={{
-                  backgroundImage: `url(${`${process.env.NEXT_PUBLIC_BASE_URL}${item.image}`})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div
-                  className={`absolute inset-0 bg-bullt-quaternary transition-transform duration-300 transform ${
-                    hoveredIndex === index
-                      ? "translate-y-0"
-                      : "translate-y-full"
-                  }`}
-                  style={{
-                    clipPath:
-                      hoveredIndex === index
-                        ? "polygon(0 100%, 100% 100%, 0 0)"
-                        : "polygon(0 100%, 0 100%, 0 100%)",
-                  }}
-                ></div>
-                <div
-                  className={`absolute bottom-10 left-6 text-white transition-opacity duration-300 ${
-                    hoveredIndex === index ? "opacity-100" : "opacity-0"
-                  } overflow-hidden`}
+          <div key={index} className="px-3">
+            <div className="relative rounded-lg w-full min-h-[550px] shadow-md cursor-pointer bg-bullt-quaternary/[0.04] flex flex-col items-start hover:shadow-lg">
+              {item.image ? (
+                <div className="h-[300px] w-full relative overflow-hidden mb-4 rounded-t-lg">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.image}`}
+                    alt="all"
+                    style={{
+                      position: "absolute",
+                      objectFit: "cover",
+                      inset: 0,
+                    }}
+                    className="transition-transform duration-500 hover:scale-110"
+                    fill={true}
+                  />
+                </div>
+              ) : null}
+              <div className="w-full flex flex-col gap-2 px-4 text-black">
+                <SubHeadingComponents
+                  alignmentType={2}
+                  paddingTop={1}
+                  hoverEffect="tracking-wide"
                 >
-                  <div className="w-8 h-8 rounded-full bg-bullt-tertiary flex  justify-center mb-4">
-                    <span className="text-white font-bold text-lg">→</span>
-                  </div>
-                  <p className="text-md font-bold mb-2 w-1/3 text-wrap">
-                    {item.heading}
-                  </p>
-                  <p className="text-sm">{item.description}</p>
+                  {item.heading}
+                </SubHeadingComponents>
+                <p className="line-clamp-3 text-lg text-center ">
+                  {item.description}
+                </p>
+
+                <div className="mt-4">
+                  <HomePageButtonOne
+                    alignmentType={2}
+                    buttonText={"Know More"}
+                    route={"/#"}
+                  />
                 </div>
               </div>
             </div>

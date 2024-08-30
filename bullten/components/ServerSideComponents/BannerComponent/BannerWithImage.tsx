@@ -55,7 +55,7 @@ const BannerWithImage = ({ banner }: Props) => {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.7 }}
                 className="w-full flex justify-center sm:justify-start"
               >
-                <h2 className="flex items-center text-5xl sm:text-[1.2rem] lg:text-7xl font-semibold text-bullt-primary sm:text-left text-center">
+                <h2 className="flex items-center text-5xl sm:text-5xl lg:text-7xl font-semibold text-bullt-primary sm:text-left text-center">
                   {banner?.label}
                 </h2>
               </motion.div>
@@ -123,7 +123,7 @@ const BannerWithImage = ({ banner }: Props) => {
             </svg>
           </div>
 
-          <div className={`flex-col lg:gap-3  gap-2 mt-5 sm:mt-0 items-start justify-center sm:w-[50%] w-full ${banner?.image_position === "Text_position" ? "hidden" : "flex"}`}>
+          <div className={`flex-col lg:gap-3  gap-2 mt-5 sm:mt-0 items-start justify-center md:w-[50%] sm:w-[60%] w-full ${banner?.image_position === "Text_position" ? "hidden" : "flex"}`}>
             {banner?.label && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -131,7 +131,7 @@ const BannerWithImage = ({ banner }: Props) => {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
                 className="w-full flex justify-center sm:justify-start"
               >
-                <h2 className="flex items-center text-5xl sm:text-[1.2rem] lg:text-7xl font-semibold text-bullt-primary sm:text-left text-center">
+                <h2 className="flex items-center text-5xl sm:text-5xl lg:text-7xl font-semibold text-bullt-primary sm:text-left text-center">
                   {banner?.label}
                 </h2>
               </motion.div>

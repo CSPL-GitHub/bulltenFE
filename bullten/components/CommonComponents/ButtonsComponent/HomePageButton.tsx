@@ -35,10 +35,16 @@ const HomePageButtonOne = ({ alignmentType, buttonText, route }: Props) => {
     <div
       className={`w-full ${
         alignmentType == 1
-          ? "text-start"
+          ? "lg:text-start"
           : alignmentType == 2
+          ? "lg:text-center"
+          : "lg:text-end"
+      } ${
+        alignmentType === 1
+          ? "text-start"
+          : alignmentType === 2
           ? "text-center"
-          : "text-end"
+          : "text-center"
       }`}
     >
       <button

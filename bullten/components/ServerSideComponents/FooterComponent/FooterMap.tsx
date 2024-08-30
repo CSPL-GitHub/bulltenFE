@@ -21,8 +21,12 @@ const FooterMap = ({ footerMapResponse }: any) => {
   const [hoveredMarker, setHoveredMarker] = useState<any | null>(null);
 
   return (
-    <div className=" h-auto w-full container mx-auto  flex sm:flex-row items-start justify-center flex-col px-4 lg:px-8">
-      <div className="sm:w-[50%] w-full sm:py-10 py-0">
+    <div className="relative bg-bullt-primary/[0.01] h-auto w-full container mx-auto flex lg:flex-row  items-start justify-center flex-col px-4 lg:px-8">
+      <div
+        className="absolute z-0 inset-0 bg-cover bg-center opacity-50 custom-bounce"
+        style={{ backgroundImage: "url('/bg-shap1.png')" }}
+      ></div>
+      <div className="lg:w-2/5 w-full sm:py-10 py-0">
         <SloganHeadingComponent alignmentType={1} paddingTop={1}>
           Global Hosting, Unmatched Performance
         </SloganHeadingComponent>
@@ -33,7 +37,7 @@ const FooterMap = ({ footerMapResponse }: any) => {
           {footerMapResponse?.description}
         </ParaGraphText>
       </div>
-      <div className="sm:w-[50%] w-full px-8">
+      <div className="lg:w-3/5 w-full">
         <ComposableMap className="h-full w-full">
           <Geographies
             geography="/features.json"

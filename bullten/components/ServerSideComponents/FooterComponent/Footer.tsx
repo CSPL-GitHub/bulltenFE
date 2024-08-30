@@ -31,7 +31,7 @@ const Footer: React.FC = async () => {
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="relative pt-32 shadow-sm px-6 lg:px-16  gap-3 bg-bullt-primary bg-opacity-90">
+            <div className="relative pt-32 shadow-sm px-6 lg:px-16  gap-3 bg-bullt-primary/[0.8] bg-opacity-90">
               <div className="container mx-auto w-full lg:col-span-9 col-span-12  flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 ">
                 <div className="flex flex-col items-center">
                   <div className="flex justify-between flex-col items-center w-full">
@@ -105,7 +105,7 @@ const Footer: React.FC = async () => {
               </div>
             </div>
           </div>
-          <div className="w-full bg-bullt-quaternary ">
+          <div className="w-full bg-bullt-tertiary ">
             <div className="relative w-full flex justify-center container mx-auto lg:justify-between flex-wrap gap-2 py-3 px-6 lg:px-16 ">
               <div>
                 <h6 className="break-words text-center text-sm text-bullt-secondary">

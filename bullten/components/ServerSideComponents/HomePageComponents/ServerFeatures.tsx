@@ -25,12 +25,12 @@ const ServerFeatures = async () => {
             )}
           </div>
           {title && (
-            <h2 className="text-3xl font-bold leading-tight -mt-[6px]">
+            <h2 className="text-3xl font-bold leading-tight -mt-[6px] py-2">
               {title}
             </h2>
           )}
           {description && (
-            <p className="text-lg leading-relaxed">{description}</p>
+            <p className="text-lg leading-relaxed py-2">{description}</p>
           )}
         </div>
 
@@ -38,7 +38,7 @@ const ServerFeatures = async () => {
           {server_feature?.map((feature: any, index: number) => (
             <div
               key={index}
-              className="relative group sm:px-6 px-3 sm:py-6 py-2 shadow-lg overflow-hidden text-center flex flex-col items-start transition-transform duration-300 ease-in-out h-[200px] text-gray-900 hover:text-white bg-white"
+              className="rounded-md relative group sm:px-6 px-3 sm:py-6 py-2 shadow-lg overflow-hidden text-center flex flex-col items-start transition-transform duration-300 ease-in-out h-[200px] text-gray-900 hover:text-white bg-white"
             >
               <div className="relative z-10 flex flex-row items-start justify-start gap-6 px-4">
                 {feature.icon && (
