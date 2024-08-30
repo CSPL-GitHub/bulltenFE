@@ -48,7 +48,7 @@ const config: Config = {
         "quaternary-gradient":
           "linear-gradient(90deg, #01204E 0%, #535E73 100%)", // Dark blue to grayish blue
         "quinary-gradient": "linear-gradient(180deg, #4529a3 0%, #8f79d2 100%)", // Purple to lighter purple
-        "senary-gradient": "linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 100%)", // White to light blue
+        "header-background-gradient": "linear-gradient(to left, black 50%, white 50%)", // White to light blue
       },
     },
   },

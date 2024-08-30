@@ -87,3 +87,15 @@ export const ContactUsStripApi = async () => {
   const response = await apiCore("/api/freetrial", {}, "POST");
   return response;
 };
+
+export const ContactFormApi = async (fname: string, lname: string, email: string, phone: string, address: string, message: string) => {
+  const response = await apiCore("/api/contactform", {
+    fname: fname,
+    lname: lname,
+    email: email,
+    phone: phone,
+    address: address,
+    message: message,
+  }, "POST");
+  return response;
+};

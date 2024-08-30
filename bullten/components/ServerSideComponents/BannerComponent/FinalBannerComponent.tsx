@@ -76,7 +76,7 @@ const FinalBannerComponent = ({ banner }: Props) => {
                             transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
                             className="w-full flex justify-center sm:justify-start"
                         >
-                            <h2 className="uppercase flex items-center text-5xl sm:text-[1.2rem] lg:text-7xl font-semibold text-bullt-primary sm:text-left text-center sm:pb-4 pb-5">
+                            <h2 className="uppercase flex items-center text-5xl sm:text-5xl lg:text-7xl font-semibold text-bullt-primary sm:text-left text-center sm:pb-4 pb-5">
                                 {banner?.label}
                             </h2>
                         </motion.div>

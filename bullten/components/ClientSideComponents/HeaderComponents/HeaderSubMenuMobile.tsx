@@ -28,7 +28,7 @@ const HeaderSubMenuMobile = ({
   handleSubheaderClick, // New prop
 }: Props) => {
 
-  console.log("menu", headerMenu)
+  // console.log("menu", headerMenu)
 
   return (
     <div
