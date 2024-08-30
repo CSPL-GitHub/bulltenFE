@@ -1,5 +1,6 @@
 import {
   HomePageBannerApi,
+  HomePageSEOApi,
   SupportSectionAPI,
   TestimonialsApi,
 } from "@/apis/HomePageApis";
@@ -19,6 +20,27 @@ import OperatingComponent from "@/components/ServerSideComponents/HomePageCompon
 import TestimonialsSection from "@/components/ServerSideComponents/HomePageComponents/TestimonialsComponents/NewTestimonial";
 import OurServicesComponent from "@/components/ServerSideComponents/HomePageComponents/OurServices";
 import WhatWeOfferComponent from "@/components/ServerSideComponents/HomePageComponents/WhatWeOfferComponent";
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata | undefined> {
+  let HomePageSeoData = await HomePageSEOApi();
+  HomePageSeoData = HomePageSeoData?.result;
+  console.log("HomePageSeoData", HomePageSeoData);
+  if (HomePageSeoData) {
+    return {
+      title: HomePageSeoData?.meta_title,
+      description: HomePageSeoData?.meta_description,
+      keywords: HomePageSeoData?.meta_keyword,
+    };
+  } else {
+    return {
+      title: "Reliable & Affordable Web Hosting Services | Bullten.com",
+      description:
+        "Experience top-tier web hosting with Bullten.com. Choose from our range of shared, VPS, and dedicated hosting plans. Enjoy 99.9% uptime, 24/7 support, and free SSL. Get started today!",
+      keywords:
+        "web hosting, affordable web hosting, reliable hosting services, best web hosting provider, Bullten hosting, hosting plans, shared hosting, VPS hosting, dedicated servers, cloud hosting",
+    };
+  }
+}
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();

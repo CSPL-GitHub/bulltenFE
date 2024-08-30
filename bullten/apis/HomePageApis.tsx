@@ -1,5 +1,9 @@
 import { apiCore } from "./APICore";
 
+export const HomePageSEOApi = async () => {
+  const response = await apiCore("/api/homeseo", {}, "POST");
+  return response;
+};
 export const headerApi = async () => {
   const response = await apiCore("/api/header", {}, "POST");
   return response;
