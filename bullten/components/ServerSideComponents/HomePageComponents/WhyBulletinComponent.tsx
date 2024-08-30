@@ -67,7 +67,7 @@ const WhyBulletinComponent = async () => {
                     <><div className="">
                       {WhyUsSectionApiResponse?.data?.Feature?.map(
                         (data: any, index: any) => (
-                          <div key={index} className="group flex items-center gap-4 py-8 border-b-[1px] border-gray-400">
+                          <div key={index} className="group flex items-center gap-4 py-8 border-b-[1px] border-gray-400 lg:h-[170px]">
                             {data?.image ? <><div className="h-[80px] w-[100px] relative">
                               <Image
                                 src={`${process.env.NEXT_PUBLIC_BASE_URL}${data?.image}`}
@@ -85,7 +85,7 @@ const WhyBulletinComponent = async () => {
                               <p className="text-bullt-secondary text-2xl font-semibold">
                                 {data?.name}
                               </p>
-                              <p className="text-bullt-secondary text-sm lg:text-lg py-1"> {data?.description}</p>
+                              <p className="text-bullt-secondary text-sm lg:text-lg py-1 line-clamp-3"> {data?.description}</p>
                             </div>
                           </div>)
                       )}
