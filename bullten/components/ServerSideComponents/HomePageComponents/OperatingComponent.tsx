@@ -14,29 +14,12 @@ const OperatingComponent = async (props: Props) => {
       {data?.Active === true ? (
         <section className="w-full sm:flex justify-center items-center gap-4 px-4 sm:py-4 py-0">
           <div className="text-center w-full">
-            {/* <div className="w-full sm:w-[30%] flex flex-col justify-center sm:py-0 py-4">
-              {data?.partner_data?.label && (
-                <SloganHeadingComponent alignmentType={1} paddingTop={1}>
-                  {data?.partner_data?.label}
-                </SloganHeadingComponent>  
-              )}
-              {data?.partner_data?.heading && (
-                <h2 className="text-[2rem] lg:text-[2.3rem] font-semibold text-bullt-primary">
-                  {data?.partner_data?.heading}
-                </h2>
-              )}
-              {data?.partner_data?.description && (
-                <p className="text-lg sm:text-xl text-bullt-primary leading-relaxed">
-                  {data?.partner_data?.description}
-                </p>
-              )}
-              
-            </div> */}
+           
             {data?.partner_data?.tab_one && (
-                <MainHeadingComponent alignmentType={2}>
-                  {data?.partner_data?.tab_two}
-                </MainHeadingComponent>
-              )}
+              <MainHeadingComponent alignmentType={2}>
+                {data?.partner_data?.tab_two}
+              </MainHeadingComponent>
+            )}
             <div className="sm:w-[100%] w-full ">
               <OperatingCartComponent data={data?.partner_data} />
             </div>

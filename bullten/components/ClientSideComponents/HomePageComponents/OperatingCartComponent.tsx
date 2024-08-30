@@ -1,100 +1,62 @@
-"use client";
+"use client"
 import Image from "next/image";
 import React, { useState } from "react";
-import Slider from "react-slick";
 
 type Props = {
   data: any;
 };
 
 const OperatingCartComponent: React.FC<Props> = ({ data }) => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    arrows: false,
-    speed: 2000,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    centerPadding: "10px",
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const [visibleItems, setVisibleItems] = useState(4);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const [activeTab, setActiveTab] = useState(data.tab_one);
+  const toggleVisibility = () => {
+    if (isExpanded) {
+      setVisibleItems(4);
+    } else {
+      setVisibleItems(data.list_titles.length);
+    }
+    setIsExpanded(!isExpanded);
+  };
 
   return (
     <div className="sm:px-4">
       <div className="">
-        {/* <nav className="flex gap-5 py-2 justify-center">
+        <div className="py-2 grid sm:grid-cols-4 grid-cols-2 justify-center items-center">
+          {data?.list_titles?.slice(0, visibleItems).map((item: any, index: any) => (
+            <div
+              key={index}
+              className="text-center hover:bg-[#F4F5F8] w-[160px] lg:w-[310px] mx-auto grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
+            >
+              {item.img ? (
+                <div className="h-[100px] lg:w-[300px] w-[150px] relative mx-auto">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.img}`}
+                    alt="all"
+                    className="sm:p-4 p-2"
+                    style={{
+                      position: "absolute",
+                      objectFit: "contain",
+                      inset: 0,
+                    }}
+                    fill={true}
+                  />
+                </div>
+              ) : null}
+              <h3 className="text-lg font-semibold text-gray-800">
+                {item.heading}
+              </h3>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-2 mb-5">
           <button
-            className={`relative text-sm font-medium py-1 px-4 rounded-md transition-all duration-200 ${activeTab === data.tab_one
-              ? "bg-bullt-tertiary text-white shadow-md "
-              : "text-black hover:bg-blue-50"
-              }`}
-            onClick={() => setActiveTab(data.tab_one)}
+            onClick={toggleVisibility}
+            className="bg-bullt-tertiary text-white px-4 py-2 rounded-md hover:bg-bullt-secondary hover:text-black border-[1px] transition-all"
           >
-            {data.tab_one}
-            {activeTab === data.tab_one && (
-              <span className="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-bullt-tertiary rotate-45"></span>
-            )}
+            {isExpanded ? "See Less" : "See More"}
           </button>
-          <button
-            className={`relative text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 ${activeTab === data.tab_two
-              ? "bg-bullt-tertiary text-white shadow-md scale-105"
-              : "text-black bg-blue-50"
-              }`}
-            onClick={() => setActiveTab(data.tab_two)}
-          >
-            {data.tab_two}
-            {activeTab === data.tab_two && (
-              <span className="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-bullt-tertiary rotate-45"></span>
-            )}
-          </button>
-        </nav> */}
 
-        <div className="sm:py-6 py-2">
-          <Slider {...settings}>
-            {data?.list_titles?.map((item: any, index: any) => (
-              <div
-                key={index}
-                className="text-center hover:bg-[#F4F5F8] w-[140px] grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
-              >
-                {item.img ? (
-                  <div className="h-[140px] lg:w-[270px] w-[120px] relative mx-auto">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.img}`}
-                      alt="all"
-                      className=""
-                      style={{
-                        position: "absolute",
-                        objectFit: "contain",
-                        inset: 0,
-                      }}
-                      fill={true}
-                    />
-                  </div>
-                ) : null}
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {item.heading}
-                </h3>
-              </div>
-            ))}
-          </Slider>
         </div>
       </div>
     </div>

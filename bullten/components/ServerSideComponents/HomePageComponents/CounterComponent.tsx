@@ -11,7 +11,7 @@ const CounterComponent: React.FC = async () => {
     <>
       {counterData?.Active === true && (
         <div className="sm:py-2 py-4 sm:my-6 my-2 relative">
-          <div className="bg-bullt-quaternary h-[180px] w-full"></div>
+          <div className="bg-bullt-tertiary h-[180px] w-full"></div>
           <div
             className="w-[90%] py-6  z-10 -mt-[130px] "
             style={{
