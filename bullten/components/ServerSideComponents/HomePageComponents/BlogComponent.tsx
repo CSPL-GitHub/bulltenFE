@@ -15,7 +15,7 @@ const BlogsComponent = async () => {
       {/* bg-[url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')] */}
       {blogResponse?.result?.Active === true ? (
         <div className="relative w-full  bg-cover bg-center bg-no-repeat">
-          <section className="flex lg:flex-row flex-col items-center justify-center w-full sm:py-4 py-2 rounded-md backdrop-blur-md">
+          <section className="flex lg:flex-row flex-col items-center justify-center w-full sm:py-4 py-2 rounded-md backdrop-blur-md pb-16 lg:pb-0">
             <div
               className="flex flex-col items-start justify-start lg:w-[50%] w-full lg:h-[530px] h-full  mx-1 bg-fill bg-center lg:p-20 sm:p-5 px-4 py-2"
               style={{
@@ -35,7 +35,7 @@ const BlogsComponent = async () => {
                 </MainHeadingComponent>
               )}
               {blogResponse?.result?.data?.description && (
-                <div className="w-[90%]">
+                <div className="lg:w-[90%] w-full">
                   <ParaGraphText alignmentType={2} paddingTop={1}>
                     {blogResponse?.result?.data?.description}
                   </ParaGraphText>
