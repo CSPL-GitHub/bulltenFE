@@ -20,7 +20,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
     const { onClick } = props;
     return (
       <div
-        className="absolute -sm:bottom-2 -bottom-14 sm:-left-[30%] left-[55%] flex justify-end items-center cursor-pointer rounded-full   p-2"
+        className="absolute -sm:bottom-2 -bottom-14 sm:-left-[30%] left-[55%] flex justify-end items-center cursor-pointer rounded-full p-2"
         onClick={onClick}
       >
         <p className="bg-gray-300 rounded-full p-2 border border-gray-600">
@@ -77,7 +77,7 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
       {blogResponse?.result?.data?.blogs?.length > 0 ? (
         <Slider {...settings}>
           {blogResponse?.result?.data?.blogs?.map((blog: any) => (
-            <div key={blog?.id} className="px-10 lg:px-4 py-4 lg:py-0 ">
+            <div key={blog?.id} className="px-10 sm:px-3 lg:px-4 py-4 lg:py-0 ">
               <div className="relative flex flex-col w-full h-[370px] overflow-hidden rounded-lg shadow-lg group">
                 <div className="h-[70%] ">
                   <img

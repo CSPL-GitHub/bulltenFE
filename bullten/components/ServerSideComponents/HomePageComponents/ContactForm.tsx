@@ -54,7 +54,7 @@ const ContactForm: React.FC = () => {
     <div className="flex justify-center items-center bg-transparent">
       <form
         onSubmit={handleSubmit(FormSubmit)}
-        className="bg-black/20 rounded-lg shadow-lg max-w-[90%] w-full space-y-4 sm:p-6"
+        className="bg-black/20 rounded-lg shadow-lg lg:max-w-[90%] sm:max-w-full max-w-[90%] w-full space-y-4 lg:p-6 p-1"
       >
         <p className="text-bullt-secondary text-4xl text-center">Let’s get in touch</p>
 
