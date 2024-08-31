@@ -20,7 +20,7 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse, FaqAllDa
   // console.log("faq", FaqAllData);
 
   return (
-    <div className="sm:w-1/2 w-full px-4">
+    <div className="lg:w-1/2 w-full px-4">
       <div className="flex flex-col justify-left py-4">
         {FaqAllData?.data?.slogen ? (
           <SloganHeadingComponent alignmentType={1} paddingTop={1}>
