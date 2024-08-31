@@ -38,19 +38,17 @@ const ServerFeatures = async () => {
           {server_feature?.map((feature: any, index: number) => (
             <div
               key={index}
-              className="rounded-md relative group sm:px-6 px-3 sm:py-6 py-2 shadow-lg overflow-hidden text-center flex flex-col items-start transition-transform duration-300 ease-in-out sm:h-[200px] h-[170px] text-gray-900 hover:text-white bg-white"
+              className="rounded-md relative group sm:px-6 px-3 md:py-6 py-4 shadow-lg overflow-hidden text-center flex flex-col items-start sm:gap-4 gap-0 transition-transform duration-300 ease-in-out sm:h-[200px] h-[170px] text-gray-900 hover:text-white bg-white"
             >
-              <div className="relative z-10 flex flex-row items-start justify-start gap-6 px-4">
+              <div className="relative z-10 flex flex-row items-start justify-start gap-6 md:px-4">
                 {feature.icon && (
-                  <div className="w-20 h-20 mb-4  relative bg-bullt-quaternary rounded-md group-hover:bg-white transition-colors duration-300">
-                    {/* Original Icon */}
+                  <div className="md:w-20 md:h-20 h-16 w-16 mb-4 relative bg-bullt-quaternary rounded-md group-hover:bg-white transition-colors duration-300">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.reverse_icon}`}
                       alt={feature?.alt_text || "Feature Icon"}
                       className="object-contain p-4 text-white group-hover:hidden block fill-current"
                       fill={true}
                     />
-                    {/* Reverse Icon on Hover */}
                     {feature.reverse_icon && (
                       <Image
                         src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.icon}`}
@@ -61,18 +59,17 @@ const ServerFeatures = async () => {
                     )}
                   </div>
                 )}
-                <h3 className="sm:text-[22px] text-lg sm:w-[200px] w-[150px] text-start font-semibold mb-2 line-clamp-2 py-3">
+                <h3 className="lg:text-[22px] text-[18px] md:w-[200px] h-auto w-[150px] text-start font-semibold mb-2 line-clamp-2 py-1">
                   {feature?.title}
                 </h3>
               </div>
 
               {feature.description && (
-                <p className="text-start sm:text-[14px] text-base leading-relaxed relative z-10 line-clamp-2 px-4">
+                <p className="text-start sm:text-[14px] text-base leading-relaxed relative z-10 line-clamp-2 px-2">
                   {feature?.description}
                 </p>
               )}
 
-              {/* Sliding background image effect with hover change */}
               <div
                 className={`absolute inset-0 bg-cover bg-center opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-90 transition-transform duration-700 ease-in-out`}
                 style={{
