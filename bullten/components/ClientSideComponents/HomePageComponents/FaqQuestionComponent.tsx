@@ -21,22 +21,6 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse, FaqAllDa
 
   return (
     <div className="lg:w-1/2 w-full px-4">
-      <div className="flex flex-col justify-left py-4">
-        {FaqAllData?.data?.slogen ? (
-          <SloganHeadingComponent alignmentType={1} paddingTop={1}>
-            {FaqAllData?.data?.slogen}
-          </SloganHeadingComponent>
-        ) : null}
-        {FaqAllData?.data?.heading ? (
-          <MainHeadingComponent
-            alignmentType={1}
-            paddingTop={1}
-            hoverEffect="text-bullt-primary"
-          >
-            {FaqAllData?.data?.heading}
-          </MainHeadingComponent>
-        ) : null}
-      </div>
 
       <div className=" w-full space-y-2 lg:py-6 sm:py-0 py-3 h-[550px] overflow-style-none overflow-y-auto ">
 
