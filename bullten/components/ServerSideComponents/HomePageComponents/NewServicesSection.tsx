@@ -74,7 +74,7 @@ const NewServicesSection = ({ services }: Props) => {
         </div>
 
         {/* Second Row: 2 Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center md:mt-0 mt-2 ">
           {services?.slice(3, 5)?.map?.((service, index) => (
             <div
               key={service.heading || index}
