@@ -9,6 +9,7 @@ import SubHeadingComponents from "@/components/CommonComponents/HeadingComponent
 import Image from "next/image";
 import React from "react";
 import HostingSolutionsCardSlider from "./HostingSolutionsCardSlider";
+import NewServicesSection from "./NewServicesSection";
 
 type Props = {};
 
@@ -120,7 +121,7 @@ const OurServicesComponent = async (props: Props) => {
             </div>
           </section> */}
 
-          <section className="container py-2 lg:py-4 relative overflow-hidden px-4 lg:px-8 mx-auto w-full bg-cover bg-no-repeat bg-bottom ">
+          <section className="container py-2 lg:py-4 relative overflow-hidden sm:px-4 px-1 lg:px-8 mx-auto w-full bg-cover bg-no-repeat bg-bottom bg-gray-100 sm:my-6 my-2 ">
             <div className="">
               {/* <div className=" "></div> */}
               <div className="relative w-full mx-auto flex flex-col md:flex-row px-4 lg:py-0 py-2">
@@ -146,16 +147,18 @@ const OurServicesComponent = async (props: Props) => {
                 <div className=" lg:w-1/2 md:w-2/5 w-full flex justify-start md:justify-center items-center pb-4 ">
                   <HomePageButtonOne
                     alignmentType={3}
-                    buttonText={"View All Servers"}
+                    buttonText={"View All Services"}
                     route={"/#"}
                   />
                 </div>
               </div>
             </div>
 
-            <div className=" group relative mx-auto md:px-0 w-full overflow-hidden rounded-sm  md:block">
-              <HostingSolutionsCardSlider
-                items={WordPressHoistingApiResponse?.result?.host_data?.hosting}
+            <div className=" group relative mx-auto md:px-0 w-full overflow-hidden rounded-sm  md:block ">
+              <NewServicesSection
+                services={
+                  WordPressHoistingApiResponse?.result?.host_data?.hosting
+                }
               />
             </div>
           </section>
