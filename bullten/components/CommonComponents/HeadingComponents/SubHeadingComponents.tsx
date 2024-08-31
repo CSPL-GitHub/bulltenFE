@@ -19,7 +19,7 @@ const SubHeadingComponents = ({
     <div>
       <h2
         className={classNames(
-          `flex items-center text-[1.8rem] md:text-[1.5rem] lg:text-[1.1rem] font-semibold ${
+          `flex items-center text-[1.5rem] md:text-[1.5rem] lg:text-[1.1rem] font-semibold ${
             paddingTop === 1
               ? "py-1"
               : paddingTop === 2

@@ -100,7 +100,7 @@ const HostingSolutionsCardSlider: React.FC<Props> = ({ items }) => {
                 <SubHeadingComponents
                   alignmentType={2}
                   paddingTop={1}
-                  hoverEffect="tracking-wide h-12"
+                  hoverEffect="tracking-wide h-12 text-center"
                 >
                   {item.heading}
                 </SubHeadingComponents>
