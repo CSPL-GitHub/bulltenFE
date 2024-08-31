@@ -45,9 +45,9 @@ const BannerWithImage = ({ banner }: Props) => {
           ? "linear-gradient(to right, white, rgba(72, 85, 99, 0.4))"
           : "linear-gradient(to left, white, rgba(72, 85, 99, 0.4))"
       }}>
-        <div className="container mx-auto px-3 sm:px-16 flex flex-col sm:flex-row items-center justify-between relative z-10 py-3">
+        <div className="container mx-auto px-3 lg:px-16 flex flex-col sm:flex-row items-center justify-between relative z-10 py-3">
 
-          <div className={`flex-col lg:gap-3  gap-2 mt-5 sm:mt-0 items-start justify-center sm:w-[50%] w-full ${banner?.image_position === "Text_position" ? "flex" : "hidden"}`}>
+          <div className={`flex-col lg:gap-3  gap-2 mt-5 sm:mt-0 items-start justify-center lg:w-[50%] sm:w-[60%] w-full ${banner?.image_position === "Text_position" ? "flex" : "hidden"}`}>
             {banner?.label && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}

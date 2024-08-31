@@ -20,7 +20,7 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse, FaqAllDa
   // console.log("faq", FaqAllData);
 
   return (
-    <div className="sm:w-1/2 w-full px-4">
+    <div className="lg:w-1/2 w-full px-4">
       <div className="flex flex-col justify-left py-4">
         {FaqAllData?.data?.slogen ? (
           <SloganHeadingComponent alignmentType={1} paddingTop={1}>
@@ -38,7 +38,7 @@ const FaqQuestionComponent: React.FC<Props> = ({ FaqSectionApiResponse, FaqAllDa
         ) : null}
       </div>
 
-      <div className=" w-full space-y-2 sm:py-6 py-3 h-[550px] overflow-style-none overflow-y-auto ">
+      <div className=" w-full space-y-2 lg:py-6 sm:py-0 py-3 h-[550px] overflow-style-none overflow-y-auto ">
 
         {FaqSectionApiResponse?.map((item: any, index: any) => (
           <div

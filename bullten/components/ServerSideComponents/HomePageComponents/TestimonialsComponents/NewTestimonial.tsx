@@ -40,23 +40,17 @@ export default function TestimonialsSection({
   const sliderRef = React.useRef<Slider>(null);
 
   return (
-    <section className="w-full bg-blue-50 rounded-lg sm:px-4 px-2">
-      <div className="w-full mx-auto sm:p-16 lg:px-48 p-2 sm:py-10 py-8 sm:my-10 my-6 rounded-lg ">
+    <section className=" container w-full bg-blue-50 rounded-lg lg:px-14 md:px-6 px-2">
+      <div className="w-full mx-auto py-16 rounded-lg ">
         {/* Header Section */}
-        <div className="sm:-mb-[200px] mb-0">
-          <div className="text-left mb-8 sm:w-[50%] w-full ">
+        <div className="lg:-mb-[200px]  mb-0">
+          <div className="text-left mb-8 lg:w-[50%] w-full ">
             <SloganHeadingComponent paddingTop={1} alignmentType={1}>
               {TestimonialsContent?.data?.slogen}
             </SloganHeadingComponent>
             <MainHeadingComponent paddingTop={1} alignmentType={1}>
               {TestimonialsContent?.data?.title}
             </MainHeadingComponent>
-          </div>
-
-          {/* Testimonial Section */}
-          <div className="flex flex-row text-bullt-quaternary text-2xl">
-            <SiComma />
-            <SiComma />
           </div>
         </div>
         <Slider ref={sliderRef} {...settings}>
@@ -67,6 +61,10 @@ export default function TestimonialsSection({
             >
               <div className="flex sm:flex-row flex-col sm:items-end items-center justify-start sm:justify-between gap-2">
                 <div className="sm:w-[40%] w-full">
+                  <div className="flex flex-row text-bullt-quaternary text-2xl mt-7">
+                    <SiComma />
+                    <SiComma />
+                  </div>
                   <ParaGraphText paddingTop={3} alignmentType={1}>
                     {testimonial?.description}
                   </ParaGraphText>
@@ -79,7 +77,7 @@ export default function TestimonialsSection({
                 </div>
 
                 <div className="relative">
-                  <div className="relative sm:w-[400px] sm:h-[400px] w-[200px] h-[200px] rounded-full overflow-hidden shadow-lg border-[6px] border-bullt-quaternary">
+                  <div className="relative lg:w-[400px] lg:h-[400px] md:w-[300px] md:h-[300px] w-[200px] h-[200px] rounded-full overflow-hidden shadow-lg border-[6px] border-bullt-quaternary">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial?.client_image}`}
                       alt={testimonial?.alt_text || testimonial?.name}
@@ -89,7 +87,7 @@ export default function TestimonialsSection({
                   </div>
                   {testimonials?.[0]?.client_image && (
                     <div
-                      className={`absolute rounded-full sm:w-[100px] w-[50px] sm:h-[100px] h-[50px] sm:top-[10px] top-[5px] overflow-hidden border-4 border-white cursor-pointer ${
+                      className={`absolute rounded-full lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] sm:top-[10px] top-[5px] overflow-hidden border-4 border-white cursor-pointer ${
                         selectedIndex === 0 ? "border-yellow-500" : ""
                       }`}
                       onClick={() => handleImageClick(0)}
@@ -106,7 +104,7 @@ export default function TestimonialsSection({
                   )}
                   {testimonials?.[1]?.client_image && (
                     <div
-                      className={`absolute rounded-full sm:w-[100px] w-[50px] sm:h-[100px] h-[50px] sm:top-[150px] top-[65px] sm:-left-[50px] -left-[30px] overflow-hidden border-4 border-white cursor-pointer ${
+                      className={`absolute rounded-full lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] lg:top-[150px] lg:-left-[50px] md:top-[100px] md:-left-[40px] top-[65px] -left-[30px] overflow-hidden border-4 border-white cursor-pointer ${
                         selectedIndex === 1 ? "border-yellow-500" : ""
                       }`}
                       onClick={() => handleImageClick(1)}
@@ -123,7 +121,7 @@ export default function TestimonialsSection({
                   )}
                   {testimonials?.[2]?.client_image && (
                     <div
-                      className={`absolute rounded-full overflow-hidden border-4 sm:w-[100px] w-[50px] sm:h-[100px] h-[50px] sm:top-[280px] top-[120px] sm:left-[10px] -left-[15px]  border-white cursor-pointer ${
+                      className={`absolute rounded-full overflow-hidden border-4 lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] lg:top-[280px] lg:left-[10px] md:top-[200px] md:-left-[20px] top-[120px] -left-[15px]  border-white cursor-pointer ${
                         selectedIndex === 2 ? "border-yellow-500" : ""
                       }`}
                       onClick={() => handleImageClick(2)}

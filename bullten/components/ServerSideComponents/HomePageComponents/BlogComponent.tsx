@@ -43,7 +43,7 @@ const BlogsComponent = async () => {
               )}
             </div>
 
-            <div className="sm:w-[60%] w-full z-10 sm:-ml-32 ml-0 ">
+            <div className="lg:w-[60%] w-full z-10 lg:-ml-32 ml-0 ">
               <BlogCartComponent blogResponse={blogResponse} />
             </div>
           </section>

@@ -80,7 +80,7 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                     </div>
                   </div>
 
-                  <div className="text-3xl sm:text-[40px] font-[600] py-1">
+                  <div className="lg:text-3xl md:text-[30px] text-[40px] font-[600] py-1">
                     {startCount ? (
                       <CountUp
                         end={counter?.count}
