@@ -124,7 +124,7 @@ const OurServicesComponent = async (props: Props) => {
             <div className="">
               {/* <div className=" "></div> */}
               <div className="relative w-full mx-auto flex flex-col md:flex-row px-4 lg:py-0 py-2">
-                <div className=" lg:w-1/2 mb-4 ">
+                <div className=" lg:w-1/2 md:w-3/5 w-full mb-4 ">
                   <div className="flex gap-1 sm:w-[330px] sm:h-10 w-full ">
                     <SloganHeadingComponent
                       paddingTop={1}
@@ -143,7 +143,7 @@ const OurServicesComponent = async (props: Props) => {
                     </MainHeadingComponent>
                   ) : null}
                 </div>
-                <div className=" lg:w-1/2 flex justify-start md:justify-center items-center pb-4 ">
+                <div className=" lg:w-1/2 md:w-2/5 w-full flex justify-start md:justify-center items-center pb-4 ">
                   <HomePageButtonOne
                     alignmentType={3}
                     buttonText={"View All Servers"}
@@ -153,7 +153,7 @@ const OurServicesComponent = async (props: Props) => {
               </div>
             </div>
 
-            <div className=" group relative mx-auto  md:px-0 w-full overflow-hidden rounded-sm  md:block">
+            <div className=" group relative mx-auto md:px-0 w-full overflow-hidden rounded-sm  md:block">
               <HostingSolutionsCardSlider
                 items={WordPressHoistingApiResponse?.result?.host_data?.hosting}
               />
