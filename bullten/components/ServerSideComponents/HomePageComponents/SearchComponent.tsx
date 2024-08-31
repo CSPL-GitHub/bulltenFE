@@ -83,9 +83,9 @@ const DomainSearchComponent = async () => {
               </SloganHeadingComponent>
             ) : null}
             {DomainsearchApiResponse?.result?.data?.heading ? (
-              <MainHeadingComponent alignmentType={1} paddingTop={1}>
+              <h2 className="text-3xl font-bold leading-tight -mt-[6px] py-2 text-center">
                 {DomainsearchApiResponse?.result?.data?.heading}
-              </MainHeadingComponent>
+              </h2>
             ) : null}
             {DomainsearchApiResponse?.result?.data?.description ? (
               <ParaGraphText paddingTop={1} alignmentType={1}>
