@@ -107,12 +107,7 @@ const Footer: React.FC = async () => {
           </div>
           <div className="w-full bg-bullt-tertiary ">
             <div className="relative w-full flex justify-center container mx-auto lg:justify-between flex-wrap gap-2 py-3 px-6 lg:px-16 ">
-              <div>
-                <h6 className="break-words text-center text-sm text-bullt-secondary">
-                  {footerResponse?.result?.copyRightText}{" "}
-                  {footerResponse?.result?.policyText}
-                </h6>
-              </div>
+
               <div className="flex gap-2">
                 {footerResponse?.result?.legalinformation.map(
                   (info: any, index: number) => (
@@ -123,6 +118,13 @@ const Footer: React.FC = async () => {
                     </Link>
                   )
                 )}
+              </div>
+
+              <div>
+                <h6 className="break-words text-center text-sm text-bullt-secondary">
+                  {footerResponse?.result?.copyRightText}{" "}
+                  {footerResponse?.result?.policyText}
+                </h6>
               </div>
             </div>
           </div>

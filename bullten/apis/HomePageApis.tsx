@@ -88,10 +88,9 @@ export const ContactUsStripApi = async () => {
   return response;
 };
 
-export const ContactFormApi = async (fname: string, lname: string, email: string, phone: string, address: string, message: string) => {
+export const ContactFormApi = async (fname: string, email: string, phone: string, address: string, message: string) => {
   const response = await apiCore("/api/contactform", {
     fname: fname,
-    lname: lname,
     email: email,
     phone: phone,
     address: address,

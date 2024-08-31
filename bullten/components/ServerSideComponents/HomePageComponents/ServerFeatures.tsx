@@ -17,7 +17,7 @@ const ServerFeatures = async () => {
   );
   return (
     <section className="relative bg-fixed bg-cover">
-      <div className=" w-full sm:py-4 py-2 mx-auto flex flex-col items-center sm:px-6 px-0">
+      <div className=" w-full sm:py-4 py-2 mx-auto flex flex-col items-center lg:px-6 px-0">
         <div className="max-w-4xl text-center text-black">
           <div className="w-full flex items-center justify-center">
             {slogen && (
@@ -38,7 +38,7 @@ const ServerFeatures = async () => {
           {server_feature?.map((feature: any, index: number) => (
             <div
               key={index}
-              className="rounded-md relative group sm:px-6 px-3 md:py-6 py-4 shadow-lg overflow-hidden text-center flex flex-col items-start sm:gap-4 gap-0 transition-transform duration-300 ease-in-out sm:h-[200px] h-[170px] text-gray-900 hover:text-white bg-white"
+              className="rounded-md relative group sm:px-6 px-3 md:py-6 py-4 shadow-lg overflow-hidden text-center flex flex-col items-start lg:gap-4  gap-0 transition-transform duration-300 ease-in-out lg:h-[210px] md:h-[190px] h-[170px] text-gray-900 hover:text-white bg-white"
             >
               <div className="relative z-10 flex flex-row items-start justify-start gap-6 md:px-4">
                 {feature.icon && (
@@ -65,7 +65,7 @@ const ServerFeatures = async () => {
               </div>
 
               {feature.description && (
-                <p className="text-start sm:text-[14px] text-base leading-relaxed relative z-10 line-clamp-2 px-2">
+                <p className="text-start sm:text-[16px] text-base leading-relaxed relative z-10 line-clamp-2 px-2">
                   {feature?.description}
                 </p>
               )}
