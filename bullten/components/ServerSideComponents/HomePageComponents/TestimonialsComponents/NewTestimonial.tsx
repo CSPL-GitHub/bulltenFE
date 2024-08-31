@@ -25,7 +25,7 @@ export default function TestimonialsSection({
     slidesToScroll: 1,
     arrows: false,
     adaptiveHeight: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     afterChange: (current: number) => {
       setSelectedIndex(current);
