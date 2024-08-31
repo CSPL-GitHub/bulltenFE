@@ -98,7 +98,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
           //     : { background: `transparent`, backdropFilter: "blur(0px)" }),
           // }}
           >
-            <div className="flex justify-between items-center sm:gap-10 sm:min-h-[100px] max-h-[100px] container mx-auto" >
+            <div className={`flex justify-between items-center sm:gap-10 sm:min-h-[70px] container mx-auto ${moveDown ? "max-h-[80px]" : "max-h-[100px]"}`} >
               <div className=" lg:w-auto w-full flex lg:justify-center justify-between items-center ">
                 <Link href="/">
                   <div className="sm:w-[200px] w-[200px] h-[50px] relative flex justify-center bg-bullt-secondary">
@@ -149,7 +149,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           {headerMenu?.subheader?.length > 0 ? (
                             <>
                               <h2
-                                className={`flex relative cursor-default text-lg items-center min-h-16 h-[100px] font-semiBold text-bullt-secondary hover:text-bullt-tertiary `}
+                                className={`flex relative cursor-default text-lg items-center font-semiBold text-bullt-secondary hover:text-bullt-tertiary ${moveDown ? "max-h-[70px] min-h-[70px]" : "max-h-[100px] min-h-[100px]"}`}
                                 onMouseEnter={() => {
                                   setOpenSubMenu(headerMenu?.id);
                                 }}
@@ -162,7 +162,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
                           ) : (
                             <Link href={`${headerMenu?.path}`}>
                               <h6
-                                className={`flex relative cursor-pointer min-h-16 h-[100px] items-center font-semiBold text-lg  hover:text-bullt-tertiary text-bullt-secondary`}
+                                className={`flex relative cursor-pointer items-center font-semiBold text-lg  hover:text-bullt-tertiary text-bullt-secondary ${moveDown ? "max-h-[70px] min-h-[70px]" : "max-h-[100px] min-h-[100px]"}`}
                               // ${moveDown || openSubMenu
                               //   ? "text-bullt-primary"
                               //   : "text-bullt-secondary"

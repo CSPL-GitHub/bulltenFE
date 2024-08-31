@@ -18,11 +18,11 @@ const FaqSection = async () => {
 
             <div className="lg:flex gap-5 ">
               <div
-                className="lg:w-[40%] w-full lg:mx-8 rounded-lg h-full px-4 bg-cover bg-fixed bg-center bg-opacity-30 lg:py-10 py-4"
-                style={{
-                  backgroundImage:
-                    "url('https://img.freepik.com/premium-photo/data-center-with-multiple-rows-fully-operational-server-racks-modern-telecommunications-cloud-computing-artificial-intelligence-database-supercomputer-technology-concept_982144-98.jpg?uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')",
-                }}
+                className="lg:w-[40%] w-full lg:mx-4 rounded-lg h-full px-4 bg-cover bg-fixed bg-center bg-opacity-30 lg:py-10 py-4 bg-bullt-primary/[0.4]"
+                // style={{
+                //   backgroundImage:
+                //     "url('https://img.freepik.com/premium-photo/data-center-with-multiple-rows-fully-operational-server-racks-modern-telecommunications-cloud-computing-artificial-intelligence-database-supercomputer-technology-concept_982144-98.jpg?uid=R138009000&ga=GA1.1.57192057.1700485831&semt=ais_hybrid')",
+                // }}
               >
                 <ContactForm />
               </div>
