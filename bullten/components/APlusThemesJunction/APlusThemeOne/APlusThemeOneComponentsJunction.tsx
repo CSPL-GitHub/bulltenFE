@@ -18,9 +18,9 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
 }) => {
     return (
         <div className={
-            "container mx-auto sm:px-8 px-0 sm:overflow-visible overflow-x-hidden"
+            "container mx-auto sm:px-8 px-0 sm:overflow-visible overflow-x-hidden mt-[130px]"
         }>
-            {aPlusResponse?.components?.map((item: any, index: number) => {
+            {aPlusResponse?.data?.components?.map((item: any, index: number) => {
                 switch (item?.component) {
                     case "banner":
                         return (

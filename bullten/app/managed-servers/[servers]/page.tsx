@@ -14,12 +14,13 @@ const page = async ({
 
   const ServerDataResponse = await ServerDataApi(decodedSlug);
   // console.log("first server", ServerDataResponse);
+  // console.log("slug server", decodedSlug)
 
   return (
     <div>
       {ServerDataResponse?.result?.data?.themes === "theme1" ?
         <APlusThemeOneComponentsJunction
-          aPlusResponse={ServerDataResponse}
+          aPlusResponse={ServerDataResponse?.result}
           decodedSlug={decodedSlug}
         /> : null
       }
