@@ -17,7 +17,7 @@ const HeaderInsideMenu:React.FC<Props> = ({subheaderIndex, insideSubMenu, header
         <div className={`col-span-6 py-4 ${insideSubMenu?.subheaders?.length > 4 ? " grid grid-cols-2" : ""}`}>
           {insideSubMenu?.subheaders?.map((subHeaderLinks: any) =>
             <Link
-              href={`${headerMenu?.path}/${subHeaderLinks?.slug}`}
+              href={`/${headerMenu?.path}/${subHeaderLinks?.slug}`}
               key={subHeaderLinks?.id}
               onClick={() => setOpenSubMenu(undefined)}
               className={`grid grid-cols-7 gap-3 hover:bg-bullt-quinary/[0.2] px-4 py-2 mx-3 rounded-lg border-b ${insideSubMenu?.subheaders?.length > 6 ? " " : "w-[50%] "}`}
