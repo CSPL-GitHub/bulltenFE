@@ -24,7 +24,7 @@ const NewServicesSection = ({ services }: Props) => {
     <section className=" py-3">
       <div className="container mx-auto px-6">
         {/* First Row: 3 Services */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center py-3 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6 gap-2 justify-center py-3 ">
           {services?.slice?.(0, 3)?.map?.((service, index) => (
             <div
               key={service.heading || index}
@@ -74,7 +74,7 @@ const NewServicesSection = ({ services }: Props) => {
         </div>
 
         {/* Second Row: 2 Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center md:mt-0 mt-2 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-2 justify-center md:mt-0 -mt-1 ">
           {services?.slice(3, 5)?.map?.((service, index) => (
             <div
               key={service.heading || index}

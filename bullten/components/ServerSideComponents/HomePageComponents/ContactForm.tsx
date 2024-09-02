@@ -49,21 +49,21 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-transparent">
+    <div className="flex justify-center items-center">
       <form
         onSubmit={handleSubmit(FormSubmit)}
-        className="lg:max-w-[90%] sm:max-w-[80%] max-w-[90%] w-full space-y-4 lg:p-6 py-3 p-1"
+        className="lg:max-w-[95%] sm:max-w-[80%] max-w-full w-full space-y-4 lg:p-6 py-3 p-1"
       >
         <p className="text-bullt-secondary text-4xl text-center">Let’s get in touch</p>
 
         <div>
           <input
             type="text"
-            placeholder="First Name"
+            placeholder="Full Name"
             {...register("firstName", { required: "First name is required" })}
-            className={`mt-1 block w-full px-3 py-3.5 border ${
+            className={`mt-1 block w-full px-3 py-3 border ${
               errors.firstName ? "border-red-500" : "border-gray-300"
-            } rounded-md shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
+            } rounded-sm shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
           />
           {errors.firstName && (
             <span className="text-red-500 text-sm">{errors.firstName.message}</span>
@@ -75,9 +75,9 @@ const ContactForm: React.FC = () => {
             type="email"
             placeholder="Email"
             {...register("email", { required: "Email is required" })}
-            className={`mt-1 block w-full px-3 py-3.5 border ${
+            className={`mt-1 block w-full px-3 py-3 border ${
               errors.email ? "border-red-500" : "border-gray-300"
-            } rounded-md shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
+            } rounded-sm shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
           />
           {errors.email && (
             <span className="text-red-500 text-sm">{errors.email.message}</span>
@@ -89,9 +89,9 @@ const ContactForm: React.FC = () => {
             type="tel"
             placeholder="Phone Number"
             {...register("phoneNumber", { required: "Phone number is required" })}
-            className={`mt-1 block w-full px-3 py-3.5 border ${
+            className={`mt-1 block w-full px-3 py-3 border ${
               errors.phoneNumber ? "border-red-500" : "border-gray-300"
-            } rounded-md shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
+            } rounded-sm shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
           />
           {errors.phoneNumber && (
             <span className="text-red-500 text-sm">{errors.phoneNumber.message}</span>
@@ -103,9 +103,9 @@ const ContactForm: React.FC = () => {
             type="text"
             placeholder="Address"
             {...register("address", { required: "Address is required" })}
-            className={`mt-1 block w-full px-3 py-3.5 border ${
+            className={`mt-1 block w-full px-3 py-3 border ${
               errors.address ? "border-red-500" : "border-gray-300"
-            } rounded-md shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
+            } rounded-sm shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
           />
           {errors.address && (
             <span className="text-red-500 text-sm">{errors.address.message}</span>
@@ -117,9 +117,9 @@ const ContactForm: React.FC = () => {
             placeholder="Your Message"
             {...register("message", { required: "Message is required" })}
             rows={4}
-            className={`mt-1 block w-full px-3 py-3.5 border ${
+            className={`mt-1 block w-full px-3 py-3 border ${
               errors.message ? "border-red-500" : "border-gray-300"
-            } rounded-md shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
+            } rounded-sm shadow-sm focus:outline-none focus:ring-bullt-tertiary focus:border-bullt-tertiary`}
           />
           {errors.message && (
             <span className="text-red-500 text-sm">{errors.message.message}</span>
@@ -128,7 +128,7 @@ const ContactForm: React.FC = () => {
 
         <button
           type="submit"
-          className="w-full font-semibold text-lg bg-bullt-tertiary text-bullt-secondary hover:text-bullt-tertiary py-3 px-4 rounded-md shadow hover:bg-bullt-text-secondary border-2 border-bullt-tertiary"
+          className="w-full font-semibold text-lg bg-bullt-tertiary text-bullt-secondary hover:text-bullt-tertiary py-3 px-4 rounded-sm shadow hover:bg-bullt-text-secondary border-2 border-bullt-tertiary"
         >
           Send Message
         </button>
