@@ -18,16 +18,16 @@ const FooterMobileMenu = ({ Menus }: any) => {
             className="w-full flex justify-between item-center py-2 "
             onClick={() => toggleAccordion(index)}
           >
-            <h5 className="font-bold text-lg  text-bullt-secondary cursor-pointer">
+            <h5 className="font-bold text-lg  text-bullt-primary cursor-pointer">
               {menu?.menuHeading}
             </h5>
-            <FaAngleDown size={25} className="text-bullt-secondary" />
+            <FaAngleDown size={25} className="text-bullt-primary" />
           </div>
           {openIndex === index && (
             <div className="flex flex-col gap-4">
               {menu?.menuPages?.map((menus: any, pageIndex: number) => (
                 <Link href={menus?.path} key={pageIndex}>
-                  <h6 className="py-2 px-2 text-base lg:text-sm font-normal text-bullt-secondary hover:font-bold hover:text-gray-400">
+                  <h6 className="py-2 px-2 text-base lg:text-sm font-normal text-bullt-primary hover:font-bold hover:text-gray-600">
                     {menus?.title}
                   </h6>
                 </Link>

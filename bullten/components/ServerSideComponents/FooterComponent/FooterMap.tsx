@@ -2,6 +2,7 @@
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+import Link from "next/link";
 import React, { useState } from "react";
 import {
   ComposableMap,
@@ -39,15 +40,34 @@ const FooterMap = ({ footerMapResponse }: any) => {
           >
             {footerMapResponse?.slogan}
           </SloganHeadingComponent>
-          <MainHeadingComponent paddingTop={1} alignmentType={2}>
+          {/* <MainHeadingComponent paddingTop={1} alignmentType={2}>
             {footerMapResponse?.heading}
-          </MainHeadingComponent>
+          </MainHeadingComponent> */}
+          <h2 className="text-5xl font-bold">{footerMapResponse?.heading}</h2>
           <ParaGraphText alignmentType={2}>
             {footerMapResponse?.description}
           </ParaGraphText>
 
+          <div className="w-full relative flex items-center justify-start py-3 gap-2 lg:gap-4">
+            {footerMapResponse?.button_1 ? (
+              <Link href={footerMapResponse?.button_1?.button_1_link}>
+                <button className="px-6 py-2  text-center text-bullt-secondary border bg-bullt-tertiary border-bullt-tertiary rounded hover:bg-bullt-secondary hover:text-bullt-tertiary ">
+                  {footerMapResponse?.button_1?.button_1_txt}
+                </button>
+              </Link>
+            ) : null}
+
+            {footerMapResponse?.button_2 ? (
+              <Link href={footerMapResponse?.button_2?.button_2_link}>
+                <button className="px-6 py-2  text-center bg-bullt-secondary text-bullt-tertiary border border-bullt-secondary rounded hover:bg-bullt-tertiary hover:text-white ">
+                  {footerMapResponse?.button_2?.button_2_txt}
+                </button>
+              </Link>
+            ) : null}
+          </div>
+
           {/* Location List */}
-          <div className="grid grid-cols-3 lg:grid-cols-4 gap-4 max-h-[20vh] overflow-auto relative">
+          {/* <div className="grid grid-cols-3 lg:grid-cols-4 gap-4 max-h-[20vh] overflow-auto relative">
             {footerMapResponse?.locationMarkers?.map(
               (marker: any, index: number) => (
                 <button
@@ -68,22 +88,17 @@ const FooterMap = ({ footerMapResponse }: any) => {
                 </button>
               )
             )}
-          </div>
+          </div> */}
         </div>
 
         {/* Map Section */}
-        <div className="lg:w-2/3 w-full lg:mt-0 relative overflow-visible">
-          <div className="absolute inset-0 opacity-60" />
-          <ComposableMap
-            className="relative"
-            projectionConfig={{ scale: 200 }}
-            width={900}
-            height={650}
-          >
+        <div className="lg:w-2/3 w-full ">
+          {/* <div className="absolute inset-0 opacity-60" /> */}
+          <ComposableMap className="relative" projectionConfig={{ scale: 200 }}>
             <Geographies
               geography="/features.json"
-              fill="#263b59"
-              stroke="#0e1e52"
+              fill="#0C2340"
+              stroke="#2f4b70"
               strokeWidth={0.1}
             >
               {({ geographies }) =>
@@ -126,44 +141,49 @@ const FooterMap = ({ footerMapResponse }: any) => {
                   />
 
                   {/* Show Tooltip for Selected Location or Hovered Marker */}
-                  {(selectedLocation === marker ||
-                    hoveredMarker === marker) && (
-                    <g className="transition-opacity duration-300">
+                  {/* {(selectedLocation === marker ||
+                    hoveredMarker === marker) && ( */}
+
+                  {hoveredMarker === marker && (
+                    <g className="transition-opacity duration-300 z-">
                       {/* Bent Line */}
                       <path
                         d={`M 0,0 L -10,-40 L -50,-45`}
                         stroke="#007aff"
-                        strokeWidth={2}
+                        strokeWidth={1}
                         fill="none"
                       />
 
                       {/* Tooltip Rectangle */}
                       <rect
-                        x={-170}
+                        x={-140}
                         y={-65}
-                        width={120}
+                        width={100}
                         height={35}
                         fill="#E5E7EB"
-                        rx={3}
-                        ry={3}
+                        rx={20}
+                        ry={20}
                         className="shadow-md"
                       />
-
-                      {/* Tooltip Content */}
-                      <foreignObject x={-160} y={-60} width={100} height={30}>
-                        {" "}
-                        {/* Adjusted position to the left */}
-                        <div className="flex items-center justify-center">
-                          <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
-                            alt={marker.name}
-                            className="w-5 h-5 mr-2"
-                          />
-                          <span className="text-gray-800 font-semibold">
-                            {marker.name}
-                          </span>
-                        </div>
-                      </foreignObject>
+                      <image
+                        href={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
+                        x={-130}
+                        y={-60}
+                        width={30}
+                        height={25}
+                        className="rounded"
+                      />
+                      <text
+                        textAnchor="middle"
+                        y={-43}
+                        x={-80}
+                        style={{
+                          fill: "#000",
+                          fontSize: "13px",
+                        }}
+                      >
+                        {marker?.name}
+                      </text>
                     </g>
                   )}
                 </Marker>

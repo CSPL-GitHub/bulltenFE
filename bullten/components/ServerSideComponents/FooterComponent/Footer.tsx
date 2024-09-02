@@ -21,11 +21,12 @@ const Footer: React.FC = async () => {
               footerMapResponse={footerMapResponse?.result?.map_data}
             />
           ) : null}
-          <div className=" -mt-12 lg:-mt-20 px-6 lg:px-16 ">
+
+          <div className=" -mt-20 lg:-mt-20 px-6 lg:px-16 ">
             <ContactUsStripSection />
           </div>
 
-          <div className="w-full -mt-20 rounded-lg lg:rounded-none relative ">
+          <div className="w-full -mt-48 lg:-mt-20 rounded-lg lg:rounded-none relative ">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat custom-bounce"
               style={{
