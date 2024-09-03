@@ -94,9 +94,13 @@ const FooterMap = ({ footerMapResponse }: any) => {
         {/* Map Section */}
         <div className="lg:w-2/3 w-full ">
           {/* <div className="absolute inset-0 opacity-60" /> */}
-          <ComposableMap className="relative" projectionConfig={{ scale: 200 }}>
+          {/* <ComposableMap
+            className="relative outline-none focus:outline-none"
+            projectionConfig={{ scale: 200 }}
+            
+          >
             <Geographies
-              geography="/features.json"
+              geography="https://unpkg.com/world-atlas@2.0.2/countries-110m.json"
               fill="#0C2340"
               stroke="#2f4b70"
               strokeWidth={0.1}
@@ -104,6 +108,40 @@ const FooterMap = ({ footerMapResponse }: any) => {
               {({ geographies }) =>
                 geographies.map((geo) => (
                   <Geography key={geo.rsmKey} geography={geo} />
+                ))
+              }
+            </Geographies> */}
+
+          <ComposableMap
+            className="relative outline-none focus:outline-none"
+            focusable={false}
+            projectionConfig={{
+              scale: 190,
+            }}
+          >
+            <Geographies geography="/features.json">
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography
+                    focusable={false}
+                    style={{
+                      default: {
+                        outline: "none",
+                      },
+                      hover: {
+                        outline: "none",
+                      },
+                      pressed: {
+                        outline: "none",
+                      },
+                    }}
+                    tabIndex={-1}
+                    fill="#0C2340"
+                    stroke="#2f4b70"
+                    strokeWidth={0.1}
+                    key={geo.rsmKey}
+                    geography={geo}
+                  />
                 ))
               }
             </Geographies>
@@ -165,13 +203,13 @@ const FooterMap = ({ footerMapResponse }: any) => {
                         ry={20}
                         className="shadow-md"
                       />
-                      <image
+                      {/* <image
                         href={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
                         x={-130}
                         y={-60}
-                        width={30}
-                        height={25}
-                        className="rounded"
+                        width={20}
+                        height={20}
+                        className="rounded object-cover"
                       />
                       <text
                         textAnchor="middle"
@@ -183,7 +221,19 @@ const FooterMap = ({ footerMapResponse }: any) => {
                         }}
                       >
                         {marker?.name}
-                      </text>
+                      </text> */}
+                      <foreignObject x={-140} y={-60} width={100} height={35}>
+                        <div className="flex items-center justify-center">
+                          <img
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
+                            alt={marker.name}
+                            className="w-5 h-5 mr-1 object-cover rounded-full"
+                          />
+                          <span className="text-gray-800 font-nomral text-sm">
+                            {marker.name}
+                          </span>
+                        </div>
+                      </foreignObject>
                     </g>
                   )}
                 </Marker>
