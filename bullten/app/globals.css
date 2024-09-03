@@ -55,6 +55,22 @@
     }
   }
 
+  @keyframes custom-ping {
+    0% {
+      transform: scale(0.2);
+      opacity: 1;
+    }
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  .custom-ping {
+    animation: custom-ping 3s infinite;
+  }
+  
+
   .custom-bounce {
     animation: custom-bounce 3s infinite; 
   }
@@ -74,6 +90,24 @@
   .overflow-style-none::-webkit-scrollbar {
     display: none;
   }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+    
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #080F2C;
+    
+    width: 10px;
+  }
+  
+  span.swiper-pagination-bullet {
+    color: white;
+    background: white !important;
+  }
+  
 
   .bg-image-lines {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3cpath d='M-128.21 491.06C41.78 485.44 260.01 221.92 496.75 222.26 733.49 222.6 689.62 581.04 809.23 625.05' stroke='rgba(51%2c121%2c194%2c0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-36.2 181.11C99.94 185.1 198.31 381.98 467.66 388.31 737 394.64 838.21 560.58 971.51 563.04' stroke='rgba(51%2c121%2c194%2c0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-28.83 193.33C135.37 192.85 277.68 70.51 617.34 75.73 957 80.95 1056.11 579.52 1263.51 613.06' stroke='rgba(51%2c121%2c194%2c0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-122.11 193.84C23.4 201.2 122.29 451.74 397.87 457.04 673.45 462.34 785.33 559.52 917.85 560.01' stroke='rgba(51%2c121%2c194%2c0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-37.19 185.52C144.04 186.11 303.06 315.23 675.15 319.92 1047.25 324.61 1194.67 610.82 1387.5 616.68' stroke='rgba(51%2c121%2c194%2c0.58)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");

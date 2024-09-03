@@ -16,22 +16,27 @@ const Footer: React.FC = async () => {
     <>
       {footerResponse?.result ? (
         <footer className=" w-full ">
-          <FooterMap footerMapResponse={footerMapResponse?.result?.map_data} />
-          <div className=" -mt-12 lg:-mt-28 px-6 lg:px-16 ">
+          {footerMapResponse?.result?.Active === true ? (
+            <FooterMap
+              footerMapResponse={footerMapResponse?.result?.map_data}
+            />
+          ) : null}
+
+          <div className=" -mt-20 lg:-mt-20 px-6 lg:px-16 ">
             <ContactUsStripSection />
           </div>
 
-          <div className="w-full -mt-24 rounded-lg lg:rounded-none relative ">
+          <div className="w-full -mt-48 lg:-mt-20 rounded-lg lg:rounded-none relative ">
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat custom-bounce"
               style={{
-                backgroundImage: `url('/map.png')`,
-                filter: "brightness(0.5)",
+                backgroundImage: `url('/line.png')`,
+                filter: "brightness(0.1)",
                 backgroundSize: "contain",
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="relative pt-32 shadow-sm px-6 lg:px-16  gap-3 bg-bullt-primary/[0.8] bg-opacity-90">
+            <div className="relative pt-32 shadow-sm px-6 lg:px-16  gap-3 bg-slate-200 ">
               <div className="container mx-auto w-full lg:col-span-9 col-span-12  flex lg:flex-row flex-col py-8 lg:gap-3 gap-1 ">
                 <div className="flex flex-col items-center">
                   <div className="flex justify-between flex-col items-center w-full">
@@ -39,10 +44,10 @@ const Footer: React.FC = async () => {
                       {footerResponse?.result?.Discription?.map(
                         (content: any, index: number) => (
                           <div key={index}>
-                            <h5 className="font-bold text-xl text-bullt-text-secondary">
+                            <h5 className="font-bold text-xl text-bullt-primary">
                               {content?.footerHeading}
                             </h5>
-                            <h5 className="text-base text-justify text-bullt-text-secondary pt-4">
+                            <h5 className="text-base text-justify text-bullt-primary pt-4">
                               {content?.footerDescription}
                             </h5>
                           </div>
@@ -81,13 +86,13 @@ const Footer: React.FC = async () => {
                       key={index}
                     >
                       <div className="w-full hidden lg:flex flex-col justify-center item-center gap-2 mt-6 lg:mt-0">
-                        <h5 className="font-bold text-2xl lg:text-xl text-bullt-secondary">
+                        <h5 className="font-bold text-2xl lg:text-xl text-bullt-primary">
                           {menu?.menuHeading}
                         </h5>
                         {menu?.menuPages?.map(
                           (menus: any, pageIndex: number) => (
                             <Link href={menus?.path} key={pageIndex}>
-                              <h6 className="py-2 text-base lg:text-sm font-normal text-bullt-secondary hover:font-semibold hover:text-gray-400 ">
+                              <h6 className="py-2 text-base lg:text-sm font-normal text-bullt-primary hover:font-semibold hover:text-gray-800 ">
                                 {menus?.title}
                               </h6>
                             </Link>
@@ -107,7 +112,6 @@ const Footer: React.FC = async () => {
           </div>
           <div className="w-full bg-bullt-tertiary ">
             <div className="relative w-full flex justify-center container mx-auto lg:justify-between flex-wrap gap-2 py-3 px-6 lg:px-16 ">
-
               <div className="flex gap-2">
                 {footerResponse?.result?.legalinformation.map(
                   (info: any, index: number) => (
@@ -119,7 +123,6 @@ const Footer: React.FC = async () => {
                   )
                 )}
               </div>
-
               <div>
                 <h6 className="break-words text-center text-sm text-bullt-secondary">
                   {footerResponse?.result?.copyRightText}{" "}

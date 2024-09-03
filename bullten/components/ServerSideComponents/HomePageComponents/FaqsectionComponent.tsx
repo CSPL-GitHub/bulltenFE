@@ -39,7 +39,7 @@ const FaqSection = async () => {
                     "url('https://img.freepik.com/free-vector/background-design-with-lines-blue-background_1308-4823.jpg?t=st=1724841272~exp=1724844872~hmac=6fbae88717fed9a0c1e99469cd5e7ee6ce7af54b58021f59f166d0b0aa260ac0&w=740')",
                 }}
               >
-                <div className="bg-bullt-primary/[0.4] h-full w-full px-4 py-4">
+                <div className="bg-white/20 shadow-lg ring-1 ring-black/5 h-full w-full px-4 py-4">
                   <ContactForm />
                 </div>
               </div>
