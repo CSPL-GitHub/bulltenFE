@@ -2,6 +2,7 @@
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import {
@@ -197,10 +198,10 @@ const FooterMap = ({ footerMapResponse }: any) => {
                         x={-140}
                         y={-65}
                         width={100}
-                        height={35}
+                        height={25}
                         fill="#E5E7EB"
-                        rx={20}
-                        ry={20}
+                        rx={15}
+                        ry={15}
                         className="shadow-md"
                       />
                       {/* <image
@@ -222,14 +223,27 @@ const FooterMap = ({ footerMapResponse }: any) => {
                       >
                         {marker?.name}
                       </text> */}
-                      <foreignObject x={-140} y={-60} width={100} height={35}>
-                        <div className="flex items-center justify-center">
-                          <img
+                      <foreignObject x={-140} y={-60} width={100} height={25}>
+                        <div className="flex items-center justify-center ">
+                          {/* <img
                             src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
                             alt={marker.name}
                             className="w-5 h-5 mr-1 object-cover rounded-full"
-                          />
-                          <span className="text-gray-800 font-nomral text-sm">
+                          /> */}
+                          <div className="h-4 w-4 relative mr-1">
+                            <Image
+                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
+                              alt="all"
+                              className="h-full w-full rounded-full"
+                              style={{
+                                position: "absolute",
+                                objectFit: "cover",
+                                inset: 0,
+                              }}
+                              fill={true}
+                            />
+                          </div>
+                          <span className="text-gray-800 font-nomral text-xs ">
                             {marker.name}
                           </span>
                         </div>
