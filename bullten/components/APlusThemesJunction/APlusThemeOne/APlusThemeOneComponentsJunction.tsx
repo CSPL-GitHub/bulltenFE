@@ -18,7 +18,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
 }) => {
     return (
         <div className={
-            "container mx-auto sm:px-8 px-0 sm:overflow-visible overflow-x-hidden mt-[130px]"
+            "container mx-auto sm:px-8 px-0 sm:overflow-visible overflow-x-hidden mt-[135px]"
         }>
             {aPlusResponse?.data?.components?.map((item: any, index: number) => {
                 switch (item?.component) {
@@ -28,7 +28,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                                 <BannerComponentAPlus bannerData={item} />
                             </div>
                         );
-                    case "ImageText":
+                    case "image_text":
                         return (
                             <div key={index}>
                                 <ImageTextAPlusComponent imageTextData={item} />
