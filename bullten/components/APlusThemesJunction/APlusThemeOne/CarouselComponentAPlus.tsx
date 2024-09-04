@@ -10,16 +10,15 @@ interface Props {
 }
 
 const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
-  const [infinite, setInfinite] = useState<boolean>()
+  const [infinite, setInfinite] = useState<boolean>();
 
   useEffect(() => {
     if (carouselData?.content?.length === 1) {
       setInfinite(false);
-    }
-    else {
+    } else {
       setInfinite(true);
     }
-  }, [])
+  }, []);
 
   const settings = {
     dots: true,
@@ -45,8 +44,8 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                   : 1
                 : 2
               : carouselData?.content?.length < 2
-                ? carouselData?.element_count
-                : 2,
+              ? carouselData?.element_count
+              : 2,
           slidesToScroll: 1,
         },
       },
@@ -66,7 +65,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
     <>
       {carouselData?.content?.length > 0 ? (
         <div
-          className="w-full h-auto bg-bullt-primary/[0.1] py-10 px-8"
+          className="container mx-auto w-full h-auto bg-bullt-primary/[0.1] py-10 px-8"
           style={{
             marginTop: `${carouselData?.gap_top / 4}rem`,
             marginBottom: `${carouselData?.gap_bottom / 4}rem`,
@@ -105,8 +104,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                     />
                   </div>
                   {item?.heading || item?.description ? (
-                    <div
-                      className="h-auto bg-opacity-60 p-4 flex flex-col justify-center items-start">
+                    <div className="h-auto bg-opacity-60 p-4 flex flex-col justify-center items-start">
                       <div
                         className="w-full flex flex-col items-start tailwind-unreset lg:text-xl md:text-base font-semibold h-[80px] "
                         dangerouslySetInnerHTML={{
@@ -121,9 +119,12 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                       />
 
                       {item?.button_text && item?.button_link ? (
-                        <HomePageButtonOne alignmentType={2} buttonText={item?.button_text} route={item?.button_link} />
+                        <HomePageButtonOne
+                          alignmentType={2}
+                          buttonText={item?.button_text}
+                          route={item?.button_link}
+                        />
                       ) : null}
-
                     </div>
                   ) : null}
                 </div>

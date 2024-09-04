@@ -12,18 +12,21 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
 
   return (
     <>
-      <div className="py-6"
-      // style={{
-      //       backgroundImage: `url(${img1.src})`,
-      //       backgroundSize: "cover",
-      //       backgroundRepeat: "no-repeat",
-      //       backgroundPosition: "center",
-      //     }}
-          >
-        <div className="text-center text-4xl sm:px-16 tailwind-unreset font-semibold"
+      <div
+        className="container mx-auto py-6"
+        // style={{
+        //       backgroundImage: `url(${img1.src})`,
+        //       backgroundSize: "cover",
+        //       backgroundRepeat: "no-repeat",
+        //       backgroundPosition: "center",
+        //     }}
+      >
+        <div
+          className="text-center text-4xl sm:px-16 tailwind-unreset font-semibold"
           dangerouslySetInnerHTML={{
             __html: columnData?.heading,
-          }}   ></div>
+          }}
+        ></div>
         {columnData?.content?.length > 0 ? (
           <div
             className={`w-full h-auto items-start gap-10 py-8 px-6`}
@@ -31,10 +34,11 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
               marginTop: `${columnData?.gap_top / 4}rem`,
               marginBottom: `${columnData?.gap_bottom / 4}rem`,
               display: "grid",
-              gridTemplateColumns: `${WindowWidth < 640
-                ? "repeat(1, minmax(0, 1fr))"
-                : `repeat(${columnData?.element_count || 1}, minmax(0, 1fr))`
-                }`,
+              gridTemplateColumns: `${
+                WindowWidth < 640
+                  ? "repeat(1, minmax(0, 1fr))"
+                  : `repeat(${columnData?.element_count || 1}, minmax(0, 1fr))`
+              }`,
             }}
           >
             {columnData?.content?.map((item: any, index: number) => (
