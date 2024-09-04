@@ -8,17 +8,17 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
   return (
     <div
       className="w-full h-auto relative"
-    style={{
-      marginTop: `${bannerData?.gap_top / 4}rem`,
-      marginBottom: `${bannerData?.gap_bottom / 4}rem`,
-    }}
+      style={{
+        marginTop: `${bannerData?.gap_top / 4}rem`,
+        marginBottom: `${bannerData?.gap_bottom / 4}rem`,
+      }}
     >
-      <div className="h-[400px] w-full">
+      <div className="h-[450px] w-full">
         {bannerData?.image ? (
           <Image
             className="sm:rounded-lg rounded-none"
             src={`${process.env.NEXT_PUBLIC_BASE_URL}${bannerData?.image}`}
-            alt="p"
+            alt={bannerData?.image_alternate_text}
             style={{
               position: "absolute",
               objectFit: "cover",
@@ -29,15 +29,21 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
         ) : null}
       </div>
 
-      <div className="absolute top-0 start-0 w-full h-full flex flex-col gap-6 justify-center items-center bg-tgh-primary/[0.3] sm:rounded-lg rounded-none p-3">
+      <div className="absolute top-0 start-0 w-full h-full flex flex-col gap-6 justify-center items-center bg-tgh-primary/[0.3] sm:rounded-lg rounded-none p-3 bg-[#13274F]">
         <div className="lg:w-[60%] relative w-full flex flex-col justify-center items-center gap-2">
           {bannerData?.heading ? (
-            <h1
-              className="md:text-7xl text-4xl font-400 text-bullt-secondary text-center"
+            <div
+              className="md:text-7xl text-4xl font-400 text-bullt-secondary text-center font-semibold"
               dangerouslySetInnerHTML={{ __html: bannerData?.heading }}
-            ></h1>
+            ></div>
           ) : null}
-          
+
+          {bannerData?.description ? (
+            <div
+              className="md:text-xl text-2xl font-400 text-bullt-secondary text-center"
+              dangerouslySetInnerHTML={{ __html: bannerData?.description }}
+            ></div>
+          ) : null}
         </div>
       </div>
     </div>

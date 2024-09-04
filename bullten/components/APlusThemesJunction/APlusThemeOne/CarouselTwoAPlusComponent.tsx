@@ -9,19 +9,18 @@ interface Props {
 }
 
 const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
-  const [infinite , setInfinite] = useState<boolean>()
+  const [infinite, setInfinite] = useState<boolean>();
 
   useEffect(() => {
-    if(carouselData?.content?.length === 1 ){
+    if (carouselData?.content?.length === 1) {
       setInfinite(false);
-    }
-    else{
+    } else {
       setInfinite(true);
     }
-  }, [])
+  }, []);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: infinite,
     autoplay: false,
     arrows: true,
@@ -60,14 +59,14 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   };
   return (
     <div
-      className="w-full h-auto"
+      className="w-full h-auto bg-blue-50/[0.4] py-8"
       style={{
         marginTop: `${carouselData?.gap_top / 4}rem`,
         marginBottom: `${carouselData?.gap_bottom / 4}rem`,
       }}
     >
       <div
-        className="w-full m-auto  flex flex-col justify-center items-center sm:text-4xl text-2xl text-center leading-3 mb-5 tailwind-unreset"
+        className="w-full m-auto flex flex-col font-semibold justify-center items-center sm:text-5xl text-2xl text-center leading-3 mb-5 tailwind-unreset"
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(carouselData?.heading),
         }}
@@ -78,39 +77,43 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
             <div className="px-2 h-auto" key={index}>
               <div
                 key={index}
-                className=" slidergap h-[350px] mb-3 border-[1px] rounded-xl overflow-hidden"
+                className=" h-auto bg-white hover:bg-bullt-quaternary/[0.03] hover:shadow-lg shadow-sm mb-3 border-[1px] rounded-md overflow-hidden"
               >
-                <div className="w-full h-[120px] px-1 flex items-center justify-center">
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                    alt={item?.heading}
-                    style={{
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-                {item?.heading || item?.description ? (
-                  <div
-                    className="h-auto p-4 flex flex-col justify-center items-start"
-                    style={{
-                      insetInlineStart: `${item?.banner_horizontal_position_value}%`,
-                      top: `${item?.banner_vertical_position_value}%`,
-                    }}
-                  >
+                {/* {item?.heading || item?.description ? ( */}
+                <div
+                  className="min-h-[300px] p-4 flex flex-col justify-start items-start gap-3"
+                  style={{
+                    insetInlineStart: `${item?.banner_horizontal_position_value}%`,
+                    top: `${item?.banner_vertical_position_value}%`,
+                  }}
+                >
+                  <div className="flex flex-row justify-center items-center w-full gap-2">
+                    <div className=" flex items-start justify-center">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                        alt={item?.heading}
+                        style={{
+                          objectFit: "contain",
+                        }}
+                        className="w-[80px] h-[80px]"
+                      />
+                    </div>
                     <div
-                      className="w-full flex flex-col  text-xl items-center font-semibold tailwind-unreset"
+                      className="w-full flex flex-col text-xl items-start font-semibold tailwind-unreset"
                       dangerouslySetInnerHTML={{
                         __html: DOMPurify.sanitize(item?.heading),
                       }}
                     />
-                    <div
-                      className="w-full flex flex-col tailwind-unreset text-justify"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(item?.description),
-                      }}
-                    />
                   </div>
-                ) : null}
+
+                  <div
+                    className="w-full flex flex-col tailwind-unreset text-justify "
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(item?.description),
+                    }}
+                  />
+                </div>
+                {/* // ) : null} */}
               </div>
             </div>
           ))}
