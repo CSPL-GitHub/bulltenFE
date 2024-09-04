@@ -8,7 +8,7 @@ interface Props {
 
 const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
   return (
-    <section className=" py-16 px-4">
+    <section className="py-4 lg:py-8 px-4 bg-bullt-quaternary/[0.05]">
       <div
         className="container mx-auto items-center"
         style={{
@@ -51,27 +51,16 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
 
                   {imageTextData?.button_text ? (
                     <div>
-                      {imageTextData?.button_text &&
-                      imageTextData?.is_downloadable ? (
-                        <div></div>
-                      ) : (
-                        <Link
-                          href={imageTextData?.button_link}
-                          className="inline-flex items-center gap-1 mt-4 text-blue-600 font-medium"
-                        >
-                          <div
-                            className="text-semibold transition-transform duration-500"
-                            dangerouslySetInnerHTML={{
-                              __html: imageTextData?.button_text,
-                            }}
-                          />
-                          <div className="sm:opacity-0 opacity-100 sm:group-hover:opacity-100 transform transition-opacity duration-500">
-                            <div className="sm:hidden sm:group-hover:block block">
-                              <AiOutlineArrowRight size={20} />
-                            </div>
-                          </div>
-                        </Link>
-                      )}
+                      <Link
+                        href={imageTextData?.button_link}
+                        className="flex justify-start items-center gap-2 px-2 py-2 text-black rounded cursor-pointer font-semibold"
+                      >
+                        <p className="text-semibold transition-transform duration-500">
+                          {imageTextData?.button_text}
+                        </p>
+
+                        <AiOutlineArrowRight size={20} />
+                      </Link>
                     </div>
                   ) : null}
                 </div>
@@ -86,26 +75,23 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                 />
 
                 {/* Annotations */}
-                <div className="absolute top-1/4 left-1/4 p-2 bg-white shadow-md rounded-md flex items-center gap-2">
+                <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
                   <img
-                    src="/path/to/your-icon1.png"
+                    src="https://hostingard.themetags.com/wp-content/uploads/2024/04/logo-5.png"
                     alt="150+ Tbps Location"
-                    className="w-5 h-5"
+                    className="w-10 h-10"
                   />
                   <span className="text-sm font-semibold">
                     150+ Tbps Location
                   </span>
                 </div>
 
-                <div className="absolute bottom-1/4 right-1/4 p-2 bg-white shadow-md rounded-md flex items-center gap-2">
+                <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
                   <img
-                    src="/path/to/your-icon2.png"
+                    src="https://hostingard.themetags.com/wp-content/uploads/2024/04/logo-5.png"
                     alt="Location Icon"
-                    className="w-5 h-5"
+                    className="w-15 h-15"
                   />
-                  <span className="text-sm font-semibold">
-                    Protected Location
-                  </span>
                 </div>
               </div>
             </div>
