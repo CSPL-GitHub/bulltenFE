@@ -47,7 +47,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                 className="h-full w-full overflow-y-hidden flex flex-col border border-tgh-text-secondary rounded-lg group hover:shadow bg-white"
               >
                 {item?.image ? (
-                  <div className="sm:h-[250px] h-[200px] w-full relative">
+                  <div className="sm:h-[330px] h-[200px] w-full relative">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                       alt={item?.heading}

@@ -67,7 +67,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
       }}
     >
       <div
-        className="w-full m-auto flex flex-col font-semibold justify-start items-start sm:text-5xl text-2xl text-start leading-3 mb-5 tailwind-unreset"
+        className="w-full  flex flex-col font-semibold justify-start items-start sm:text-5xl text-2xl text-start leading-3 mb-5 tailwind-unreset"
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(carouselData?.heading),
         }}
@@ -82,7 +82,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
               >
                 {item?.heading || item?.description ? (
                   <div
-                    className="min-h-[300px] p-4 flex flex-col justify-start items-start gap-3"
+                    className="p-4 flex flex-col justify-start items-start gap-3"
                     style={{
                       insetInlineStart: `${item?.banner_horizontal_position_value}%`,
                       top: `${item?.banner_vertical_position_value}%`,
@@ -109,7 +109,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                     </div>
 
                     <div
-                      className="w-full flex flex-col tailwind-unreset text-justify "
+                      className="w-full tailwind-unreset  line-clamp-2"
                       dangerouslySetInnerHTML={{
                         __html: DOMPurify.sanitize(item?.description),
                       }}

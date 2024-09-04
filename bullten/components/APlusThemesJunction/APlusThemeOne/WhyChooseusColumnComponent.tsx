@@ -13,12 +13,11 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
     style={{
       marginTop: `${columnData?.gap_top / 4}rem`,
       marginBottom: `${columnData?.gap_bottom / 4}rem`,
-      backgroundImage: `url(${img.src})`,
+      // backgroundImage: `url(${img.src})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-  }}
-    >
+  }}>
 
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         <div className="md:w-[40%] w-full text-start sm:px-10 ">

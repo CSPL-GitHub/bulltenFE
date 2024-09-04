@@ -16,7 +16,7 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
       <div className="h-[450px] w-full">
         {bannerData?.image ? (
           <Image
-            className="sm:rounded-lg rounded-none"
+            className=""
             src={`${process.env.NEXT_PUBLIC_BASE_URL}${bannerData?.image}`}
             alt={bannerData?.image_alternate_text}
             style={{
@@ -29,7 +29,7 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
         ) : null}
       </div>
 
-      <div className="absolute top-0 start-0 w-full h-full flex flex-col gap-6 justify-center items-center bg-tgh-primary/[0.3] sm:rounded-lg rounded-none p-3 bg-[#13274F]">
+      <div className="absolute top-0 start-0 w-full h-full flex flex-col gap-6 justify-center items-center bg-tgh-primary/[0.3]  rounded-none p-3 bg-[#13274F]">
         <div className="lg:w-[60%] relative w-full flex flex-col justify-center items-center gap-2">
           {bannerData?.heading ? (
             <div
