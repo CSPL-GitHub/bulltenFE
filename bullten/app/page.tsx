@@ -22,6 +22,7 @@ import OurServicesComponent from "@/components/ServerSideComponents/HomePageComp
 import WhatWeOfferComponent from "@/components/ServerSideComponents/HomePageComponents/WhatWeOfferComponent";
 import { Metadata } from "next";
 import DomainSearchComponent from "@/components/ServerSideComponents/HomePageComponents/SearchComponent";
+import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
 export async function generateMetadata(): Promise<Metadata | undefined> {
   let HomePageSeoData = await HomePageSEOApi();
   HomePageSeoData = HomePageSeoData?.result;
@@ -45,7 +46,7 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
-  const TestimonialsContent = await TestimonialsApi();
+ 
 
   return (
     <main className="w-full">
@@ -101,9 +102,7 @@ export default async function Home() {
         </Suspense>
 
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialsSection
-            TestimonialsContent={TestimonialsContent?.result}
-          />
+          <TestimonialsComponent/>
         </Suspense>
 
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>

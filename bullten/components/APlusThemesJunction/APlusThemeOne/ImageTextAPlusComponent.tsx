@@ -9,12 +9,12 @@ interface Props {
 }
 
 const ImageTextAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+ 
 
   console.log("imageTextData?.is_downloadable", imageTextData?.is_downloadable);
   return (
     <div
-      className="w-full h-auto grid grid-cols-12 sm:gap-[50px] sm:px-0 px-4"
+      className="w-full h-auto grid grid-cols-12 sm:gap-[50px] sm:px-0 px-4 bg-[#F3F4F6]"
       style={{
         marginTop: `${imageTextData?.gap_top / 4}rem`,
         marginBottom: `${imageTextData?.gap_bottom / 4}rem`,
@@ -37,7 +37,7 @@ const ImageTextAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
             alt={imageTextData?.heading}
             style={{
               position: "absolute",
-              objectFit: "cover",
+              objectFit: "contain",
               inset: 0,
             }}
             fill={true}
