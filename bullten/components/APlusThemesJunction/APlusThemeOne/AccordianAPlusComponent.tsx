@@ -15,7 +15,7 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
     };
     return (
         <div
-            className="w-full h-auto grid lg:grid-cols-2 grid-cols-1 py-7 px-3 gap-5 border-[1px] rounded-xl sm:px-5 bg-bullt-quaternary/[0.07]"
+            className="w-full h-auto grid lg:grid-cols-2 grid-cols-1 py-7 px-3 gap-5 border-[1px]  sm:px-5 bg-bullt-quaternary/[0.07]"
             style={{
                 marginTop: `${AccordionData?.gap_top / 4}rem`,
                 marginBottom: `${AccordionData?.gap_bottom / 4}rem`,

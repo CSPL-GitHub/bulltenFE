@@ -8,6 +8,8 @@ import CarouselComponentAPlus from "./CarouselComponentAPlus";
 import VideoTextAPlusComponent from "./VideoTextAPlusComponent";
 import CarouselTwoAPlusComponent from "./CarouselTwoAPlusComponent";
 import CountryLocationsCarouselComponentAPlus from "./CountryLocationsCarouselComponentAPlus";
+import WhyChooseusColumnComponent from "./WhyChooseusColumnComponent";
+import AccordianAPlusComponent from "./AccordianAPlusComponent";
 // import AlternatingSections from "./AdvantagesComponent";
 
 interface Props {
@@ -75,6 +77,17 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 <CarouselTwoAPlusComponent carouselData={item} />
               </div>
             );
+            case "why_choose_column":
+                return(
+                    <div className="">
+                        <WhyChooseusColumnComponent columnData={item} />
+                    </div>
+                ) 
+                case "accordion":
+                return (
+                    <div key={index}>
+                        <AccordianAPlusComponent AccordionData={item} />
+                    </div>)
 
           default:
             return null;

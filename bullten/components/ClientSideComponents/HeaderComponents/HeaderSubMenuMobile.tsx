@@ -49,7 +49,7 @@ const HeaderSubMenuMobile = ({
               <div>
                 {subHeader?.subheaders?.map((subHeaderLinks: SubHeaderLinks) => (
                   <Link
-                    href={`${headerMenu?.path}/${subHeaderLinks?.slug}`}
+                    href={`/${headerMenu?.path}/${subHeaderLinks?.slug}`}
                     key={subHeaderLinks?.id}
                     onClick={() => setOpenSubMenu(undefined)}
                     className="grid grid-cols-7 border rounded-md my-2 bg-bullt-quinary/[0.1] py-1 min-h-[80px]"
