@@ -14,7 +14,8 @@ import SupportSection from "@/components/ServerSideComponents/HomePageComponents
 import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
-// import AlternatingSections from "./AdvantagesComponent";
+import AlternatingSections from "./AdvantagesComponent";
+import AdvantagesAPLusComponent from "./AdvantagesComponent";
 
 interface Props {
     aPlusResponse: any;
@@ -115,12 +116,12 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                         return (
                             <> {item?.support_is_active ? <> <ChatService /> </> : null}</>
                         )
-                        // case "advantage":
-                        //     return (
-                        //       <div key={index}>
-                        //         <AdvantagesAPLusComponent AdvantagesData={item} />
-                        //       </div>
-                        //     );
+                        case "advantage":
+                            return (
+                              <div key={index}>
+                                <AdvantagesAPLusComponent AdvantagesData={item} />
+                              </div>
+                            );
                     default:
 
 
