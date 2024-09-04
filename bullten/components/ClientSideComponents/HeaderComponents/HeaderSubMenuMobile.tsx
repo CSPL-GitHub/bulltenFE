@@ -13,8 +13,9 @@ type Props = {
   setOpenSubMenu: any;
   setOpenMobileMenu: any;
   setActiveSubMenu: any;
+  subHeaderData:any;
   activeSubMenu: any;
-  handleSubheaderClick: any
+  handleSubheaderClick: any;
 };
 
 const HeaderSubMenuMobile = ({
@@ -24,11 +25,13 @@ const HeaderSubMenuMobile = ({
   setOpenSubMenu,
   setOpenMobileMenu,
   setActiveSubMenu,
+  subHeaderData,
   activeSubMenu,
   handleSubheaderClick, // New prop
 }: Props) => {
 
-  // console.log("menu", headerMenu)
+  console.log("menu", headerMenu)
+  console.log("inside menu", headerMenu?.path)
 
   return (
     <div
@@ -49,7 +52,7 @@ const HeaderSubMenuMobile = ({
               <div>
                 {subHeader?.subheaders?.map((subHeaderLinks: SubHeaderLinks) => (
                   <Link
-                    href={`/${headerMenu?.path}/${subHeaderLinks?.slug}`}
+                    href={`/${subHeaderData?.path}/${subHeaderLinks?.slug}`}
                     key={subHeaderLinks?.id}
                     onClick={() => setOpenSubMenu(undefined)}
                     className="grid grid-cols-7 border rounded-md my-2 bg-bullt-quinary/[0.1] py-1 min-h-[80px]"
