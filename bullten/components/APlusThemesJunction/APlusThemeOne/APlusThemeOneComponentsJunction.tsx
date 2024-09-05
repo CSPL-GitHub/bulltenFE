@@ -27,7 +27,11 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   decodedSlug,
 }) => {
   return (
-    <div className={" sm:overflow-hidden overflow-x-hidden mt-[125px]"}>
+    <div
+      className={
+        "bg-bullt-quaternary/[0.03] sm:overflow-hidden overflow-x-hidden mt-[125px]"
+      }
+    >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
           case "banner":
@@ -96,6 +100,12 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 <CountryLocationsCarouselComponentAPlus carouselData={item} />
               </div>
             );
+          case "advantage":
+            return (
+              <div key={index}>
+                <AdvantagesAPLusComponent AdvantagesData={item} />
+              </div>
+            );
           case "operating_systems":
             return (
               <>
@@ -140,12 +150,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 ) : null}
               </>
             );
-          case "advantage":
-            return (
-              <div key={index}>
-                <AdvantagesAPLusComponent AdvantagesData={item} />
-              </div>
-            );
+
           default:
             return null;
         }

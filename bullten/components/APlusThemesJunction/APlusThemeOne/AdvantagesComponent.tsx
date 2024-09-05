@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
   return (
-    <div className="bg-bullt-quaternary/[0.05] container mx-auto py-4 lg:py-8 px-2 lg:px-8 space-y-8">
+    <div className="container mx-auto py-4 lg:py-8 px-2 lg:px-8 space-y-8">
       <div className="w-full py-1 md:py-4 flex flex-col md:flex-row justify-around">
         {AdvantagesData?.heading ? (
           <div

@@ -13,7 +13,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <>
       <div
-        className="container mx-auto py-6"
+        className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
         // style={{
         //       backgroundImage: `url(${img1.src})`,
         //       backgroundSize: "cover",

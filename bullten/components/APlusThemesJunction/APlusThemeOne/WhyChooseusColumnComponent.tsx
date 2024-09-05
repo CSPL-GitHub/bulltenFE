@@ -10,7 +10,7 @@ interface Props {
 const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <div
-      className="relative py-4 lg:py-8 px-2 lg:px-8 bg-cover bg-center bg-no-repeat bg-[url('/-img4.jpg')]"
+      className="relative py-4 lg:py-8 px-2 lg:px-8 "
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,

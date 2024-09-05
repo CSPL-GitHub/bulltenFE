@@ -21,9 +21,9 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
             <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4">
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center">
-                  {/* <span className="text-sm text-blue-600 font-medium">
+                  <span className="text-sm text-blue-600 font-medium">
                     • Global Network
-                  </span> */}
+                  </span>
 
                   {imageTextData?.heading ? (
                     <div
@@ -43,11 +43,11 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                     />
                   ) : null}
 
-                  {/* <ul className="list-disc list-inside text-[#000E47] space-y-1">
+                  <ul className="list-disc list-inside text-[#000E47] space-y-1">
                     <li>DDoS protected network</li>
                     <li>Unmetered bandwidth</li>
                     <li>Bandwidth pooling available</li>
-                  </ul> */}
+                  </ul>
 
                   {imageTextData?.button_text ? (
                     <div>
@@ -131,9 +131,9 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
               </div>
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-2/4 flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4 ">
-                  {/* <span className="text-sm text-blue-600 font-medium">
+                  <span className="text-sm text-blue-600 font-medium">
                     • Global Network
-                  </span> */}
+                  </span>
 
                   {imageTextData?.heading ? (
                     <div
@@ -153,11 +153,11 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                     />
                   ) : null}
 
-                  {/* <ul className="list-disc list-inside text-[#000E47] space-y-1">
+                  <ul className="list-disc list-inside text-[#000E47] space-y-1">
                     <li>DDoS protected network</li>
                     <li>Unmetered bandwidth</li>
                     <li>Bandwidth pooling available</li>
-                  </ul> */}
+                  </ul>
 
                   {imageTextData?.button_text ? (
                     <div>

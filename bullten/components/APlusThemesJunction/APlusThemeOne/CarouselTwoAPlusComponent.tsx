@@ -60,7 +60,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   };
   return (
     <div
-      className="container mx-auto w-full h-auto bg-blue-50/[0.4] py-4 lg:py-8 px-2 lg:px-8"
+      className="container mx-auto w-full h-auto py-4 lg:py-8 px-2 lg:px-8"
       style={{
         marginTop: `${carouselData?.gap_top / 4}rem`,
         marginBottom: `${carouselData?.gap_bottom / 4}rem`,
