@@ -9,7 +9,6 @@ import MainHeadingComponent from "@/components/CommonComponents/HeadingComponent
 
 const BlogsComponent = async () => {
   const blogResponse = await BlogSectionApi();
-  console.log("blogResponse", blogResponse);
   return (
     <>
       {/* bg-[url('https://wp2022.kodesolution.com/oitech/wp-content/uploads/2022/10/dvblog.jpg')] */}

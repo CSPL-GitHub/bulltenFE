@@ -18,8 +18,6 @@ type Props = {
 };
 
 const NewServicesSection = ({ services }: Props) => {
-  console.log("serviceOurSection", services);
-
   return (
     <section className=" py-3">
       <div className="container mx-auto px-6">

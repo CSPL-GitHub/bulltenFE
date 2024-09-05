@@ -5,7 +5,6 @@ import img1 from "../../../public/counter1.png";
 const CounterComponent: React.FC = async () => {
   const response = await CounteSectionApi();
   const counterData = response?.result;
-  console.log("counterData", counterData);
 
   return (
     <>

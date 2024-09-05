@@ -26,7 +26,6 @@ import TestimonialsComponent from "@/components/ServerSideComponents/HomePageCom
 export async function generateMetadata(): Promise<Metadata | undefined> {
   let HomePageSeoData = await HomePageSEOApi();
   HomePageSeoData = HomePageSeoData?.result;
-  console.log("HomePageSeoData", HomePageSeoData);
   if (HomePageSeoData) {
     return {
       title: HomePageSeoData?.meta_title,
@@ -46,7 +45,6 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 
 export default async function Home() {
   const homePageBannerContentApi = await HomePageBannerApi();
- 
 
   return (
     <main className="w-full">
@@ -102,7 +100,7 @@ export default async function Home() {
         </Suspense>
 
         <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialsComponent/>
+          <TestimonialsComponent />
         </Suspense>
 
         {/* <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>

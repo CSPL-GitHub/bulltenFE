@@ -6,7 +6,6 @@ import MainHeadingComponent from "@/components/CommonComponents/HeadingComponent
 
 const TrustedCompaniesLogos = async () => {
   const trustedComponiesData = await trustedComponies();
-  console.log(trustedComponiesData?.result?.Active, "TrustedCompanies");
   const logos = trustedComponiesData?.result?.data?.trusted_company;
 
   return (
