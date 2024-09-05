@@ -44,7 +44,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="h-full w-full overflow-y-hidden flex flex-col border border-tgh-text-secondary rounded-lg group hover:shadow bg-white"
+                className="group relative bg-white shadow-md rounded-lg overflow-hidden transition-transform transform "
               >
                 {item?.image ? (
                   <div className="sm:h-[330px] h-[200px] w-full relative">
@@ -57,12 +57,12 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                         inset: 0,
                       }}
                       fill={true}
-                      className="w-full h-full p-3 rounded-t-12xl"
+                      className=" object-cover w-full h-full transition-transform transform group-hover:scale-105"
                     />
                   </div>
                 ) : null}
                 {item?.heading || item?.description ? (
-                  <div className="p-4">
+                  <div className="p-6 group-hover:bg-bullt-quaternary/[0.1]">
                     <div className="flex flex-col justify-center items-start">
                       {item?.heading ? (
                         <div
@@ -74,7 +74,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                       ) : null}
                       {item?.description ? (
                         <div
-                          className="w-full text-justify  h-full mb-2  flex-col items-start tailwind-unreset line-clamp-3"
+                          className="w-full text-left text-base text-gray-600 py-1 line-clamp-3"
                           dangerouslySetInnerHTML={{
                             __html: item?.description,
                           }}
@@ -83,10 +83,10 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                     </div>
 
                     {item?.button_text ? (
-                      <div className="gap-2  py-2 rounded cursor-pointer font-semibold">
+                      <div className="mt-3 rounded font-semibold">
                         <Link href={item?.button_link}>
                           <input
-                            className="text-semibold"
+                            className="cursor-pointer text-semibold inline-block  px-4 py-2 bg-gray-50 text-bullt-primary text-sm rounded-md  transition-colors duration-300"
                             type="button"
                             value={item?.button_text}
                           />

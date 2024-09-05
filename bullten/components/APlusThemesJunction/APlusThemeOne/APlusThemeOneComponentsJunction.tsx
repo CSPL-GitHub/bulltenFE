@@ -27,7 +27,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   decodedSlug,
 }) => {
   return (
-    <div className={" sm:overflow-visible overflow-x-hidden mt-[125px]"}>
+    <div className={" sm:overflow-hidden overflow-x-hidden mt-[125px]"}>
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
           case "banner":
@@ -100,7 +100,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
             return (
               <>
                 {item?.operating_systems_is_active ? (
-                  <div key={index}>
+                  <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
                     <OperatingComponent />
                   </div>
                 ) : null}
@@ -110,7 +110,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
             return (
               <>
                 {item?.testimonials_is_active ? (
-                  <div key={index}>
+                  <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
                     <OperatingComponent />
                   </div>
                 ) : null}
@@ -131,7 +131,10 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
             return (
               <>
                 {item?.support_is_active ? (
-                  <div key={index} className="container mx-auto">
+                  <div
+                    key={index}
+                    className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
+                  >
                     <ChatService />{" "}
                   </div>
                 ) : null}

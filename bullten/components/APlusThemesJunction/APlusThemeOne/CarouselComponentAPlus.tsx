@@ -1,7 +1,8 @@
 "use client";
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
 import HomePageButtonOne from "@/components/CommonComponents/ButtonsComponent/HomePageButton";
-import * as DOMPurify from "dompurify";
+import DOMPurify from "dompurify";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
@@ -65,7 +66,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
     <>
       {carouselData?.content?.length > 0 ? (
         <div
-          className="container mx-auto w-full h-auto bg-bullt-primary/[0.1] py-10 px-8"
+          className="container mx-auto w-full h-auto py-4 lg:py-8 px-2 lg:px-8"
           style={{
             marginTop: `${carouselData?.gap_top / 4}rem`,
             marginBottom: `${carouselData?.gap_bottom / 4}rem`,
@@ -73,13 +74,13 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
         >
           <div className="grid grid-cols-12 pb-8">
             <div
-              className="col-span-8 w-full m-auto flex flex-col justify-center items-start sm:text-4xl text-2xl text-center leading-3 mb-5 tailwind-unreset"
+              className="col-span-8 w-full m-auto flex flex-col justify-center items-start sm:text-4xl text-2xl font-semibold text-center leading-3 mb-5 tailwind-unreset"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.heading),
               }}
             />
             <div
-              className="col-span-4 w-full m-auto flex flex-col justify-center items-center sm:text-xl text-lg text-start leading-3 mb-5 tailwind-unreset"
+              className="col-span-4 w-full m-auto flex flex-col justify-center items-center  text-start  mb-5 tailwind-unreset text-lg  text-bullt-primary/[0.7]"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.description),
               }}
@@ -92,7 +93,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 key={index}
                 className="w-full h-auto flex flex-col item-center justify-center relative mb-4 "
               >
-                <div className="mx-3 bg-bullt-secondary rounded-md shadow-md shadow-white hover:scale-[1.01] transform transition-transform duration-300 hover:before:h-full before:absolute before:bottom-0 before:w-[4px] before:h-0 before:bg-bullt-tertiary before:transition-all before:duration-500">
+                <div className="mx-3 rounded-md shadow-md shadow-white hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500">
                   <div className="w-full h-[100px] px-2 flex items-center ">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
@@ -106,24 +107,36 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                   {item?.heading || item?.description ? (
                     <div className="h-auto bg-opacity-60 p-4 flex flex-col justify-center items-start">
                       <div
-                        className="w-full flex flex-col items-start tailwind-unreset lg:text-xl md:text-base font-semibold h-[80px] "
+                        className="w-full flex flex-col items-start tailwind-unreset lg:text-xl md:text-base font-semibold min-h-[80px] "
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.heading),
                         }}
                       />
                       <p
-                        className="w-full flex flex-col items-start tailwind-unreset h-[190px] overflow-y-auto scroll mb-4"
+                        className="w-full text-justify tailwind-unreset h-[190px] overflow-y-auto scroll mb-4"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.description),
                         }}
                       />
 
-                      {item?.button_text && item?.button_link ? (
+                      {/* {item?.button_text && item?.button_link ? (
                         <HomePageButtonOne
-                          alignmentType={2}
+                          alignmentType={1}
                           buttonText={item?.button_text}
                           route={item?.button_link}
                         />
+                      ) : null} */}
+
+                      {item?.button_text && item?.button_link ? (
+                        <div className="mt-3 rounded font-normal">
+                          <Link href={item?.button_link}>
+                            <input
+                              className="cursor-pointer text-normal inline-block px-4 py-2 bg-bullt-tertiary text-bullt-secondary hover:bg-bullt-secondary hover:text-bullt-tertiary  text-sm rounded-md  transition-colors duration-300"
+                              type="button"
+                              value={item?.button_text}
+                            />
+                          </Link>
+                        </div>
                       ) : null}
                     </div>
                   ) : null}

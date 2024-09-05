@@ -29,8 +29,9 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
         ) : null}
       </div>
 
-      <div className="absolute top-0 start-0 w-full h-full flex flex-col gap-6 justify-center items-center bg-tgh-primary/[0.3]  rounded-none p-3 bg-[#13274F]">
-        <div className="lg:w-[60%] relative w-full flex flex-col justify-center items-center gap-2">
+      <div className="absolute top-0 start-0 w-full h-full flex flex-col gap-6 justify-center items-center rounded-none p-3 bg-[url('/'>)]">
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className=" lg:w-[60%] relative w-full flex flex-col justify-center items-center gap-2">
           {bannerData?.heading ? (
             <div
               className="md:text-7xl text-4xl font-400 text-bullt-secondary text-center font-semibold"

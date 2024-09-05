@@ -3,7 +3,7 @@ import HomePageButtonOne from "@/components/CommonComponents/ButtonsComponent/Ho
 
 const ContactUsStripSection = async () => {
   const ContactUsStripSectionContent = await ContactUsStripApi();
-  console.log(ContactUsStripSectionContent, "datassdjhf");
+
   return (
     <>
       {ContactUsStripSectionContent?.result?.Active === true ? (

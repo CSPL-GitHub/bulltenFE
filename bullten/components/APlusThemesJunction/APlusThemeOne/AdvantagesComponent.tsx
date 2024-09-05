@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
   return (
-    <div className="bg-bullt-quaternary/[0.05] container mx-auto px-4 py-8 space-y-8">
+    <div className="bg-bullt-quaternary/[0.05] container mx-auto py-4 lg:py-8 px-2 lg:px-8 space-y-8">
       <div className="w-full py-1 md:py-4 flex flex-col md:flex-row justify-around">
         {AdvantagesData?.heading ? (
           <div
@@ -15,7 +15,7 @@ const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
         ) : null}
         {AdvantagesData?.description ? (
           <div
-            className="w-full md:w-2/4 mt-4 md:mt-0 text-start text-bullt-primary/[0.7] tailwind-unreset "
+            className="w-full md:w-2/4 mt-4 md:mt-0 text-start text-bullt-primary/[0.7] text-base"
             dangerouslySetInnerHTML={{ __html: AdvantagesData?.description }}
           />
         ) : null}
@@ -32,10 +32,7 @@ const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
               alt={section?.heading}
-              style={{
-                objectFit: "contain",
-              }}
-              className="w-full h-[300px] lg:h-[500px] object-cover rounded-lg"
+              className="w-full h-[300px] lg:h-[400px] object-contain rounded-xl"
             />
           </div>
 
@@ -49,7 +46,7 @@ const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
             ) : null}
             {section?.description ? (
               <div
-                className="py-3 text-justify text-bullt-primary tailwind-unreset "
+                className="py-3 text-justify text-bullt-primary/[0.7] text-base "
                 dangerouslySetInnerHTML={{ __html: section?.description }}
               />
             ) : null}

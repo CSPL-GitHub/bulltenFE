@@ -60,16 +60,16 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   };
   return (
     <div
-      className="container mx-auto w-full h-auto bg-blue-50/[0.4] py-3 lg:py-8"
+      className="container mx-auto w-full h-auto bg-blue-50/[0.4] py-4 lg:py-8 px-2 lg:px-8"
       style={{
         marginTop: `${carouselData?.gap_top / 4}rem`,
         marginBottom: `${carouselData?.gap_bottom / 4}rem`,
       }}
     >
       <div
-        className="w-full  flex flex-col font-semibold justify-start items-start sm:text-5xl text-2xl text-start leading-3 mb-5 tailwind-unreset"
+        className="w-full p-2 flex flex-col font-semibold justify-start items-start sm:text-5xl text-2xl text-start leading-3 mb-5 tailwind-unreset"
         dangerouslySetInnerHTML={{
-          __html: DOMPurify.sanitize(carouselData?.heading),
+          __html: carouselData?.heading,
         }}
       />
       <div className="h-full">
@@ -103,7 +103,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                       <div
                         className="w-full flex flex-col text-xl items-start font-semibold tailwind-unreset"
                         dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(item?.heading),
+                          __html: item?.heading,
                         }}
                       />
                     </div>
@@ -111,7 +111,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                     <div
                       className="w-full tailwind-unreset  line-clamp-2"
                       dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(item?.description),
+                        __html: item?.description,
                       }}
                     />
                   </div>
