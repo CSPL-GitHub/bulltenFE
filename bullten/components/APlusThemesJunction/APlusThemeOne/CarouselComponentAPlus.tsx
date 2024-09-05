@@ -66,34 +66,33 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
     <>
       {carouselData?.content?.length > 0 ? (
         <div
-          className="container mx-auto w-full h-auto py-4 lg:py-8 px-2 lg:px-8"
+          className="container mx-auto w-full h-auto py-4 px-2 lg:px-8"
           style={{
             marginTop: `${carouselData?.gap_top / 4}rem`,
             marginBottom: `${carouselData?.gap_bottom / 4}rem`,
           }}
         >
-          <div className="grid grid-cols-12 pb-8">
+          <div className="">
             <div
-              className="col-span-8 w-full m-auto flex flex-col justify-center items-start sm:text-4xl text-2xl font-semibold text-center leading-3 mb-5 tailwind-unreset"
+              className="text-center text-[2rem] lg:text-[2.3rem] font-bold  sm:px-16 tailwind-unreset"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.heading),
               }}
             />
             <div
-              className="col-span-4 w-full m-auto flex flex-col justify-center items-center  text-start  mb-5 tailwind-unreset text-lg  text-bullt-primary/[0.7]"
+              className="text-center mb-10 tailwind-unreset"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.description),
               }}
             />
           </div>
-
           <SliderFrame settings={settings} selector={undefined}>
             {carouselData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="w-full h-auto flex flex-col item-center justify-center relative mb-4 "
+                className="w-full h-auto flex flex-col item-center justify-center relative mb-4"
               >
-                <div className="mx-3 rounded-md shadow-md shadow-white hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500">
+                <div className="mx-3 rounded-md shadow-md shadow-white hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-100">
                   <div className="w-full h-[100px] px-2 flex items-center ">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}

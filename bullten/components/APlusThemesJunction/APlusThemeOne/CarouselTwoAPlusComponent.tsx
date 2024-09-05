@@ -21,7 +21,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   }, []);
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: infinite,
     autoplay: false,
     arrows: true,
@@ -60,14 +60,14 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   };
   return (
     <div
-      className="container mx-auto w-full h-auto py-4 lg:py-8 px-2 lg:px-8"
+      className="container mx-auto w-full  px-2 lg:px-8"
       style={{
         marginTop: `${carouselData?.gap_top / 4}rem`,
         marginBottom: `${carouselData?.gap_bottom / 4}rem`,
       }}
     >
       <div
-        className="w-full p-2 flex flex-col font-semibold justify-start items-start sm:text-5xl text-2xl text-start leading-3 mb-5 tailwind-unreset"
+        className="w-full px-4 py-4 text-center text-[2rem] lg:text-[2.3rem] font-bold tailwind-unreset"
         dangerouslySetInnerHTML={{
           __html: carouselData?.heading,
         }}

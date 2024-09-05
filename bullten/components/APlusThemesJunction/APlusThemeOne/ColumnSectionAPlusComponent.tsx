@@ -13,7 +13,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <>
       <div
-        className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
+        className="container mx-auto py-4 lg:py-6 px-2 lg:px-8 "
         // style={{
         //       backgroundImage: `url(${img1.src})`,
         //       backgroundSize: "cover",
@@ -22,23 +22,25 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
         //     }}
       >
         <div
-          className="text-center text-4xl sm:px-16 tailwind-unreset font-semibold"
+          className="text-center text-[2rem] lg:text-[2.3rem] font-bold sm:px-16 tailwind-unreset "
           dangerouslySetInnerHTML={{
             __html: columnData?.heading,
           }}
         ></div>
         {columnData?.content?.length > 0 ? (
           <div
-            className={`w-full h-auto items-start gap-10 py-8 px-6`}
+            className={`w-full h-auto items-start gap-10 py-6 px-6`}
             style={{
               marginTop: `${columnData?.gap_top / 4}rem`,
               marginBottom: `${columnData?.gap_bottom / 4}rem`,
               display: "grid",
               gridTemplateColumns: `${
                 WindowWidth < 640
-                  ? "repeat(1, minmax(0, 1fr))"
+                  ? "repeat(1, minmax(0, 1fr))" 
+                  : WindowWidth < 750
+                  ? "repeat(2, minmax(0, 1fr))"  
                   : `repeat(${columnData?.element_count || 1}, minmax(0, 1fr))`
-              }`,
+              }`,              
             }}
           >
             {columnData?.content?.map((item: any, index: number) => (
@@ -86,7 +88,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                       <div className="mt-3 rounded font-semibold">
                         <Link href={item?.button_link}>
                           <input
-                            className="cursor-pointer text-semibold inline-block  px-4 py-2 bg-gray-50 text-bullt-primary text-sm rounded-md  transition-colors duration-300"
+                            className="cursor-pointer text-semibold inline-block  px-4 py-2 bg-bullt-tertiary text-white hover:text-bullt-primary text-sm rounded-md  transition-colors duration-300"
                             type="button"
                             value={item?.button_text}
                           />

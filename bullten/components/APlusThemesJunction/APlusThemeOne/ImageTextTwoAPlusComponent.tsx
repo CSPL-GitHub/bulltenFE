@@ -18,7 +18,7 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
       >
         {imageTextData?.align_element === "left" && imageTextData?.image ? (
           <>
-            <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4">
+            <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4 px-4">
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center">
                   <span className="text-sm text-blue-600 font-medium">
@@ -36,7 +36,7 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
 
                   {imageTextData?.description ? (
                     <div
-                      className="text-justify text-bullt-primary/[0.8] text-base tailwind-unreset"
+                      className="text-justify text-bullt-primary/[0.8]  text-xl  tailwind-unreset"
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.description,
                       }}
@@ -77,19 +77,19 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                 {/* Annotations */}
                 <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
                   <img
-                    src="https://hostingard.themetags.com/wp-content/uploads/2024/04/logo-5.png"
-                    alt="150+ Tbps Location"
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
+                    alt={imageTextData?.image_alternate_text}
                     className="w-10 h-10"
                   />
                   <span className="text-sm font-semibold">
-                    150+ Tbps Location
+                    {imageTextData?.small_box_text}
                   </span>
                 </div>
 
                 <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
                   <img
-                    src="https://hostingard.themetags.com/wp-content/uploads/2024/04/logo-5.png"
-                    alt="Location Icon"
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
+                    alt={imageTextData?.heading}
                     className="w-15 h-15"
                   />
                 </div>
@@ -162,7 +162,7 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                   {imageTextData?.button_text ? (
                     <div>
                       {imageTextData?.button_text &&
-                      imageTextData?.is_downloadable ? (
+                        imageTextData?.is_downloadable ? (
                         <div></div>
                       ) : (
                         <Link

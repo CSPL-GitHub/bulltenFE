@@ -29,7 +29,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   return (
     <div
       className={
-        "bg-bullt-quaternary/[0.03] sm:overflow-hidden overflow-x-hidden mt-[125px]"
+        "sm:overflow-hidden overflow-x-hidden mt-[125px]"
       }
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
@@ -110,16 +110,6 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
             return (
               <>
                 {item?.operating_systems_is_active ? (
-                  <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
-                    <OperatingComponent />
-                  </div>
-                ) : null}
-              </>
-            );
-          case "operating_systems":
-            return (
-              <>
-                {item?.testimonials_is_active ? (
                   <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
                     <OperatingComponent />
                   </div>
