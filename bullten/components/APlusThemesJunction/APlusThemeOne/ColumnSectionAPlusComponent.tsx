@@ -29,7 +29,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
         ></div>
         {columnData?.content?.length > 0 ? (
           <div
-            className={`w-full h-auto items-start gap-10 py-6 px-6`}
+            className={`w-full h-auto items-start gap-10 py-3 px-6`}
             style={{
               marginTop: `${columnData?.gap_top / 4}rem`,
               marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -46,10 +46,10 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="group relative bg-white shadow-md rounded-lg overflow-hidden transition-transform transform "
+                className="group relative border-[1px] rounded-lg overflow-hidden transition-transform transform"
               >
                 {item?.image ? (
-                  <div className="sm:h-[330px] h-[200px] w-full relative">
+                  <div className="sm:h-[300px] h-[200px] w-full relative p-4">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                       alt={item?.heading}
@@ -59,12 +59,12 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                         inset: 0,
                       }}
                       fill={true}
-                      className=" object-cover w-full h-full transition-transform transform group-hover:scale-105"
+                      className="p-2 rounded-t-2xl"
                     />
                   </div>
                 ) : null}
                 {item?.heading || item?.description ? (
-                  <div className="p-6 group-hover:bg-bullt-quaternary/[0.1]">
+                  <div className="p-2">
                     <div className="flex flex-col justify-center items-start">
                       {item?.heading ? (
                         <div
@@ -85,10 +85,10 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                     </div>
 
                     {item?.button_text ? (
-                      <div className="mt-3 rounded font-semibold">
+                      <div className="mt-3 rounded ">
                         <Link href={item?.button_link}>
                           <input
-                            className="cursor-pointer text-semibold inline-block  px-4 py-2 bg-bullt-tertiary text-white hover:text-bullt-primary text-sm rounded-md  transition-colors duration-300"
+                            className="cursor-pointer border-[1px] inline-block px-6 py-2 bg-bullt-tertiary hover:bg-white text-white hover:text-bullt-tertiary text-xl rounded-md w-full"
                             type="button"
                             value={item?.button_text}
                           />

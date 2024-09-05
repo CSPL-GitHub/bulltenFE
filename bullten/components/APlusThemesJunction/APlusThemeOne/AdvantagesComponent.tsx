@@ -29,16 +29,16 @@ const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
               className="w-full h-[300px] lg:h-[400px] object-contain rounded-xl"
             />
           </div>
-          <div className="w-full md:[50%] px-4">
+          <div className="w-full md:[50%] md:px-20 px-4 ">
             {section?.heading ? (
               <div
-                className="w-full text-bullt-primary text-start sm:text-4xl text-2xl font-semibold"
+                className="w-full text-bullt-primary text-start sm:text-3xl text-2xl font-semibold"
                 dangerouslySetInnerHTML={{ __html: section?.heading }}
               />
             ) : null}
             {section?.description ? (
               <div
-                className="py-3 text-justify text-bullt-primary/[0.7] text-base "
+                className="py-3 text-justify text-bullt-primary/[0.7] text-xl"
                 dangerouslySetInnerHTML={{ __html: section?.description }}
               />
             ) : null}

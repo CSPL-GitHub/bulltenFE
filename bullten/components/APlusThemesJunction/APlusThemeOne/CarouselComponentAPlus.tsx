@@ -92,7 +92,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 key={index}
                 className="w-full h-auto flex flex-col item-center justify-center relative mb-4"
               >
-                <div className="mx-3 rounded-md shadow-md shadow-white hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-100">
+                <div className="mx-3 rounded-md shadow-md shadow-white hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-50">
                   <div className="w-full h-[100px] px-2 flex items-center ">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
@@ -112,7 +112,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                         }}
                       />
                       <p
-                        className="w-full text-justify tailwind-unreset h-[190px] overflow-y-auto scroll mb-4"
+                        className="w-full text-justify tailwind-unreset h-[100px] overflow-y-auto scroll mb-4"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.description),
                         }}
@@ -130,7 +130,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                         <div className="mt-3 rounded font-normal">
                           <Link href={item?.button_link}>
                             <input
-                              className="cursor-pointer text-normal inline-block px-4 py-2 bg-bullt-tertiary text-bullt-secondary hover:bg-bullt-secondary hover:text-bullt-tertiary  text-sm rounded-md  transition-colors duration-300"
+                              className="cursor-pointer text-xl border-[1px] inline-block w-full px-5 py-2 bg-bullt-tertiary text-bullt-secondary hover:bg-bullt-secondary hover:text-bullt-tertiary rounded-md  transition-colors duration-300"
                               type="button"
                               value={item?.button_text}
                             />
