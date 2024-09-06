@@ -72,15 +72,15 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
             marginBottom: `${carouselData?.gap_bottom / 4}rem`,
           }}
         >
-          <div className="">
+          <div className="flex flex-col gap-2 py-6">
             <div
-              className="text-center text-[2rem] lg:text-[2.3rem] font-bold  sm:px-16 tailwind-unreset"
+              className="text-center text-2xl lg:text-4xl font-bold tailwind-unreset"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.heading),
               }}
             />
             <div
-              className="text-center mb-10 tailwind-unreset"
+              className="text-center text-lg text-bullt-primary/[0.8] tailwind-unreset"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.description),
               }}
@@ -106,13 +106,13 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                   {item?.heading || item?.description ? (
                     <div className="h-auto bg-opacity-60 p-4 flex flex-col justify-center items-start">
                       <div
-                        className="w-full flex flex-col items-start tailwind-unreset lg:text-xl md:text-base font-semibold min-h-[80px] "
+                        className="w-full flex flex-col items-start tailwind-unreset text-xl font-semibold min-h-[80px] "
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.heading),
                         }}
                       />
-                      <p
-                        className="w-full text-justify tailwind-unreset h-[100px] overflow-y-auto scroll mb-4"
+                      <div
+                        className="w-full text-justify tailwind-unreset h-[100px] overflow-y-auto scroll mb-4 text-lg text-bullt-primary/[0.8]"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.description),
                         }}

@@ -25,11 +25,11 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
         {AccordionData?.heading || AccordionData?.description ? (
           <div className="flex flex-col gap-7 items-center lg:w-[80%] w-full">
             <div
-              className="w-full flex flex-col lg:justify-start justify-center font-semibold lg:text-5xl sm:text-3xl text-2xl px-3 items-center tailwind-unreset"
+              className="w-full flex flex-col lg:justify-start justify-center font-semibold lg:text-4xl text-2xl items-center tailwind-unreset"
               dangerouslySetInnerHTML={{ __html: AccordionData?.heading }}
             />
             <div
-              className="w-full flex flex-col items-start tailwind-unreset"
+              className="w-full flex flex-col items-start tailwind-unreset text-lg text-bullt-primary/[0.8]"
               dangerouslySetInnerHTML={{ __html: AccordionData?.description }}
             />
             <HomePageButtonOne
@@ -71,7 +71,7 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
                 {Description === index && (
                   <div className="">
                     <p
-                      className="flex p-3 border-t border-bullt-tertiary select-none"
+                      className="flex p-3 border-t border-bullt-tertiary select-none text-lg text-bullt-primary/[0.8]"
                       dangerouslySetInnerHTML={{ __html: item?.description }}
                     ></p>
                   </div>

@@ -13,7 +13,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <>
       <div
-        className="container mx-auto py-4 lg:py-6 px-2 lg:px-8 "
+        className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
         // style={{
         //       backgroundImage: `url(${img1.src})`,
         //       backgroundSize: "cover",
@@ -21,15 +21,26 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
         //       backgroundPosition: "center",
         //     }}
       >
-        <div
-          className="text-center text-[2rem] lg:text-[2.3rem] font-bold sm:px-16 tailwind-unreset "
-          dangerouslySetInnerHTML={{
-            __html: columnData?.heading,
-          }}
-        ></div>
+        {columnData?.heading || columnData?.description ? (
+          <>
+            <div
+              className="text-center text-2xl lg:text-4xl font-semibold tailwind-unreset "
+              dangerouslySetInnerHTML={{
+                __html: columnData?.heading,
+              }}
+            ></div>
+            <div
+              className="text-center text-lg lg:text-lg text-bullt-primary/[0.8] tailwind-unreset py-3"
+              dangerouslySetInnerHTML={{
+                __html: columnData?.description,
+              }}
+            ></div>
+          </>
+        ) : null}
+
         {columnData?.content?.length > 0 ? (
           <div
-            className={`w-full h-auto items-start gap-10 py-3 px-6`}
+            className={`w-full h-auto items-start gap-3 py-3 px-6`}
             style={{
               marginTop: `${columnData?.gap_top / 4}rem`,
               marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -46,7 +57,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="group relative border-[1px] rounded-lg overflow-hidden transition-transform transform bg-white"
+                className="group relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform transform bg-white"
               >
                 {item?.image ? (
                   <div className="sm:h-[300px] h-[200px] w-full relative p-4">
@@ -76,7 +87,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                       ) : null}
                       {item?.description ? (
                         <div
-                          className="w-full text-left text-base text-gray-600 py-1 line-clamp-3"
+                          className="w-full text-left text-lg text-bullt-primary/[0.8] py-1 line-clamp-3"
                           dangerouslySetInnerHTML={{
                             __html: item?.description,
                           }}
@@ -85,10 +96,10 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                     </div>
 
                     {item?.button_text ? (
-                      <div className="mt-3 rounded ">
+                      <div className="mt-3 rounded flex justify-center">
                         <Link href={item?.button_link}>
                           <input
-                            className="cursor-pointer border-[1px] inline-block px-6 py-2 bg-bullt-tertiary hover:bg-white text-white hover:text-bullt-tertiary text-xl rounded-md w-full"
+                            className="cursor-pointer  border-[1px]  px-6 py-2 bg-bullt-tertiary hover:bg-white text-white hover:text-bullt-tertiary text-xl rounded-md "
                             type="button"
                             value={item?.button_text}
                           />

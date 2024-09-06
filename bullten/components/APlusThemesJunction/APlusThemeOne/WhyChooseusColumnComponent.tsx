@@ -27,11 +27,11 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
           }}
         >
           <div
-            className="w-full items-start font-semibold lg:text-5xl sm:text-3xl text-2xl tailwind-unreset"
+            className="w-full items-start  font-semibold sm:text-4xl text-2xl tailwind-unreset"
             dangerouslySetInnerHTML={{ __html: columnData?.heading }}
           ></div>
           <div
-            className="items-start tailwind-unrested py-3 sm:text-xl"
+            className="items-start tailwind-unrested py-3 sm:text-xl text-bullt-primary/[0.8]"
             dangerouslySetInnerHTML={{ __html: columnData?.description }}
           ></div>
         </div>
@@ -62,7 +62,7 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
                   dangerouslySetInnerHTML={{ __html: item?.heading }}
                 ></div>
                 <div
-                  className="w-full"
+                  className="w-full text-lg text-bullt-primary/[0.8]"
                   dangerouslySetInnerHTML={{ __html: item?.description }}
                 ></div>
                 {item?.button_text && (

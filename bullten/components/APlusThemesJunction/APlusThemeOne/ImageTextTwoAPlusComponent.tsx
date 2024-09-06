@@ -21,9 +21,9 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
             <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4 px-4">
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center">
-                  <span className="text-sm text-blue-600 font-medium">
-                    • Global Network
-                  </span>
+                  {/* <span className="text-lg text-bullt-quaternary font-medium">
+                    Global Network
+                  </span> */}
 
                   {imageTextData?.heading ? (
                     <div
@@ -36,14 +36,14 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
 
                   {imageTextData?.description ? (
                     <div
-                      className="text-justify text-bullt-primary/[0.8]  text-xl  tailwind-unreset"
+                      className="text-justify text-bullt-primary/[0.8] text-lg py-2 font-400  "
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.description,
                       }}
                     />
                   ) : null}
 
-                  <ul className="list-disc list-inside text-[#000E47] space-y-1">
+                  <ul className="list-disc text-lg list-inside  space-y-1">
                     <li>DDoS protected network</li>
                     <li>Unmetered bandwidth</li>
                     <li>Bandwidth pooling available</li>
@@ -66,11 +66,11 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                 </div>
               ) : null}
 
-              <div className="w-full lg:w-2/4 relative h-[400px] flex px-0 lg:px-14">
+              <div className="w-full lg:w-2/4 relative  h-[400px] flex px-0 lg:px-14">
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                   alt={imageTextData?.heading}
-                  className="rounded-md w-full object-cover"
+                  className="rounded-md w-full h-full object-cover"
                   style={{ height: "100%" }}
                 />
 
@@ -156,9 +156,9 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
               </div>
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-2/4 flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4 ">
-                  {/* <span className="text-sm text-blue-600 font-medium">
-                    • Global Network
-                  </span> */}
+                  <span className="text-lg text-bullt-quaternary font-medium">
+                    Global Network
+                  </span>
 
                   {imageTextData?.heading ? (
                     <div
@@ -171,20 +171,20 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
 
                   {imageTextData?.description ? (
                     <div
-                      className="text-justify text-bullt-primary/[0.8] text-base tailwind-unreset "
+                      className="text-justify text-bullt-primary/[0.8] text-lg py-2 font-400  "
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.description,
                       }}
                     />
                   ) : null}
 
-                  <ul className="list-disc list-inside text-[#000E47] space-y-1">
+                  <ul className="list-disc list-inside text-lg space-y-1">
                     <li>DDoS protected network</li>
                     <li>Unmetered bandwidth</li>
                     <li>Bandwidth pooling available</li>
                   </ul>
 
-                  {imageTextData?.button_text ? (
+                  {/* {imageTextData?.button_text ? (
                     <div>
                       {imageTextData?.button_text &&
                       imageTextData?.is_downloadable ? (
@@ -207,6 +207,20 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                           </div>
                         </Link>
                       )}
+                    </div>
+                  ) : null} */}
+                  {imageTextData?.button_text ? (
+                    <div>
+                      <Link
+                        href={imageTextData?.button_link}
+                        className="flex justify-start items-center gap-2 px-2 py-2 text-black rounded cursor-pointer font-semibold"
+                      >
+                        <p className="text-semibold transition-transform duration-500">
+                          {imageTextData?.button_text}
+                        </p>
+
+                        <AiOutlineArrowRight size={20} />
+                      </Link>
                     </div>
                   ) : null}
                 </div>

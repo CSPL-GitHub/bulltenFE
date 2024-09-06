@@ -60,18 +60,23 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   };
   return (
     <div
-      className="container mx-auto w-full  px-2 lg:px-8"
+      className="container mx-auto w-full py-4 lg:py-8 px-2 lg:px-8"
       style={{
         marginTop: `${carouselData?.gap_top / 4}rem`,
         marginBottom: `${carouselData?.gap_bottom / 4}rem`,
       }}
     >
-      <div
-        className="w-full px-4 py-4 text-center text-[2rem] lg:text-[2.3rem] font-bold tailwind-unreset"
-        dangerouslySetInnerHTML={{
-          __html: carouselData?.heading,
-        }}
-      />
+      <div className="w-full flex flex-col justify-center">
+        {/* <span className="text-lg text-bullt-quaternary font-medium text-center ">
+          Use Cases
+        </span> */}
+        <div
+          className="w-full px-4 py-4 text-center text-2xl lg:text-4xl font-bold tailwind-unreset"
+          dangerouslySetInnerHTML={{
+            __html: carouselData?.heading,
+          }}
+        />
+      </div>
       <div className="h-full">
         <SliderFrame settings={settings} selector={undefined}>
           {carouselData?.content?.map((item: any, index: number) => (
@@ -109,7 +114,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                     </div>
 
                     <div
-                      className="w-full tailwind-unreset  line-clamp-2"
+                      className="w-full tailwind-unreset text-lg text-bullt-primary/[0.8] line-clamp-2"
                       dangerouslySetInnerHTML={{
                         __html: item?.description,
                       }}
