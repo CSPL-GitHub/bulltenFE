@@ -24,7 +24,7 @@ interface Props {
   aPlusResponse: any;
   decodedSlug: any;
 }
-  
+
 const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   aPlusResponse,
   decodedSlug,
@@ -32,7 +32,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   return (
     <div
       className={
-        " sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
+        "bg-bullt-quaternary/[0.02] sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
       }
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
@@ -143,19 +143,19 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 ) : null}
               </>
             );
-          // case "products":
-          //   return (
-          //     <>
-          //       {item?.is_active_product ? (
-          //         <div
-          //           key={index}
-          //           className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
-          //         >
-          //           <MainFilterProducts decodedSlug={decodedSlug} />
-          //         </div>
-          //       ) : null}
-          //     </>
-          //   );
+          case "products":
+            return (
+              <>
+                {item?.is_active_product ? (
+                  <div
+                    key={index}
+                    className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
+                  >
+                    <MainFilterProducts decodedSlug={decodedSlug} />
+                  </div>
+                ) : null}
+              </>
+            );
 
           default:
             return null;

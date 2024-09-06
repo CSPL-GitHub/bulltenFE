@@ -20,64 +20,48 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
   };
 
   return (
-    <div className="container mx-auto py-4">
-      <div className="lg:max-w-5xl w-full py-6 mx-auto ">
-        <div
-          className="text-center lg:text-4xl 2xl font-semibold "
-          dangerouslySetInnerHTML={{
-            __html: ProductsData?.heading,
-          }}
-        />
-        <div
-          className="text-center text-xl py-3"
-          dangerouslySetInnerHTML={{
-            __html: ProductsData?.description,
-          }}
-        />
-      </div>
-      <div className="px-4">
+    <div className="container mx-auto py-6">
+      <div className="flex flex-col gap-6">
         {ProductsData?.server_products?.map((plan: any, index: any) => (
-          <div key={index} className="border  rounded-md ">
-            <div
-              className="flex justify-between items-center p-4 bg-white rounded-t-md cursor-pointer h-[100px] transition "
-              onClick={() => toggleExpanded(plan.name)}
-            >
-              <div className="flex w-4/5 justify-between items-center">
-                <div
-                  className="text-bullt-quaternary font-semibold text-lg col-span-2"
-                  dangerouslySetInnerHTML={{
-                    __html: plan.name,
-                  }}
-                />
+          <div key={index} className="rounded-md">
+            <div className="w-full flex lg:flex-row flex-col items-center gap-2 bg-white rounded-t-md py-4 border rounded-md">
+              <div
+                className="lg:w-[85%] w-full grid grid-cols-2 md:grid-cols-6 gap-4 px-4 cursor-pointer transition"
+                onClick={() => toggleExpanded(plan.name)}
+              >
+                {/* Plan Name */}
+                <div className="col-span-2 md:col-span-1 text-bullt-quaternary font-semibold text-xl md:text-lg">
+                  <div dangerouslySetInnerHTML={{ __html: plan.name }} />
+                </div>
 
-                <div className="flex flex-col items-center col-span-2 gap-1">
-                  <span className="text-md font-semibold">CPU </span>
-
+                {/* CPU */}
+                <div className="flex flex-col items-start gap-1">
+                  <span className="text-md font-semibold">CPU</span>
                   <div
-                    className="text-sm text-bullt-primary/[0.7]"
+                    className="text-bullt-primary/[0.7] text-sm"
+                    dangerouslySetInnerHTML={{ __html: plan?.Processor }}
+                  />
+                </div>
+
+                {/* RAM */}
+                <div className="flex flex-col items-start gap-1">
+                  <span className="text-md font-semibold">RAM</span>
+                  <div
+                    className="text-bullt-primary/[0.7] text-sm"
                     dangerouslySetInnerHTML={{
-                      __html: plan?.Processor,
+                      __html: `${plan?.Memory}GB`,
                     }}
                   />
                 </div>
 
-                <div className="flex flex-col items-center col-span-2 gap-1">
-                  <span className="text-md font-semibold"> RAM </span>
-                  <div
-                    className="text-sm text-bullt-primary/[0.7]"
-                    dangerouslySetInnerHTML={{
-                      __html: plan.Memory,
-                    }}
-                  />
-                </div>
-
-                <div className="flex flex-col items-center col-span-2 gap-1">
-                  <span className="text-md font-semibold"> Disks </span>
-
-                  <ul className="grid md:grid-cols-3 grid-cols-2 gap-1 ">
-                    {plan.disk_type.map((disk: any, i: number) => (
-                      <div
-                        className="flex items-center text-sm rounded-md font-normal"
+                {/* Disks */}
+                <div className="flex flex-col items-start gap-1">
+                  <span className="text-md font-semibold">Disks</span>
+                  <ul className="w-full grid grid-cols-2 gap-1">
+                    {plan?.disk_type?.map((disk: any, i: number) => (
+                      <li
+                        key={i}
+                        className="text-sm font-normal"
                         dangerouslySetInnerHTML={{
                           __html: disk?.disk_type,
                         }}
@@ -86,32 +70,53 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                   </ul>
                 </div>
 
-                <span className="text-bullt-quaternary font-bold text-xl">
-                  {plan.price}
-                </span>
-              </div>
-              <div className="grid grid-cols-1 items-center">
-                {plan?.buttonText ? (
-                  <div>
-                    <Link
-                      href={plan?.buttonLink}
-                      className="flex justify-start items-center gap-2 px-2 py-2 text-bullt-secondary bg-bullt-tertiary rounded cursor-pointer font-semibold text-xl"
-                    >
-                      <p
-                        className="text-semibold transition-transform duration-500 "
-                        onClick={() => handleAddToCart(plan.name)}
-                      >
-                        {plan?.buttonText}
-                      </p>
-                    </Link>
+                {/* Delivered In */}
+                <div className="flex flex-col items-start gap-1">
+                  <span className="text-md font-semibold">Delivered in</span>
+                  <div
+                    className="text-bullt-primary/[0.7] text-sm"
+                    dangerouslySetInnerHTML={{
+                      __html: plan?.deliverytime,
+                    }}
+                  />
+                </div>
+
+                {/* Price */}
+                <div className="flex flex-col items-start gap-1">
+                  <span className="text-md font-semibold">Starting at</span>
+                  <div className="flex gap-1 items-center">
+                    <div
+                      className="text-bullt-quaternary font-semibold text-md"
+                      dangerouslySetInnerHTML={{
+                        __html: `$ ${plan?.price}`,
+                      }}
+                    />
+                    <span className="text-sm font-semibold">/Monthly</span>
                   </div>
-                ) : null}
+                </div>
               </div>
+
+              {plan?.buttonText && (
+                <div className="w-full flex justify-center lg:w-[15%] lg:h-[40px] h-[50px]">
+                  <Link
+                    href={plan?.buttonLink}
+                    className="flex justify-start items-center gap-2 px-6   text-bullt-secondary bg-bullt-tertiary hover:bg-bullt-secondary hover:border-bullt-tertiary border-[1px] hover:text-bullt-tertiary rounded cursor-pointer text-lg"
+                  >
+                    <p
+                      className="transition-transform duration-500"
+                      onClick={() => handleAddToCart(plan.name)}
+                    >
+                      {plan?.buttonText}
+                    </p>
+                  </Link>
+                </div>
+              )}
             </div>
 
+            {/* Expanded View */}
             {expandedPlan === plan.name && (
               <div className="sm:flex bg-bullt-secondary p-2 gap-3 rounded-b-lg">
-                <ul className="w-4/5 grid md:grid-cols-4 grid-cols-2 gap-4 list-inside border border-dashed p-4">
+                <ul className="lg:w-4/5 w-full grid md:grid-cols-4 grid-cols-2 gap-4 list-inside border border-dashed p-4">
                   {plan.server_benifits.map((benefit: any, i: number) => (
                     <div key={i} className="flex items-center gap-1">
                       <div className="flex justify-center items-center bg-green-500 p-2 rounded-full h-4 w-4">
@@ -119,19 +124,19 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                           ✔
                         </span>
                       </div>
-                      <li className="flex items-center text-md font-normal">
+                      <li className="flex items-center text-lg font-normal">
                         {benefit.title}
                       </li>
                     </div>
                   ))}
                 </ul>
-                <div className="w-1/5 flex flex-col justify-start list-inside border border-dashed p-4">
-                  <span className="font-semibold text-gray-700 mb-2 text-sm">
+                <div className="lg:w-1/5 w-full flex flex-col justify-start list-inside border border-dashed p-4">
+                  <span className="font-semibold text-gray-700 mb-2 text-lg">
                     Server Locations:
                   </span>
                   <div className="flex space-x-2">
                     {plan.server_locations.map((location: any, i: number) => (
-                      <span key={i} className="">
+                      <span key={i}>
                         <img
                           src={`${process.env.NEXT_PUBLIC_BASE_URL}${location?.location_flag}`}
                           alt={location.alt_text || "Flag"}
@@ -146,10 +151,11 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
           </div>
         ))}
       </div>
+
       {selectedPlan && (
         <div className="fixed bottom-4 right-4 p-4 bg-white shadow-lg rounded-lg">
           <h3 className="text-xl font-bold">Selected Plan</h3>
-          <p className="text-md">
+          <p className="text-lg">
             You have selected: <strong>{selectedPlan}</strong>
           </p>
         </div>
