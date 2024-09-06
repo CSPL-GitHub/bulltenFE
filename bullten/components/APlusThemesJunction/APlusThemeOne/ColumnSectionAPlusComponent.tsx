@@ -57,7 +57,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="group relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform transform bg-white"
+                className="group relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform transform bg-bullt-quaternary/[0.05]"
               >
                 {item?.image ? (
                   <div className="sm:h-[300px] h-[280px] w-full relative p-4">

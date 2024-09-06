@@ -104,7 +104,7 @@ const CountryLocationsCarouselComponentAPlus: React.FC<Props> = ({
                   </div>
                   <div className="w-full flex flex-col justify-center items-start gap-4">
                     <div className="w-full flex justify-start items-center gap-4">
-                      <div className="h-[40px] w-[40px] rounded-full overflow-hidden ">
+                      <div className="h-[30px] w-[30px] rounded-full overflow-hidden ">
                         <img
                           src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.icon}`}
                           alt={item.CountryName}
@@ -150,12 +150,11 @@ const CountryLocationsCarouselComponentAPlus: React.FC<Props> = ({
                       <div className="mt-2">
                         <Link
                           href={item?.button_link}
-                          className="flex justify-start items-center gap-2 font-normal bg-bullt-tertiary hover:bg-white text-white hover:text-bullt-tertiary py-1 px-4 border border-bullt-tertiary rounded transition-all duration-300"
+                          className="flex justify-start items-center gap-2 font-normal bg-bullt-tertiary hover:bg-white text-white hover:text-bullt-tertiary py-1 px-6 border border-bullt-tertiary rounded transition-all duration-300"
                         >
-                          <p className="text-semibold transition-transform duration-500">
+                          <p className="text-semibold text-lg transition-transform duration-500">
                             {item?.button_text}
                           </p>
-                          {/* <AiOutlineArrowRight size={20} /> */}
                         </Link>
                       </div>
                     ) : null}

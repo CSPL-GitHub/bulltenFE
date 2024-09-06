@@ -41,10 +41,10 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="flex flex-col p-4 border-[1px] rounded-md bg-bullt-secondary/[0.9]"
+                className="flex flex-col p-4 border-[1px] rounded-md bg-bullt-quaternary/[0.05] hover:shadow-sm"
               >
                 {item?.image && (
-                  <div className="h-[80px] w-[80px] relative mb-4 bg-bullt-quaternary/[0.07] rounded-full transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
+                  <div className="h-[80px] w-[80px] relative mb-4 bg-bullt-secondary rounded-full transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                       alt={item?.heading}

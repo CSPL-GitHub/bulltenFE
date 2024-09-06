@@ -11,7 +11,7 @@ interface Props {
 const ImageTextAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
   return (
     <div
-      className="container mx-auto w-full h-auto grid grid-cols-12 sm:gap-[50px] py-4 lg:py-8 px-2 lg:px-8"
+      className="container mx-auto w-full h-auto grid grid-cols-12 sm:gap-[50px] py-4 lg:py-8 px-2 lg:px-8 border-[1px] bg-white rounded-md"
       style={{
         marginTop: `${imageTextData?.gap_top / 4}rem`,
         marginBottom: `${imageTextData?.gap_bottom / 4}rem`,

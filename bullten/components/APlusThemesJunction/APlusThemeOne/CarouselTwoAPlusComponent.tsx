@@ -21,7 +21,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   }, []);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: infinite,
     autoplay: false,
     arrows: true,
@@ -52,8 +52,10 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
       {
         breakpoint: 640,
         settings: {
+          dots: true,
           slidesToShow: 1,
           slidesToScroll: 1,
+          
         },
       },
     ],
@@ -87,10 +89,10 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
       <div className="h-full">
         <SliderFrame settings={settings} selector={undefined}>
           {carouselData?.content?.map((item: any, index: number) => (
-            <div className="px-2 h-auto" key={index}>
+            <div className="px-2" key={index}>
               <div
                 key={index}
-                className=" bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
+                className="sm:h-[180px]  bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
               >
                 {item?.heading || item?.description ? (
                   <div
@@ -101,7 +103,8 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                     }}
                   >
                     <div className="flex flex-row justify-center items-center w-full gap-2">
-                      <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
+
+                      <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[30%]">
                         <img
                           src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                           alt={item?.heading}
@@ -111,22 +114,26 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                           className="w-[80px] h-[80px] "
                         />
                       </div>
-
-                      <div
-                        className="w-full flex flex-col text-xl items-start font-semibold tailwind-unreset"
+                     
+                     <div className="w-[70%]">
+                     <div
+                        className="w-full text-xl items-start font-semibold tailwind-unreset py-2 line-clamp-2"
                         dangerouslySetInnerHTML={{
                           __html: item?.heading,
                         }}
                       />
-                    </div>
-
-                    <div
-                      className="w-full tailwind-unreset text-lg text-bullt-primary/[0.8] line-clamp-2"
+                       <div
+                      className="w-full tailwind-unreset text-md text-bullt-primary/[0.8] line-clamp-4"
                       dangerouslySetInnerHTML={{
                         __html: item?.description,
                       }}
                     />
-                  </div>
+                     </div>
+
+
+                    </div>
+                    </div>
+                 
                 ) : null}
               </div>
             </div>

@@ -46,7 +46,7 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
           return (
             <div
               key={index}
-              className="w-full rounded-md shadow-sm items-center bg-bullt-secondary p-3 my-3 cursor-pointer"
+              className="w-full rounded-md shadow-sm items-center bg-bullt-quaternary/[0.05] p-3 my-3 cursor-pointer"
               onClick={() => handleDescription(index)}
             >
               <div className=" flex justify-between p-2">

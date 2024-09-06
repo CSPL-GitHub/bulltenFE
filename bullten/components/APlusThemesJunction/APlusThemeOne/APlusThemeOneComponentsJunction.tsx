@@ -24,7 +24,7 @@ interface Props {
   aPlusResponse: any;
   decodedSlug: any;
 }
-
+  
 const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   aPlusResponse,
   decodedSlug,
@@ -32,7 +32,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   return (
     <div
       className={
-        "bg-bullt-quaternary/[0.05] sm:overflow-hidden overflow-x-hidden mt-[125px]"
+        " sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
       }
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
