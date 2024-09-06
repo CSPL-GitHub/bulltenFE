@@ -59,7 +59,7 @@ const HeaderSubMenuMobile = ({
                     <Link
                       href={`/${subHeaderData?.path}/${subHeaderLinks?.slug}`}
                       key={subHeaderLinks?.id}
-                      onClick={() => setOpenSubMenu(undefined)}
+                      onClick={() => setOpenMobileMenu(false)}
                       className="grid grid-cols-7 border rounded-md my-2 bg-bullt-quinary/[0.1] py-1 min-h-[80px]"
                     >
                       <div className="relative h-[40px] col-span-2 my-auto">
