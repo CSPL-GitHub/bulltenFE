@@ -24,7 +24,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
         {columnData?.heading || columnData?.description ? (
           <>
             <div
-              className="text-center text-2xl lg:text-4xl font-semibold tailwind-unreset "
+              className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold tailwind-unreset "
               dangerouslySetInnerHTML={{
                 __html: columnData?.heading,
               }}
@@ -40,7 +40,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
 
         {columnData?.content?.length > 0 ? (
           <div
-            className={`w-full h-auto items-start gap-3 py-3 px-6`}
+            className={`w-full h-auto items-start gap-6 py-3 px-4`}
             style={{
               marginTop: `${columnData?.gap_top / 4}rem`,
               marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -60,7 +60,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                 className="group relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform transform bg-white"
               >
                 {item?.image ? (
-                  <div className="sm:h-[300px] h-[200px] w-full relative p-4">
+                  <div className="sm:h-[300px] h-[280px] w-full relative p-4">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                       alt={item?.heading}
@@ -79,7 +79,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                     <div className="flex flex-col justify-center items-start">
                       {item?.heading ? (
                         <div
-                          className="w-full flex text-start text-xl flex-col items-start tailwind-unreset font-semibold"
+                          className="w-full flex text-start text-xl flex-col items-start tailwind-unreset font-semibold sm:h-12"
                           dangerouslySetInnerHTML={{
                             __html: item?.heading,
                           }}

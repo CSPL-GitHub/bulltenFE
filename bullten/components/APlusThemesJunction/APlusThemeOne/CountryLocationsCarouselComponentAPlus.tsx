@@ -57,25 +57,25 @@ const CountryLocationsCarouselComponentAPlus: React.FC<Props> = ({
     <>
       {carouselData?.content?.length > 0 ? (
         <div
-          className="container mx-auto w-full h-auto py-4 lg:py-8 px-2 lg:px-8 "
+          className="container mx-auto w-full h-auto py-4 lg:py-8 px-4 lg:px-8 "
           style={{
             marginTop: `${carouselData?.gap_top / 4}rem`,
             marginBottom: `${carouselData?.gap_bottom / 4}rem`,
           }}
         >
           {carouselData?.heading || carouselData?.description ? (
-            <div className="bg-black/06 flex flex-col justify-center">
+            <div className="flex flex-col justify-center items-center">
               {/* <span className="text-lg text-bullt-quaternary font-medium text-center py-3">
                 Our global data centers
               </span> */}
               <div
-                className="col-span-8 w-full m-auto flex flex-col justify-center sm:text-4xl text-2xl text-center font-semibold tailwind-unreset"
+                className="sm:text-4xl text-2xl text-center font-semibold tailwind-unreset"
                 dangerouslySetInnerHTML={{
                   __html: carouselData?.heading,
                 }}
               />
               <div
-                className="col-span-4 w-full m-auto flex flex-col justify-center items-center sm:text-xl text-lg text-start text-bullt-primary/[0.8] py-3 "
+                className="sm:text-xl text-lg text-center text-bullt-primary/[0.8] py-3"
                 dangerouslySetInnerHTML={{
                   __html: carouselData?.description,
                 }}

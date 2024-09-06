@@ -21,7 +21,7 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
         marginBottom: `${AccordionData?.gap_bottom / 4}rem`,
       }}
     >
-      <div className="flex items-center">
+      <div className="flex items-center px-4">
         {AccordionData?.heading || AccordionData?.description ? (
           <div className="flex flex-col gap-7 items-center lg:w-[80%] w-full">
             <div
@@ -41,7 +41,7 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
         ) : null}
       </div>
 
-      <div>
+      <div className="">
         {AccordionData?.content.map((item: any, index: number) => {
           return (
             <div
@@ -60,7 +60,7 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
                 </div>
                 <div className="relative w-[100px] flex justify-end items-center px-1">
                   <FiPlus
-                    className={`text-black text-2xl cursor-pointer transform transition-transform duration-300 ${
+                    className={`text-bullt-tertiary text-2xl cursor-pointer transform transition-transform duration-300 ${
                       Description === index ? "rotate-45" : ""
                     }`}
                     onClick={() => handleDescription(index)}

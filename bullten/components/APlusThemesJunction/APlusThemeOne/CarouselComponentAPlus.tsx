@@ -12,7 +12,6 @@ interface Props {
 
 const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
   const [infinite, setInfinite] = useState<boolean>();
-
   useEffect(() => {
     if (carouselData?.content?.length === 1) {
       setInfinite(false);
@@ -20,7 +19,6 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
       setInfinite(true);
     }
   }, []);
-
   const settings = {
     dots: true,
     infinite: infinite,
@@ -72,15 +70,15 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
             marginBottom: `${carouselData?.gap_bottom / 4}rem`,
           }}
         >
-          <div className="flex flex-col gap-2 py-6">
+          <div className="flex flex-col gap-2 px-4">
             <div
-              className="text-center text-2xl lg:text-4xl font-bold tailwind-unreset"
+              className="text-center text-2xl mt-2 lg:text-4xl font-bold tailwind-unreset"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.heading),
               }}
             />
             <div
-              className="text-center text-lg text-bullt-primary/[0.8] tailwind-unreset"
+              className="text-center text-lg text-bullt-primary/[0.8] py-2 tailwind-unreset "
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(carouselData?.description),
               }}
@@ -92,8 +90,8 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 key={index}
                 className="w-full h-auto flex flex-col item-center justify-center relative mb-4"
               >
-                <div className="mx-3 rounded-md shadow-md shadow-white hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-50">
-                  <div className="w-full h-[100px] px-2 flex items-center ">
+                <div className="mx-3 rounded-md  hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-50 p-4 border-[1px]">
+                  <div className="w-full h-[120px]  flex items-center">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                       alt={item?.heading}
@@ -104,28 +102,19 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                     />
                   </div>
                   {item?.heading || item?.description ? (
-                    <div className="h-auto bg-opacity-60 p-4 flex flex-col justify-center items-start">
+                    <div className="h-auto bg-opacity-60 py-4 flex flex-col justify-center items-start">
                       <div
-                        className="w-full flex flex-col items-start tailwind-unreset text-xl font-semibold min-h-[80px] "
+                        className="w-full flex flex-col items-start tailwind-unreset text-xl font-semibold"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.heading),
                         }}
                       />
                       <div
-                        className="w-full text-justify tailwind-unreset h-[100px] overflow-y-auto scroll mb-4 text-lg text-bullt-primary/[0.8]"
+                        className="w-full text-justify tailwind-unreset text-lg text-bullt-primary/[0.8] sm:h-[110px] line-clamp-4"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.description),
                         }}
                       />
-
-                      {/* {item?.button_text && item?.button_link ? (
-                        <HomePageButtonOne
-                          alignmentType={1}
-                          buttonText={item?.button_text}
-                          route={item?.button_link}
-                        />
-                      ) : null} */}
-
                       {item?.button_text && item?.button_link ? (
                         <div className="mt-3 rounded font-normal">
                           <Link href={item?.button_link}>

@@ -50,24 +50,23 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
         {/* </div> */}
 
         <div
-          className="sm:min-h-[450px] min-h-[450px] flex items-center justify-center "
+          className="sm:min-h-[450px] min-h-[450px] flex items-center justify-center sm:px-4 bg-black/50"
           style={{
             background: bannerData?.image_position
               ? "linear-gradient(to left, white, rgba(72, 85, 99, 0.4))"
               : "  linear-gradient(to right, white, rgba(72, 85, 99, 0.4))",
           }}
         >
-          {" "}
           <div className="container m-auto relative flex flex-col justify-center items-start  w-full h-full p-6 ">
             {bannerData?.heading ? (
               <div
-                className="w-full lg:w-3/5 md:text-5xl text-4xl font-400 text-bullt-primary text-left font-semibold"
+                className="w-full lg:w-3/5 md:text-6xl text-4xl text-left font-semibold"
                 dangerouslySetInnerHTML={{ __html: bannerData?.heading }}
               ></div>
             ) : null}
             {bannerData?.description ? (
               <div
-                className="w-full lg:w-3/5 md:text-xl text-lg py-3 font-400 text-bullt-primary text-left "
+                className="w-full lg:w-3/5 md:text-2xl text-lg font-400 py-4 text-left "
                 dangerouslySetInnerHTML={{
                   __html: bannerData?.description,
                 }}

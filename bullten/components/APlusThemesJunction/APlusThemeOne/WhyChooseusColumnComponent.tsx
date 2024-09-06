@@ -10,15 +10,15 @@ interface Props {
 const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <div
-      className="relative py-4 lg:py-8 px-2 lg:px-8 border shadow-sm"
+      className="relative lg:py-8 px-2 lg:px-8 border shadow-sm"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
       }}
     >
-      <div className="container mx-auto flex flex-col gap-4 md:flex-row">
+      <div className="container mx-auto flex flex-col sm:gap-4 md:flex-row">
         <div
-          className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 sm:h-[510px] sm:py-0 py-7 h-full"
+          className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 sm:h-[510px] sm:py-0 py-4 text-center sm:text-start"
           style={{
             // backgroundImage: `url(${img.src})`,
             backgroundSize: "cover",
@@ -26,17 +26,18 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
             backgroundPosition: "top",
           }}
         >
+          {columnData?.heading ? <>
           <div
             className="w-full items-start  font-semibold sm:text-4xl text-2xl tailwind-unreset"
             dangerouslySetInnerHTML={{ __html: columnData?.heading }}
-          ></div>
-          <div
+          ></div></> :null}
+          {columnData?.description?<><div
             className="items-start tailwind-unrested py-3 sm:text-xl text-bullt-primary/[0.8]"
             dangerouslySetInnerHTML={{ __html: columnData?.description }}
-          ></div>
+          ></div></>:null}
         </div>
         {columnData?.content?.length > 0 && (
-          <div className="grid gap-2 sm:grid-cols-2 md:w-[60%] w-full">
+          <div className="grid gap-2 sm:grid-cols-2 md:w-[60%] w-full px-4 py-4">
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}

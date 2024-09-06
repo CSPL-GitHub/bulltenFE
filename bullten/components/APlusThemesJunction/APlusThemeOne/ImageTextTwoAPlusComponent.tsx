@@ -21,10 +21,6 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
             <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4 px-4">
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center">
-                  {/* <span className="text-lg text-bullt-quaternary font-medium">
-                    Global Network
-                  </span> */}
-
                   {imageTextData?.heading ? (
                     <div
                       className="w-full text-bullt-primary text-start font-semibold sm:text-4xl text-2xl"
@@ -43,11 +39,17 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                     />
                   ) : null}
 
-                  <ul className="list-disc text-lg list-inside  space-y-1">
-                    <li>DDoS protected network</li>
-                    <li>Unmetered bandwidth</li>
-                    <li>Bandwidth pooling available</li>
-                  </ul>
+                  <div className="list-disc sm:grid sm:grid-cols-2 gap-3 text-lg list-inside space-y-1">
+                    {imageTextData?.list_name.map((item:any,index:any) => (
+                      <div className="flex gap-2 ">
+                      <span className="text-bullt-tertiary text-xl">
+                      ✔
+                    </span>
+                      <div className="text-bullt-primary/[0.8] col-span-1" dangerouslySetInnerHTML={{
+                        __html: item?.title,
+                      }} /></div>
+                    ))}
+                  </div>
 
                   {imageTextData?.button_text ? (
                     <div>
