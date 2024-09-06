@@ -32,7 +32,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   return (
     <div
       className={
-        "bg-bullt-quaternary/[0.07] sm:overflow-hidden overflow-x-hidden mt-[125px]"
+        "bg-bullt-quaternary/[0.05] sm:overflow-hidden overflow-x-hidden mt-[125px]"
       }
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
@@ -143,19 +143,19 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 ) : null}
               </>
             );
-          // case "products":
-          //   return (
-          //     <>
-          //       {item?.is_active_product ? (
-          //         <div
-          //           key={index}
-          //           className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
-          //         >
-          //           <MainFilterProducts decodedSlug={decodedSlug} />
-          //         </div>
-          //       ) : null}
-          //     </>
-          //   );
+          case "products":
+            return (
+              <>
+                {item?.is_active_product ? (
+                  <div
+                    key={index}
+                    className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
+                  >
+                    <MainFilterProducts decodedSlug={decodedSlug} />
+                  </div>
+                ) : null}
+              </>
+            );
 
           default:
             return null;

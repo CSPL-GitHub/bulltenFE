@@ -36,17 +36,17 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
               display: "grid",
               gridTemplateColumns: `${
                 WindowWidth < 640
-                  ? "repeat(1, minmax(0, 1fr))" 
+                  ? "repeat(1, minmax(0, 1fr))"
                   : WindowWidth < 750
-                  ? "repeat(2, minmax(0, 1fr))"  
+                  ? "repeat(2, minmax(0, 1fr))"
                   : `repeat(${columnData?.element_count || 1}, minmax(0, 1fr))`
-              }`,              
+              }`,
             }}
           >
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="group relative border-[1px] rounded-lg overflow-hidden transition-transform transform"
+                className="group relative border-[1px] rounded-lg overflow-hidden transition-transform transform bg-white"
               >
                 {item?.image ? (
                   <div className="sm:h-[300px] h-[200px] w-full relative p-4">

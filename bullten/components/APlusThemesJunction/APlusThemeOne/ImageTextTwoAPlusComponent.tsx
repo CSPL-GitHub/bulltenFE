@@ -74,26 +74,38 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                   style={{ height: "100%" }}
                 />
 
-                {imageTextData?.small_box_image ? <> <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
-                    alt={imageTextData?.image_alternate_text}
-                    className="w-10 h-10"
-                  />
-                  {imageTextData?.small_box_text ? <> <span className="text-sm font-semibold">
-                    {imageTextData?.small_box_text}
-                  </span></> : null}
+                {imageTextData?.small_box_image ? (
+                  <>
+                    {" "}
+                    <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
+                        alt={imageTextData?.image_alternate_text}
+                        className="w-10 h-10"
+                      />
+                      {imageTextData?.small_box_text ? (
+                        <>
+                          {" "}
+                          <span className="text-sm font-semibold">
+                            {imageTextData?.small_box_text}
+                          </span>
+                        </>
+                      ) : null}
+                    </div>
+                  </>
+                ) : null}
 
-                </div></> : null}
-
-                {imageTextData?.single_box ? <><div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
-                    alt={imageTextData?.heading}
-                    className="w-15 h-15"
-                  />
-                </div></> : null}
-
+                {imageTextData?.single_box ? (
+                  <>
+                    <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
+                        alt={imageTextData?.heading}
+                        className="w-15 h-15"
+                      />
+                    </div>
+                  </>
+                ) : null}
               </div>
             </div>
           </>
@@ -111,31 +123,42 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                 />
 
                 {/* Annotations */}
-                {imageTextData?.small_box_image ? <><div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
-                    alt={imageTextData?.image_alternate_text}
-                    className="w-10 h-10"
-                  />
-                  {imageTextData?.small_box_text ? <><span className="text-sm font-semibold">
-                    {imageTextData?.small_box_text}
-                  </span></> : null}
-                </div></> : null}
+                {imageTextData?.small_box_image ? (
+                  <>
+                    <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
+                        alt={imageTextData?.image_alternate_text}
+                        className="w-10 h-10"
+                      />
+                      {imageTextData?.small_box_text ? (
+                        <>
+                          <span className="text-sm font-semibold">
+                            {imageTextData?.small_box_text}
+                          </span>
+                        </>
+                      ) : null}
+                    </div>
+                  </>
+                ) : null}
 
-
-                {imageTextData?.single_box ? <><div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
-                    alt={imageTextData?.heading}
-                    className="w-15 h-15"
-                  />
-                </div></> : null}
+                {imageTextData?.single_box ? (
+                  <>
+                    <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
+                        alt={imageTextData?.heading}
+                        className="w-15 h-15"
+                      />
+                    </div>
+                  </>
+                ) : null}
               </div>
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-2/4 flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4 ">
-                  <span className="text-sm text-blue-600 font-medium">
+                  {/* <span className="text-sm text-blue-600 font-medium">
                     • Global Network
-                  </span>
+                  </span> */}
 
                   {imageTextData?.heading ? (
                     <div
@@ -164,7 +187,7 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                   {imageTextData?.button_text ? (
                     <div>
                       {imageTextData?.button_text &&
-                        imageTextData?.is_downloadable ? (
+                      imageTextData?.is_downloadable ? (
                         <div></div>
                       ) : (
                         <Link
