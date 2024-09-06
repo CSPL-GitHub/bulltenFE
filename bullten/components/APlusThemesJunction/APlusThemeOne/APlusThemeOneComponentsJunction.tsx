@@ -16,8 +16,9 @@ import TestimonialsComponent from "@/components/ServerSideComponents/HomePageCom
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
 import AlternatingSections from "./AdvantagesComponent";
 import AdvantagesAPLusComponent from "./AdvantagesComponent";
-import FilterComponent from "../FilterComponet";
-import PricingTable from "./ProductComponent";
+import FilterComponent from "./FilterProductsComponents/FilterComponet";
+import PricingTable from "./FilterProductsComponents/ServerProductComponent";
+import MainFilterProducts from "./FilterProductsComponents/MainFilterProducts";
 
 interface Props {
   aPlusResponse: any;
@@ -31,8 +32,9 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
   return (
     <div
       className={
-        "sm:overflow-hidden overflow-x-hidden mt-[125px]"
-      }>
+        "bg-bullt-quaternary/[0.07] sm:overflow-hidden overflow-x-hidden mt-[125px]"
+      }
+    >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
           case "banner":
@@ -141,20 +143,19 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 ) : null}
               </>
             );
-            case "products":
-            return (
-              <>
-                {item?.is_active_product ? (
-                  <div
-                    key={index}
-                    className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
-                  >
-                   <FilterComponent/>
-                   <PricingTable/>
-                  </div>
-                ) : null}
-              </>
-            );
+          // case "products":
+          //   return (
+          //     <>
+          //       {item?.is_active_product ? (
+          //         <div
+          //           key={index}
+          //           className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
+          //         >
+          //           <MainFilterProducts decodedSlug={decodedSlug} />
+          //         </div>
+          //       ) : null}
+          //     </>
+          //   );
 
           default:
             return null;
