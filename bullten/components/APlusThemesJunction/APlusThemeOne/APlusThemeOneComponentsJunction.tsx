@@ -143,19 +143,19 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 ) : null}
               </>
             );
-          case "products":
-            return (
-              <>
-                {item?.is_active_product ? (
-                  <div
-                    key={index}
-                    className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
-                  >
-                    <MainFilterProducts decodedSlug={decodedSlug} />
-                  </div>
-                ) : null}
-              </>
-            );
+          // case "products":
+          //   return (
+          //     <>
+          //       {item?.is_active_product ? (
+          //         <div
+          //           key={index}
+          //           className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
+          //         >
+          //           <MainFilterProducts decodedSlug={decodedSlug} />
+          //         </div>
+          //       ) : null}
+          //     </>
+          //   );
 
           default:
             return null;
