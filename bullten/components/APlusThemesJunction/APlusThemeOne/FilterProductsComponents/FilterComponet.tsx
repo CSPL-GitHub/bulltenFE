@@ -28,7 +28,20 @@ const FilterComponent = ({
   const disks = ["SATA", "SSD", "NVME"];
 
   console.log(ProductsDetails, "details for Filtering");
+  const [isOpen, setIsOpen] = useState(false);
+  const locations = [
+    "All Locations",
+    "India",
+    "UK",
+    "Germany",
+    "Canada",
+    "France",
+  ];
 
+  const handleSelect = (location: any) => {
+    setSelectedLocation(location);
+    setIsOpen(false);
+  };
   const handleDiskChange = (disk: string) => {
     if (selectedDisks.includes(disk)) {
       setSelectedDisks(selectedDisks.filter((d: any) => d !== disk));
@@ -61,23 +74,52 @@ const FilterComponent = ({
           className="w-full p-2 border border-gray-300 rounded-md"
         >
           <option value="">All Locations</option>
-          <option>India</option>
-          <option>UK</option>
-          <option>Germany</option>
-          <option>Canada</option>
-          <option>France</option>
+          {["India", "UK", "Germany", "Canada", "France"].map((location) => (
+            <option
+              key={location}
+              className="hover:bg-bullt-tertiary active:bg-bullt-secondary"
+            >
+              {location}
+            </option>
+          ))}
         </select>
       </div>
+
+      {/* <div className="relative mb-4 col-span-1 px-5  lg:border-r-2 h-full">
+        <label className="block text-md font-semibold text-gray-700 mb-4">
+          Server Location
+        </label>
+        <div
+          className="w-full p-2 border border-gray-300 rounded-sm cursor-pointer"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {selectedLocation || "Select Location"}
+        </div>
+
+        {isOpen && (
+          <ul className="absolute z-10 w-full border border-gray-300 bg-white rounded-md shadow-lg">
+            {locations.map((location) => (
+              <li
+                key={location}
+                className="p-2 hover:bg-bullt-tertiary hover:text-bullt-secondary active:bg-bullt-quaternary active:text-bullt-secondary cursor-pointer"
+                onClick={() => handleSelect(location)}
+              >
+                {location}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div> */}
       <div className="col-span-1 px-5 border-r-2">
         <label className="block text-md font-semibold text-gray-700 mb-4">
           Price Range ($)
         </label>
 
         <div className="flex justify-between mb-1">
-          <span className="bg-gray-300 p-1 rounded text-sm">
+          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
             ${priceRange[0]}
           </span>
-          <span className="bg-gray-300 p-1 rounded text-sm">
+          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
             ${priceRange[1]}
           </span>
         </div>
@@ -106,8 +148,12 @@ const FilterComponent = ({
           RAM
         </label>
         <div className="flex justify-between items-center mb-2">
-          <span className="bg-gray-300 p-1 rounded">{ramRange[0]}GB</span>
-          <span className="bg-gray-300 p-1 rounded">{ramRange[1]}GB</span>
+          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded">
+            {ramRange[0]}GB
+          </span>
+          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded">
+            {ramRange[1]}GB
+          </span>
         </div>
         <Slider
           range
@@ -139,9 +185,9 @@ const FilterComponent = ({
                 id={`disk-${index}`}
                 checked={selectedDisks.includes(disk)}
                 onChange={() => handleDiskChange(disk)}
-                className="mr-3 transform scale-150"
+                className="mr-3 transform scale-150 bg-bullt-tertiary"
               />
-              <label htmlFor={`disk-${index}`} className="text-md">
+              <label htmlFor={`disk-${index}`} className="text-md ">
                 {disk}
               </label>
             </div>
