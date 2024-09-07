@@ -95,11 +95,11 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
             <div className="px-2" key={index}>
               <div
                 key={index}
-                className="sm:h-[210px]  bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
+                className="h-[210px] flex justify-center items-center bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
               >
                 {item?.heading || item?.description ? (
                   <div
-                    className="p-2 flex flex-col justify-start items-start gap-3"
+                    className="p-2 flex flex-col justify-center items-center gap-3"
                     style={{
                       insetInlineStart: `${item?.banner_horizontal_position_value}%`,
                       top: `${item?.banner_vertical_position_value}%`,

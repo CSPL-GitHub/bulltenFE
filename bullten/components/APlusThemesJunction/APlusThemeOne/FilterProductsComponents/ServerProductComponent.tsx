@@ -21,12 +21,12 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
 
   return (
     <div className="container mx-auto py-6">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-3 lg:gap-6">
         {ProductsData?.server_products?.map((plan: any, index: any) => (
           <div key={index} className="rounded-md">
             <div className="w-full flex lg:flex-row flex-col items-center gap-2 bg-white shadow-md lg:shadow-sm py-4 border rounded-md">
               <div
-                className="lg:w-[85%] w-full grid grid-cols-2 md:grid-cols-6 gap-4 px-4 cursor-pointer transition"
+                className="lg:w-[85%] w-full grid grid-cols-2 md:grid-cols-6 gap-3 lg:gap-4 px-4 cursor-pointer transition"
                 onClick={() => toggleExpanded(plan.name)}
               >
                 {/* Plan Name */}
