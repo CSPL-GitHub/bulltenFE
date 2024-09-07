@@ -147,10 +147,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
             return (
               <>
                 {item?.is_active_product ? (
-                  <div
-                    key={index}
-                    className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
-                  >
+                  <div key={index}>
                     <MainFilterProducts decodedSlug={decodedSlug} />
                   </div>
                 ) : null}

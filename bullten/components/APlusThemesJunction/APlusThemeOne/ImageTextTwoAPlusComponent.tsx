@@ -8,9 +8,9 @@ interface Props {
 
 const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
   return (
-    <section className="py-4 lg:py-8 px-2 lg:px-8 bg-[url('/team_bg.jpg')] bg-contain bg-no-repeat">
+    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8 bg-[url('/team_bg.jpg')] bg-contain bg-no-repeat">
       <div
-        className="container mx-auto items-center "
+        className="items-center "
         style={{
           marginTop: `${imageTextData?.gap_top / 4}rem`,
           marginBottom: `${imageTextData?.gap_bottom / 4}rem`,

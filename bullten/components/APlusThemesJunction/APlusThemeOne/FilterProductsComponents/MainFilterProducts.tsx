@@ -43,10 +43,8 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
     fetchPlans();
   }, [selectedLocation, selectedDisks, priceRange, ramRange]);
 
-  console.log(serverProducts, "Plans fetched");
-
   return (
-    <div className="container py-6 w-full px-4 lg:px-8">
+    <div className="container mx-auto py-4 lg:py-8 px-2 lg:px-9">
       <div className="">
         <div
           className="text-center lg:text-4xl text-2xl font-semibold "
