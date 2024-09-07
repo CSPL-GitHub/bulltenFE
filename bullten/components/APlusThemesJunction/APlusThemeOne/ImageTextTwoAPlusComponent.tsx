@@ -8,9 +8,9 @@ interface Props {
 
 const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
   return (
-    <section className="py-4 lg:py-8 px-2 lg:px-8 ">
+    <section className="py-4 lg:py-8 px-2 lg:px-8 bg-[url('/team_bg.jpg')] bg-contain bg-no-repeat">
       <div
-        className="container mx-auto items-center"
+        className="container mx-auto items-center "
         style={{
           marginTop: `${imageTextData?.gap_top / 4}rem`,
           marginBottom: `${imageTextData?.gap_bottom / 4}rem`,
@@ -18,9 +18,9 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
       >
         {imageTextData?.align_element === "left" && imageTextData?.image ? (
           <>
-            <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4 px-4">
+            <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4 px-4 ">
               {imageTextData?.heading || imageTextData?.description ? (
-                <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center">
+                <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center ">
                   {imageTextData?.heading ? (
                     <div
                       className="w-full text-bullt-primary text-start font-semibold sm:text-4xl text-2xl"
@@ -40,14 +40,16 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                   ) : null}
 
                   <div className="list-disc sm:grid sm:grid-cols-2 gap-3 text-lg list-inside space-y-1">
-                    {imageTextData?.list_name.map((item:any,index:any) => (
+                    {imageTextData?.list_name.map((item: any, index: any) => (
                       <div className="flex gap-2 ">
-                      <span className="text-bullt-tertiary text-xl">
-                      ✔
-                    </span>
-                      <div className="text-bullt-primary/[0.8] col-span-1" dangerouslySetInnerHTML={{
-                        __html: item?.title,
-                      }} /></div>
+                        <span className="text-bullt-tertiary text-xl">✔</span>
+                        <div
+                          className="text-bullt-primary/[0.8] col-span-1"
+                          dangerouslySetInnerHTML={{
+                            __html: item?.title,
+                          }}
+                        />
+                      </div>
                     ))}
                   </div>
 
@@ -158,10 +160,6 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
               </div>
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-2/4 flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4 ">
-                  <span className="text-lg text-bullt-quaternary font-medium">
-                    Global Network
-                  </span>
-
                   {imageTextData?.heading ? (
                     <div
                       className="w-full text-bullt-primary text-start sm:text-4xl text-2xl"
@@ -180,46 +178,29 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                     />
                   ) : null}
 
-                  <ul className="list-disc list-inside text-lg space-y-1">
-                    <li>DDoS protected network</li>
-                    <li>Unmetered bandwidth</li>
-                    <li>Bandwidth pooling available</li>
-                  </ul>
+                  <div className="list-disc sm:grid sm:grid-cols-2 gap-3 text-lg list-inside space-y-1">
+                    {imageTextData?.list_name.map((item: any, index: any) => (
+                      <div className="flex gap-2 ">
+                        <span className="text-bullt-tertiary text-xl">✔</span>
+                        <div
+                          className="text-bullt-primary/[0.8] col-span-1"
+                          dangerouslySetInnerHTML={{
+                            __html: item?.title,
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
 
-                  {/* {imageTextData?.button_text ? (
-                    <div>
-                      {imageTextData?.button_text &&
-                      imageTextData?.is_downloadable ? (
-                        <div></div>
-                      ) : (
-                        <Link
-                          href={imageTextData?.button_link}
-                          className="inline-flex items-center gap-1 mt-4 text-blue-600 font-medium"
-                        >
-                          <div
-                            className="text-semibold transition-transform duration-500"
-                            dangerouslySetInnerHTML={{
-                              __html: imageTextData?.button_text,
-                            }}
-                          />
-                          <div className="sm:opacity-0 opacity-100 sm:group-hover:opacity-100 transform transition-opacity duration-500">
-                            <div className="sm:hidden sm:group-hover:block block">
-                              <AiOutlineArrowRight size={20} />
-                            </div>
-                          </div>
-                        </Link>
-                      )}
-                    </div>
-                  ) : null} */}
                   {imageTextData?.button_text ? (
                     <div>
                       <Link
                         href={imageTextData?.button_link}
                         className="flex justify-start items-center gap-2 px-2 py-2 text-black rounded cursor-pointer font-semibold"
                       >
-                        <p className="text-semibold transition-transform duration-500">
+                        <div className="text-semibold transition-transform duration-500">
                           {imageTextData?.button_text}
-                        </p>
+                        </div>
 
                         <AiOutlineArrowRight size={20} />
                       </Link>

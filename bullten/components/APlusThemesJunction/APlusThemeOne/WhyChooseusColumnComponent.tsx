@@ -26,15 +26,22 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
             backgroundPosition: "top",
           }}
         >
-          {columnData?.heading ? <>
-          <div
-            className="w-full items-start  font-semibold sm:text-4xl text-2xl tailwind-unreset"
-            dangerouslySetInnerHTML={{ __html: columnData?.heading }}
-          ></div></> :null}
-          {columnData?.description?<><div
-            className="items-start tailwind-unrested py-3 sm:text-xl text-bullt-primary/[0.8]"
-            dangerouslySetInnerHTML={{ __html: columnData?.description }}
-          ></div></>:null}
+          {columnData?.heading ? (
+            <>
+              <div
+                className="w-full items-start  font-semibold sm:text-4xl text-2xl tailwind-unreset"
+                dangerouslySetInnerHTML={{ __html: columnData?.heading }}
+              ></div>
+            </>
+          ) : null}
+          {columnData?.description ? (
+            <>
+              <div
+                className="items-start tailwind-unrested py-3 sm:text-xl text-bullt-primary/[0.8]"
+                dangerouslySetInnerHTML={{ __html: columnData?.description }}
+              ></div>
+            </>
+          ) : null}
         </div>
         {columnData?.content?.length > 0 && (
           <div className="grid gap-2 sm:grid-cols-2 md:w-[60%] w-full px-4 py-4">
@@ -68,9 +75,9 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
                 ></div>
                 {item?.button_text && (
                   <Link href={item?.button_link} passHref>
-                    <a className="mt-auto  font-semibold">
+                    <div className="mt-auto  font-semibold">
                       {item?.button_text}
-                    </a>
+                    </div>
                   </Link>
                 )}
               </div>

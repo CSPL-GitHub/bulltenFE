@@ -25,7 +25,7 @@ const FilterComponent = ({
   selectedLocation,
   ProductsDetails,
 }: Props) => {
-  const disks = ["SATA", "SSD", "SAS", "NVME"];
+  const disks = ["SATA", "SSD", "NVME"];
 
   console.log(ProductsDetails, "details for Filtering");
 
@@ -50,7 +50,7 @@ const FilterComponent = ({
   };
 
   return (
-    <div className="p-3 lg:p-5 mt-4 bg-bullt-secondary rounded-md sm:grid md:grid-cols-4 sm:grid-cols-2 w-full gap-10 md:gap-4 lg:gap-10 justify-center items-center">
+    <div className="p-3 lg:p-4 mt-4 shadow-md lg:shadow-sm bg-bullt-secondary rounded-md  sm:grid md:grid-cols-4 sm:grid-cols-2 w-full gap-10 md:gap-4 lg:gap-10 justify-center items-center">
       <div className="mb-4 col-span-1 px-5  lg:border-r-2 h-full">
         <label className="block text-md font-semibold text-gray-700 mb-4">
           Server Location
@@ -73,11 +73,11 @@ const FilterComponent = ({
           Price Range ($)
         </label>
 
-        <div className="flex justify-between mb-2">
-          <span className="bg-gray-300 px-2 py-1 rounded">
+        <div className="flex justify-between mb-1">
+          <span className="bg-gray-300 p-1 rounded text-sm">
             ${priceRange[0]}
           </span>
-          <span className="bg-gray-300 px-2 py-1 rounded">
+          <span className="bg-gray-300 p-1 rounded text-sm">
             ${priceRange[1]}
           </span>
         </div>
@@ -88,16 +88,16 @@ const FilterComponent = ({
           max={1000}
           value={priceRange}
           onChange={handlePriceChange}
-          trackStyle={[{ backgroundColor: "#F69C2C", height: 10 }]}
+          trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
           handleStyle={[
-            { borderColor: "#3b82f6", height: 20, width: 20, marginTop: -6 },
-            { borderColor: "#3b82f6", height: 20, width: 20, marginTop: -6 },
+            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
+            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
           ]}
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
-        <div className="flex justify-between text-xs text-gray-500 mt-2">
-          <span className="text-lg"> $0</span>
-          <span className="text-lg"> $1000</span>
+        <div className="flex justify-between  text-gray-500 mt-2">
+          <span className="text-md"> $0</span>
+          <span className="text-md"> $1000</span>
         </div>
       </div>
 
@@ -106,8 +106,8 @@ const FilterComponent = ({
           RAM
         </label>
         <div className="flex justify-between items-center mb-2">
-          <span className="bg-gray-300 px-2 py-1 rounded">{ramRange[0]}GB</span>
-          <span className="bg-gray-300 px-2 py-1 rounded">{ramRange[1]}GB</span>
+          <span className="bg-gray-300 p-1 rounded">{ramRange[0]}GB</span>
+          <span className="bg-gray-300 p-1 rounded">{ramRange[1]}GB</span>
         </div>
         <Slider
           range
@@ -115,16 +115,16 @@ const FilterComponent = ({
           max={1000}
           value={ramRange}
           onChange={handleRamChange}
-          trackStyle={[{ backgroundColor: "#F69C2C", height: 10 }]}
+          trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
           handleStyle={[
-            { borderColor: "#3b82f6", height: 20, width: 20, marginTop: -6 },
-            { borderColor: "#3b82f6", height: 20, width: 20, marginTop: -6 },
+            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
+            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
           ]}
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
-        <div className="flex justify-between text-xs text-gray-500 mt-2">
-          <span className="text-lg">4Gb</span>
-          <span className="text-lg">1536Gb</span>
+        <div className="flex justify-between text-gray-500 mt-2">
+          <span className=" text-md">4Gb</span>
+          <span className=" text-md">1536Gb</span>
         </div>
       </div>
       <div className="px-6 col-span-1 ">

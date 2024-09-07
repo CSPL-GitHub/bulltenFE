@@ -24,7 +24,7 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
       <div className="flex flex-col gap-6">
         {ProductsData?.server_products?.map((plan: any, index: any) => (
           <div key={index} className="rounded-md">
-            <div className="w-full flex lg:flex-row flex-col items-center gap-2 bg-white rounded-t-md py-4 border rounded-md">
+            <div className="w-full flex lg:flex-row flex-col items-center gap-2 bg-white shadow-md lg:shadow-sm py-4 border rounded-md">
               <div
                 className="lg:w-[85%] w-full grid grid-cols-2 md:grid-cols-6 gap-4 px-4 cursor-pointer transition"
                 onClick={() => toggleExpanded(plan.name)}
@@ -124,7 +124,7 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                           ✔
                         </span>
                       </div>
-                      <li className="flex items-center text-lg font-normal">
+                      <li className="flex items-center text-sm font-normal">
                         {benefit.title}
                       </li>
                     </div>

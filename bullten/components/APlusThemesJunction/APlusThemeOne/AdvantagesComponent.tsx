@@ -6,7 +6,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
   return (
     <div className="container mx-auto mt-6 py-4 lg:py-8 px-2 lg:px-8 space-y-8">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ">
         {/* <span className="text-lg text-bullt-quaternary font-medium text-center">
           Advantages
         </span> */}
@@ -27,7 +27,7 @@ const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
       {AdvantagesData?.content?.map((section: any, index: number) => (
         <div
           key={section.id}
-          className={`w-full mx-auto flex flex-col md:flex-row items-center gap-3 ${
+          className={`w-full mx-auto flex flex-col md:flex-row items-center gap-3  ${
             index % 2 === 0 ? "md:flex-row-reverse" : ""
           }`}
         >
@@ -39,6 +39,8 @@ const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
             />
           </div>
           <div className="w-full md:[50%] md:px-20 px-4 ">
+            {/* bg-[url('/pricing_shape.png')] bg-contain bg-center bg-no-repeat */}
+            <div className="" />
             {section?.heading ? (
               <div
                 className="w-full text-bullt-primary text-start sm:text-3xl text-2xl font-semibold"
