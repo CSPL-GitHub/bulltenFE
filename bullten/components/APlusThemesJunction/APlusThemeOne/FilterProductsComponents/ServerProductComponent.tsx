@@ -152,14 +152,14 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
         ))}
       </div>
 
-      {selectedPlan && (
+      {/* {selectedPlan && (
         <div className="fixed bottom-4 right-4 p-4 bg-white shadow-lg rounded-lg">
           <h3 className="text-xl font-bold">Selected Plan</h3>
           <p className="text-lg">
             You have selected: <strong>{selectedPlan}</strong>
           </p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
