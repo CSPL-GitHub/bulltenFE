@@ -124,11 +124,10 @@ const FilterComponent = ({
             ${priceRange[1]}
           </span>
         </div>
-
         <Slider
           range
           min={0}
-          max={ProductsDetails?.ram_max_price}
+          max={1000}
           value={priceRange}
           onChange={handlePriceChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
@@ -139,8 +138,8 @@ const FilterComponent = ({
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
         <div className="flex justify-between  text-gray-500 mt-2">
-          <span className="text-md"> $0</span>
-          <span className="text-md"> $1000</span>
+          <span className="text-md">$0</span>
+          <span className="text-md">$1000</span>
         </div>
       </div>
 
@@ -159,9 +158,9 @@ const FilterComponent = ({
 
         <Slider
           range
-          min={0}
+          min={4}
           max={1000}
-          defaultValue={[0, 2000]}
+          defaultValue={[4, 1000]}
           value={ramRange}
           onChange={handleRamChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}

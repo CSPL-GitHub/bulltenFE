@@ -1,8 +1,8 @@
 "use client";
-import { ProductDataApi } from "@/apis/productsApi";
-import Image from "next/image";
+
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 type Props = {
   ProductsData: any;
@@ -30,8 +30,17 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                 onClick={() => toggleExpanded(plan.name)}
               >
                 {/* Plan Name */}
-                <div className="col-span-2 md:col-span-1 text-bullt-quaternary font-semibold text-xl md:text-lg">
+                <div className="flex justify-between col-span-2 md:col-span-1 text-bullt-quaternary font-semibold text-xl md:text-lg">
                   <div dangerouslySetInnerHTML={{ __html: plan.name }} />
+                  <span className="font-semibold">
+                    <IoIosArrowDown
+                      size={25}
+                      className={`text-bullt-tertiary text-2xl  cursor-pointer transform transition-transform duration-300 ${
+                        expandedPlan === plan.name ? "rotate-180" : ""
+                      }`}
+                      onClick={() => toggleExpanded(plan.name)}
+                    />
+                  </span>
                 </div>
 
                 {/* CPU */}
@@ -109,13 +118,15 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                       {plan?.buttonText}
                     </p>
                   </Link>
+
+
                 </div>
               )}
+
             </div>
 
-            {/* Expanded View */}
             {expandedPlan === plan.name && (
-              <div className="sm:flex bg-bullt-secondary p-2 gap-3 rounded-b-lg">
+              <div className="sm:flex bg-[#F0EFF9] p-2 gap-3 rounded-b-lg">
                 <ul className="lg:w-4/5 w-full grid md:grid-cols-4 grid-cols-2 gap-4 list-inside border border-dashed p-4">
                   {plan.server_benifits.map((benefit: any, i: number) => (
                     <div key={i} className="flex items-center gap-1">

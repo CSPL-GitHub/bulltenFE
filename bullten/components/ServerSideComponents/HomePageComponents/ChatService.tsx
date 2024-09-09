@@ -13,7 +13,7 @@ export default async function ChatService() {
     <>
       {SupportSectionContent?.result?.Active === true ? (
         <section className="sm:py-4 py-2">
-          <div className="relative lg:h-[350px] md:h-[300px] h-[380px] sm:py-12 py-6 bg-fixed bg-cover bg-top bg-no-repeat bg-[url('/01.jpg')]">
+          <div className="relative lg:h-[350px] md:h-[300px] h-[380px] sm:py-12 py-6 bg-fixed bg-cover bg-top bg-no-repeat bg-[url('/02.jpg')]">
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="relative flex justify-center items-center px-6 ">
               <div className="sm:flex justify-center items-center">
