@@ -65,7 +65,8 @@ const FilterComponent = ({
 
   return (
     <div className="p-3 lg:p-4 mt-4 shadow-md lg:shadow-sm bg-bullt-secondary rounded-md  sm:grid md:grid-cols-4 sm:grid-cols-2 w-full gap-10 md:gap-4 lg:gap-10 justify-center items-center">
-      <div className="mb-4 col-span-1 px-5  lg:border-r-2 h-full">
+
+      <div className="mb-4 col-span-1 px-5 lg:border-r-2 h-full">
         <label className="block text-md font-semibold text-gray-700 mb-4">
           Server Location
         </label>
@@ -126,8 +127,8 @@ const FilterComponent = ({
         </div>
         <Slider
           range
-          min={0}
-          max={1000}
+          min={priceRange}
+          max={priceRange}
           value={priceRange}
           onChange={handlePriceChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
@@ -138,8 +139,8 @@ const FilterComponent = ({
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
         <div className="flex justify-between  text-gray-500 mt-2">
-          <span className="text-md">$0</span>
-          <span className="text-md">$1000</span>
+          <span className="text-md">${ProductsDetails?.ram_min_price}</span>
+          <span className="text-md">${ProductsDetails?.ram_max_price}</span>
         </div>
       </div>
 
@@ -171,10 +172,11 @@ const FilterComponent = ({
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
         <div className="flex justify-between text-gray-500 mt-2">
-          <span className=" text-md">4Gb</span>
-          <span className=" text-md">1536Gb</span>
+          <span className=" text-md">{ProductsDetails?.min_memory}Gb</span>
+          <span className=" text-md">{ProductsDetails?.max_memory}Gb</span>
         </div>
       </div>
+
       <div className="px-6 col-span-1 ">
         <label className="block text-md font-semibold text-gray-700">
           Disks
