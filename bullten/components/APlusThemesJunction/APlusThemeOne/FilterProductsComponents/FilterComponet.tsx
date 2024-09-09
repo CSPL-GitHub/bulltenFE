@@ -26,9 +26,7 @@ const FilterComponent = ({
   ProductsDetails,
 }: Props) => {
   const disks = ["SATA", "SSD", "NVME"];
-  console.log(ProductsDetails, "jhfsdjfhsdjf");
-  const maxPrice = ProductsDetails?.ram_max_price || 1000; // Use a default max price if data is missing
-  const maxRam = ProductsDetails?.max_memory || 1536;
+  console.log(ProductsDetails?.ram_max_price, "jhfsdjfhsdjf");
 
   console.log(ProductsDetails, "details for Filtering");
   const [isOpen, setIsOpen] = useState(false);
@@ -113,7 +111,7 @@ const FilterComponent = ({
           </ul>
         )}
       </div> */}
-      {/* <div className="col-span-1 px-5 border-r-2">
+      <div className="col-span-1 px-5 border-r-2">
         <label className="block text-md font-semibold text-gray-700 mb-4">
           Price Range ($)
         </label>
@@ -144,43 +142,9 @@ const FilterComponent = ({
           <span className="text-md"> $0</span>
           <span className="text-md"> $1000</span>
         </div>
-      </div> */}
-
-      {/* Price Range Slider */}
-      <div className="col-span-1 px-5 border-r-2">
-        <label className="block text-md font-semibold text-gray-700 mb-4">
-          Price Range ($)
-        </label>
-
-        <div className="flex justify-between mb-1">
-          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[0]}
-          </span>
-          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[1]}
-          </span>
-        </div>
-
-        <Slider
-          range
-          min={0}
-          max={maxPrice}
-          value={priceRange}
-          onChange={handlePriceChange}
-          trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
-          handleStyle={[
-            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
-            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
-          ]}
-          railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
-        />
-        <div className="flex justify-between text-gray-500 mt-2">
-          <span className="text-md"> $0</span>
-          <span className="text-md"> ${maxPrice}</span>
-        </div>
       </div>
 
-      {/* <div className="col-span-1 px-5 border-r-2">
+      <div className="col-span-1 px-5 border-r-2">
         <label className="block text-md font-semibold text-gray-700 mb-4">
           RAM
         </label>
@@ -210,38 +174,6 @@ const FilterComponent = ({
         <div className="flex justify-between text-gray-500 mt-2">
           <span className=" text-md">4Gb</span>
           <span className=" text-md">1536Gb</span>
-        </div>
-      </div> */}
-
-      <div className="col-span-1 px-5 border-r-2">
-        <label className="block text-md font-semibold text-gray-700 mb-4">
-          RAM
-        </label>
-        <div className="flex justify-between items-center mb-2">
-          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded">
-            {ramRange[0]}GB
-          </span>
-          <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded">
-            {ramRange[1]}GB
-          </span>
-        </div>
-
-        <Slider
-          range
-          min={0}
-          max={maxRam}
-          value={ramRange}
-          onChange={handleRamChange}
-          trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
-          handleStyle={[
-            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
-            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
-          ]}
-          railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
-        />
-        <div className="flex justify-between text-gray-500 mt-2">
-          <span className="text-md">0GB</span>
-          <span className="text-md">{maxRam}GB</span>
         </div>
       </div>
       <div className="px-6 col-span-1 ">
