@@ -69,7 +69,7 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                       <Image
                         src={`${process.env.NEXT_PUBLIC_BASE_URL}${counter?.image}`}
                         alt="Flipping Image"
-                        className=" transition-transform duration-300 ease-in-out hover:scale-x-[-1]"
+                        className="transition-transform duration-300 ease-in-out hover:scale-x-[-1]"
                         style={{
                           position: "absolute",
                           objectFit: "contain",

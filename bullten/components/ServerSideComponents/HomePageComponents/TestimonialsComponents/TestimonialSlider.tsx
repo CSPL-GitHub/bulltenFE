@@ -32,7 +32,6 @@ type Props = {
 };
 
 const TestimonialSlider = ({ TestimonialsContent }: Props) => {
-  console.log("TestimonialsContent", TestimonialsContent);
   const testimonialData = TestimonialsContent?.result?.data;
   const testimonials = testimonialData?.reviews || [];
   const [infinite, setInfinite] = useState<boolean>(true);

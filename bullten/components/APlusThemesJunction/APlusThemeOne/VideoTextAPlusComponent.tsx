@@ -5,7 +5,7 @@ interface Props {
 const VideoTextAPlusComponent: React.FC<Props> = ({ videoTextData }) => {
   return (
     <div
-      className="w-full grid grid-cols-12 sm:gap-[50px] rounded-lg sm:py-5  my-10 sm:my-0 bg-tgh-quinary/[0.1] py-3 sm:px-10 px-4"
+      className="w-full grid grid-cols-12 sm:gap-[50px] rounded-lg sm:py-5  my-10 sm:my-0 py-4 lg:py-8 px-2 lg:px-8"
       style={{
         marginTop: `${videoTextData?.gap_top / 4}rem`,
         marginBottom: `${videoTextData?.gap_bottom / 4}rem`,
@@ -25,7 +25,10 @@ const VideoTextAPlusComponent: React.FC<Props> = ({ videoTextData }) => {
         >
           {videoTextData?.video_type === "video" ? (
             <video className="w-full h-auto" autoPlay loop muted controls>
-              <source src={`${process.env.NEXT_PUBLIC_BASE_URL}${videoTextData?.video}`} type="video/mp4" />
+              <source
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${videoTextData?.video}`}
+                type="video/mp4"
+              />
             </video>
           ) : videoTextData?.video_type === "link" ? (
             <>
@@ -104,7 +107,10 @@ const VideoTextAPlusComponent: React.FC<Props> = ({ videoTextData }) => {
               muted
               controls
             >
-              <source src={`${process.env.NEXT_PUBLIC_BASE_URL}${videoTextData?.video}`} type="video/mp4" />
+              <source
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${videoTextData?.video}`}
+                type="video/mp4"
+              />
             </video>
           ) : videoTextData?.video_type === "link" ? (
             <>

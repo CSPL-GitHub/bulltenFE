@@ -21,6 +21,7 @@ const HeaderMobile = ({
   const [openSubMenu, setOpenSubMenu] = useState<number | undefined>(undefined);
   const [activeSubMenu, setActiveSubMenu] = useState<SubHeader | undefined>(undefined);
   const [showSubMenuOnly, setShowSubMenuOnly] = useState<boolean>(false); // New state
+  const [subHeaderData, setSubHeaderData] = useState<any>("")
 
   const router = useRouter();
 
@@ -73,6 +74,7 @@ const HeaderMobile = ({
                   onClick={() => {
                     if (openSubMenu === headerMenu?.id) {
                       setOpenSubMenu(undefined);
+                      setSubHeaderData(headerMenu);
                     } else {
                       setOpenSubMenu(headerMenu?.id);
                     }
@@ -96,7 +98,7 @@ const HeaderMobile = ({
                       setActiveSubMenu={setActiveSubMenu}
                       activeSubMenu={activeSubMenu}
                       handleSubheaderClick={handleSubheaderClick} // Pass handler
-                    />
+                      subHeaderData={subHeaderData}                    />
                   </div>
                 </div>
               ) : (
@@ -127,6 +129,7 @@ const HeaderMobile = ({
               setActiveSubMenu={setActiveSubMenu}
               activeSubMenu={activeSubMenu}
               handleSubheaderClick={handleSubheaderClick}
+              subHeaderData = {subHeaderData}
             />
           </div>
         )}

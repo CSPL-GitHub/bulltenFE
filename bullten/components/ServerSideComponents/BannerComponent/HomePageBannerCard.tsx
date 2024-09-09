@@ -2,7 +2,7 @@
 import { Banner } from "@/types/BannerTypes";
 import Image from "next/image";
 import React from "react";
-// import * as DOMPurify from "dompurify";
+// import  DOMPurify from "dompurify";
 
 type Props = {
   banner: Banner;

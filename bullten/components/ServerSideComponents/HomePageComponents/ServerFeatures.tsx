@@ -11,10 +11,7 @@ const ServerFeatures = async () => {
 
   const { title, description, server_feature, slogen } =
     serverFeaturesData?.result?.data || {};
-  console.log(
-    "serverFeaturesData?.result?.data",
-    serverFeaturesData?.result?.data
-  );
+
   return (
     <section className="relative bg-fixed bg-cover">
       <div className=" w-full sm:py-4 py-2 mx-auto flex flex-col items-center lg:px-6 px-0">

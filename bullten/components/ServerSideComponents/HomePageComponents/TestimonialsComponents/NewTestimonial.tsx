@@ -40,11 +40,11 @@ export default function TestimonialsSection({
   const sliderRef = React.useRef<Slider>(null);
 
   return (
-    <section className=" container w-full bg-blue-50 rounded-lg lg:px-14 md:px-6 px-2 sm:my-0 my-3">
+    <section className=" container w-full bg-bullt-quaternary/[0.07] rounded-lg lg:px-14 md:px-6 px-2 sm:my-0 my-3">
       <div className="w-full mx-auto lg:py-16 py-8 rounded-lg ">
         {/* Header Section */}
         <div className="lg:-mb-[200px]  mb-0">
-          <div className="text-left mb-8 lg:w-[50%] w-full ">
+          <div className="text-left mb-8 lg:w-[50%] w-full px-4">
             <SloganHeadingComponent paddingTop={1} alignmentType={1}>
               {TestimonialsContent?.data?.slogen}
             </SloganHeadingComponent>
@@ -57,7 +57,7 @@ export default function TestimonialsSection({
           {testimonials?.map((testimonial: any, index: number) => (
             <div
               key={index}
-              className="relative flex sm:flex-row flex-col items-end justify-between"
+              className="relative flex sm:flex-row flex-col items-end justify-between px-4"
             >
               <div className="flex sm:flex-row flex-col sm:items-end items-center justify-start sm:justify-between gap-2">
                 <div className="sm:w-[40%] w-full">

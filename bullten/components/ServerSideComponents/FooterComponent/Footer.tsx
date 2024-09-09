@@ -10,7 +10,6 @@ import ContactUsStripSection from "../HomePageComponents/ContactUsStripSection";
 const Footer: React.FC = async () => {
   const footerResponse = await footerApi();
   const footerMapResponse = await footerMapApi();
-  console.log("footerMapResponse", footerMapResponse);
 
   return (
     <>
