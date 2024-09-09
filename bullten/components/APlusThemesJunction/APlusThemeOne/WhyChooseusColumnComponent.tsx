@@ -10,7 +10,7 @@ interface Props {
 const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <div
-      className="relative lg:py-8 px-2 lg:px-8 border shadow-sm"
+      className="relative lg:py-8 px-2 lg:px-8 border shadow-sm py-4"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -18,7 +18,7 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
     >
       <div className="container mx-auto flex flex-col sm:gap-4 md:flex-row">
         <div
-          className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 sm:h-[510px] sm:py-0 py-4 text-center sm:text-start"
+          className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 md:h-[510px] h-full sm:py-0 py-4 text-center sm:text-start"
           style={{
             // backgroundImage: `url(${img.src})`,
             backgroundSize: "cover",
@@ -44,7 +44,7 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
           ) : null}
         </div>
         {columnData?.content?.length > 0 && (
-          <div className="grid gap-2 sm:grid-cols-2 md:w-[60%] w-full px-4 py-4">
+          <div className="grid gap-2 sm:grid-cols-2 md:w-[60%] w-full px-4 py-2">
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}

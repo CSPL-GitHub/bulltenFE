@@ -12,10 +12,7 @@ type Props = {
 const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
   const [selectedLocation, setSelectedLocation] = useState<string>("");
-  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
-    null,
-    null,
-  ]);
+  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([ null,null,]);
   const [ramRange, setRamRange] = useState<[number | null, number | null]>([
     null,
     null,
