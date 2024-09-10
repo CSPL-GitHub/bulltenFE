@@ -11,6 +11,7 @@ import ImageTextTwoAPlusThemeTwoComponent from "./ImageTextTwoAPlusThemeTwoCompo
 import CarouselTwoAPlusComponent from "./CarouselTwoAPlusThemeTwoComponent";
 import CarouselComponentAPlus from "../APlusThemeOne/CarouselComponentAPlus";
 import CarouselComponentAPlusTwo from "./CarouselComponentAPlusTwo";
+import ColumnSectionAPlusThemeTwoComponent from "./ColumnSectionAPlusThemeTwoComponent";
 // import BannerComponentAPlus from "./BannerComponentAPlus";
 // import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
 // import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
@@ -85,10 +86,9 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "column":
             return (
-              //   <div key={index}>
-              //     <ColumnSectionAPlusComponent columnData={item} />
-              //   </div>
-              <></>
+              <div key={index}>
+                <ColumnSectionAPlusThemeTwoComponent columnData={item} />
+              </div>
             );
           case "carousel":
             return (
@@ -170,7 +170,6 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
               <>
                 {item?.is_active_product ? (
                   <div key={index}>
-
                     <MainFilterProducts decodedSlug={decodedSlug} />
                   </div>
                 ) : null}

@@ -30,13 +30,13 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
       {columnData?.heading || columnData?.description ? (
         <>
           <div
-            className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold tailwind-unreset"
+            className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold text-bullt-secondary tailwind-unreset"
             dangerouslySetInnerHTML={{
               __html: columnData?.heading,
             }}
           ></div>
           <div
-            className="text-center text-lg lg:text-lg text-bullt-primary/[0.8] tailwind-unreset py-3"
+            className="text-center text-lg lg:text-lg text-bullt-secondary tailwind-unreset py-3"
             dangerouslySetInnerHTML={{
               __html: columnData?.description,
             }}
@@ -46,7 +46,7 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
 
       {columnData?.content?.length > 0 ? (
         <div
-          className="w-full h-auto items-start gap-6 py-3 px-4"
+          className="w-full h-auto items-start gap-6 py-3 px-4 "
           style={{
             marginTop: `${columnData?.gap_top / 4}rem`,
             marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -63,9 +63,9 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
           {columnData?.content?.map((item: any, index: number) => (
             <div
               key={index}
-              className="group relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform transform bg-bullt-quaternary/[0.05]"
+              className="group relative  p-3 rounded-lg overflow-hidden transition-transform transform bg-bullt-quaternary/[0.05]"
             >
-              {item?.image ? (
+              {/* {item?.image ? (
                 <div className="sm:h-[300px] h-[280px] w-full relative p-4">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
@@ -79,13 +79,13 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
                     className="p-2 rounded-t-2xl"
                   />
                 </div>
-              ) : null}
+              ) : null} */}
               {item?.heading || item?.description ? (
                 <div className="p-2">
                   <div className="flex flex-col justify-center items-start">
                     {item?.heading ? (
                       <div
-                        className="w-full flex text-start text-xl flex-col items-start tailwind-unreset font-semibold sm:h-12"
+                        className="w-full flex text-start border-r-4 border-bullt-secondary/[0.4] text-xl flex-col items-start text-bullt-secondary tailwind-unreset font-semibold sm:h-12"
                         dangerouslySetInnerHTML={{
                           __html: item?.heading,
                         }}
@@ -93,7 +93,7 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
                     ) : null}
                     {item?.description ? (
                       <div
-                        className="w-full text-left text-lg text-bullt-primary/[0.8] py-1 line-clamp-3"
+                        className="w-full text-left text-lg text-bullt-secondary py-1 line-clamp-3 pr-6"
                         dangerouslySetInnerHTML={{
                           __html: item?.description,
                         }}
@@ -101,7 +101,7 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
                     ) : null}
                   </div>
 
-                  {item?.button_text ? (
+                  {/* {item?.button_text ? (
                     <div className="mt-3 rounded flex justify-center">
                       <Link href={item?.button_link}>
                         <input
@@ -111,7 +111,7 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
                         />
                       </Link>
                     </div>
-                  ) : null}
+                  ) : null} */}
                 </div>
               ) : null}
             </div>
