@@ -22,7 +22,7 @@ const OperatingComponent:React.FC<Props> = async ({color}) => {
               </MainHeadingComponent>
             )}
             <div className="sm:w-[100%] w-full ">
-              <OperatingCartComponent data={data?.partner_data} />
+              <OperatingCartComponent color={color} data={data?.partner_data} />
             </div>
           </div>
         </section>

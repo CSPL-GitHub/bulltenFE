@@ -9,6 +9,8 @@ import WhyChooseusColumnAplusThemeTwoComponent from "./WhyChooseusColumnAplusThe
 import GamingProductComponent from "../APlusThemeOne/FilterProductsComponents/GamingProductComponent";
 import ImageTextTwoAPlusThemeTwoComponent from "./ImageTextTwoAPlusThemeTwoComponent";
 import CarouselTwoAPlusComponent from "./CarouselTwoAPlusThemeTwoComponent";
+import CarouselComponentAPlus from "../APlusThemeOne/CarouselComponentAPlus";
+import CarouselComponentAPlusTwo from "./CarouselComponentAPlusTwo";
 // import BannerComponentAPlus from "./BannerComponentAPlus";
 // import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
 // import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
@@ -90,10 +92,10 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "carousel":
             return (
-              //   <div key={index}>
-              //     <CarouselComponentAPlus carouselData={item} />
-              //   </div>
-              <></>
+                <div key={index}>
+                  <CarouselComponentAPlusTwo carouselData={item} />
+                </div>
+             
             );
           case "carousel_2":
             return (

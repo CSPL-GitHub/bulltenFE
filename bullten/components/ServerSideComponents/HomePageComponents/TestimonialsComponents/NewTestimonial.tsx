@@ -36,7 +36,7 @@ export default function TestimonialsSection({ TestimonialsContent, color }: { Te
   const sliderRef = React.useRef<Slider>(null);
 
   return (
-    <section className={`container w-full ${color ? ' bg-[#1c1c28] border-[#323233]' : 'bg-bullt-quaternary/[0.07]'
+    <section className={`container w-full ${color ? ' bg-black border-[#323233]' : 'bg-bullt-quaternary/[0.07]'
       } rounded-lg lg:px-14 md:px-6 px-2 sm:my-0 my-3`}>
       <div className="w-full mx-auto lg:py-16 py-8 rounded-lg ">
         {/* Header Section */}

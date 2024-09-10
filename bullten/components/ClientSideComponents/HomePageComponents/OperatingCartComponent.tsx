@@ -4,9 +4,10 @@ import React, { useState } from "react";
 
 type Props = {
   data: any;
+  color: any;
 };
 
-const OperatingCartComponent: React.FC<Props> = ({ data }) => {
+const OperatingCartComponent: React.FC<Props> = ({ data, color }) => {
   const [visibleItems, setVisibleItems] = useState(4);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -26,12 +27,12 @@ const OperatingCartComponent: React.FC<Props> = ({ data }) => {
           {data?.list_titles?.slice(0, visibleItems).map((item: any, index: any) => (
             <div
               key={index}
-              className="text-center hover:bg-[#F4F5F8] w-[160px] lg:w-[310px] mx-auto grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
+              className={`text-center  w-[160px] lg:w-[310px] mx-auto  transition-all duration-100 ease-in-out py-2 ${color ? `grayscale hover:grayscale-0 hover:bg-[#1C1C28]` : `hover:bg-[#F4F5F8] grayscale hover:grayscale-0`}`}
             >
               {item.img ? (
                 <div className="h-[100px] lg:w-[300px] w-[150px] relative mx-auto">
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.img}`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.img}`}
                     alt="all"
                     className="sm:p-4 p-2"
                     style={{
@@ -44,7 +45,7 @@ const OperatingCartComponent: React.FC<Props> = ({ data }) => {
                 </div>
               ) : null}
               <h3 className="text-lg font-semibold text-gray-800">
-                {item.heading}
+                {item?.heading}
               </h3>
             </div>
           ))}
