@@ -1,5 +1,13 @@
 import React from "react";
 import APlusThemeTwoBannerComponent from "./APlusThemeTwoBannerComponent";
+import AccordianAPlusThemeTwoComponent from "./AccordianAPlusThemeTwoComponent";
+import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
+import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
+import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
+import MainFilterProducts from "../APlusThemeOne/FilterProductsComponents/MainFilterProducts";
+import WhyChooseusColumnAplusThemeTwoComponent from "./WhyChooseusColumnAplusThemeTwoComponent";
+import GamingProductComponent from "../APlusThemeOne/FilterProductsComponents/GamingProductComponent";
+import ImageTextTwoAPlusThemeTwoComponent from "./ImageTextTwoAPlusThemeTwoComponent";
 // import BannerComponentAPlus from "./BannerComponentAPlus";
 // import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
 // import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
@@ -53,10 +61,10 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "image_text_2":
             return (
-              <></>
-              //   <div key={index}>
-              //     <ImageTextTwoAPlusComponent imageTextData={item} />
-              //   </div>
+          
+                <div key={index}>
+                  <ImageTextTwoAPlusThemeTwoComponent imageTextData={item} />
+                </div>
             );
           case "video_text":
             return (
@@ -95,17 +103,17 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "why_choose_column":
             return (
-              //   <div className="">
-              //     <WhyChooseusColumnComponent columnData={item} />
-              //   </div>
-              <></>
+                <div className="">
+                  <WhyChooseusColumnAplusThemeTwoComponent columnData={item} />
+                </div>
+              
             );
           case "accordion":
             return (
-              //   <div key={index}>
-              //     <AccordianAPlusComponent AccordionData={item} />
-              //   </div>
-              <></>
+                <div key={index} className="">
+                  <AccordianAPlusThemeTwoComponent AccordionData={item} />
+                </div>
+            
             );
           case "location_data":
             return (
@@ -124,45 +132,45 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
           case "operating_systems":
             return (
               <>
-                {/* {item?.operating_systems_is_active ? (
+                {item?.operating_systems_is_active ? (
                   <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
-                    <OperatingComponent />
+                    <OperatingComponent color={item?.is_os_color} />
                   </div>
-                ) : null} */}
+                ) : null}
               </>
             );
           case "testimonials":
             return (
               <>
                 {" "}
-                {/* {item?.testimonials_is_active?.Active ? (
+                {item?.testimonials_is_active?.Active ? (
                   <div key={index} className="container mx-auto">
-                    <TestimonialsComponent />{" "}
+                    <TestimonialsComponent color={item?.is_testimonials_color} />{" "}
                   </div>
-                ) : null} */}
+                ) : null}
               </>
             );
           case "support":
             return (
               <>
-                {/* {item?.support_is_active ? (
+                {item?.support_is_active ? (
                   <div
                     key={index}
                     className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
                   >
-                    <ChatService />{" "}
+                    <ChatService color={item?.is_support_color} />{" "}
                   </div>
-                ) : null} */}
+                ) : null}
               </>
             );
           case "products":
             return (
               <>
-                {/* {item?.is_active_product ? (
+                {item?.is_active_product ? (
                   <div key={index}>
-                    <MainFilterProducts decodedSlug={decodedSlug} />
+                    <GamingProductComponent decodedSlug={decodedSlug} />
                   </div>
-                ) : null} */}
+                ) : null}
               </>
             );
 

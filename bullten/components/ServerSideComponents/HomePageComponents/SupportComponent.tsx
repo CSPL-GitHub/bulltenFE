@@ -25,11 +25,12 @@ type SupportContent = {
 
 type Props = {
   supportContent: SupportContent;
+  color:any;
 };
 
-const SupportSection = ({ supportContent }: Props) => {
+const SupportSection = ({ supportContent,color}: Props) => {
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 justify-center items-center px-2">
+    <div className={`w-full grid grid-cols-1 md:grid-cols-3 gap-4 justify-center items-center px-2 ${color ? `bg-bullt-secondary`:`bg-bullt-secondary`}`}>
       {supportContent?.data?.supports?.map((data, index) => (
         <div
           key={index}

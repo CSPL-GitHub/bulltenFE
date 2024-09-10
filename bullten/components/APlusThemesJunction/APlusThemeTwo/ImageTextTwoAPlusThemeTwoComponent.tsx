@@ -10,7 +10,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
   imageTextData,
 }) => {
   return (
-    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8 bg-[url('/team_bg.jpg')] bg-contain bg-no-repeat">
+    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8  bg-contain bg-no-repeat">
       <div
         className="items-center "
         style={{
@@ -25,7 +25,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center ">
                   {imageTextData?.heading ? (
                     <div
-                      className="w-full text-bullt-primary text-start font-semibold sm:text-4xl text-2xl"
+                      className="w-full text-bullt-secondary text-start font-semibold sm:text-4xl text-2xl"
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.heading,
                       }}
@@ -34,7 +34,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
 
                   {imageTextData?.description ? (
                     <div
-                      className="text-justify text-bullt-primary/[0.8] text-lg py-2 font-400  "
+                      className="text-justify text-bullt-secondary  text-lg py-2 font-400  "
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.description,
                       }}
@@ -46,7 +46,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                       <div className="flex gap-2 ">
                         <span className="text-bullt-tertiary text-xl">✔</span>
                         <div
-                          className="text-bullt-primary/[0.8] col-span-1"
+                          className="text-bullt-secondary  col-span-1"
                           dangerouslySetInnerHTML={{
                             __html: item?.title,
                           }}

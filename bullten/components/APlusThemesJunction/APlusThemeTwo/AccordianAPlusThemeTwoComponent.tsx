@@ -17,7 +17,7 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
   };
   return (
     <div
-      className="container mx-auto w-full h-auto grid lg:grid-cols-2 grid-cols-1  gap-5 border-[1px]  py-4 lg:py-8 px-2 lg:px-8"
+      className="container mx-auto w-full h-auto grid lg:grid-cols-2 grid-cols-1  gap-5  py-4 lg:py-8 px-2 lg:px-8"
       style={{
         marginTop: `${AccordionData?.gap_top / 4}rem`,
         marginBottom: `${AccordionData?.gap_bottom / 4}rem`,
@@ -27,11 +27,11 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
         {AccordionData?.heading || AccordionData?.description ? (
           <div className="flex flex-col gap-7 items-center lg:w-[80%] w-full">
             <div
-              className="w-full flex flex-col lg:justify-start justify-center font-semibold lg:text-4xl text-2xl items-center tailwind-unreset"
+              className="w-full flex flex-col lg:justify-start justify-center  text-white font-semibold lg:text-4xl text-2xl  tailwind-unreset"
               dangerouslySetInnerHTML={{ __html: AccordionData?.heading }}
             />
             <div
-              className="w-full flex flex-col items-start tailwind-unreset text-lg text-bullt-primary/[0.8]"
+              className="w-full flex flex-col items-start tailwind-unreset text-lg text-white"
               dangerouslySetInnerHTML={{ __html: AccordionData?.description }}
             />
             <HomePageButtonOne
@@ -48,13 +48,13 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
           return (
             <div
               key={index}
-              className="w-full rounded-md shadow-sm items-center bg-bullt-quaternary/[0.05] p-3 my-3 cursor-pointer"
+              className="w-full rounded-md shadow-sm items-center  border-[1px] p-3 my-3 cursor-pointer bg-[#1C1C28]"
               onClick={() => handleDescription(index)}
             >
               <div className=" flex justify-between p-2">
                 <div className="w-[900px]">
                   <h1
-                    className={`px-2 text-xl select-none ${
+                    className={`px-2 text-xl select-none text-white ${
                       index === Description ? "text-bullt-tertiary" : ""
                     }`}
                     dangerouslySetInnerHTML={{ __html: item?.heading }}
@@ -73,7 +73,7 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
                 {Description === index && (
                   <div className="">
                     <p
-                      className="flex p-3 border-t border-bullt-tertiary select-none text-lg text-bullt-primary/[0.8]"
+                      className="flex p-3 border-t border-bullt-tertiary select-none text-lg text-white"
                       dangerouslySetInnerHTML={{ __html: item?.description }}
                     ></p>
                   </div>

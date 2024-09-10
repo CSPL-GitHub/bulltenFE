@@ -114,7 +114,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
               <>
                 {item?.operating_systems_is_active ? (
                   <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
-                    <OperatingComponent />
+                    <OperatingComponent color={undefined} />
                   </div>
                 ) : null}
               </>
@@ -125,7 +125,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 {" "}
                 {item?.testimonials_is_active?.Active ? (
                   <div key={index} className="container mx-auto">
-                    <TestimonialsComponent />{" "}
+                    <TestimonialsComponent color={undefined} />{" "}
                   </div>
                 ) : null}
               </>
@@ -138,7 +138,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                     key={index}
                     className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
                   >
-                    <ChatService />{" "}
+                    <ChatService color={undefined} />
                   </div>
                 ) : null}
               </>

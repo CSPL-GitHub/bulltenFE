@@ -3,16 +3,18 @@ import OperatingCartComponent from "@/components/ClientSideComponents/HomePageCo
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import React from "react";
 
-type Props = {};
+type Props = {
+  color:any;
+};
 
-const OperatingComponent = async (props: Props) => {
+const OperatingComponent:React.FC<Props> = async ({color}) => {
   const OurPatnarApiResponse = await OurPatnarApi();
   const data = OurPatnarApiResponse?.result;
 
   return (
     <>
       {data?.Active === true ? (
-        <section className="container mx-auto w-full sm:flex justify-center items-center gap-4 px-4 sm:pb-0 pb-2">
+        <section className={`container mx-auto w-full sm:flex justify-center items-center gap-4 px-4 sm:pb-0 pb-2 ${color ? `` :``}`}>
           <div className="text-center w-full">
             {data?.partner_data?.tab_one && (
               <MainHeadingComponent alignmentType={2} paddingTop={1}>

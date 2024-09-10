@@ -8,11 +8,7 @@ import Image from "next/image";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 import { SiComma } from "react-icons/si";
 
-export default function TestimonialsSection({
-  TestimonialsContent,
-}: {
-  TestimonialsContent: any;
-}) {
+export default function TestimonialsSection({ TestimonialsContent, color }: { TestimonialsContent: any; color: any }) {
   const testimonials = TestimonialsContent?.data?.reviews;
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -40,17 +36,14 @@ export default function TestimonialsSection({
   const sliderRef = React.useRef<Slider>(null);
 
   return (
-    <section className=" container w-full bg-bullt-quaternary/[0.07] rounded-lg lg:px-14 md:px-6 px-2 sm:my-0 my-3">
+    <section className={`container w-full ${color ? ' bg-[#1c1c28] border-[#323233]' : 'bg-bullt-quaternary/[0.07]'
+      } rounded-lg lg:px-14 md:px-6 px-2 sm:my-0 my-3`}>
       <div className="w-full mx-auto lg:py-16 py-8 rounded-lg ">
         {/* Header Section */}
         <div className="lg:-mb-[200px]  mb-0">
           <div className="text-left mb-8 lg:w-[50%] w-full px-4">
-            <SloganHeadingComponent paddingTop={1} alignmentType={1}>
-              {TestimonialsContent?.data?.slogen}
-            </SloganHeadingComponent>
-            <MainHeadingComponent paddingTop={1} alignmentType={1}>
-              {TestimonialsContent?.data?.title}
-            </MainHeadingComponent>
+            <p className={`flex items-center text-[1.2rem] lg:text-[1.1rem] font-semibold ${color ?`text-bullt-tertiary`:`text-bullt-quaternary`}`}> {TestimonialsContent?.data?.slogen}</p>
+            <h1 className={`flex items-center text-[2rem] lg:text-[2.3rem] font-bold leading-[45px] ${color ?`text-bullt-secondary`:`text-bullt-primary`}`}>{TestimonialsContent?.data?.title}</h1>
           </div>
         </div>
         <Slider ref={sliderRef} {...settings}>
@@ -61,19 +54,14 @@ export default function TestimonialsSection({
             >
               <div className="flex sm:flex-row flex-col sm:items-end items-center justify-start sm:justify-between gap-2">
                 <div className="sm:w-[40%] w-full">
-                  <div className="flex flex-row text-bullt-quaternary text-2xl mt-7">
+                  <div className={`flex flex-row  text-2xl mt-7 ${color ?`text-bullt-secondary`:`text-bullt-quaternary`}`}>
                     <SiComma />
                     <SiComma />
                   </div>
-                  <ParaGraphText paddingTop={3} alignmentType={1}>
-                    {testimonial?.description}
-                  </ParaGraphText>
-                  <SloganHeadingComponent paddingTop={3} alignmentType={1}>
-                    {testimonial?.name}
-                  </SloganHeadingComponent>
-                  <SubParaGraph paddingTop={1} alignmentType={1}>
-                    {testimonial?.role}
-                  </SubParaGraph>
+                  <p className={`flex items-center text-[1.2rem] lg:text-[1.1rem] py-4 font-semibold ${color ?`text-bullt-secondary`:`text-bullt-primary`}`}> {testimonial?.description}</p>
+                 
+                  <p className={`flex items-center text-[1.2rem] lg:text-[1.1rem] font-semibold ${color ?`text-bullt-tertiary`:`text-bullt-quaternary`}`} >{testimonial?.name}</p>
+                  <p className={`flex items-center  text-[1.1rem] lg:text-[0.90rem] font-nomral ${color ?`text-bullt-secondary`:`text-bullt-primary`}`}> {testimonial?.role}</p>
                 </div>
 
                 <div className="relative">
@@ -87,9 +75,8 @@ export default function TestimonialsSection({
                   </div>
                   {testimonials?.[0]?.client_image && (
                     <div
-                      className={`absolute rounded-full lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] sm:top-[10px] top-[5px] overflow-hidden border-4 border-white cursor-pointer ${
-                        selectedIndex === 0 ? "border-yellow-500" : ""
-                      }`}
+                      className={`absolute rounded-full lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] sm:top-[10px] top-[5px] overflow-hidden border-4 border-white cursor-pointer ${selectedIndex === 0 ? "border-yellow-500" : ""
+                        }`}
                       onClick={() => handleImageClick(0)}
                     >
                       <Image
@@ -104,9 +91,8 @@ export default function TestimonialsSection({
                   )}
                   {testimonials?.[1]?.client_image && (
                     <div
-                      className={`absolute rounded-full lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] lg:top-[150px] lg:-left-[50px] md:top-[100px] md:-left-[40px] top-[65px] -left-[30px] overflow-hidden border-4 border-white cursor-pointer ${
-                        selectedIndex === 1 ? "border-yellow-500" : ""
-                      }`}
+                      className={`absolute rounded-full lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] lg:top-[150px] lg:-left-[50px] md:top-[100px] md:-left-[40px] top-[65px] -left-[30px] overflow-hidden border-4 border-white cursor-pointer ${selectedIndex === 1 ? "border-yellow-500" : ""
+                        }`}
                       onClick={() => handleImageClick(1)}
                     >
                       <Image
@@ -121,9 +107,8 @@ export default function TestimonialsSection({
                   )}
                   {testimonials?.[2]?.client_image && (
                     <div
-                      className={`absolute rounded-full overflow-hidden border-4 lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] lg:top-[280px] lg:left-[10px] md:top-[200px] md:-left-[20px] top-[120px] -left-[15px]  border-white cursor-pointer ${
-                        selectedIndex === 2 ? "border-yellow-500" : ""
-                      }`}
+                      className={`absolute rounded-full overflow-hidden border-4 lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] w-[50px] h-[50px] lg:top-[280px] lg:left-[10px] md:top-[200px] md:-left-[20px] top-[120px] -left-[15px]  border-white cursor-pointer ${selectedIndex === 2 ? "border-yellow-500" : ""
+                        }`}
                       onClick={() => handleImageClick(2)}
                     >
                       <Image

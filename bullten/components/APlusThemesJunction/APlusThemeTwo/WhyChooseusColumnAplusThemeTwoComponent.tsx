@@ -12,7 +12,7 @@ const WhyChooseusColumnAplusThemeTwoComponent: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="relative lg:py-8 px-2 lg:px-8 border shadow-sm"
+      className="relative lg:py-8 px-2 lg:px-8 shadow-sm bg-[#1C1C28]"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -31,7 +31,7 @@ const WhyChooseusColumnAplusThemeTwoComponent: React.FC<Props> = ({
           {columnData?.heading ? (
             <>
               <div
-                className="w-full items-start  font-semibold sm:text-4xl text-2xl tailwind-unreset"
+                className="w-full items-start text-bullt-secondary font-semibold sm:text-4xl text-2xl tailwind-unreset"
                 dangerouslySetInnerHTML={{ __html: columnData?.heading }}
               ></div>
             </>
@@ -39,7 +39,7 @@ const WhyChooseusColumnAplusThemeTwoComponent: React.FC<Props> = ({
           {columnData?.description ? (
             <>
               <div
-                className="items-start tailwind-unrested py-3 sm:text-xl text-bullt-primary/[0.8]"
+                className="items-start tailwind-unrested py-3 sm:text-xl text-bullt-secondary"
                 dangerouslySetInnerHTML={{ __html: columnData?.description }}
               ></div>
             </>
@@ -53,7 +53,7 @@ const WhyChooseusColumnAplusThemeTwoComponent: React.FC<Props> = ({
                 className="flex flex-col p-4 border-[1px] rounded-md bg-bullt-quaternary/[0.05] hover:shadow-sm"
               >
                 {item?.image && (
-                  <div className="h-[80px] w-[80px] relative mb-4 bg-bullt-secondary rounded-full transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
+                  <div className="h-[80px] w-[80px] relative mb-4 bg-bullt-quaternary rounded-full transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                       alt={item?.heading}
@@ -68,11 +68,11 @@ const WhyChooseusColumnAplusThemeTwoComponent: React.FC<Props> = ({
                   </div>
                 )}
                 <div
-                  className="text-xl font-semibold mb-2"
+                  className="text-xl font-semibold mb-2 text-bullt-secondary"
                   dangerouslySetInnerHTML={{ __html: item?.heading }}
                 ></div>
                 <div
-                  className="w-full text-lg text-bullt-primary/[0.8]"
+                  className="w-full text-lg text-bullt-secondary"
                   dangerouslySetInnerHTML={{ __html: item?.description }}
                 ></div>
                 {item?.button_text && (
