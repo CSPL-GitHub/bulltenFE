@@ -8,6 +8,7 @@ import MainFilterProducts from "../APlusThemeOne/FilterProductsComponents/MainFi
 import WhyChooseusColumnAplusThemeTwoComponent from "./WhyChooseusColumnAplusThemeTwoComponent";
 import GamingProductComponent from "../APlusThemeOne/FilterProductsComponents/GamingProductComponent";
 import ImageTextTwoAPlusThemeTwoComponent from "./ImageTextTwoAPlusThemeTwoComponent";
+import CarouselTwoAPlusComponent from "./CarouselTwoAPlusThemeTwoComponent";
 // import BannerComponentAPlus from "./BannerComponentAPlus";
 // import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
 // import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
@@ -46,12 +47,13 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
-          case "banner":
+          case "game_banner":
             return (
               <div key={index}>
-                <APlusThemeTwoBannerComponent bannerData={item} />
+                <APlusThemeTwoBannerComponent GamebannerData={item} />
               </div>
             );
+
           case "image_text":
             return (
               <></>
@@ -61,10 +63,9 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "image_text_2":
             return (
-          
-                <div key={index}>
-                  <ImageTextTwoAPlusThemeTwoComponent imageTextData={item} />
-                </div>
+              <div key={index}>
+                <ImageTextTwoAPlusThemeTwoComponent imageTextData={item} />
+              </div>
             );
           case "video_text":
             return (
@@ -96,24 +97,21 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "carousel_2":
             return (
-              //   <div>
-              //     <CarouselTwoAPlusComponent carouselData={item} />
-              //   </div>
-              <></>
+              <div>
+                <CarouselTwoAPlusComponent carouselData={item} />
+              </div>
             );
           case "why_choose_column":
             return (
-                <div className="">
-                  <WhyChooseusColumnAplusThemeTwoComponent columnData={item} />
-                </div>
-              
+              <div className="">
+                <WhyChooseusColumnAplusThemeTwoComponent columnData={item} />
+              </div>
             );
           case "accordion":
             return (
-                <div key={index} className="">
-                  <AccordianAPlusThemeTwoComponent AccordionData={item} />
-                </div>
-            
+              <div key={index} className="">
+                <AccordianAPlusThemeTwoComponent AccordionData={item} />
+              </div>
             );
           case "location_data":
             return (
@@ -145,7 +143,9 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
                 {" "}
                 {item?.testimonials_is_active?.Active ? (
                   <div key={index} className="container mx-auto">
-                    <TestimonialsComponent color={item?.is_testimonials_color} />{" "}
+                    <TestimonialsComponent
+                      color={item?.is_testimonials_color}
+                    />{" "}
                   </div>
                 ) : null}
               </>
