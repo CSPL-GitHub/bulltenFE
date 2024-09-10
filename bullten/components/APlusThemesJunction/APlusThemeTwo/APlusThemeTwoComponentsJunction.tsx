@@ -92,10 +92,10 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "carousel":
             return (
-                <div key={index}>
-                  <CarouselComponentAPlusTwo carouselData={item} />
-                </div>
-             
+              <div key={index}>
+                <CarouselComponentAPlusTwo carouselData={item} />
+                <GamingProductComponent decodedSlug={item} />
+              </div>
             );
           case "carousel_2":
             return (
@@ -170,7 +170,8 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
               <>
                 {item?.is_active_product ? (
                   <div key={index}>
-                    <GamingProductComponent decodedSlug={decodedSlug} />
+
+                    <MainFilterProducts decodedSlug={decodedSlug} />
                   </div>
                 ) : null}
               </>

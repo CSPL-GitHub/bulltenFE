@@ -57,17 +57,6 @@ const GamingProductComponent = ({ decodedSlug }: Props) => {
           }}
         />
       </div>
-      {/* <FilterComponent
-        setSelectedLocation={setSelectedLocation}
-        setPriceRange={setPriceRange}
-        setRamRange={setRamRange}
-        setSelectedDisks={setSelectedDisks}
-        selectedDisks={selectedDisks}
-        ramRange={ramRange}
-        priceRange={priceRange}
-        selectedLocation={selectedLocation}
-        ProductsDetails={serverProducts}
-      /> */}
       <GamingCartComponent ProductsData={serverProducts} />
      
     </div>
