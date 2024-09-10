@@ -48,7 +48,7 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
           return (
             <div
               key={index}
-              className="w-full rounded-md shadow-sm items-center  border-[1px] p-3 my-3 cursor-pointer bg-[#1C1C28]"
+              className="w-full rounded-md shadow-sm items-center border-bullt-secondary/[0.2] border-[1px] p-3 my-3 cursor-pointer backdrop-filter backdrop-blur-xl bg-opacity-20 bg-[#262632]"
               onClick={() => handleDescription(index)}
             >
               <div className=" flex justify-between p-2">

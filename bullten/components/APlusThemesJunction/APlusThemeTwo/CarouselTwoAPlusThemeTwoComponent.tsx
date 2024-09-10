@@ -4,102 +4,10 @@ import { motion } from "framer-motion";
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
 import * as DOMPurify from "dompurify";
 import Image from "next/image";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 interface Props {
   carouselData: any;
 }
-const logos = [
-  "https://res.cloudinary.com/dl2adjye7/image/upload/v1716817722/Amazon_icon.svg_a4qmtg.png",
-  "https://res.cloudinary.com/dl2adjye7/image/upload/v1716800282/Apple_logo_black.svg_seeetv.png",
-  "https://res.cloudinary.com/dl2adjye7/image/upload/v1716800359/WISE.L-b3d3de3c_rexehe.png",
-];
-
-// const LogoBeam = () => {
-//   return (
-//     <div className="flex items-center justify-center min-h-52">
-//       <div className="relative flex items-center">
-//         <div className="bg-[#000] border border-white/30  rounded-2xl flex items-center justify-center w-14 h-14 p-4">
-//           <img
-//             src={logos[0]}
-//             alt="Logo 1"
-//             className="filter invert brightness-0"
-//           />
-//         </div>
-//         <div
-//           className="relative"
-//           style={{
-//             width: `${lineWidth}px`,
-//             height: `${lineHeight}px`,
-//             backgroundColor: "#FFFFFF",
-//             overflow: "hidden",
-//           }}
-//         >
-//           <motion.div
-//             className="absolute top-0 left-0 h-full w-10 bg-gradient-to-r from-transparent via-black to-transparent opacity-75"
-//             initial={{ x: "-40px" }}
-//             animate={{ x: `calc(${lineWidth}px + 40px)` }}
-//             transition={{
-//               repeat: Infinity,
-//               duration: 0.5,
-//               repeatDelay: 2.5,
-//               ease: "linear",
-//             }}
-//             style={{ willChange: "transform" }}
-//           />
-//         </div>
-//         <div className="relative bg-black border-2 border-white/70 rounded-2xl flex items-center justify-center w-16 h-16 p-4 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2]">
-//           <img
-//             src={logos[1]}
-//             alt="Logo 2"
-//             className="filter invert brightness-0"
-//           />
-//           <motion.div
-//             className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
-//             initial={{ x: "-100%" }}
-//             animate={{ x: "100%" }}
-//             transition={{
-//               duration: 2,
-//               ease: "linear",
-//               repeat: Infinity,
-//               repeatType: "loop",
-//             }}
-//             style={{ willChange: "transform" }}
-//           />
-//         </div>
-//         <div
-//           className="relative"
-//           style={{
-//             width: `${lineWidth}px`,
-//             height: `${lineHeight}px`,
-//             backgroundColor: "#FFFFFF",
-//             overflow: "hidden",
-//           }}
-//         >
-//           <motion.div
-//             className="absolute top-0 right-0 h-full w-10 bg-gradient-to-r from-transparent via-black to-transparent opacity-75"
-//             initial={{ x: "40px" }}
-//             animate={{ x: `calc(-${lineWidth}px - 40px)` }}
-//             transition={{
-//               repeat: Infinity,
-//               duration: 0.5,
-//               repeatDelay: 3.5,
-//               ease: "linear",
-//             }}
-//             style={{ willChange: "transform" }}
-//           />
-//         </div>
-//         <div className="bg-black border border-white/30 rounded-2xl flex items-center justify-center w-14 h-14 p-4">
-//           <img
-//             src={logos[2]}
-//             alt="Logo 3"
-//             className="filter invert brightness-0"
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
 const CardWithEffect = ({ children }: { children: React.ReactNode }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -263,7 +171,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
     ],
   };
   return (
-    <div className="bg-bullt-primary flex flex-col justify-center items-center rounded-lg lg:py-20 py-8 max-w-7xl mx-auto ">
+    <div className="bg-bullt-primary flex flex-col justify-center items-center rounded-lg lg:px-14 px-2 lg:py-20 py-8 mx-auto ">
       <div className="w-full flex flex-col justify-center p-4 sm:p-5">
         {carouselData?.heading ? (
           <>
@@ -286,7 +194,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
         <SliderFrame settings={settings} selector={undefined}>
           {carouselData?.content?.map((item: any, index: number) => (
             <CardWithEffect key={index}>
-              <div className="flex flex-col justify-center min-h-[300px]">
+              <div className="flex flex-col justify-center gap-4 px-4 min-h-[300px]">
                 {item?.image && (
                   <div className="relative bg-black border-2 border-white/70 rounded-2xl flex items-center justify-center w-16 h-16 p-4 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2]">
                     <img
@@ -317,7 +225,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                       }}
                     />
                     <div
-                      className="w-full tailwind-unreset text-md text-bullt-secondary"
+                      className="w-full tailwind-unreset text-md text-bullt-secondary -mt-4"
                       dangerouslySetInnerHTML={{
                         __html: item?.description,
                       }}

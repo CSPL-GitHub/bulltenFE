@@ -10,9 +10,9 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
   imageTextData,
 }) => {
   return (
-    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8  bg-contain bg-no-repeat">
+    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8 ">
       <div
-        className="items-center "
+        className="items-center"
         style={{
           marginTop: `${imageTextData?.gap_top / 4}rem`,
           marginBottom: `${imageTextData?.gap_bottom / 4}rem`,
@@ -72,7 +72,11 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 </div>
               ) : null}
 
-              <div className="w-full lg:w-2/4 relative  h-[400px] flex px-0 lg:px-14">
+              <div className="w-full lg:w-2/4 relative h-[400px] flex px-0 lg:px-14">
+                <div className=" absolute left-[550px] right-0 top-[100px] ">
+                  <img src="/shape-17.png" />
+                </div>
+
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                   alt={imageTextData?.heading}
