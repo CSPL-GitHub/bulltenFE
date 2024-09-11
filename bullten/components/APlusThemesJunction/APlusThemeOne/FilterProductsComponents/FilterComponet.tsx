@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import { useSelector } from "react-redux";
 
 type Props = {
   setSelectedLocation: any;
@@ -25,6 +26,9 @@ const FilterComponent = ({
   selectedLocation,
   ProductsDetails,
 }: Props) => {
+     const CurrencyCode = useSelector((state: any) => state?.Currency?.code);
+     console.log("CurrencyCode",CurrencyCode)
+
   const disks = ["SATA", "SSD", "NVME"];
   console.log(ProductsDetails?.ram_max_price, "jhfsdjfhsdjf");
 
@@ -86,32 +90,6 @@ const FilterComponent = ({
           ))}
         </select>
       </div>
-
-      {/* <div className="relative mb-4 col-span-1 px-5  lg:border-r-2 h-full">
-        <label className="block text-md font-semibold text-gray-700 mb-4">
-          Server Location
-        </label>
-        <div
-          className="w-full p-2 border border-gray-300 rounded-sm cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {selectedLocation || "Select Location"}
-        </div>
-
-        {isOpen && (
-          <ul className="absolute z-10 w-full border border-gray-300 bg-white rounded-md shadow-lg">
-            {locations.map((location) => (
-              <li
-                key={location}
-                className="p-2 hover:bg-bullt-tertiary hover:text-bullt-secondary active:bg-bullt-quaternary active:text-bullt-secondary cursor-pointer"
-                onClick={() => handleSelect(location)}
-              >
-                {location}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div> */}
       <div className="col-span-1 px-5 border-r-2">
         <label className="block text-md font-semibold text-gray-700 mb-4">
           Price Range ($)
@@ -127,9 +105,10 @@ const FilterComponent = ({
         </div>
         <Slider
           range
-          min={priceRange}
-          max={priceRange}
-          value={priceRange}
+          min={0}
+          max={1000}
+          step={10}
+          defaultValue={[4, 1000]}
           onChange={handlePriceChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
           handleStyle={[
@@ -156,13 +135,12 @@ const FilterComponent = ({
             {ramRange[1]}GB
           </span>
         </div>
-
         <Slider
           range
           min={4}
           max={1000}
           defaultValue={[4, 1000]}
-          value={ramRange}
+          step={4}
           onChange={handleRamChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
           handleStyle={[
