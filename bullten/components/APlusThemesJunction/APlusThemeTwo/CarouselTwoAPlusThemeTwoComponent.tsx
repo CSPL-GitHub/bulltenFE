@@ -219,7 +219,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                 {item?.heading || item?.description ? (
                   <>
                     <div
-                      className="w-full text-xl font-semibold tailwind-unreset py-2 line-clamp-2 text-bullt-secondary"
+                      className="w-full text-xl font-semibold tailwind-unreset py-2 line-clamp-3 text-bullt-secondary"
                       dangerouslySetInnerHTML={{
                         __html: item?.heading,
                       }}
