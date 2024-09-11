@@ -2,13 +2,16 @@ import { TestimonialsApi } from '@/apis/HomePageApis';
 import React from 'react'
 import TestimonialsSection from './TestimonialsComponents/NewTestimonial';
 
-type Props = {}
+type Props = {
+  color:any
+}
 
-const TestimonialsComponent = async (props: Props) => {
+const TestimonialsComponent:React.FC<Props> = async ({color}) => {
     const TestimonialsContent = await TestimonialsApi();
   return (
     <div><TestimonialsSection
     TestimonialsContent={TestimonialsContent?.result}
+    color={color}
   /></div>
   )
 }

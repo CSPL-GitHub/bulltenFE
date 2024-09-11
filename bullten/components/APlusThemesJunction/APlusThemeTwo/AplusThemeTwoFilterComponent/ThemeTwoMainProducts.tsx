@@ -2,18 +2,20 @@
 
 import React, { useEffect, useState } from "react";
 import { ProductDataApi } from "@/apis/productsApi";
-import ServerProductsComponent from "./ServerProductComponent";
-import FilterComponent from "./FilterComponet";
-import GamingProductComponent from "./GamingProductComponent";
+import ThemeTwoFilterComponent from "./ThemeTwoFilterComponent";
+import ThemeTwoServerProductsComponent from "./ThemeTwoServerProductsComponent";
 
 type Props = {
   decodedSlug: string;
 };
 
-const MainFilterProducts = ({ decodedSlug }: Props) => {
+const ThemeTwoMainProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
   const [selectedLocation, setSelectedLocation] = useState<string>("");
-  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([ null,null,]);
+  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
+    null,
+    null,
+  ]);
   const [ramRange, setRamRange] = useState<[number | null, number | null]>([
     null,
     null,
@@ -42,22 +44,22 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
   }, [selectedLocation, selectedDisks, priceRange, ramRange]);
 
   return (
-    <div className="container mx-auto py-4 lg:py-8 px-2 lg:px-9">
+    <div className="container mx-auto py-4 lg:py-20 px-2 lg:px-9">
       <div className="">
         <div
-          className="text-center lg:text-4xl text-2xl font-semibold "
+          className="text-center text-2xl sm:text-4xl text-bullt-secondary font-semibold "
           dangerouslySetInnerHTML={{
             __html: serverProducts?.heading,
           }}
         />
         <div
-          className="text-center text-xl py-3"
+          className="text-center text-xl py-3 text-bullt-secondary"
           dangerouslySetInnerHTML={{
             __html: serverProducts?.description,
           }}
         />
       </div>
-      <FilterComponent
+      <ThemeTwoFilterComponent
         setSelectedLocation={setSelectedLocation}
         setPriceRange={setPriceRange}
         setRamRange={setRamRange}
@@ -68,9 +70,9 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         selectedLocation={selectedLocation}
         ProductsDetails={serverProducts}
       />
-      <ServerProductsComponent ProductsData={serverProducts} />
+      <ThemeTwoServerProductsComponent ProductsData={serverProducts} />
     </div>
   );
 };
 
-export default MainFilterProducts;
+export default ThemeTwoMainProducts;

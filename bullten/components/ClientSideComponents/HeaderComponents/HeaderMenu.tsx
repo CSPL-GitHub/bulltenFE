@@ -60,6 +60,11 @@ const HeaderMenu = ({ headerResponse }: Props) => {
               </div>
             </div>
             <div className="flex item-center text-bullt-secondary gap-4 relative">
+              {/* <select className="bg-black px-1">
+                <option >IND</option>
+                <option>USD</option>
+                <option>EUR</option>
+                </select> */}
               <FaUser size={18} className="my-auto" />
               <FaCartArrowDown size={18} className="my-auto" />
               {/* {headerResponse?.result?.socialmedialinks_data?.map((social_icons: any) => {

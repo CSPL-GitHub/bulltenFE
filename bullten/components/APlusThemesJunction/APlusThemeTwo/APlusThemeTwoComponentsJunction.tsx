@@ -1,82 +1,82 @@
 import React from "react";
-import BannerComponentAPlus from "./BannerComponentAPlus";
-import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
-import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
-import VideoAPlusComponent from "./VideoAPlusComponent";
-import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
-import CarouselComponentAPlus from "./CarouselComponentAPlus";
-import VideoTextAPlusComponent from "./VideoTextAPlusComponent";
-import CarouselTwoAPlusComponent from "./CarouselTwoAPlusComponent";
-import CountryLocationsCarouselComponentAPlus from "./CountryLocationsCarouselComponentAPlus";
-import WhyChooseusColumnComponent from "./WhyChooseusColumnComponent";
-import AccordianAPlusComponent from "./AccordianAPlusComponent";
-import SupportSection from "@/components/ServerSideComponents/HomePageComponents/SupportComponent";
+import APlusThemeTwoBannerComponent from "./APlusThemeTwoBannerComponent";
+import AccordianAPlusThemeTwoComponent from "./AccordianAPlusThemeTwoComponent";
 import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
-import AlternatingSections from "./AdvantagesComponent";
-import AdvantagesAPLusComponent from "./AdvantagesComponent";
-import FilterComponent from "./FilterProductsComponents/FilterComponet";
-import PricingTable from "./FilterProductsComponents/ServerProductComponent";
-import MainFilterProducts from "./FilterProductsComponents/MainFilterProducts";
+import MainFilterProducts from "../APlusThemeOne/FilterProductsComponents/MainFilterProducts";
+import WhyChooseusColumnAplusThemeTwoComponent from "./WhyChooseusColumnAplusThemeTwoComponent";
+import GamingProductComponent from "../APlusThemeOne/FilterProductsComponents/GamingProductComponent";
+import ImageTextTwoAPlusThemeTwoComponent from "./ImageTextTwoAPlusThemeTwoComponent";
+import CarouselTwoAPlusComponent from "./CarouselTwoAPlusThemeTwoComponent";
+import CarouselComponentAPlus from "../APlusThemeOne/CarouselComponentAPlus";
+import CarouselComponentAPlusTwo from "./CarouselComponentAPlusTwo";
+import ColumnSectionAPlusThemeTwoComponent from "./ColumnSectionAPlusThemeTwoComponent";
+import ThemeTwoMainProducts from "./AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
+import AdvantagesAplusThemeTwoComponent from "./AdvantagesAplusThemeTwoComponent";
 
 interface Props {
   aPlusResponse: any;
   decodedSlug: any;
 }
 
-const APlusThemeOneComponentsJunction: React.FC<Props> = ({
+const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
   aPlusResponse,
   decodedSlug,
 }) => {
   return (
     <div
       className={
-        " bg-bullt-quaternary/[0.02] sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
+        " bg-bullt-primary sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
       }
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
-          case "banner":
+          case "game_banner":
             return (
               <div key={index}>
-                <BannerComponentAPlus bannerData={item} />
+                <APlusThemeTwoBannerComponent GamebannerData={item} />
               </div>
             );
+
           case "image_text":
             return (
-              <div key={index}>
-                <ImageTextAPlusComponent imageTextData={item} />
-              </div>
+              <></>
+              //   <div key={index}>
+              //     <ImageTextAPlusComponent imageTextData={item} />
+              //   </div>
             );
           case "image_text_2":
             return (
               <div key={index}>
-                <ImageTextTwoAPlusComponent imageTextData={item} />
+                <ImageTextTwoAPlusThemeTwoComponent imageTextData={item} />
               </div>
             );
           case "video_text":
             return (
-              <div>
-                <VideoTextAPlusComponent videoTextData={item} />
-              </div>
+              //   <div>
+              //     <VideoTextAPlusComponent videoTextData={item} />
+              //   </div>
+              <></>
             );
           case "video":
             return (
-              <div key={index}>
-                <VideoAPlusComponent videoData={item} />
-              </div>
+              //   <div key={index}>
+              //     <VideoAPlusComponent videoData={item} />
+              //   </div>
+              <></>
             );
           case "column":
             return (
               <div key={index}>
-                <ColumnSectionAPlusComponent columnData={item} />
+                <ColumnSectionAPlusThemeTwoComponent columnData={item} />
               </div>
             );
           case "carousel":
             return (
               <div key={index}>
-                <CarouselComponentAPlus carouselData={item} />
+                <CarouselComponentAPlusTwo carouselData={item} />
+                {/* <GamingProductComponent decodedSlug={item} /> */}
               </div>
             );
           case "carousel_2":
@@ -88,25 +88,29 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
           case "why_choose_column":
             return (
               <div className="">
-                <WhyChooseusColumnComponent columnData={item} />
+                <WhyChooseusColumnAplusThemeTwoComponent columnData={item} />
               </div>
             );
           case "accordion":
             return (
-              <div key={index}>
-                <AccordianAPlusComponent AccordionData={item} />
+              <div key={index} className="">
+                <AccordianAPlusThemeTwoComponent AccordionData={item} />
               </div>
             );
           case "location_data":
             return (
-              <div>
-                <CountryLocationsCarouselComponentAPlus carouselData={item} />
-              </div>
+              //   <div>
+              //     <CountryLocationsCarouselComponentAPlus carouselData={item} />
+              //   </div>
+              <></>
             );
           case "advantage":
             return (
-              <div key={index}>
-                <AdvantagesAPLusComponent AdvantagesData={item} />
+              <div
+                key={index}
+                className="bg-gradient-to-b from-black/20 via-[#6031a7] to-black/40"
+              >
+                <AdvantagesAplusThemeTwoComponent AdvantagesData={item} />
               </div>
             );
           case "operating_systems":
@@ -114,7 +118,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
               <>
                 {item?.operating_systems_is_active ? (
                   <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
-                    <OperatingComponent color={undefined} />
+                    <OperatingComponent color={item?.is_os_color} />
                   </div>
                 ) : null}
               </>
@@ -125,7 +129,9 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                 {" "}
                 {item?.testimonials_is_active?.Active ? (
                   <div key={index} className="container mx-auto">
-                    <TestimonialsComponent color={undefined} />{" "}
+                    <TestimonialsComponent
+                      color={item?.is_testimonials_color}
+                    />{" "}
                   </div>
                 ) : null}
               </>
@@ -138,7 +144,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                     key={index}
                     className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
                   >
-                    <ChatService color={undefined} />
+                    <ChatService color={item?.is_support_color} />{" "}
                   </div>
                 ) : null}
               </>
@@ -148,7 +154,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
               <>
                 {item?.is_active_product ? (
                   <div key={index}>
-                    <MainFilterProducts decodedSlug={decodedSlug} />
+                    <ThemeTwoMainProducts decodedSlug={decodedSlug} />
                   </div>
                 ) : null}
               </>
@@ -158,12 +164,8 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
             return null;
         }
       })}
-
-      {/* <div>
-        <AlternatingSections />
-      </div> */}
     </div>
   );
 };
 
-export default APlusThemeOneComponentsJunction;
+export default APlusThemeTwoComponentsJunction;

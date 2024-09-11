@@ -5,8 +5,10 @@ import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaG
 import Image from "next/image";
 import SupportSection from "./SupportComponent";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
-
-export default async function ChatService() {
+  type props={
+    color:any;
+  }
+ const ChatService:React.FC<props> = async({color})=> {
   const SupportSectionContent = await SupportSectionAPI();
 
   return (
@@ -44,10 +46,11 @@ export default async function ChatService() {
           </div>
 
           <div className="group lg:h-[210px] md:h-[260px]  relative mx-auto sm:-mt-20 -mt-12 rounded-md bg-bullt-secondary shadow-md md:block lg:w-[83%] md:w-[95%] w-[95%]">
-            <SupportSection supportContent={SupportSectionContent?.result} />
+            <SupportSection color={color} supportContent={SupportSectionContent?.result} />
           </div>
         </section>
       ) : null}
     </>
   );
 }
+export default ChatService;
