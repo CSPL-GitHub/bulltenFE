@@ -1,21 +1,19 @@
-"use client"
+"use client";
 import React from "react";
 import APlusBannerComponent from "./BannerComponentAPlus";
 import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
-import VideoTextAPlusComponent from "./VideoTextAPlusComponent";
-import VideoAPlusComponent from "./VideoAPlusComponent";
 import CarouselTwoAPlusComponent from "./CarouselTwoAPlusComponent";
 import AdvantagesAPLusComponent from "./AdvantagesComponent";
 import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
 import ThemeTwoMainProducts from "../APlusThemeTwo/AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
-import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
 import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
 import CarouselComponentAPlus from "./CarouselComponentAPlus";
-import WhyChooseusColumnComponent from "./WhyChooseusColumnComponent";
 import AccordianAPlusComponent from "./AccordianAPlusComponent";
-
+import WhyChooseUsManagedVPSComponent from "./WhyChooseUsManagedVPSComponent";
+import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
+import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -26,7 +24,6 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
   aPlusResponse,
   decodedSlug,
 }) => {
- 
   return (
     <div
       className={
@@ -44,7 +41,6 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
 
           case "image_text":
             return (
-
               <div key={index}>
                 <ImageTextAPlusComponent imageTextData={item} />
               </div>
@@ -52,28 +48,13 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "image_text_2":
             return (
               <div key={index}>
-                <ImageTextTwoAPlusComponent imageTextData={item} />
+                <ImageTextTwoManagedVpsAPlusComponent imageTextData={item} />
               </div>
-            );
-          case "video_text":
-            return (
-                <div>
-                  <VideoTextAPlusComponent videoTextData={item} />
-                </div>
-              
-            );
-          case "video":
-            return (
-                <div key={index}>
-                  <VideoAPlusComponent videoData={item} />
-                </div>
-              
             );
           case "column":
             return (
               <div key={index}>
                 <ColumnSectionAPlusComponent columnData={item} />
-
               </div>
             );
           case "carousel":
@@ -91,7 +72,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "why_choose_column":
             return (
               <div className="">
-                <WhyChooseusColumnComponent columnData={item} />
+                <WhyChooseUsManagedVPSComponent columnData={item} />
               </div>
             );
           case "accordion":
@@ -102,17 +83,15 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
             );
           case "location_data":
             return (
-                <div>
-                  {/* <CountryLocationsCarouselComponentAPlus carouselData={item} /> */}
-                </div>
-              
+              <div>
+                {/* <CountryLocationsCarouselComponentAPlus carouselData={item} /> */}
+              </div>
             );
           case "advantage":
             return (
-                <div key={index}>
-                  <AdvantagesAPLusComponent AdvantagesData={item} />
-                </div>
-           
+              <div key={index}>
+                <AdvantagesAPLusComponent AdvantagesData={item} />
+              </div>
             );
           case "operating_systems":
             return (
@@ -155,8 +134,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
               <>
                 {item?.is_active_product ? (
                   <div key={index}>
-                    <ThemeTwoMainProducts
-                     decodedSlug={decodedSlug} />
+                    <ThemeTwoMainProducts decodedSlug={decodedSlug} />
                   </div>
                 ) : null}
               </>
@@ -166,8 +144,8 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
             return null;
         }
       })}
+      <WindowsVpsHostingAPlusComponent />
     </div>
-
   );
 };
 

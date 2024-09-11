@@ -78,12 +78,13 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                   />
                 </div>
               ) : null}
+
               {item?.heading || item?.description ? (
                 <div className="p-2">
                   <div className="flex flex-col justify-center items-start">
                     {item?.heading ? (
                       <div
-                        className="w-full flex text-start text-xl flex-col items-start tailwind-unreset font-semibold sm:h-12"
+                        className="w-full flex text-start text-xl flex-col items-start tailwind-unreset font-semibold sm:h-12 "
                         dangerouslySetInnerHTML={{
                           __html: item?.heading,
                         }}

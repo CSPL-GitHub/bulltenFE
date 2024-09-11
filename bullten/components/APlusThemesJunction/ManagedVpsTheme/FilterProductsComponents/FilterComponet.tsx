@@ -26,9 +26,7 @@ const FilterComponent = ({
   ProductsDetails,
 }: Props) => {
   const disks = ["SATA", "SSD", "NVME"];
-  console.log(ProductsDetails?.ram_max_price, "jhfsdjfhsdjf");
 
-  console.log(ProductsDetails, "details for Filtering");
   const [isOpen, setIsOpen] = useState(false);
   const locations = [
     "All Locations",
@@ -65,7 +63,6 @@ const FilterComponent = ({
 
   return (
     <div className="p-3 lg:p-4 mt-4 shadow-md lg:shadow-sm bg-bullt-secondary rounded-md  sm:grid md:grid-cols-4 sm:grid-cols-2 w-full gap-10 md:gap-4 lg:gap-10 justify-center items-center">
-
       <div className="mb-4 col-span-1 px-5 lg:border-r-2 h-full">
         <label className="block text-md font-semibold text-gray-700 mb-4">
           Server Location

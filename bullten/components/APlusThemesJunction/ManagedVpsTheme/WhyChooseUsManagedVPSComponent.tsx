@@ -7,24 +7,32 @@ interface Props {
   columnData: any;
 }
 
-const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
+const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <div
-      className="relative lg:py-8 px-2 lg:px-8 border shadow-sm py-4"
+      className=" relative lg:py-8 px-2 lg:px-8 border shadow-sm py-4"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
+        // backgroundImage: `url('/hero-map.png')`,
+        // backgroundSize: "contain",
+        // backgroundRepeat: "no-repeat",
+        // backgroundPosition: "center",
       }}
     >
-      <div className="container mx-auto flex flex-col sm:gap-4 md:flex-row">
+      <div className="relative container mx-auto flex flex-col sm:gap-4 md:flex-row">
+        <div className="absolute ">
+          <Image
+            src="/icon-lines-6.81833a8f.png"
+            alt="Heading Image"
+            width={500}
+            height={500}
+            className="custom-bounce "
+          />
+        </div>
         <div
           className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 md:h-[510px] h-full sm:py-0 py-4 text-center sm:text-start"
-          style={{
-            // backgroundImage: `url(${img.src})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "top",
-          }}
+          style={{}}
         >
           {columnData?.heading ? (
             <>
@@ -50,21 +58,19 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
                 key={index}
                 className="flex flex-col p-4 border-[1px] rounded-md bg-bullt-quaternary/[0.05] hover:shadow-sm"
               >
-                {item?.image && (
-                  <div className="h-[80px] w-[80px] relative mb-4 bg-bullt-secondary rounded-full transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                      alt={item?.heading}
-                      style={{
-                        position: "absolute",
-                        objectFit: "cover",
-                        inset: 0,
-                      }}
-                      fill={true}
-                      className="w-full h-full p-4 "
-                    />
-                  </div>
-                )}
+                <div className="relative bg-black rounded-2xl flex items-center justify-center w-16 h-16 p-4 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2] transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                    alt={item?.heading}
+                    style={{
+                      position: "absolute",
+                      objectFit: "cover",
+                      inset: 0,
+                    }}
+                    fill={true}
+                    className="w-full h-full p-4 filter invert brightness-0 "
+                  />
+                </div>
                 <div
                   className="text-xl font-semibold mb-2"
                   dangerouslySetInnerHTML={{ __html: item?.heading }}
@@ -89,4 +95,4 @@ const WhyChooseusColumnComponent: React.FC<Props> = ({ columnData }) => {
   );
 };
 
-export default WhyChooseusColumnComponent;
+export default WhyChooseUsManagedVPSComponent;
