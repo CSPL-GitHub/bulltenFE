@@ -25,7 +25,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center ">
                   {imageTextData?.heading ? (
                     <div
-                      className="w-full text-bullt-secondary text-start font-semibold sm:text-4xl text-2xl"
+                      className="w-full text-bullt-secondary lg:text-start text-center font-semibold sm:text-4xl text-2xl"
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.heading,
                       }}
@@ -80,7 +80,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                   alt={imageTextData?.heading}
-                  className="rounded-md w-full h-full object-cover"
+                  className="rounded-md w-full h-full md:object-cover object-contain"
                   style={{ height: "100%" }}
                 />
 
@@ -168,7 +168,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <div className="w-2/4 flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4 ">
                   {imageTextData?.heading ? (
                     <div
-                      className="w-full text-bullt-primary text-start sm:text-4xl text-2xl"
+                      className="w-full text-bullt-primary lg:text-start text-center sm:text-4xl text-2xl"
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.heading,
                       }}

@@ -47,7 +47,7 @@ const ThemeTwoMainProducts = ({ decodedSlug }: Props) => {
     <div className="container mx-auto py-4 lg:py-20 px-2 lg:px-9">
       <div className="">
         <div
-          className="text-center lg:text-4xl text-2xl text-bullt-secondary font-semibold "
+          className="text-center text-2xl sm:text-4xl text-bullt-secondary font-semibold "
           dangerouslySetInnerHTML={{
             __html: serverProducts?.heading,
           }}

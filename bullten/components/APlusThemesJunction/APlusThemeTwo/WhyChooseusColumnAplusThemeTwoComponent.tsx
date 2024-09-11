@@ -51,7 +51,7 @@ const WhyChooseusColumnAplusThemeTwoComponent: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="relative lg:py-8 px-2 lg:px-8 shadow-sm  bg-center bg-no-repeat bg-cover bg-[url('/shape-18.png')]"
+      className="relative md:py-8 py-4 px-2 lg:px-8 shadow-sm  bg-center bg-no-repeat bg-cover bg-[url('/shape-18.png')]"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -60,7 +60,7 @@ const WhyChooseusColumnAplusThemeTwoComponent: React.FC<Props> = ({
       <div className="absolute inset-0 bg-black opacity-75" />
       <div className="relative container mx-auto flex flex-col sm:gap-4 md:flex-row ">
         <div
-          className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 sm:h-[510px] sm:py-0 py-4 text-center sm:text-start"
+          className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 md:h-[510px] h-full sm:py-0 py-4 text-center sm:text-start"
           style={{
             // backgroundImage: `url(${img.src})`,
             backgroundSize: "cover",

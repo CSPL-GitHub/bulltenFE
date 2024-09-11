@@ -30,7 +30,7 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
       {columnData?.heading || columnData?.description ? (
         <>
           <div
-            className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold text-bullt-secondary tailwind-unreset"
+            className="text-center text-2xl sm:text-4xl sm:mt-0 mt-5 font-semibold text-bullt-secondary tailwind-unreset"
             dangerouslySetInnerHTML={{
               __html: columnData?.heading,
             }}
