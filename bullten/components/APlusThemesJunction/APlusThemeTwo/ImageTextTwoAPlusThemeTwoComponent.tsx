@@ -72,7 +72,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 </div>
               ) : null}
 
-              <div className="w-full lg:w-2/4 relative h-[400px] flex px-0 lg:px-14">
+              <div className="w-full lg:w-2/4 relative md:h-[400px] h-[300px] flex px-0 lg:px-14">
                 <div className=" absolute left-[550px] right-0 top-[100px] ">
                   <img src="/shape-17.png" />
                 </div>
@@ -80,42 +80,9 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                   alt={imageTextData?.heading}
-                  className="rounded-md w-full h-full md:object-cover object-contain"
+                  className="rounded-md w-full h-full md:object-contain object-contain"
                   style={{ height: "100%" }}
                 />
-
-                {imageTextData?.small_box_image ? (
-                  <>
-                    {" "}
-                    <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
-                        alt={imageTextData?.image_alternate_text}
-                        className="w-10 h-10"
-                      />
-                      {imageTextData?.small_box_text ? (
-                        <>
-                          {" "}
-                          <span className="text-sm font-semibold">
-                            {imageTextData?.small_box_text}
-                          </span>
-                        </>
-                      ) : null}
-                    </div>
-                  </>
-                ) : null}
-
-                {imageTextData?.single_box ? (
-                  <>
-                    <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
-                        alt={imageTextData?.heading}
-                        className="w-15 h-15"
-                      />
-                    </div>
-                  </>
-                ) : null}
               </div>
             </div>
           </>

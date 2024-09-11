@@ -106,7 +106,10 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "advantage":
             return (
-              <div key={index}>
+              <div
+                key={index}
+                className="bg-gradient-to-b from-black/20 via-[#6031a7] to-black/40"
+              >
                 <AdvantagesAplusThemeTwoComponent AdvantagesData={item} />
               </div>
             );
