@@ -26,8 +26,8 @@ const FilterComponent = ({
   selectedLocation,
   ProductsDetails,
 }: Props) => {
-     const CurrencyCode = useSelector((state: any) => state?.Currency?.code);
-     console.log("CurrencyCode",CurrencyCode)
+  const currencyCode = useSelector((state: any) => state.currency.code);
+  console.log("CurrencyCode", currencyCode)
 
   const disks = ["SATA", "SSD", "NVME"];
   console.log(ProductsDetails?.ram_max_price, "jhfsdjfhsdjf");
