@@ -13,26 +13,7 @@ import CarouselComponentAPlus from "../APlusThemeOne/CarouselComponentAPlus";
 import CarouselComponentAPlusTwo from "./CarouselComponentAPlusTwo";
 import ColumnSectionAPlusThemeTwoComponent from "./ColumnSectionAPlusThemeTwoComponent";
 import ThemeTwoMainProducts from "./AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
-// import BannerComponentAPlus from "./BannerComponentAPlus";
-// import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
-// import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
-// import VideoAPlusComponent from "./VideoAPlusComponent";
-// import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
-// import CarouselComponentAPlus from "./CarouselComponentAPlus";
-// import VideoTextAPlusComponent from "./VideoTextAPlusComponent";
-// import CarouselTwoAPlusComponent from "./CarouselTwoAPlusComponent";
-// import CountryLocationsCarouselComponentAPlus from "./CountryLocationsCarouselComponentAPlus";
-// import WhyChooseusColumnComponent from "./WhyChooseusColumnComponent";
-// import AccordianAPlusComponent from "./AccordianAPlusComponent";
-// import SupportSection from "@/components/ServerSideComponents/HomePageComponents/SupportComponent";
-// import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
-// import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
-// import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
-// import AlternatingSections from "./AdvantagesComponent";
-// import AdvantagesAPLusComponent from "./AdvantagesComponent";
-// import FilterComponent from "./FilterProductsComponents/FilterComponet";
-// import PricingTable from "./FilterProductsComponents/ServerProductComponent";
-// import MainFilterProducts from "./FilterProductsComponents/MainFilterProducts";
+import AdvantagesAplusThemeTwoComponent from "./AdvantagesAplusThemeTwoComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -125,10 +106,9 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "advantage":
             return (
-              //   <div key={index}>
-              //     <AdvantagesAPLusComponent AdvantagesData={item} />
-              //   </div>
-              <></>
+              <div key={index}>
+                <AdvantagesAplusThemeTwoComponent AdvantagesData={item} />
+              </div>
             );
           case "operating_systems":
             return (

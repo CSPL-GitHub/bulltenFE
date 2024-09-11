@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 const AdvantagesAplusThemeTwoComponent = ({ AdvantagesData }: any) => {
   return (
-    <div className="container mx-auto mt-6 py-4 lg:py-8 px-2 lg:px-8 space-y-8">
+    <div className="bg-black bg-gradient-to-b from-black/20 via-[#6031a7] to-black/40 py-[72px] sm:py-24 container mx-auto mt-6  lg:py-8 px-2 lg:px-8 space-y-8">
       <div className="flex flex-col items-center ">
         {/* <span className="text-lg text-bullt-quaternary font-medium text-center">
           Advantages
@@ -13,13 +13,13 @@ const AdvantagesAplusThemeTwoComponent = ({ AdvantagesData }: any) => {
 
         {AdvantagesData?.heading ? (
           <div
-            className="w-full text-center sm:text-4xl text-2xl font-semibold"
+            className="w-full text-center sm:text-4xl text-2xl font-semibold text-bullt-secondary"
             dangerouslySetInnerHTML={{ __html: AdvantagesData?.heading }}
           />
         ) : null}
         {AdvantagesData?.description ? (
           <div
-            className="w-full text-center text-bullt-primary/[0.8] text-lg py-4"
+            className="w-full text-center text-bullt-secondary text-lg py-4"
             dangerouslySetInnerHTML={{ __html: AdvantagesData?.description }}
           />
         ) : null}
@@ -43,13 +43,13 @@ const AdvantagesAplusThemeTwoComponent = ({ AdvantagesData }: any) => {
             <div className="" />
             {section?.heading ? (
               <div
-                className="w-full text-bullt-primary text-start sm:text-3xl text-2xl font-semibold"
+                className="w-full text-bullt-secondary text-start sm:text-3xl text-2xl font-semibold"
                 dangerouslySetInnerHTML={{ __html: section?.heading }}
               />
             ) : null}
             {section?.description ? (
               <div
-                className="py-3 text-justify text-bullt-primary/[0.8] text-lg"
+                className="py-3 text-justify text-bullt-secondary text-lg"
                 dangerouslySetInnerHTML={{ __html: section?.description }}
               />
             ) : null}
@@ -57,7 +57,7 @@ const AdvantagesAplusThemeTwoComponent = ({ AdvantagesData }: any) => {
               <div>
                 <Link
                   href={section?.button_link}
-                  className="flex justify-start items-center gap-2 px-2 py-2 text-black rounded cursor-pointer font-semibold text-xl"
+                  className="flex justify-start items-center gap-2 px-2 py-2 text-bullt-secondary rounded cursor-pointer font-semibold text-xl"
                 >
                   <p className="text-semibold transition-transform duration-500">
                     {section?.button_text}
