@@ -13,8 +13,7 @@ const page = async ({
   const decodedSlug = decodeURIComponent(servers);
 
   const ServerDataResponse = await ServerDataApi(decodedSlug);
-  const ServerDataResponseThemewo = await ServerDataApi(decodedSlug);
-  console.log("first server", ServerDataResponse);
+ 
 
   return (
     <div>

@@ -1,10 +1,9 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { ProductDataApi } from "@/apis/productsApi";
 import ServerProductsComponent from "./ServerProductComponent";
 import FilterComponent from "./FilterComponet";
-import GamingProductComponent from "./GamingProductComponent";
+
 
 type Props = {
   decodedSlug: string;
