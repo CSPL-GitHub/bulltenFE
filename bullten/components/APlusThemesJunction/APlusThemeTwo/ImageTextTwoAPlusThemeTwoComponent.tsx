@@ -25,7 +25,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center ">
                   {imageTextData?.heading ? (
                     <div
-                      className="w-full text-bullt-secondary text-start font-semibold sm:text-4xl text-2xl"
+                      className="w-full text-bullt-secondary lg:text-start text-center font-semibold sm:text-4xl text-2xl"
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.heading,
                       }}
@@ -72,7 +72,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 </div>
               ) : null}
 
-              <div className="w-full lg:w-2/4 relative h-[400px] flex px-0 lg:px-14">
+              <div className="w-full lg:w-2/4 relative md:h-[400px] h-[300px] flex px-0 lg:px-14">
                 <div className=" absolute left-[550px] right-0 top-[100px] ">
                   <img src="/shape-17.png" />
                 </div>
@@ -80,42 +80,9 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                   alt={imageTextData?.heading}
-                  className="rounded-md w-full h-full object-cover"
+                  className="rounded-md w-full h-full md:object-contain object-contain"
                   style={{ height: "100%" }}
                 />
-
-                {imageTextData?.small_box_image ? (
-                  <>
-                    {" "}
-                    <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
-                        alt={imageTextData?.image_alternate_text}
-                        className="w-10 h-10"
-                      />
-                      {imageTextData?.small_box_text ? (
-                        <>
-                          {" "}
-                          <span className="text-sm font-semibold">
-                            {imageTextData?.small_box_text}
-                          </span>
-                        </>
-                      ) : null}
-                    </div>
-                  </>
-                ) : null}
-
-                {imageTextData?.single_box ? (
-                  <>
-                    <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
-                        alt={imageTextData?.heading}
-                        className="w-15 h-15"
-                      />
-                    </div>
-                  </>
-                ) : null}
               </div>
             </div>
           </>
@@ -168,7 +135,7 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 <div className="w-2/4 flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4 ">
                   {imageTextData?.heading ? (
                     <div
-                      className="w-full text-bullt-primary text-start sm:text-4xl text-2xl"
+                      className="w-full text-bullt-primary lg:text-start text-center sm:text-4xl text-2xl"
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.heading,
                       }}

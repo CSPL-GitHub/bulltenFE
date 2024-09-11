@@ -171,7 +171,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
     ],
   };
   return (
-    <div className="bg-bullt-primary flex flex-col justify-center items-center rounded-lg lg:px-14 px-2 lg:py-20 py-8 mx-auto ">
+    <div className="bg-bullt-primary flex flex-col justify-center items-center rounded-lg lg:px-14 px-2 lg:py-8 py-8 mx-auto ">
       <div className="w-full flex flex-col justify-center p-4 sm:p-5">
         {carouselData?.heading ? (
           <>
@@ -219,7 +219,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                 {item?.heading || item?.description ? (
                   <>
                     <div
-                      className="w-full text-xl font-semibold tailwind-unreset py-2 line-clamp-2 text-bullt-secondary"
+                      className="w-full text-xl font-semibold tailwind-unreset py-2 line-clamp-3 text-bullt-secondary"
                       dangerouslySetInnerHTML={{
                         __html: item?.heading,
                       }}

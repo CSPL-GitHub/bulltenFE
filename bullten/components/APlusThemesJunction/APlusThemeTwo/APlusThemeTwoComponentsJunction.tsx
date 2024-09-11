@@ -10,6 +10,7 @@ import CarouselTwoAPlusComponent from "./CarouselTwoAPlusThemeTwoComponent";
 import CarouselComponentAPlusTwo from "./CarouselComponentAPlusTwo";
 import ColumnSectionAPlusThemeTwoComponent from "./ColumnSectionAPlusThemeTwoComponent";
 import ThemeTwoMainProducts from "./AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
+import AdvantagesAplusThemeTwoComponent from "./AdvantagesAplusThemeTwoComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -101,10 +102,12 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             );
           case "advantage":
             return (
-              //   <div key={index}>
-              //     <AdvantagesAPLusComponent AdvantagesData={item} />
-              //   </div>
-              <></>
+              <div
+                key={index}
+                className="bg-gradient-to-b from-black/20 via-[#6031a7] to-black/40"
+              >
+                <AdvantagesAplusThemeTwoComponent AdvantagesData={item} />
+              </div>
             );
           case "operating_systems":
             return (

@@ -30,7 +30,7 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
       {columnData?.heading || columnData?.description ? (
         <>
           <div
-            className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold text-bullt-secondary tailwind-unreset"
+            className="text-center text-2xl sm:text-4xl sm:mt-0 mt-5 font-semibold text-bullt-secondary tailwind-unreset"
             dangerouslySetInnerHTML={{
               __html: columnData?.heading,
             }}
@@ -46,7 +46,7 @@ const ColumnSectionAPlusThemeTwoComponent: React.FC<Props> = ({
 
       {columnData?.content?.length > 0 ? (
         <div
-          className="w-full h-auto items-start gap-6 py-3 px-4 "
+          className="w-full h-auto items-start lg:gap-6 gap-0  px-4 "
           style={{
             marginTop: `${columnData?.gap_top / 4}rem`,
             marginBottom: `${columnData?.gap_bottom / 4}rem`,

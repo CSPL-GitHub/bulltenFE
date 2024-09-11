@@ -27,7 +27,7 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
         {AccordionData?.heading || AccordionData?.description ? (
           <div className="flex flex-col gap-7 items-center lg:w-[80%] w-full">
             <div
-              className="w-full flex flex-col lg:justify-start justify-center  text-white font-semibold lg:text-4xl text-2xl  tailwind-unreset"
+              className="w-full flex flex-col lg:justify-start justify-center  text-white font-semibold sm:text-4xl text-2xl  tailwind-unreset"
               dangerouslySetInnerHTML={{ __html: AccordionData?.heading }}
             />
             <div
@@ -53,12 +53,12 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
             >
               <div className=" flex justify-between p-2">
                 <div className="w-[900px]">
-                  <h1
+                  <div
                     className={`px-2 text-xl select-none text-white ${
                       index === Description ? "text-bullt-tertiary" : ""
                     }`}
                     dangerouslySetInnerHTML={{ __html: item?.heading }}
-                  ></h1>
+                  ></div>
                 </div>
                 <div className="relative w-[100px] flex justify-end items-center px-1">
                   <FiPlus
@@ -71,12 +71,10 @@ const AccordianAPlusThemeTwoComponent: React.FC<Props> = ({
               </div>
               <div>
                 {Description === index && (
-                  <div className="">
-                    <p
-                      className="flex p-3 border-t border-bullt-tertiary select-none text-lg text-white"
-                      dangerouslySetInnerHTML={{ __html: item?.description }}
-                    ></p>
-                  </div>
+                  <div
+                    className="flex p-3 border-t border-bullt-tertiary select-none text-lg text-white"
+                    dangerouslySetInnerHTML={{ __html: item?.description }}
+                  ></div>
                 )}
               </div>
             </div>
