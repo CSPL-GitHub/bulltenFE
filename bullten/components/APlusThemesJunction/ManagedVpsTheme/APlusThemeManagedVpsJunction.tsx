@@ -14,6 +14,7 @@ import AccordianAPlusComponent from "./AccordianAPlusComponent";
 import WhyChooseUsManagedVPSComponent from "./WhyChooseUsManagedVPSComponent";
 import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
 import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
+import StickyScrollRevealDemo from "./test";
 
 interface Props {
   aPlusResponse: any;
@@ -140,11 +141,21 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
               </>
             );
 
+          case "window_vps":
+            return (
+              <>
+                <div key={index}>
+                  <WindowsVpsHostingAPlusComponent
+                    LinuxVpsAccordionData={item}
+                  />
+                </div>
+              </>
+            );
           default:
             return null;
         }
       })}
-      <WindowsVpsHostingAPlusComponent />
+      {/* <StickyScrollRevealDemo /> */}
     </div>
   );
 };

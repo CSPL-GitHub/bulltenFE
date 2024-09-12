@@ -25,18 +25,19 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
         {AccordionData?.heading || AccordionData?.description ? (
           <div className="flex flex-col gap-7 md:items-start items-center lg:w-[80%] w-full">
             <div
-              className="w-full flex flex-col lg:justify-start justify-center font-semibold lg:text-4xl text-2xl items-center sm:text-start text-center tailwind-unreset"
+              className="w-full font-semibold lg:text-4xl text-2xl sm:text-start text-center tailwind-unreset"
               dangerouslySetInnerHTML={{ __html: AccordionData?.heading }}
             />
             <div
-              className="w-full flex flex-col items-start tailwind-unreset  md:text-start text-center text-lg text-bullt-primary/[0.8]"
+              className="w-full tailwind-unreset  md:text-start text-center text-lg text-bullt-primary/[0.8]"
               dangerouslySetInnerHTML={{ __html: AccordionData?.description }}
             />
             <div className="">
-            <button className="text-xl text-bold border-2 border-bullt-text-quinary bg-bullt-text-quinary hover:bg-bullt-secondary text-bullt-secondary hover:text-bullt-tertiary rounded-md px-5 py-2"
-            >Live Chat Now </button></div>
+              <button className="text-xl text-bold border-2 border-bullt-text-quinary bg-bullt-text-quinary hover:bg-bullt-secondary text-bullt-secondary hover:text-bullt-tertiary rounded-md px-5 py-2">
+                Live Chat Now{" "}
+              </button>
+            </div>
           </div>
-
         ) : null}
       </div>
 
@@ -51,15 +52,17 @@ const AccordianAPlusComponent: React.FC<Props> = ({ AccordionData }) => {
               <div className=" flex justify-between p-2">
                 <div className="w-[900px]">
                   <h1
-                    className={`px-2 text-xl select-none ${index === Description ? "text-bullt-tertiary" : ""
-                      }`}
+                    className={`px-2 text-xl select-none ${
+                      index === Description ? "text-bullt-tertiary" : ""
+                    }`}
                     dangerouslySetInnerHTML={{ __html: item?.heading }}
                   ></h1>
                 </div>
                 <div className="relative w-[100px] flex justify-end items-center px-1">
                   <FiPlus
-                    className={`text-bullt-tertiary text-2xl cursor-pointer transform transition-transform duration-300 ${Description === index ? "rotate-45" : ""
-                      }`}
+                    className={`text-bullt-tertiary text-2xl cursor-pointer transform transition-transform duration-300 ${
+                      Description === index ? "rotate-45" : ""
+                    }`}
                     onClick={() => handleDescription(index)}
                   />
                 </div>
