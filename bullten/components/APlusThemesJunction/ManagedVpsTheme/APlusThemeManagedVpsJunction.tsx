@@ -157,7 +157,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
         }
       })}
       {/* <StickyScrollRevealDemo /> */}
-      <ProductCompairComponent/>
+      {/* <ProductCompairComponent/> */}
     </div>
   );
 };
