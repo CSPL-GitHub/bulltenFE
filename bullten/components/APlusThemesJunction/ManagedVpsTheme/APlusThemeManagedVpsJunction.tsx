@@ -15,6 +15,7 @@ import WhyChooseUsManagedVPSComponent from "./WhyChooseUsManagedVPSComponent";
 import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
 import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
 import StickyScrollRevealDemo from "./test";
+import ProductCompairComponent from "./ProductCompairComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -156,6 +157,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
         }
       })}
       {/* <StickyScrollRevealDemo /> */}
+      <ProductCompairComponent/>
     </div>
   );
 };
