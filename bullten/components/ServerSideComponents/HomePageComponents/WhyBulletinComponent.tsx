@@ -4,7 +4,6 @@
 // import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 // import Image from "next/image";
 // import React from "react";
-// import img from "../../../public/about.jpg"
 // const WhyBulletinComponent = async () => {
 //   const WhyUsSection = await WhyUsSectionApi();
 //   const WhyUsSectionApiResponse = WhyUsSection?.result;

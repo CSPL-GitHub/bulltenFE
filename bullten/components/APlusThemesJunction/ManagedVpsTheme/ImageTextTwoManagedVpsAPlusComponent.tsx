@@ -6,17 +6,18 @@ interface Props {
   imageTextData: any;
 }
 
-const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
+const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({
+  imageTextData,
+}) => {
   return (
-    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8  bg-contain bg-no-repeat">
+    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8 bg-no-repeat] bg-cover bg-top">
       <div
         className="items-center "
         style={{
           marginTop: `${imageTextData?.gap_top / 4}rem`,
           marginBottom: `${imageTextData?.gap_bottom / 4}rem`,
-        }}>
-
-
+        }}
+      >
         {imageTextData?.align_element === "left" && imageTextData?.image ? (
           <>
             <div className="w-full flex flex-col lg:flex-row items-start justify-center relative gap-4 px-4 ">
@@ -26,7 +27,7 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({ imageTextData }
                     <div
                       className="w-full text-bullt-primary font-semibold text-start sm:text-4xl text-2xl"
                       dangerouslySetInnerHTML={{
-                        __html: imageTextData?.heading, 
+                        __html: imageTextData?.heading,
                       }}
                     />
                   ) : null}
@@ -124,7 +125,6 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({ imageTextData }
           </>
         ) : null}
       </div>
-
     </section>
   );
 };

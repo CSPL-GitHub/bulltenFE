@@ -101,11 +101,11 @@ export default function StickyScrollRevealDemo() {
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
+      className="h-[30rem] overflow-y-auto relative  rounded-md p-10 grid grid-cols-2"
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
-        <div className="max-w-7xl">
+        <div className="w-full">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-20">
               <motion.h2
@@ -137,7 +137,7 @@ export default function StickyScrollRevealDemo() {
       </div>
       <div
         style={{ background: backgroundGradient }}
-        className="hidden lg:block h-60 max-w-7xl rounded-md bg-white sticky top-10 overflow-hidden"
+        className="hidden lg:block h-60 w-full rounded-md bg-white sticky top-10 overflow-hidden"
       >
         {content[activeCard].content ?? null}
       </div>

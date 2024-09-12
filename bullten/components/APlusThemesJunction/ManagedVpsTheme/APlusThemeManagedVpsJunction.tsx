@@ -3,7 +3,6 @@ import React from "react";
 import APlusBannerComponent from "./BannerComponentAPlus";
 import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
 import CarouselTwoAPlusComponent from "./CarouselTwoAPlusComponent";
-import AdvantagesAPLusComponent from "./AdvantagesComponent";
 import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
@@ -16,6 +15,7 @@ import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
 import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
 import StickyScrollRevealDemo from "./test";
 import ProductCompairComponent from "./ProductCompairComponent";
+import ManageVpsAdvantagesComponent from "./ManageVpsAdvantagesComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -92,7 +92,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "advantage":
             return (
               <div key={index}>
-                <AdvantagesAPLusComponent AdvantagesData={item} />
+                <ManageVpsAdvantagesComponent AdvantagesData={item} />
               </div>
             );
           case "operating_systems":
