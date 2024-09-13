@@ -26,7 +26,7 @@ const FilterComponent = ({
   selectedLocation,
   ProductsDetails,
 }: Props) => {
-  const currencyCode = useSelector((state: any) => state.currency.code);
+  const currencyCode = useSelector((state: any) => state.currency);
   console.log("CurrencyCode", currencyCode)
 
   const disks = ["SATA", "SSD", "NVME"];

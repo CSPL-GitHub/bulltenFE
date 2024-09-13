@@ -1,12 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface LanguageState {
-  code: string;
-}
+
 
 
 const initialState: any = {
-  code: "Ind",
+  code: {},
 };
 
 export const currencySlice = createSlice({

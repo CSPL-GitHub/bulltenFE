@@ -13,6 +13,7 @@ import { FaCartArrowDown, FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaUser
 import { FaLinkedin } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { setCurrencyCode } from "@/redux/currencySlice";
+import { HeaderCountryApi } from "@/apis/HomePageApis";
 
 type Props = {
   headerResponse: HeaderResponse;
@@ -22,6 +23,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
   const [openSubMenu, setOpenSubMenu] = useState<number | undefined>(undefined);
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
   const [moveDown, setMoveDown] = useState(false);
+  const [currencies, setCurrencies] = useState([]);
   const dispatch = useDispatch();
 
   const handleScroll = useCallback(
@@ -42,9 +44,26 @@ const HeaderMenu = ({ headerResponse }: Props) => {
     };
   }, [handleScroll]);
   
- useEffect(()=>{
-  dispatch(setCurrencyCode("IND"));
- },[])
+  useEffect(() => {
+    const fetchCurrencies = async () => {
+      try {
+        const data = await HeaderCountryApi();
+        if (data?.result?.currency) {
+          setCurrencies(data?.result?.currency);
+        }
+      } catch (error) {
+        console.error("Error fetching currency data:");
+      }
+    };
+
+    fetchCurrencies();
+
+  }, []);
+  const handleCurrencyChange = (e:any) => {
+    const selectedCurrency = e.target.value;
+    console.log("selectedCurrency",selectedCurrency)                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+    dispatch(setCurrencyCode(currencies));
+  };
   return (
     <header className="w-full flex items-center justify-center fixed top-0 start-0 z-20">
       <div className={`w-full mx-auto rounded-md border-1`}>
@@ -65,11 +84,19 @@ const HeaderMenu = ({ headerResponse }: Props) => {
               </div>
             </div>
             <div className="flex item-center text-bullt-secondary gap-4 relative">
-              {/* <select className="bg-black sm:px-1">
-                <option >IND</option>
-                <option>USD</option>
-                <option>EUR</option>
-                </select> */}
+              <select
+                className="bg-black sm:px-1 text-white"
+                onChange={handleCurrencyChange}>
+                {currencies?.map((currency: any) => (
+                  <option >
+                    <div className="">
+
+                      <p> {currency.country_name}</p>
+                    </div>
+                   
+                  </option>
+                ))}
+              </select>
               <FaUser size={18} className="my-auto" />
               <FaCartArrowDown size={18} className="my-auto" />
               {/* {headerResponse?.result?.socialmedialinks_data?.map((social_icons: any) => {

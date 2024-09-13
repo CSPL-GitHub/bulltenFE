@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ProductDataApi } from "@/apis/productsApi";
 import ServerProductsComponent from "./ServerProductComponent";
 import FilterComponent from "./FilterComponet";
+import { useSelector } from "react-redux";
 
 
 type Props = {
@@ -18,11 +19,13 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
     null,
   ]);
   const [selectedDisks, setSelectedDisks] = useState<string[]>([]);
+  const currencyCode = useSelector((state: any) => state.currency.code);
 
   useEffect(() => {
     const fetchPlans = async () => {
       try {
         const response = await ProductDataApi(
+          currencyCode,
           decodedSlug,
           selectedDisks,
           selectedLocation,

@@ -40,7 +40,6 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
                 <APlusBannerComponent bannerData={item} />
               </div>
             );
-
           case "image_text":
             return (
               <div key={index}>
@@ -108,7 +107,6 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "testimonials":
             return (
               <>
-
                 {item?.testimonials_is_active?.Active ? (
                   <div className="container mx-auto">
                     <TestimonialsComponent color={undefined} />
@@ -165,7 +163,6 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
         }
       })}
       {/* <StickyScrollRevealDemo /> */}
-
     </div>
   );
 };
