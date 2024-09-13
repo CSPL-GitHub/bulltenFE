@@ -8,7 +8,7 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
   return (
     <>
       <div
-        className={`relative sm:min-h-[450px] min-h-[450px] h-[400px] lg:h-[450px] flex flex-col justify-center  ${
+        className={`relative md:min-h-[450px] md:h-[450px] min-h-[380px] h-[380px] flex flex-col justify-center  ${
           bannerData?.image
             ? "linear-gradient(to right, white, rgba(72, 85, 99, 0.4))"
             : "linear-gradient(to left, white, rgba(72, 85, 99, 0.4))"
@@ -23,10 +23,10 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
         }}
       >
         <div
-          className={`"sm:min-h-[450px] min-h-[450px] flex items-center justify-center sm:px-4 bg-black/50" ${
+          className={`"md:min-h-[450px] md:h-[450px] min-h-[380px] h-[380px] flex items-center justify-center sm:px-4 bg-black/50" ${
             bannerData?.image_position
-              ? "bg-gradient-to-l from-bullt-secondary/90	"
-              : "bg-gradient-to-r from-bullt-secondary/90	"
+              ? "md:bg-gradient-to-l md:from-bullt-secondary/90 bg-gradient-to-r from-gray-300 via-gray-50 to-gray-300 lg:opacity-100 opacity-70"
+              : "md:bg-gradient-to-r md:from-bullt-secondary/90 bg-gradient-to-r from-gray-300 via-gray-50 to-gray-300 lg:opacity-100 opacity-70"
           }`}
           // style={{
           //   background: bannerData?.image_position
