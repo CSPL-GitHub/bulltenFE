@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import BannerComponentAPlus from "./BannerComponentAPlus";
 import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
 import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
@@ -19,6 +19,7 @@ import AdvantagesAPLusComponent from "./AdvantagesComponent";
 import FilterComponent from "./FilterProductsComponents/FilterComponet";
 import PricingTable from "./FilterProductsComponents/ServerProductComponent";
 import MainFilterProducts from "./FilterProductsComponents/MainFilterProducts";
+import Skeleton from "react-loading-skeleton";
 
 interface Props {
   aPlusResponse: any;
@@ -124,8 +125,10 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
               <>
                 {" "}
                 {item?.testimonials_is_active?.Active ? (
-                  <div key={index} className="container mx-auto">
-                    <TestimonialsComponent color={undefined} />{" "}
+                  <div  className="container mx-auto">
+                    <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
+          <TestimonialsComponent color={undefined} />
+        </Suspense>
                   </div>
                 ) : null}
               </>

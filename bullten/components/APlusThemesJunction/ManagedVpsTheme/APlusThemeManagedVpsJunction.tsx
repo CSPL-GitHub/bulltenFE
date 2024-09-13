@@ -65,12 +65,12 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
                 <CarouselComponentAPlus carouselData={item} />
               </div>
             );
-          // case "carousel_2":
-          //   return (
-          //     <div>
-          //       <CarouselTwoAPlusComponent carouselData={item} />
-          //     </div>
-          //   );
+          case "carousel_2":
+            return (
+              <div>
+                <CarouselTwoAPlusComponent carouselData={item} />
+              </div>
+            );
           case "why_choose_column":
             return (
               <div className="">
@@ -100,7 +100,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
               <>
                 {item?.operating_systems_is_active ? (
                   <div key={index} className="py-4 lg:py-8 px-2 lg:px-8">
-                    <OperatingComponent color={item?.is_os_color} />
+                    <OperatingComponent color={undefined} />
                   </div>
                 ) : null}
               </>
@@ -108,12 +108,10 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "testimonials":
             return (
               <>
-                {" "}
+
                 {item?.testimonials_is_active?.Active ? (
-                  <div key={index} className="container mx-auto">
-                    <TestimonialsComponent
-                      color={item?.is_testimonials_color}
-                    />{" "}
+                  <div className="container mx-auto">
+                    <TestimonialsComponent color={undefined} />
                   </div>
                 ) : null}
               </>
@@ -152,22 +150,22 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
                 </div>
               </>
             );
-            case "vps_plan":
-              return (
-                <>
-                  <div key={index}>
-                    <ProductCompairComponent
-                      Data={item}
-                    />
-                  </div>
-                </>
-              );
+          case "vps_plan":
+            return (
+              <>
+                <div key={index}>
+                  <ProductCompairComponent
+                    Data={item}
+                  />
+                </div>
+              </>
+            );
           default:
             return null;
         }
       })}
       {/* <StickyScrollRevealDemo /> */}
-     
+
     </div>
   );
 };
