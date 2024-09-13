@@ -13,22 +13,25 @@ const page = async ({
   const decodedSlug = decodeURIComponent(servers);
 
   const ServerDataResponse = await ServerDataApi(decodedSlug);
- 
+
 
   return (
-    <div>
-      {ServerDataResponse?.result?.data?.themes === "theme1" ? (
-        <APlusThemeOneComponentsJunction
-          aPlusResponse={ServerDataResponse?.result}
-          decodedSlug={decodedSlug}
-        />
-      ) : (
-        <APlusThemeTwoComponentsJunction
-          aPlusResponse={ServerDataResponse?.result}
-          decodedSlug={decodedSlug}
-        />
-      )}
-    </div>
+
+    <> {ServerDataResponse?.result?.Active == true ? <>
+      <div>
+        {ServerDataResponse?.result?.data?.themes === "theme1" ? (
+          <APlusThemeOneComponentsJunction
+            aPlusResponse={ServerDataResponse?.result}
+            decodedSlug={decodedSlug}
+          />
+        ) : (
+          <APlusThemeTwoComponentsJunction
+            aPlusResponse={ServerDataResponse?.result}
+            decodedSlug={decodedSlug}
+          />
+        )}
+      </div></> : null}</>
+
   );
 };
 

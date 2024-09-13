@@ -65,12 +65,12 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
                 <CarouselComponentAPlus carouselData={item} />
               </div>
             );
-          case "carousel_2":
-            return (
-              <div>
-                <CarouselTwoAPlusComponent carouselData={item} />
-              </div>
-            );
+          // case "carousel_2":
+          //   return (
+          //     <div>
+          //       <CarouselTwoAPlusComponent carouselData={item} />
+          //     </div>
+          //   );
           case "why_choose_column":
             return (
               <div className="">
@@ -152,12 +152,22 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
                 </div>
               </>
             );
+            case "vps_plan":
+              return (
+                <>
+                  <div key={index}>
+                    <ProductCompairComponent
+                      Data={item}
+                    />
+                  </div>
+                </>
+              );
           default:
             return null;
         }
       })}
       {/* <StickyScrollRevealDemo /> */}
-      {/* <ProductCompairComponent/> */}
+     
     </div>
   );
 };

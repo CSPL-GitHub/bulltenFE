@@ -14,12 +14,14 @@ const page = async ({
   const ManagedDataResponse = await ManagedVpsDataApi(decodedSlug);
 
   return (
-    <div>
+    <>
+    {ManagedDataResponse?.result?.Active == true ?<><div>
       <APlusThemeManagedVpsJunction
         aPlusResponse={ManagedDataResponse?.result}
         decodedSlug={decodedSlug}
       />
-    </div>
+    </div></>:null}</>
+    
   );
 };
 
