@@ -4,12 +4,9 @@ import AccordianAPlusThemeTwoComponent from "./AccordianAPlusThemeTwoComponent";
 import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
-import MainFilterProducts from "../APlusThemeOne/FilterProductsComponents/MainFilterProducts";
 import WhyChooseusColumnAplusThemeTwoComponent from "./WhyChooseusColumnAplusThemeTwoComponent";
-import GamingProductComponent from "../APlusThemeOne/FilterProductsComponents/GamingProductComponent";
 import ImageTextTwoAPlusThemeTwoComponent from "./ImageTextTwoAPlusThemeTwoComponent";
 import CarouselTwoAPlusComponent from "./CarouselTwoAPlusThemeTwoComponent";
-import CarouselComponentAPlus from "../APlusThemeOne/CarouselComponentAPlus";
 import CarouselComponentAPlusTwo from "./CarouselComponentAPlusTwo";
 import ColumnSectionAPlusThemeTwoComponent from "./ColumnSectionAPlusThemeTwoComponent";
 import ThemeTwoMainProducts from "./AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
@@ -76,7 +73,6 @@ const APlusThemeTwoComponentsJunction: React.FC<Props> = ({
             return (
               <div key={index}>
                 <CarouselComponentAPlusTwo carouselData={item} />
-                {/* <GamingProductComponent decodedSlug={item} /> */}
               </div>
             );
           case "carousel_2":

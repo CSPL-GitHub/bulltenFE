@@ -4,7 +4,6 @@ import MainHeadingComponent from "@/components/CommonComponents/HeadingComponent
 import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
 import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
 import Image from "next/image";
-import img1 from "../../../public/back.png";
 
 const DomainSearchComponent = async () => {
   const DomainsearchApiResponse = await DomainsearchApi();

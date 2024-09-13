@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useCallback, useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import HeaderSubMenu from "./HeaderSubMenu";
@@ -12,6 +11,8 @@ import Image from "next/image";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { FaCartArrowDown, FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaUser } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { setCurrencyCode } from "@/redux/currencySlice";
 
 type Props = {
   headerResponse: HeaderResponse;
@@ -21,6 +22,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
   const [openSubMenu, setOpenSubMenu] = useState<number | undefined>(undefined);
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
   const [moveDown, setMoveDown] = useState(false);
+  const dispatch = useDispatch();
 
   const handleScroll = useCallback(
     throttle(() => {
@@ -39,7 +41,10 @@ const HeaderMenu = ({ headerResponse }: Props) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
-
+  
+ useEffect(()=>{
+  dispatch(setCurrencyCode("IND"));
+ },[])
   return (
     <header className="w-full flex items-center justify-center fixed top-0 start-0 z-20">
       <div className={`w-full mx-auto rounded-md border-1`}>
@@ -60,7 +65,7 @@ const HeaderMenu = ({ headerResponse }: Props) => {
               </div>
             </div>
             <div className="flex item-center text-bullt-secondary gap-4 relative">
-              {/* <select className="bg-black px-1">
+              {/* <select className="bg-black sm:px-1">
                 <option >IND</option>
                 <option>USD</option>
                 <option>EUR</option>

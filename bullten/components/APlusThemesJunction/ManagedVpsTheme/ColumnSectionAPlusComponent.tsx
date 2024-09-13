@@ -23,27 +23,30 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
   }, []);
 
   return (
-    <div className="container mx-auto py-4 lg:py-8 px-2 lg:px-8">
-      {columnData?.heading || columnData?.description ? (
+    <div className="container mx-auto py-4 md:py-6 lg:py-8 px-2 lg:px-8">
+      {columnData?.heading ? (
         <>
           <div
             className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold tailwind-unreset"
             dangerouslySetInnerHTML={{
               __html: columnData?.heading,
             }}
-          ></div>
-          <div
-            className="text-center text-lg lg:text-lg text-bullt-primary/[0.8] tailwind-unreset py-3"
-            dangerouslySetInnerHTML={{
-              __html: columnData?.description,
-            }}
-          ></div>
+          />
         </>
+      ) : null}
+
+      {columnData?.description ? (
+        <div
+          className="text-center text-lg lg:text-lg text-bullt-primary/[0.8] tailwind-unreset py-3"
+          dangerouslySetInnerHTML={{
+            __html: columnData?.description,
+          }}
+        ></div>
       ) : null}
 
       {columnData?.content?.length > 0 ? (
         <div
-          className="w-full h-auto items-start gap-6 py-3 px-4"
+          className="w-full h-auto items-start gap-6 py-3 "
           style={{
             marginTop: `${columnData?.gap_top / 4}rem`,
             marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -63,7 +66,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
               className="group relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform transform bg-bullt-quaternary/[0.05]"
             >
               {item?.image ? (
-                <div className="sm:h-[300px] h-[280px] w-full relative p-4">
+                <div className="sm:h-[200px] h-[280px] w-full relative p-4">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                     alt={item?.heading}
@@ -77,12 +80,13 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                   />
                 </div>
               ) : null}
+
               {item?.heading || item?.description ? (
                 <div className="p-2">
                   <div className="flex flex-col justify-center items-start">
                     {item?.heading ? (
                       <div
-                        className="w-full flex text-start text-xl flex-col items-start tailwind-unreset font-semibold sm:h-12"
+                        className="w-full flex text-start text-xl flex-col items-start tailwind-unreset font-semibold sm:h-12 "
                         dangerouslySetInnerHTML={{
                           __html: item?.heading,
                         }}

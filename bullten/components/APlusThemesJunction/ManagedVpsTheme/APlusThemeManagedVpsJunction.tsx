@@ -1,39 +1,35 @@
-import React, { Suspense } from "react";
-import BannerComponentAPlus from "./BannerComponentAPlus";
+"use client";
+import React from "react";
+import APlusBannerComponent from "./BannerComponentAPlus";
 import ImageTextAPlusComponent from "./ImageTextAPlusComponent";
-import ImageTextTwoAPlusComponent from "./ImageTextTwoAPlusComponent";
-import VideoAPlusComponent from "./VideoAPlusComponent";
-import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
-import CarouselComponentAPlus from "./CarouselComponentAPlus";
-import VideoTextAPlusComponent from "./VideoTextAPlusComponent";
 import CarouselTwoAPlusComponent from "./CarouselTwoAPlusComponent";
-import CountryLocationsCarouselComponentAPlus from "./CountryLocationsCarouselComponentAPlus";
-import WhyChooseusColumnComponent from "./WhyChooseusColumnComponent";
-import AccordianAPlusComponent from "./AccordianAPlusComponent";
-import SupportSection from "@/components/ServerSideComponents/HomePageComponents/SupportComponent";
 import OperatingComponent from "@/components/ServerSideComponents/HomePageComponents/OperatingComponent";
 import TestimonialsComponent from "@/components/ServerSideComponents/HomePageComponents/TestimonialsSection";
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
-import AlternatingSections from "./AdvantagesComponent";
-import AdvantagesAPLusComponent from "./AdvantagesComponent";
-import FilterComponent from "./FilterProductsComponents/FilterComponet";
-import PricingTable from "./FilterProductsComponents/ServerProductComponent";
-import MainFilterProducts from "./FilterProductsComponents/MainFilterProducts";
-import Skeleton from "react-loading-skeleton";
+import ThemeTwoMainProducts from "../APlusThemeTwo/AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
+import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
+import CarouselComponentAPlus from "./CarouselComponentAPlus";
+import AccordianAPlusComponent from "./AccordianAPlusComponent";
+import WhyChooseUsManagedVPSComponent from "./WhyChooseUsManagedVPSComponent";
+import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
+import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
+import StickyScrollRevealDemo from "./test";
+import ProductCompairComponent from "./ProductCompairComponent";
+import ManageVpsAdvantagesComponent from "./ManageVpsAdvantagesComponent";
 
 interface Props {
   aPlusResponse: any;
   decodedSlug: any;
 }
 
-const APlusThemeOneComponentsJunction: React.FC<Props> = ({
+const APlusThemeManagedVpsJunction: React.FC<Props> = ({
   aPlusResponse,
   decodedSlug,
 }) => {
   return (
     <div
       className={
-        " bg-bullt-quaternary/[0.02] sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
+        "sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
       }
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
@@ -41,9 +37,10 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
           case "banner":
             return (
               <div key={index}>
-                <BannerComponentAPlus bannerData={item} />
+                <APlusBannerComponent bannerData={item} />
               </div>
             );
+
           case "image_text":
             return (
               <div key={index}>
@@ -53,19 +50,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
           case "image_text_2":
             return (
               <div key={index}>
-                <ImageTextTwoAPlusComponent imageTextData={item} />
-              </div>
-            );
-          case "video_text":
-            return (
-              <div>
-                <VideoTextAPlusComponent videoTextData={item} />
-              </div>
-            );
-          case "video":
-            return (
-              <div key={index}>
-                <VideoAPlusComponent videoData={item} />
+                <ImageTextTwoManagedVpsAPlusComponent imageTextData={item} />
               </div>
             );
           case "column":
@@ -89,25 +74,25 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
           case "why_choose_column":
             return (
               <div className="">
-                <WhyChooseusColumnComponent columnData={item} />
+                <WhyChooseUsManagedVPSComponent columnData={item} />
               </div>
             );
           case "accordion":
             return (
-              <div key={index}>
+              <div key={index} className="">
                 <AccordianAPlusComponent AccordionData={item} />
               </div>
             );
           case "location_data":
             return (
               <div>
-                <CountryLocationsCarouselComponentAPlus carouselData={item} />
+                {/* <CountryLocationsCarouselComponentAPlus carouselData={item} /> */}
               </div>
             );
           case "advantage":
             return (
               <div key={index}>
-                <AdvantagesAPLusComponent AdvantagesData={item} />
+                <ManageVpsAdvantagesComponent AdvantagesData={item} />
               </div>
             );
           case "operating_systems":
@@ -123,12 +108,10 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
           case "testimonials":
             return (
               <>
-                {" "}
+
                 {item?.testimonials_is_active?.Active ? (
-                  <div  className="container mx-auto">
-                    <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialsComponent color={undefined} />
-        </Suspense>
+                  <div className="container mx-auto">
+                    <TestimonialsComponent color={undefined} />
                   </div>
                 ) : null}
               </>
@@ -141,7 +124,7 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                     key={index}
                     className="container mx-auto py-4 lg:py-8 px-2 lg:px-8"
                   >
-                    <ChatService color={undefined} />
+                    <ChatService color={item?.is_support_color} />{" "}
                   </div>
                 ) : null}
               </>
@@ -151,22 +134,40 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
               <>
                 {item?.is_active_product ? (
                   <div key={index}>
-                    <MainFilterProducts decodedSlug={decodedSlug} />
+                    <ThemeTwoMainProducts decodedSlug={decodedSlug} />
                   </div>
                 ) : null}
               </>
             );
 
+          case "window_vps":
+            return (
+              <>
+                <div key={index}>
+                  <WindowsVpsHostingAPlusComponent
+                    LinuxVpsAccordionData={item}
+                  />
+                </div>
+              </>
+            );
+          case "vps_plan":
+            return (
+              <>
+                <div key={index}>
+                  <ProductCompairComponent
+                    Data={item}
+                  />
+                </div>
+              </>
+            );
           default:
             return null;
         }
       })}
+      {/* <StickyScrollRevealDemo /> */}
 
-      {/* <div>
-        <AlternatingSections />
-      </div> */}
     </div>
   );
 };
 
-export default APlusThemeOneComponentsJunction;
+export default APlusThemeManagedVpsJunction;

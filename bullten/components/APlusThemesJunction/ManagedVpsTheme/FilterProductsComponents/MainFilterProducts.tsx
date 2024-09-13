@@ -4,13 +4,12 @@ import React, { useEffect, useState } from "react";
 import { ProductDataApi } from "@/apis/productsApi";
 import ServerProductsComponent from "./ServerProductComponent";
 import FilterComponent from "./FilterComponet";
-import GamingCartComponent from "./GamingCartComponent";
 
 type Props = {
   decodedSlug: string;
 };
 
-const GamingProductComponent = ({ decodedSlug }: Props) => {
+const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
   const [selectedLocation, setSelectedLocation] = useState<string>("");
   const [priceRange, setPriceRange] = useState<[number | null, number | null]>([ null,null,]);
@@ -57,10 +56,20 @@ const GamingProductComponent = ({ decodedSlug }: Props) => {
           }}
         />
       </div>
-      <GamingCartComponent ProductsData={serverProducts} />
-     
+      <FilterComponent
+        setSelectedLocation={setSelectedLocation}
+        setPriceRange={setPriceRange}
+        setRamRange={setRamRange}
+        setSelectedDisks={setSelectedDisks}
+        selectedDisks={selectedDisks}
+        ramRange={ramRange}
+        priceRange={priceRange}
+        selectedLocation={selectedLocation}
+        ProductsDetails={serverProducts}
+      />
+      <ServerProductsComponent ProductsData={serverProducts} />
     </div>
   );
 };
 
-export default GamingProductComponent;
+export default MainFilterProducts;
