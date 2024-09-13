@@ -5,7 +5,6 @@ import ServerProductsComponent from "./ServerProductComponent";
 import FilterComponent from "./FilterComponet";
 import { useSelector } from "react-redux";
 
-
 type Props = {
   decodedSlug: string;
 };
@@ -13,19 +12,24 @@ type Props = {
 const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
   const [selectedLocation, setSelectedLocation] = useState<string>("");
-  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([ null,null,]);
+  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
+    null,
+    null,
+  ]);
   const [ramRange, setRamRange] = useState<[number | null, number | null]>([
     null,
     null,
   ]);
   const [selectedDisks, setSelectedDisks] = useState<string[]>([]);
-  const currencyCode = useSelector((state: any) => state.currency.code);
+  // const currencyCode = useSelector((state: any) => state.currency.code);
+  const currencyCode = useSelector((state: any) => state.currency);
 
+  console.log("currency-code", currencyCode?.slug);
   useEffect(() => {
     const fetchPlans = async () => {
       try {
         const response = await ProductDataApi(
-          currencyCode,
+          currencyCode?.code?.slug,
           decodedSlug,
           selectedDisks,
           selectedLocation,
@@ -41,7 +45,7 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
     };
 
     fetchPlans();
-  }, [selectedLocation, selectedDisks, priceRange, ramRange]);
+  }, [selectedLocation, selectedDisks, priceRange, ramRange, currencyCode]);
 
   return (
     <div className="container mx-auto py-4 lg:py-8 px-2 lg:px-9">

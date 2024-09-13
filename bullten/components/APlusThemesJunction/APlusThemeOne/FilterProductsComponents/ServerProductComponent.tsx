@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 type Props = {
   ProductsData: any;
@@ -10,6 +11,7 @@ type Props = {
 const ServerProductsComponent = ({ ProductsData }: Props) => {
   const [expandedPlan, setExpandedPlan] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+  const currencyCode = useSelector((state: any) => state.currency);
 
   const toggleExpanded = (planName: string) => {
     setExpandedPlan(expandedPlan === planName ? null : planName);
@@ -94,10 +96,17 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                 <div className="flex flex-col items-start gap-1">
                   <span className="text-md font-semibold">Starting at</span>
                   <div className="flex gap-1 items-center">
+                    <div>
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${currencyCode?.code?.icon}`}
+                        alt={currencyCode?.code?.currency_name}
+                        className="w-4 h-4"
+                      />
+                    </div>
                     <div
                       className="text-bullt-quaternary font-semibold text-md"
                       dangerouslySetInnerHTML={{
-                        __html: `$ ${plan?.price}`,
+                        __html: plan?.server_price?.[0],
                       }}
                     />
                     <span className="text-sm font-semibold">/Monthly</span>
@@ -113,16 +122,13 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                   >
                     <p
                       className="transition-transform duration-500"
-                      onClick={() => handleAddToCart(plan.name)}
+                      onClick={() => handleAddToCart(plan?.name)}
                     >
                       {plan?.buttonText}
                     </p>
                   </Link>
-
-
                 </div>
               )}
-
             </div>
 
             {expandedPlan === plan.name && (

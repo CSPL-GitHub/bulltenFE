@@ -1,8 +1,10 @@
-import { headerApi } from "@/apis/HomePageApis";
+import { headerApi, HeaderCountryApi } from "@/apis/HomePageApis";
 import HeaderMenu from "@/components/ClientSideComponents/HeaderComponents/HeaderMenu";
 
 const Header: React.FC = async () => {
   const headerResponse = await headerApi();
+  const headerCurrency = await HeaderCountryApi();
+  console.log("headerCurrency", headerCurrency);
   if (headerResponse?.result?.hasOwnProperty("error")) {
     console.log("error in header API");
   } else {
@@ -10,8 +12,11 @@ const Header: React.FC = async () => {
   }
 
   return (
-    <HeaderMenu headerResponse={headerResponse} />
-  )
+    <HeaderMenu
+      headerResponse={headerResponse}
+      headerCurrency={headerCurrency?.result?.currency}
+    />
+  );
 };
 
 export default Header;
