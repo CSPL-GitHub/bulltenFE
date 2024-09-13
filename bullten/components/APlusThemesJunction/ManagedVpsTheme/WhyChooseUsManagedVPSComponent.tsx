@@ -10,7 +10,7 @@ interface Props {
 const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <div
-      className=" relative lg:py-8 px-2 lg:px-8 border shadow-sm py-4"
+      className=" relative lg:py-8 px-2 lg:px-8 shadow-sm py-4"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,

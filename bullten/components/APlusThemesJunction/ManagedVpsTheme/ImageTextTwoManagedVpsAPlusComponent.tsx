@@ -10,7 +10,7 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({
   imageTextData,
 }) => {
   return (
-    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8 bg-no-repeat] bg-cover bg-top">
+    <section className="container mx-auto py-4 lg:py-8 px-2 lg:px-8 bg-no-repeat bg-cover bg-top">
       <div
         className="items-center "
         style={{
@@ -44,7 +44,7 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({
                       <div className="flex gap-2 ">
                         <span className="text-bullt-tertiary text-xl">✔</span>
                         <div
-                          className="text-bullt-primary/[0.8] col-span-1"
+                          className="text-bullt-primary/[0.8] font-normal col-span-1"
                           dangerouslySetInnerHTML={{
                             __html: item?.title,
                           }}
@@ -111,7 +111,7 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({
                       <div className="flex gap-2 ">
                         <span className="text-bullt-tertiary text-xl">✔</span>
                         <div
-                          className="text-bullt-tertiary font-semibold col-span-1"
+                          className="text-bullt-tertiary font-normal col-span-1"
                           dangerouslySetInnerHTML={{
                             __html: item?.title,
                           }}

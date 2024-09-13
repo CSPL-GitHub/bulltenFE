@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 const ManageVpsAdvantagesComponent = ({ AdvantagesData }: any) => {
   return (
-    <div className="bg-bullt-primary/[0.06] container mx-auto mt-6 py-4 lg:py-8 px-2 lg:px-8 space-y-8">
+    <div className="bg-bullt-quaternary/[0.02] container mx-auto mt-6 py-4 lg:py-8 px-2 lg:px-8 space-y-8">
       <div className="flex flex-col items-center ">
         {AdvantagesData?.heading ? (
           <div

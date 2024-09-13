@@ -19,7 +19,7 @@ const WindowsVpsHostingAPlusComponent: React.FC<Props> = ({
   return (
     <div className="bg-cover bg-center bg-[url('/cirl1.jpg')]">
       {/* bg-contain bg-center bg-[url('/hero-1-circle-right.png')] */}
-      <div className=" container mx-auto w-full border-[1px] py-4 lg:py-8 px-2 lg:px-8 ">
+      <div className=" container mx-auto w-full  py-4 lg:py-8 px-2 lg:px-8 ">
         <div className=" px-4 max-w-2xl w-full mx-auto">
           {LinuxVpsAccordionData?.heading && (
             <div
