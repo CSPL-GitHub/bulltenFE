@@ -60,7 +60,7 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({
                   alt={imageTextData?.heading}
                   style={{
                     position: "absolute",
-                    objectFit: "contain",
+                    objectFit: "cover",
                     inset: 0,
                   }}
                   fill={true}
@@ -74,17 +74,17 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({
         {imageTextData?.align_element === "right" && imageTextData?.image ? (
           <>
             <div className="W-full flex flex-col lg:flex-row items-center gap-6 justify-center relative px-4 ">
-              <div className="relative w-full lg:w-2/4 h-[450px]">
+              <div className="relative w-full lg:w-2/4 md:h-[450px] h-[300px]">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                   alt={imageTextData?.heading}
                   style={{
                     position: "absolute",
-                    objectFit: "contain",
+                    objectFit: "cover",
                     inset: 0,
                   }}
                   fill={true}
-                  className="rounded-2xl"
+                  className="rounded-xl"
                 />
               </div>
               {imageTextData?.heading || imageTextData?.description ? (
