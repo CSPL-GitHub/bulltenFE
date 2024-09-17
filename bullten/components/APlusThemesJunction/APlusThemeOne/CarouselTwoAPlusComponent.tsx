@@ -95,45 +95,49 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
             <div className="px-2" key={index}>
               <div
                 key={index}
-                className="h-[210px] flex justify-center items-center bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
+                className="h-[220px] flex justify-center items-center bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
               >
-                {item?.heading || item?.description ? (
-                  <div
-                    className="p-2 flex flex-col justify-center items-center gap-3"
-                    style={{
-                      insetInlineStart: `${item?.banner_horizontal_position_value}%`,
-                      top: `${item?.banner_vertical_position_value}%`,
-                    }}
-                  >
-                    <div className="flex flex-row justify-center items-center w-full gap-2">
-                      <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[30%]">
+                <div
+                  className="p-2 flex flex-col justify-center items-center gap-3"
+                  style={{
+                    insetInlineStart: `${item?.banner_horizontal_position_value}%`,
+                    top: `${item?.banner_vertical_position_value}%`,
+                  }}
+                >
+                  <div className="flex flex-row justify-center items-start w-full gap-2">
+                    {item?.image ? (
+                      <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[20%]">
                         <img
                           src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                           alt={item?.heading}
                           style={{
                             objectFit: "contain",
                           }}
-                          className="w-[80px] h-[80px] "
+                          className="w-[70px] h-[70px] "
                         />
                       </div>
+                    ) : null}
 
-                      <div className="w-[70%]">
+                    <div className="w-[80%]">
+                      {item?.heading ? (
                         <div
                           className="w-full text-xl items-start font-semibold tailwind-unreset py-2 line-clamp-2"
                           dangerouslySetInnerHTML={{
                             __html: item?.heading,
                           }}
                         />
+                      ) : null}
+                      {item?.description ? (
                         <div
-                          className="w-full tailwind-unreset text-md text-bullt-primary/[0.8] "
+                          className="w-full flex-1 text-md text-bullt-primary/[0.8] "
                           dangerouslySetInnerHTML={{
                             __html: item?.description,
                           }}
                         />
-                      </div>
+                      ) : null}
                     </div>
                   </div>
-                ) : null}
+                </div>
               </div>
             </div>
           ))}

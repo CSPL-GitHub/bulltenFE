@@ -71,18 +71,22 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
           }}
         >
           <div className="flex flex-col gap-2 px-4">
-            <div
-              className="text-center text-2xl mt-2 lg:text-4xl font-bold tailwind-unreset"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(carouselData?.heading),
-              }}
-            />
-            <div
-              className="text-center text-lg text-bullt-primary/[0.8] py-2 tailwind-unreset "
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(carouselData?.description),
-              }}
-            />
+            {carouselData?.heading ? (
+              <div
+                className="text-center text-2xl mt-2 lg:text-4xl font-bold tailwind-unreset"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(carouselData?.heading),
+                }}
+              />
+            ) : null}
+            {carouselData?.description ? (
+              <div
+                className="text-center text-lg text-bullt-primary/[0.8] py-2 tailwind-unreset "
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(carouselData?.description),
+                }}
+              />
+            ) : null}
           </div>
           <SliderFrame settings={settings} selector={undefined}>
             {carouselData?.content?.map((item: any, index: number) => (
@@ -91,43 +95,47 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 className="w-full h-auto flex flex-col item-center justify-center relative mb-4"
               >
                 <div className="mx-3 rounded-md  hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-50 p-4 border-[1px]">
-                  <div className="w-full h-[120px]  flex items-center">
+                  <div className="w-1/4 h-[100px]">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                       alt={item?.heading}
                       style={{
                         objectFit: "contain",
                       }}
-                      className="max-w-[100%] max-h-[100%] h-[250px] rounded-md"
+                      className="h-full w-full rounded-md"
                     />
                   </div>
-                  {item?.heading || item?.description ? (
-                    <div className="h-auto bg-opacity-60 py-4 flex flex-col justify-center items-start">
+                  <div className="h-auto bg-opacity-60 py-4 flex flex-col gap-3 justify-center items-start">
+                    {item?.heading ? (
                       <div
                         className="w-full flex flex-col items-start tailwind-unreset text-xl font-semibold"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.heading),
                         }}
                       />
+                    ) : null}
+
+                    {item?.description ? (
                       <div
-                        className="w-full text-justify tailwind-unreset text-lg text-bullt-primary/[0.8] sm:h-[110px] line-clamp-4"
+                        className="w-full text-left tailwind-unreset text-lg text-bullt-primary/[0.8] sm:h-[110px] line-clamp-4"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.description),
                         }}
                       />
-                      {item?.button_text && item?.button_link ? (
-                        <div className="mt-3 rounded font-normal">
-                          <Link href={item?.button_link}>
-                            <input
-                              className="cursor-pointer text-xl border-[1px] inline-block w-full px-5 py-2 bg-bullt-tertiary text-bullt-secondary hover:bg-bullt-secondary hover:text-bullt-tertiary rounded-md  transition-colors duration-300"
-                              type="button"
-                              value={item?.button_text}
-                            />
-                          </Link>
-                        </div>
-                      ) : null}
-                    </div>
-                  ) : null}
+                    ) : null}
+
+                    {item?.button_text && item?.button_link ? (
+                      <div className="mt-3 rounded font-normal">
+                        <Link href={item?.button_link}>
+                          <input
+                            className="cursor-pointer text-xl border-[1px] hover:border-bullt inline-block w-full px-5 py-2 bg-bullt-tertiary text-bullt-secondary hover:bg-bullt-secondary hover:text-bullt-tertiary rounded-md  transition-colors duration-300"
+                            type="button"
+                            value={item?.button_text}
+                          />
+                        </Link>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             ))}
