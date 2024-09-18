@@ -68,9 +68,6 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
       }}
     >
       <div className="w-full flex flex-col justify-center p-4 sm:p-5">
-        {/* <span className="text-lg text-bullt-quaternary font-medium text-center ">
-          Use Cases
-        </span> */}
         {carouselData?.heading ? (
           <>
             <div
@@ -98,13 +95,13 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                 className="h-[220px] flex justify-center items-center bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
               >
                 <div
-                  className="p-2 flex flex-col justify-center items-center gap-3"
+                  className="p-2 flex-1 flex flex-col  justify-center items-center gap-3"
                   style={{
                     insetInlineStart: `${item?.banner_horizontal_position_value}%`,
                     top: `${item?.banner_vertical_position_value}%`,
                   }}
                 >
-                  <div className="flex flex-row justify-center items-start w-full gap-2">
+                  <div className=" flex flex-row justify-center items-start w-full gap-2">
                     {item?.image ? (
                       <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[20%]">
                         <img
@@ -118,7 +115,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                       </div>
                     ) : null}
 
-                    <div className="w-[80%]">
+                    <div className="flex-1 w-[80%]">
                       {item?.heading ? (
                         <div
                           className="w-full text-xl items-start font-semibold tailwind-unreset py-2 line-clamp-2"

@@ -13,6 +13,7 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const currencyCode = useSelector((state: any) => state.currency);
 
+  console.log(ProductsData?.server_products, "Server products");
   const toggleExpanded = (planName: string) => {
     setExpandedPlan(expandedPlan === planName ? null : planName);
   };
