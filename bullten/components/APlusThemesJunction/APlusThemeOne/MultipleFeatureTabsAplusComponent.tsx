@@ -10,7 +10,8 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="w-full lg:py-16 py-8 lg:px-8 bg-gray-50">
+    <div className="w-full lg:py-16 py-8 lg:px-8 bg-gray-50 bg-[url('/team_bg.jpg')] bg-top bg-contain bg-no-repeat">
+      {/* <div className="w-full lg:py-16 py-8 lg:px-8 bg-[url('/docs-dark@tinypng.1bbe175e.png')] bg-center bg-no-repeat bg-cover"></div> */}
       <div className="container mx-auto w-full lg:px-8 px-4">
         {/* Heading */}
         {TabData?.heading ? (
@@ -31,22 +32,28 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
         ) : null}
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center items-center mt-6 lg:gap-12 gap-6 lg:px-12 px-4 py-8 bg-white shadow-md rounded-md">
+        <div className="grid lg:grid-cols-5 grid-cols-2 max-w-5xl mx-auto justify-center gap-1 gap-y-8 items-center mt-6  lg:px-0 px-2 ">
           {TabData?.content?.map((tab: any, index: number) => (
-            <div key={index} className="text-lg group relative w-max">
+            <div key={index} className="text-lg group relative w-full">
               <button
                 onClick={() => setActiveTab(index)}
-                className={`px-8 py-4 text-lg font-semibold rounded-md transition-all duration-300 ease-in-out ${
+                className={`w-full py-4 text-lg font-semibold rounded-md transition-all duration-300 ease-in-out ${
                   activeTab === index
-                    ? "bg-indigo-100 text-bullt-quaternary"
-                    : "text-gray-600 hover:bg-indigo-50 hover:text-bullt-quaternary"
+                    ? "bg-bullt-tertiary text-bullt-secondary border-bullt-tertiary border"
+                    : " text-bullt-tertiary bg-bullt-secondary border-bullt-tertiary border"
                 }`}
                 dangerouslySetInnerHTML={{
                   __html: tab.heading,
                 }}
               />
+              {activeTab === index ? (
+                <div className="absolute left-1/2 transform -translate-x-1/2 top-full">
+                  <div className="w-0 h-0 border-l-[15px] border-r-[15px] border-t-[15px] border-transparent border-t-bullt-tertiary"></div>
+                </div>
+              ) : null}
+
               {/* Hover Effect */}
-              <span
+              {/* <span
                 className={`absolute -bottom-1 left-1/2 h-0.5 bg-bullt-quaternary transition-all duration-300 ease-in-out group-hover:w-3/6 ${
                   activeTab === index ? "w-3/6" : "w-0"
                 }`}
@@ -55,13 +62,13 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
                 className={`absolute -bottom-1 right-1/2 h-0.5 bg-bullt-quaternary transition-all duration-300 ease-in-out group-hover:w-3/6 ${
                   activeTab === index ? "w-3/6" : "w-0"
                 }`}
-              />
+              /> */}
             </div>
           ))}
         </div>
 
         {/* Content Cards */}
-        <div className="bg-white pt-8 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 lg:px-6 px-3 py-8 rounded-lg shadow-sm mt-8">
+        <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 lg:px-6 px-2 mt-12">
           {TabData?.content[activeTab]?.loctions?.map(
             (location: any, idx: number) => (
               // <div
@@ -70,21 +77,24 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
               // >
               <div
                 key={idx}
-                className="bg-[url('/icon-lines-6.81833a8f.png')] bg-contain bg-no-repeat  flex flex-col gap-2 py-6 px-6 border-[1px] border-gray-200 relative overflow-hidden shadow-md rounded-md group transition-all duration-300 ease-in-out"
+                className=" bg-white bg-contain bg-no-repeat  flex flex-col gap-2 py-6 px-6 border-[1px] border-gray-200 relative overflow-hidden shadow-sm hover:shadow-xl rounded-md group transition-all duration-300 ease-in-out"
               >
-                {location?.tag ? (
-                  <div
-                    className="absolute top-0 right-0 bg-gradient-to-r from-bullt-tertiary to-orange-400 text-white text-sm px-2 py-1 rounded-sm  font-semibold tracking-wide transition-all duration-300 ease-in-out"
-                    dangerouslySetInnerHTML={{
-                      __html: location?.tag,
-                    }}
-                  />
-                ) : null}
+                <div>
+                  {location?.tag ? (
+                    <div
+                      className="absolute top-0 right-0 bg-gradient-to-r from-bullt-tertiary to-orange-400 text-white text-sm px-2 py-1 rounded-sm  font-semibold tracking-wide transition-all duration-300 ease-in-out"
+                      dangerouslySetInnerHTML={{
+                        __html: location?.tag,
+                      }}
+                    />
+                  ) : null}{" "}
+                  <div className="absolute top-0 -inset-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine" />
+                </div>
 
                 {/* Title */}
                 {location?.title ? (
                   <div
-                    className="w-full relative  text-left mt-6 text-bullt-primary/[0.9] text-xl font-semibold group-hover:text-bullt-quaternary tracking-wide leading-snug"
+                    className="w-full relative text-left mt-6 text-bullt-primary/[0.9] text-xl font-semibold group-hover:text-bullt-quaternary tracking-wide leading-snug"
                     dangerouslySetInnerHTML={{
                       __html: location?.title,
                     }}
@@ -102,7 +112,6 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
                 ) : null}
 
                 {/* Shine Effect */}
-                <div className="absolute top-0 -inset-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine" />
               </div>
             )
           )}

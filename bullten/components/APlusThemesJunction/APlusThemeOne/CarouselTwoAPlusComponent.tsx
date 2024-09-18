@@ -61,13 +61,16 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
   };
   return (
     <div
-      className="container mx-auto w-full lg:py-8 px-2 lg:px-8"
+      className="container mx-auto w-full lg:py-8 pt-4 pb-10 px-2 lg:px-8 "
       style={{
         marginTop: `${carouselData?.gap_top / 4}rem`,
         marginBottom: `${carouselData?.gap_bottom / 4}rem`,
       }}
     >
       <div className="w-full flex flex-col justify-center p-4 sm:p-5">
+        {/* <span className="text-lg text-bullt-quaternary font-medium text-center ">
+          Use Cases
+        </span> */}
         {carouselData?.heading ? (
           <>
             <div
@@ -95,27 +98,25 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                 className="h-[220px] flex justify-center items-center bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
               >
                 <div
-                  className="p-2 flex-1 flex flex-col  justify-center items-center gap-3"
+                  className="p-4 flex flex-col justify-center items-center gap-3"
                   style={{
                     insetInlineStart: `${item?.banner_horizontal_position_value}%`,
                     top: `${item?.banner_vertical_position_value}%`,
                   }}
                 >
-                  <div className=" flex flex-row justify-center items-start w-full gap-2">
-                    {item?.image ? (
-                      <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[20%]">
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                          alt={item?.heading}
-                          style={{
-                            objectFit: "contain",
-                          }}
-                          className="w-[70px] h-[70px] "
-                        />
-                      </div>
-                    ) : null}
+                  <div className="flex flex-row justify-center items-start w-full gap-2">
+                    <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[20%]">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                        alt={item?.heading}
+                        style={{
+                          objectFit: "contain",
+                        }}
+                        className="w-[60px] h-[60px] "
+                      />
+                    </div>
 
-                    <div className="flex-1 w-[80%]">
+                    <div className="w-[80%]">
                       {item?.heading ? (
                         <div
                           className="w-full text-xl items-start font-semibold tailwind-unreset py-2 line-clamp-2"
@@ -126,7 +127,7 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                       ) : null}
                       {item?.description ? (
                         <div
-                          className="w-full flex-1 text-md text-bullt-primary/[0.8] "
+                          className="w-full flex-1 text-md text-bullt-primary/[0.8] line-clamp-3 "
                           dangerouslySetInnerHTML={{
                             __html: item?.description,
                           }}
