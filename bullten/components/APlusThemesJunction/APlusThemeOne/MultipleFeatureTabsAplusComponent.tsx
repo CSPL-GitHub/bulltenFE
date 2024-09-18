@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Props {
   TabData: any;
@@ -11,7 +12,6 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
 
   return (
     <div className="w-full lg:py-16 py-8 lg:px-8 bg-gray-50 bg-[url('/team_bg.jpg')] bg-top bg-contain bg-no-repeat">
-      {/* <div className="w-full lg:py-16 py-8 lg:px-8 bg-[url('/docs-dark@tinypng.1bbe175e.png')] bg-center bg-no-repeat bg-cover"></div> */}
       <div className="container mx-auto w-full lg:px-8 px-4">
         {/* Heading */}
         {TabData?.heading ? (
@@ -51,71 +51,66 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
                   <div className="w-0 h-0 border-l-[15px] border-r-[15px] border-t-[15px] border-transparent border-t-bullt-tertiary"></div>
                 </div>
               ) : null}
-
-              {/* Hover Effect */}
-              {/* <span
-                className={`absolute -bottom-1 left-1/2 h-0.5 bg-bullt-quaternary transition-all duration-300 ease-in-out group-hover:w-3/6 ${
-                  activeTab === index ? "w-3/6" : "w-0"
-                }`}
-              />
-              <span
-                className={`absolute -bottom-1 right-1/2 h-0.5 bg-bullt-quaternary transition-all duration-300 ease-in-out group-hover:w-3/6 ${
-                  activeTab === index ? "w-3/6" : "w-0"
-                }`}
-              /> */}
             </div>
           ))}
         </div>
 
         {/* Content Cards */}
-        <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 lg:px-6 px-2 mt-12">
-          {TabData?.content[activeTab]?.loctions?.map(
-            (location: any, idx: number) => (
-              // <div
-              //   key={idx}
-              //   className="bg-[url('/icon-lines-6.81833a8f.png')] bg-contain bg-no-repeat  flex flex-col gap-2 py-6 px-4 border-[1px] border-gray-200 relative overflow-hidden shadow-md rounded-md group hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 transition-all duration-300 ease-in-out"
-              // >
-              <div
-                key={idx}
-                className=" bg-white bg-contain bg-no-repeat  flex flex-col gap-2 py-6 px-6 border-[1px] border-gray-200 relative overflow-hidden shadow-sm hover:shadow-xl rounded-md group transition-all duration-300 ease-in-out"
-              >
-                <div>
-                  {location?.tag ? (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 lg:px-6 px-2 mt-12"
+          >
+            {TabData?.content[activeTab]?.loctions?.map(
+              (location: any, idx: number) => (
+                <motion.div
+                  key={idx}
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-white bg-contain bg-no-repeat flex flex-col gap-2 py-6 px-6 border-[1px] border-gray-200 relative overflow-hidden shadow-sm hover:shadow-xl rounded-md group transition-all duration-300 ease-in-out"
+                >
+                  <div>
+                    {location?.tag ? (
+                      <div
+                        className="absolute top-0 right-0 bg-gradient-to-r from-bullt-tertiary to-orange-400 text-white text-sm px-2 py-1 rounded-sm  font-semibold tracking-wide transition-all duration-300 ease-in-out"
+                        dangerouslySetInnerHTML={{
+                          __html: location?.tag,
+                        }}
+                      />
+                    ) : null}
+                    <div className="absolute top-0 -inset-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine" />
+                  </div>
+
+                  {/* Title */}
+                  {location?.title ? (
                     <div
-                      className="absolute top-0 right-0 bg-gradient-to-r from-bullt-tertiary to-orange-400 text-white text-sm px-2 py-1 rounded-sm  font-semibold tracking-wide transition-all duration-300 ease-in-out"
+                      className="w-full relative text-left mt-6 text-bullt-primary/[0.9] text-xl font-semibold group-hover:text-bullt-quaternary tracking-wide leading-snug"
                       dangerouslySetInnerHTML={{
-                        __html: location?.tag,
+                        __html: location?.title,
                       }}
                     />
-                  ) : null}{" "}
-                  <div className="absolute top-0 -inset-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine" />
-                </div>
+                  ) : null}
 
-                {/* Title */}
-                {location?.title ? (
-                  <div
-                    className="w-full relative text-left mt-6 text-bullt-primary/[0.9] text-xl font-semibold group-hover:text-bullt-quaternary tracking-wide leading-snug"
-                    dangerouslySetInnerHTML={{
-                      __html: location?.title,
-                    }}
-                  />
-                ) : null}
-
-                {/* Description */}
-                {location?.description ? (
-                  <div
-                    className="w-full relative flex-1 text-left text-bullt-primary/[0.7] text-lg group-hover:text-bullt-quaternary leading-relaxed"
-                    dangerouslySetInnerHTML={{
-                      __html: location?.description,
-                    }}
-                  />
-                ) : null}
-
-                {/* Shine Effect */}
-              </div>
-            )
-          )}
-        </div>
+                  {/* Description */}
+                  {location?.description ? (
+                    <div
+                      className="w-full relative flex-1 text-left text-bullt-primary/[0.7] text-lg group-hover:text-bullt-quaternary leading-relaxed"
+                      dangerouslySetInnerHTML={{
+                        __html: location?.description,
+                      }}
+                    />
+                  ) : null}
+                </motion.div>
+              )
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
