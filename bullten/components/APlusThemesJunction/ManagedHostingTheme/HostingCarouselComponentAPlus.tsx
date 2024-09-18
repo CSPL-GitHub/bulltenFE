@@ -13,11 +13,11 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
       {carouselData?.content?.length > 0 ? (
         <div className="flex lg:flex-row flex-col container mx-auto lg:py-8 py-4 px-2 lg:px-8">
           <div
-            className="lg:w-[75%] w-full  px-4 bg-[#f3f7fa]"
-            // style={{
-            //   marginTop: `${carouselData?.gap_top / 4}rem`,
-            //   marginBottom: `${carouselData?.gap_bottom / 4}rem`,
-            // }}
+            className=" w-full  px-4 "
+          // style={{
+          //   marginTop: `${carouselData?.gap_top / 4}rem`,
+          //   marginBottom: `${carouselData?.gap_bottom / 4}rem`,
+          // }}
           >
             <div>
               <div className="absolute">
@@ -88,15 +88,6 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 ))}
               </div>
             </div>
-          </div>
-          <div className="relative lg:w-[30%] w-full flex items-center text-center justify-center py-5 bg-cover bg-right bg-[url('/hero-map.png')]">
-            <div className="bg-bullt-quaternary opacity-70 inset-0 absolute"></div>
-            <div
-              className="text-lg tailwind-unreset relative  word-wrap font-semibold px-4 text-white "
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(carouselData?.description),
-              }}
-            />
           </div>
         </div>
       ) : null}

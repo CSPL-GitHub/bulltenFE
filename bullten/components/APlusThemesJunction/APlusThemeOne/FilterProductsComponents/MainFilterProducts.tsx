@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ProductDataApi } from "@/apis/productsApi";
+import { PriceRangeApi, ProductDataApi } from "@/apis/productsApi";
 import ServerProductsComponent from "./ServerProductComponent";
 import FilterComponent from "./FilterComponet";
 import { useSelector } from "react-redux";
@@ -21,10 +21,31 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
     null,
   ]);
   const [selectedDisks, setSelectedDisks] = useState<string[]>([]);
-  // const currencyCode = useSelector((state: any) => state.currency.code);
   const currencyCode = useSelector((state: any) => state.currency);
 
-  console.log("currency-code", currencyCode?.slug);
+
+  useEffect(() => {
+    const fetchPriceRange = async () => {
+      try {
+        const response = await PriceRangeApi(decodedSlug,currencyCode?.code?.slug,);
+        console.log("response--------<", response)
+        if (response?.result) {
+          setPriceRange(response.result);
+        }
+      } catch (err) {
+        console.error("Error fetching price range:", err);
+      }
+    };
+
+
+    if (currencyCode?.code?.slug) {
+
+      fetchPriceRange();
+
+    }
+
+  }, [currencyCode, decodedSlug]);
+
   useEffect(() => {
     const fetchPlans = async () => {
       try {

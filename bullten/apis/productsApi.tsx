@@ -26,3 +26,9 @@ export const ProductDataApi = async (
   );
   return response;
 };
+
+
+export const PriceRangeApi = async ( decodedSlug: string, curreny_country:string) => {
+    const response = await apiCore("/api/price_filter", {decodedSlug: decodedSlug ,curreny_country:curreny_country}, "POST");
+    return response;
+  };

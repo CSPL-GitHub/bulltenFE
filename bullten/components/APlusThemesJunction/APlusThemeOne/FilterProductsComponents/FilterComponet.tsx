@@ -34,14 +34,7 @@ const FilterComponent = ({
 
   console.log(ProductsDetails, "details for Filtering");
   const [isOpen, setIsOpen] = useState(false);
-  const locations = [
-    "All Locations",
-    "India",
-    "UK",
-    "Germany",
-    "Canada",
-    "France",
-  ];
+
 
   const handleSelect = (location: any) => {
     setSelectedLocation(location);
@@ -92,23 +85,26 @@ const FilterComponent = ({
       </div>
       <div className="col-span-1 px-5 border-r-2">
         <label className="block text-md font-semibold text-gray-700 mb-4">
-          Price Range ($)
+          Price Range
         </label>
 
         <div className="flex justify-between mb-1">
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[0]}
+            {priceRange[0]}
           </span>
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[1]}
+            {priceRange[1]}
           </span>
         </div>
         <Slider
           range
-          min={0}
-          max={1000}
-          step={10}
-          defaultValue={[4, 1000]}
+          min={Number(priceRange?.min) || 0}  // Ensure min is a number
+          max={Number(priceRange?.max) || 1000}  // Ensure max is a number
+          defaultValue={[
+            Number(priceRange?.min) || 0,
+            Number(priceRange?.max) || 1000
+          ]}
+          step={4}
           onChange={handlePriceChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
           handleStyle={[
@@ -117,9 +113,11 @@ const FilterComponent = ({
           ]}
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
+
+
         <div className="flex justify-between  text-gray-500 mt-2">
-          <span className="text-md">${ProductsDetails?.ram_min_price}</span>
-          <span className="text-md">${ProductsDetails?.ram_max_price}</span>
+          <span className="text-md">{priceRange?.min}</span>
+          <span className="text-md">{priceRange?.max}</span>
         </div>
       </div>
 
