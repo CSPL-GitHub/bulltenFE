@@ -32,7 +32,7 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
             </div>
             <div className="flex flex-col gap-2 p-4 ">
               <div
-                className="text-2xl mt-2 md:w-[60%] w-full lg:text-4xl lg:text-left text-center  font-bold tailwind-unreset"
+                className="text-2xl mt-2  w-full lg:text-4xl text-center  font-bold tailwind-unreset"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(carouselData?.heading),
                 }}
@@ -54,12 +54,12 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                     <div className="mx-3 transform transition-transform duration-300  before:transition-all before:duration-500">
                       {item?.image ? (
                         <>
-                          <div className="w-full h-[80px] flex items-center">
+                          <div className="w-[60px] h-[60px] flex items-center transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
                             <img
                               src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                               alt={item?.heading}
                               style={{
-                                objectFit: "contain",
+                                objectFit: "cover",
                               }}
                               className="max-w-[100%] max-h-[100%] h-[250px] rounded-md"
                             />

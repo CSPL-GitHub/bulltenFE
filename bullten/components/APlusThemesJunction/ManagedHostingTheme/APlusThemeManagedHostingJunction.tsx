@@ -9,13 +9,13 @@ import ChatService from "@/components/ServerSideComponents/HomePageComponents/Ch
 import ThemeTwoMainProducts from "../APlusThemeTwo/AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
 import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
 import AccordianAPlusComponent from "./AccordianAPlusComponent";
-import WhyChooseUsManagedVPSComponent from "./WhyChooseUsManagedVPSComponent";
 import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
 import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
 import ProductCompairComponent from "./ProductCompairComponent";
 import ManageVpsAdvantagesComponent from "./ManageVpsAdvantagesComponent";
 import ImageTextTwoManagedHostingAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
 import HostingCarouselComponentAPlus from "./HostingCarouselComponentAPlus";
+import WhyChooseUsManagedHoistingComponent from "./WhyChooseUsManagedHoistingComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -71,7 +71,7 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
           case "why_choose_column":
             return (
               <div className="">
-                <WhyChooseUsManagedVPSComponent columnData={item} />
+                <WhyChooseUsManagedHoistingComponent columnData={item} />
               </div>
             );
           case "accordion":

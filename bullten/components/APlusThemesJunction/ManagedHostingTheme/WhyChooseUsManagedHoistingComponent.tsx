@@ -7,10 +7,10 @@ interface Props {
   columnData: any;
 }
 
-const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
+const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({ columnData }) => {
   return (
     <div
-      className=" relative lg:py-8 px-2 lg:px-8 shadow-sm py-4"
+      className=" relative lg:py-8 px-2 lg:px-8 shadow-sm py-4 bg-[#F1F5F9]"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -21,7 +21,7 @@ const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
       }}
     >
       <div className="relative container mx-auto flex flex-col sm:gap-4 md:flex-row">
-        <div className="absolute ">
+        {/* <div className="absolute ">
           <Image
             src="/icon-lines-6.81833a8f.png"
             alt="Heading Image"
@@ -29,7 +29,7 @@ const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
             height={500}
             className="custom-bounce "
           />
-        </div>
+        </div> */}
         <div
           className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 md:h-[510px] h-full sm:py-0 py-4 text-center sm:text-start"
           style={{}}
@@ -56,9 +56,9 @@ const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="flex flex-col p-4 border-[1px] rounded-md bg-bullt-quaternary/[0.05] hover:shadow-sm"
-              >
-                <div className="relative bg-black rounded-2xl flex items-center justify-center w-16 h-16 p-4 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2] transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
+                className="flex flex-col p-4 border-[1px] rounded-md  hover:shadow-sm bg-bullt-secondary">
+
+                <div className="relative rounded-2xl flex items-center justify-center w-24 h-24 p-4 overflow-hidden  transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                     alt={item?.heading}
@@ -68,13 +68,15 @@ const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
                       inset: 0,
                     }}
                     fill={true}
-                    className="w-full h-full p-4 filter invert brightness-0 "
+                    className="w-full h-full p-3"
                   />
                 </div>
                 <div
-                  className="text-xl font-semibold mb-2"
+                  className="text-xl font-semibold w-full"
                   dangerouslySetInnerHTML={{ __html: item?.heading }}
                 ></div>
+
+
                 <div
                   className="w-full text-lg text-bullt-primary/[0.8]"
                   dangerouslySetInnerHTML={{ __html: item?.description }}
@@ -91,8 +93,8 @@ const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
           </div>
         )}
       </div>
-    </div>
+    </div >
   );
 };
 
-export default WhyChooseUsManagedVPSComponent;
+export default WhyChooseUsManagedHoistingComponent;
