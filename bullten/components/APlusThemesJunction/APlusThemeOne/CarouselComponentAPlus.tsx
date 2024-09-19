@@ -70,7 +70,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
             marginBottom: `${carouselData?.gap_bottom / 4}rem`,
           }}
         >
-          <div className="flex flex-col gap-2 px-4">
+          <div className="flex flex-col gap-2 px-4 pb-6">
             {carouselData?.heading ? (
               <div
                 className="text-center text-2xl mt-2 lg:text-4xl font-bold tailwind-unreset"
@@ -82,7 +82,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
 
             {carouselData?.description ? (
               <div
-                className="text-center text-lg text-bullt-primary/[0.8] py-2 tailwind-unreset "
+                className="text-center text-lg text-bullt-primary/[0.8]  tailwind-unreset "
                 dangerouslySetInnerHTML={{
                   __html: carouselData?.description,
                 }}
@@ -106,10 +106,10 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                       className="h-full w-full rounded-md"
                     />
                   </div>
-                  <div className="h-auto bg-opacity-60 py-4 flex flex-col gap-3 justify-center items-start">
+                  <div className="h-auto bg-opacity-60 py-4 flex gap-1 flex-col justify-center items-start">
                     {item?.heading ? (
                       <div
-                        className="w-full flex flex-col items-start tailwind-unreset text-xl font-semibold"
+                        className="w-full flex flex-col items-start tailwind-unreset text-xl lg:h-12 font-semibold"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.heading),
                         }}
