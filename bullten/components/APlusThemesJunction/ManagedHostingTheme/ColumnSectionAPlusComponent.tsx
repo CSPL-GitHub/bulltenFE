@@ -20,26 +20,28 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
     }
   }, []);
   return (
-    <div className="container mx-auto py-4 md:py-6 lg:py-8 px-2 lg:px-8 bg-[#F1F5F9]">
-      {columnData?.heading ? (
-        <>
-          <div
-            className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold tailwind-unreset"
-            dangerouslySetInnerHTML={{
-              __html: columnData?.heading,
-            }}
-          />
-        </>
-      ) : null}
+    <div className="container mx-auto py-4 md:py-6 lg:py-10 px-2 lg:px-8 bg-bullt-quaternary/[0.05]">
+      <div className="flex flex-col gap-3 py-6">
+        {columnData?.heading ? (
+          <>
+            <div
+              className="text-center text-2xl lg:text-4xl sm:mt-0 mt-5 font-semibold tailwind-unreset"
+              dangerouslySetInnerHTML={{
+                __html: columnData?.heading,
+              }}
+            />
+          </>
+        ) : null}
 
-      {columnData?.description ? (
-        <div
-          className="text-center text-lg lg:text-lg text-bullt-primary/[0.8] tailwind-unreset py-3 "
-          dangerouslySetInnerHTML={{
-            __html: columnData?.description,
-          }}
-        ></div>
-      ) : null}
+        {columnData?.description ? (
+          <div
+            className="text-center text-lg lg:text-lg text-bullt-primary/[0.8] tailwind-unreset py-3 "
+            dangerouslySetInnerHTML={{
+              __html: columnData?.description,
+            }}
+          ></div>
+        ) : null}
+      </div>
 
       {columnData?.content?.length > 0 ? (
         <div
@@ -53,7 +55,10 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                 ? "repeat(1, minmax(0, 1fr))"
                 : windowWidth < 750
                 ? "repeat(2, minmax(0, 1fr))"
-                : `repeat(${columnData?.element_count || 1}, minmax(0, 1fr))`}`,}}>
+                : `repeat(${columnData?.element_count || 1}, minmax(0, 1fr))`
+            }`,
+          }}
+        >
           {columnData?.content?.map((item: any, index: number) => (
             <div
               key={index}
@@ -70,7 +75,8 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                       inset: 0,
                     }}
                     fill={true}
-                    className=""/>
+                    className=""
+                  />
                 </div>
               ) : null}
               {item?.heading || item?.description ? (
@@ -78,7 +84,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                   <div className="flex flex-col justify-center">
                     {item?.heading ? (
                       <div
-                        className="w-full flex text-center text-xl flex-col  tailwind-unreset font-semibold  "
+                        className="w-full text-center text-xl  tailwind-unreset font-semibold  "
                         dangerouslySetInnerHTML={{
                           __html: item?.heading,
                         }}
@@ -86,7 +92,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                     ) : null}
                     {item?.description ? (
                       <div
-                        className="w-full text-lg text-bullt-primary/[0.8]  line-clamp-3 flex-1"
+                        className="w-full  text-lg text-bullt-primary/[0.8] text-center line-clamp-3 flex-1"
                         dangerouslySetInnerHTML={{
                           __html: item?.description,
                         }}

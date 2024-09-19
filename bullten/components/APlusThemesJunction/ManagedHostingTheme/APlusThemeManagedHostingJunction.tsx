@@ -10,10 +10,10 @@ import ThemeTwoMainProducts from "../APlusThemeTwo/AplusThemeTwoFilterComponent/
 import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
 import AccordianAPlusComponent from "./AccordianAPlusComponent";
 import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
-import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
+import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedHostingAPlusComponent";
 import ProductCompairComponent from "./ProductCompairComponent";
 import ManageVpsAdvantagesComponent from "./ManageVpsAdvantagesComponent";
-import ImageTextTwoManagedHostingAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
+import ImageTextTwoManagedHostingAPlusComponent from "./ImageTextTwoManagedHostingAPlusComponent";
 import HostingCarouselComponentAPlus from "./HostingCarouselComponentAPlus";
 import WhyChooseUsManagedHoistingComponent from "./WhyChooseUsManagedHoistingComponent";
 
@@ -28,7 +28,9 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className={"sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"}
+      className={
+        "sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
+      }
     >
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
@@ -47,7 +49,9 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
           case "image_text_2":
             return (
               <div key={index}>
-                <ImageTextTwoManagedHostingAPlusComponent imageTextData={item} />
+                <ImageTextTwoManagedHostingAPlusComponent
+                  imageTextData={item}
+                />
               </div>
             );
           case "column":
@@ -150,9 +154,7 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
             return (
               <>
                 <div key={index}>
-                  <ProductCompairComponent
-                    Data={item}
-                  />
+                  <ProductCompairComponent Data={item} />
                 </div>
               </>
             );

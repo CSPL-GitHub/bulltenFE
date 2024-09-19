@@ -11,7 +11,7 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="w-full lg:py-16 py-8 lg:px-8 bg-gray-50 bg-[url('/team_bg.jpg')] bg-top bg-contain bg-no-repeat">
+    <div className="w-full lg:py-12 py-8 lg:px-8 bg-gray-50 bg-[url('/team_bg.jpg')] bg-top bg-contain bg-no-repeat">
       <div className="container mx-auto w-full lg:px-8 px-4">
         {/* Heading */}
         {TabData?.heading ? (
@@ -32,7 +32,7 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
         ) : null}
 
         {/* Tabs */}
-        <div className="grid lg:grid-cols-5 grid-cols-2 max-w-5xl mx-auto justify-center gap-1 gap-y-8 items-center mt-6  lg:px-0 px-2 ">
+        <div className="grid lg:grid-cols-5 grid-cols-2 max-w-5xl mx-auto justify-center gap-1 gap-y-4 items-center mt-6  lg:px-0 px-2 ">
           {TabData?.content?.map((tab: any, index: number) => (
             <div key={index} className="text-lg group relative w-full">
               <button

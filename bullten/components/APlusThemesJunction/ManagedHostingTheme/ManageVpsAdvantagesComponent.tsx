@@ -31,10 +31,10 @@ const ManageVpsAdvantagesComponent = ({ AdvantagesData }: any) => {
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
               alt={section?.heading}
-              className="w-full h-[300px] lg:h-[400px] object-cover rounded-xl"
+              className="w-full h-[300px] lg:h-[400px] object-contain rounded-xl"
             />
           </div>
-          <div className="w-full md:[50%] md:px-20 px-4">
+          <div className="w-full md:[50%] md:px-14 px-4">
             {/* <div className="absolute ">
               <Image
                 src="/about_bg_8_1.png"
