@@ -10,12 +10,11 @@ import ThemeTwoMainProducts from "../APlusThemeTwo/AplusThemeTwoFilterComponent/
 import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
 import AccordianAPlusComponent from "./AccordianAPlusComponent";
 import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
-import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedHostingAPlusComponent";
-import ProductCompairComponent from "./ProductCompairComponent";
 import ManageVpsAdvantagesComponent from "./ManageVpsAdvantagesComponent";
 import ImageTextTwoManagedHostingAPlusComponent from "./ImageTextTwoManagedHostingAPlusComponent";
 import HostingCarouselComponentAPlus from "./HostingCarouselComponentAPlus";
 import WhyChooseUsManagedHoistingComponent from "./WhyChooseUsManagedHoistingComponent";
+import ServerProductsComparisionManageHostingAplusComponent from "./ServerProductsComponent/ServerProductsComparisionManageHostingAplusComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -32,6 +31,9 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
         "sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
       }
     >
+      <ServerProductsComparisionManageHostingAplusComponent
+        decodedSlug={decodedSlug}
+      />
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
           case "banner":
@@ -150,14 +152,16 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
                 </div>
               </>
             );
-          case "vps_plan":
-            return (
-              <>
-                <div key={index}>
-                  <ProductCompairComponent Data={item} />
-                </div>
-              </>
-            );
+          // case "vps_plan":
+          //   return (
+          //     <>
+          //       <div key={index}>
+          //         <ServerProductsComparisionManageHostingAplusComponent
+          //           Data={item}
+          //         />
+          //       </div>
+          //     </>
+          //   );
           default:
             return null;
         }

@@ -11,9 +11,10 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <section className="container mx-auto py-4 md:py-6 lg:py-8 px-2 lg:px-8  bg-no-repeat bg-contain bg-top">
+      <section className="container relative mx-auto py-4 md:py-6 lg:py-8 px-2 lg:px-8 bg-[url('/services-one-bg.png')] bg-no-repeat bg-cover bg-top">
+        <div className="bg-gray-50 inset-0 opacity-80 absolute" />
         <div
-          className="items-center "
+          className="items-center  relative"
           style={{
             marginTop: `${imageTextData?.gap_top / 4}rem`,
             marginBottom: `${imageTextData?.gap_bottom / 4}rem`,
@@ -25,7 +26,7 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                 <div className="w-full lg:w-2/4 flex flex-col gap-2 items-start justify-center ">
                   {imageTextData?.heading ? (
                     <div
-                      className="w-full  text-bullt-primary font-semibold text-start sm:text-4xl text-2xl"
+                      className="w-full  text-bullt-primary font-semibold md:text-start text-center sm:text-4xl text-2xl"
                       dangerouslySetInnerHTML={{
                         __html: imageTextData?.heading,
                       }}
@@ -38,7 +39,7 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                       alt={imageTextData?.heading}
                       style={{
                         position: "absolute",
-                        objectFit: "cover",
+                        objectFit: "contain",
                         inset: 0,
                       }}
                       fill={true}
@@ -68,8 +69,16 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                   </div>
                 </div>
 
-                <div className="relative  w-full lg:w-2/4 lg:h-[500px] h-[300px] lg:block hidden">
-                  <Image
+                <div className="relative  w-full lg:w-2/4 lg:h-[400px] lg:block hidden">
+                  {/* <div className="absolute right-0 top-0">
+                    <Image
+                      src="/services-round.png"
+                      alt="Heading Image"
+                      width={200}
+                      height={200}
+                    />
+                  </div> */}
+                  {/* <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                     alt={imageTextData?.heading}
                     style={{
@@ -79,6 +88,12 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                     }}
                     fill={true}
                     className="rounded-xl h-full w-[400px]"
+                  /> */}
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
+                    alt={imageTextData?.heading}
+                    className="rounded-md w-full h-full object-contain"
+                    style={{ height: "100%" }}
                   />
                 </div>
               </div>

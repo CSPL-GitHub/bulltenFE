@@ -27,8 +27,26 @@ export const ProductDataApi = async (
   return response;
 };
 
+export const PriceRangeApi = async (
+  decodedSlug: string,
+  curreny_country: string
+) => {
+  const response = await apiCore(
+    "/api/price_filter",
+    { decodedSlug: decodedSlug, curreny_country: curreny_country },
+    "POST"
+  );
+  return response;
+};
 
-export const PriceRangeApi = async ( decodedSlug: string, curreny_country:string) => {
-    const response = await apiCore("/api/price_filter", {decodedSlug: decodedSlug ,curreny_country:curreny_country}, "POST");
-    return response;
-  };
+export const ManageHostingProductsApi = async (
+  product_data: string
+  // curreny_country: string
+) => {
+  const response = await apiCore(
+    "/api/managed_hostings",
+    { product_data: product_data },
+    "POST"
+  );
+  return response;
+};

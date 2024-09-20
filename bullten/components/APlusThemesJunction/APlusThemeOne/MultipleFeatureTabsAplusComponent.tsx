@@ -14,25 +14,27 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
     <div className="w-full lg:py-12 py-8 lg:px-8 bg-gray-50 bg-[url('/team_bg.jpg')] bg-top bg-contain bg-no-repeat">
       <div className="container mx-auto w-full lg:px-8 px-4">
         {/* Heading */}
-        {TabData?.heading ? (
-          <div
-            className="w-full text-bullt-primary font-bold text-center sm:text-4xl text-3xl mb-10 tracking-wide leading-tight"
-            dangerouslySetInnerHTML={{ __html: TabData?.heading }}
-          />
-        ) : null}
+        <div className="pb-8 flex flex-col gap-2">
+          {TabData?.heading ? (
+            <div
+              className="w-full text-bullt-primary font-bold text-center sm:text-4xl text-3xl tracking-wide leading-tight"
+              dangerouslySetInnerHTML={{ __html: TabData?.heading }}
+            />
+          ) : null}
 
-        {/* Description */}
-        {TabData?.description ? (
-          <div
-            className="w-full text-center text-bullt-primary/[0.8] text-lg mb-8"
-            dangerouslySetInnerHTML={{
-              __html: TabData?.description,
-            }}
-          />
-        ) : null}
+          {/* Description */}
+          {TabData?.description ? (
+            <div
+              className="w-full text-center text-bullt-primary/[0.8] text-lg "
+              dangerouslySetInnerHTML={{
+                __html: TabData?.description,
+              }}
+            />
+          ) : null}
+        </div>
 
         {/* Tabs */}
-        <div className="grid lg:grid-cols-5 grid-cols-2 max-w-5xl mx-auto justify-center gap-1 gap-y-4 items-center mt-6  lg:px-0 px-2 ">
+        <div className="grid lg:grid-cols-5 grid-cols-2 max-w-5xl mx-auto justify-center gap-1 gap-y-4 items-center  lg:px-0 px-2 ">
           {TabData?.content?.map((tab: any, index: number) => (
             <div key={index} className="text-lg group relative w-full">
               <button

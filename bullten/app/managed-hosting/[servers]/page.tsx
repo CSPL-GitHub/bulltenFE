@@ -6,24 +6,27 @@ import React from "react";
 type Props = {};
 
 const page = async ({
-    params: { servers },
+  params: { servers },
 }: {
-    params: { servers: string };
+  params: { servers: string };
 }) => {
-    const decodedSlug = decodeURIComponent(servers);
-    const ManagedDataResponse = await ManagedHostingDataApi(decodedSlug);
+  const decodedSlug = decodeURIComponent(servers);
+  const ManagedDataResponse = await ManagedHostingDataApi(decodedSlug);
 
-    return (
+  return (
+    <>
+      {ManagedDataResponse?.result?.Active == true ? (
         <>
-            {ManagedDataResponse?.result?.Active == true ? <><div>
-                <APlusThemeManagedHostingJunction
-                    aPlusResponse={ManagedDataResponse?.result}
-                    decodedSlug={decodedSlug}/>
-            </div>
-            </> : null}
+          <div>
+            <APlusThemeManagedHostingJunction
+              aPlusResponse={ManagedDataResponse?.result}
+              decodedSlug={decodedSlug}
+            />
+          </div>
         </>
-
-    );
+      ) : null}
+    </>
+  );
 };
 
 export default page;
