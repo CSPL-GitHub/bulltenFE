@@ -45,7 +45,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
 
       {columnData?.content?.length > 0 ? (
         <div
-          className="w-full h-auto  gap-6 py-3 "
+          className="w-full h-auto gap-6 py-3 px-4"
           style={{
             marginTop: `${columnData?.gap_top / 4}rem`,
             marginBottom: `${columnData?.gap_bottom / 4}rem`,
@@ -60,31 +60,13 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
           }}
         >
           {columnData?.content?.map((item: any, index: number) => (
-            <div
-              key={index}
-              className="relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform flex flex-col transform hover:bg-[#EFEFF9] hover:shadow-md hover:scale-105"
-            >
-              {item?.image ? (
-                <div className="sm:h-[60px] h-[130px]  relative">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                    alt={item?.heading}
-                    style={{
-                      position: "absolute",
-                      objectFit: "contain",
-                      inset: 0,
-                    }}
-                    fill={true}
-                    className=""
-                  />
-                </div>
-              ) : null}
-              {item?.heading || item?.description ? (
+            <>
+              <div className="card-inner relative p-3 rounded-lg overflow-hidden justify-center items-end flex flex-col bg-bullt-quaternary/[0.04] group hover:shadow-sm  hover:-translate-y-2 duration-300">
                 <div className="p-2">
-                  <div className="flex flex-col justify-center">
+                  <div className="w-[70%] mx-auto flex flex-col justify-end items-end">
                     {item?.heading ? (
                       <div
-                        className="w-full text-center text-xl  tailwind-unreset font-semibold  "
+                        className="w-full text-center text-xl text-bullt-tertiary tailwind-unreset font-semibold"
                         dangerouslySetInnerHTML={{
                           __html: item?.heading,
                         }}
@@ -92,27 +74,35 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                     ) : null}
                     {item?.description ? (
                       <div
-                        className="w-full  text-lg text-bullt-primary/[0.8] text-center line-clamp-3 flex-1"
+                        className="w-full text-lg text-bullt-primary text-left flex-1"
                         dangerouslySetInnerHTML={{
                           __html: item?.description,
                         }}
                       />
                     ) : null}
                   </div>
-                  {item?.button_text ? (
-                    <div className="mt-3 rounded flex justify-center">
-                      <Link href={item?.button_link}>
-                        <input
-                          className="cursor-pointer border-[1px] px-6 py-2 bg-bullt-tertiary hover:bg-white text-white hover:text-bullt-tertiary text-xl rounded-md"
-                          type="button"
-                          value={item?.button_text}
-                        />
-                      </Link>
+                </div>
+
+                {/* Icon adjusted to be in the center of the curve */}
+                <div className="icon absolute -top-[0.5rem] -left-[0.5rem] w-[6rem] h-[6rem] flex justify-center items-center">
+                  {item?.image ? (
+                    <div className="bg-gray-50 shadow-md  relative rounded-full flex items-center justify-center w-16 h-16 overflow-hidden transition-transform duration-100 ease-in-out group-hover:scale-x-[-1]">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                        alt={item?.heading}
+                        style={{
+                          position: "absolute",
+                          objectFit: "cover",
+                          inset: 0,
+                        }}
+                        fill={true}
+                        className="w-full h-full p-2"
+                      />
                     </div>
                   ) : null}
                 </div>
-              ) : null}
-            </div>
+              </div>
+            </>
           ))}
         </div>
       ) : null}
