@@ -20,7 +20,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
     }
   }, []);
   return (
-    <div className="container mx-auto py-4 md:py-6 lg:py-10 px-2 lg:px-8">
+    <div className="container mx-auto py-0 md:py-6 lg:py-2 px-2 lg:px-8">
       <div className="flex flex-col gap-3 py-6">
         {columnData?.heading ? (
           <>
@@ -61,12 +61,12 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
         >
           {columnData?.content?.map((item: any, index: number) => (
             <>
-              <div className="card-inner relative p-3 rounded-lg overflow-hidden justify-center items-end flex flex-col bg-bullt-quaternary/[0.04] group hover:shadow-sm  hover:-translate-y-2 duration-300">
-                <div className="p-2">
-                  <div className="w-[70%] mx-auto flex flex-col justify-end items-end">
+              <div className="card-inner relative p-3 rounded-lg overflow-hidden justify-start items-start flex flex-col bg-bullt-quaternary/[0.04] group hover:shadow-sm  hover:-translate-y-2 duration-300">
+                <div className="">
+                  <div className="w-[70%] ml-auto py-6 ">
                     {item?.heading ? (
                       <div
-                        className="w-full text-center text-xl text-bullt-tertiary tailwind-unreset font-semibold"
+                        className="w-full text-left text-lg text-bullt-tertiary tailwind-unreset font-semibold"
                         dangerouslySetInnerHTML={{
                           __html: item?.heading,
                         }}
@@ -74,7 +74,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
                     ) : null}
                     {item?.description ? (
                       <div
-                        className="w-full text-lg text-bullt-primary text-left flex-1"
+                        className="w-full text-md text-bullt-primary text-left line-clamp-4 flex-1"
                         dangerouslySetInnerHTML={{
                           __html: item?.description,
                         }}

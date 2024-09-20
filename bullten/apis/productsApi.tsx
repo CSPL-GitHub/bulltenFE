@@ -40,12 +40,12 @@ export const PriceRangeApi = async (
 };
 
 export const ManageHostingProductsApi = async (
-  product_data: string
-  // curreny_country: string
+  product_data: string,
+  currency: string
 ) => {
   const response = await apiCore(
     "/api/managed_hostings",
-    { product_data: product_data },
+    { product_data: product_data, currency: currency },
     "POST"
   );
   return response;

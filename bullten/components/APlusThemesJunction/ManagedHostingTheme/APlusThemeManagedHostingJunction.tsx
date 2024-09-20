@@ -31,9 +31,6 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
         "sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
       }
     >
-      {/* <ServerProductsComparisionManageHostingAplusComponent
-        decodedSlug={decodedSlug}
-      /> */}
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
           case "banner":
@@ -152,16 +149,16 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
                 </div>
               </>
             );
-          // case "vps_plan":
-          //   return (
-          //     <>
-          //       <div key={index}>
-          //         <ServerProductsComparisionManageHostingAplusComponent
-          //           Data={item}
-          //         />
-          //       </div>
-          //     </>
-          //   );
+          case "hosting_product":
+            return (
+              <>
+                <div key={index}>
+                  <ServerProductsComparisionManageHostingAplusComponent
+                    decodedSlug={decodedSlug}
+                  />
+                </div>
+              </>
+            );
           default:
             return null;
         }
