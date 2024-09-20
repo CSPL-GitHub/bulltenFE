@@ -31,9 +31,9 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
         "sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
       }
     >
-      <ServerProductsComparisionManageHostingAplusComponent
+      {/* <ServerProductsComparisionManageHostingAplusComponent
         decodedSlug={decodedSlug}
-      />
+      /> */}
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
           case "banner":
