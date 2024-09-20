@@ -17,7 +17,7 @@ const APlusBannerComponent: React.FC<Props> = ({ bannerData }) => {
           marginTop: `${bannerData?.gap_top / 4}rem`,
           marginBottom: `${bannerData?.gap_bottom / 4}rem`,
           backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}${bannerData?.image})`,
-          backgroundPosition: "center",
+          backgroundPosition: "top center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}

@@ -12,9 +12,14 @@ type Props = {
 const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
   const [selectedLocation, setSelectedLocation] = useState<string>("");
-  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([null, null,]);
-  const [filterRange,setFilterRange] =useState<any>({})
-  const [ramRange, setRamRange] = useState<[number | null, number | null]>([null, null,]);
+  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
+    null,
+    null,
+  ]);
+  const [ramRange, setRamRange] = useState<[number | null, number | null]>([
+    null,
+    null,
+  ]);
   const [selectedDisks, setSelectedDisks] = useState<string[]>([]);
   const currencyCode = useSelector((state: any) => state.currency);
 
@@ -25,15 +30,20 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         const response = await PriceRangeApi(decodedSlug,currencyCode?.code?.slug,);
         console.log("response--------<", response)
         if (response?.result) {
-          setFilterRange(response.result);
+          setPriceRange(response.result);
         }
       } catch (err) {
         console.error("Error fetching price range:", err);
       }
-    }; 
+    };
+
+
     if (currencyCode?.code?.slug) {
+
       fetchPriceRange();
+
     }
+
   }, [currencyCode, decodedSlug]);
 
   useEffect(() => {
@@ -47,13 +57,14 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
           ramRange[0] !== null ? ramRange[0].toString() : "",
           ramRange[1] !== null ? ramRange[1].toString() : "",
           priceRange[0] !== null ? priceRange[0].toString() : "",
-          priceRange[1] !== null ? priceRange[1].toString() : "");
-
+          priceRange[1] !== null ? priceRange[1].toString() : ""
+        );
         setServerProducts(response?.result?.data);
       } catch (err) {
         console.error("Error fetching plans:", err);
       }
     };
+
     fetchPlans();
   }, [selectedLocation, selectedDisks, priceRange, ramRange, currencyCode]);
 
@@ -80,10 +91,9 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         setSelectedDisks={setSelectedDisks}
         selectedDisks={selectedDisks}
         ramRange={ramRange}
-        priceRange={filterRange}
+        priceRange={priceRange}
         selectedLocation={selectedLocation}
         ProductsDetails={serverProducts}
-        decodedSlug={decodedSlug}
       />
       <ServerProductsComponent ProductsData={serverProducts} />
     </div>

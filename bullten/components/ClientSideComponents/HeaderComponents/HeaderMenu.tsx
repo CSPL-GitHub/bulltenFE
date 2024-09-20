@@ -55,12 +55,12 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
     );
     if (selectedCurrency) {
       setCurrencies(selectedCurrency);
-      dispatch(setCurrencyCode(selectedCurrency)); 
+      dispatch(setCurrencyCode(selectedCurrency)); // Dispatch the selected currency
     }
   };
 
   useEffect(() => {
-    dispatch(setCurrencyCode(currencies)); 
+    dispatch(setCurrencyCode(currencies)); // Initial dispatch
   }, [currencies, dispatch]);
 
   return (
@@ -84,8 +84,8 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
             </div>
             <div className="flex item-center text-bullt-secondary gap-4 relative">
               <select
-                className="bg-black sm:px-1 text-white"
-                onChange={handleCurrencyChange} 
+                className="bg-black sm:px-1 text-white hidden"
+                onChange={handleCurrencyChange} // Handle currency change
                 value={currencies?.country_name}
               >
                 {headerCurrency?.map((currency) => (

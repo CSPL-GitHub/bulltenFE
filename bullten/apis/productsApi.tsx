@@ -50,8 +50,3 @@ export const ManageHostingProductsApi = async (
   );
   return response;
 };
-
-export const FilterLoactionApi = async (decodedSlug: string,) => {
-  const response = await apiCore("/api/locations", { decodedSlug: decodedSlug }, "POST");
-  return response;
-};

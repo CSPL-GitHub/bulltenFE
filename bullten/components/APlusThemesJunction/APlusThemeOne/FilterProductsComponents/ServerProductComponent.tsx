@@ -102,11 +102,7 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                       /> */}
                     {plan?.server_price?.map((price: any, index: any) => (
                       <div className="text-bullt-quaternary font-semibold text-md" key={index}>
-                        <div className="flex">
-                        <p>{price?.icon}</p>
-                        <p>{price?.price}</p>
-                        </div>
-                       
+                        {price?.price}
                       </div>
                     ))}
                     <span className="text-sm font-semibold">/Monthly</span>
