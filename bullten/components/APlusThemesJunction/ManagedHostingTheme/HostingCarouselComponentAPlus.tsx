@@ -13,7 +13,7 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
       {carouselData?.content?.length > 0 ? (
         <div className="flex lg:flex-row flex-col container mx-auto lg:py-8 py-4 px-2 lg:px-8">
           <div
-            className=" w-full  px-4 "
+            className="w-full px-4"
           // style={{
           //   marginTop: `${carouselData?.gap_top / 4}rem`,
           //   marginBottom: `${carouselData?.gap_bottom / 4}rem`,
@@ -24,7 +24,7 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 <Image
                   src="/hero-map.png"
                   alt="map"
-                  width={400}
+                  width={500}
                   height={400}
                   className="opacity-60"
                 />
@@ -49,19 +49,21 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 {carouselData?.content?.map((item: any, index: number) => (
                   <div
                     key={index}
-                    className="w-full h-auto flex flex-col item-center relative"
-                  >
+                    className="w-full h-auto flex flex-col item-center relative">
                     <div className="mx-3 transform transition-transform duration-300  before:transition-all before:duration-500">
                       {item?.image ? (
                         <>
-                          <div className="w-[60px] h-[60px] flex items-center transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
-                            <img
+                          <div className="relative w-[70px] h-[70px] flex items-center transition-transform duration-100 ease-in-out hover:scale-x-[-1] bg-slate-100 rounded-full">
+                            <Image
                               src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                               alt={item?.heading}
                               style={{
+                                position: "absolute",
                                 objectFit: "cover",
+                                inset: 0,
                               }}
-                              className="max-w-[100%] max-h-[100%] h-[250px] rounded-md"
+                              fill={true}
+                              className="w-full h-full p-3"
                             />
                           </div>
                         </>
@@ -69,7 +71,7 @@ const HostingCarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                       {item?.heading || item?.description ? (
                         <div className="bg-opacity-60 py-4 flex flex-col gap-3 items-start">
                           <div
-                            className="w-full text-lg font-semibold text-bullt-tertiary h-full text-wrap tailwind-unreset border-r-2 border-gray-200"
+                            className="w-full text-lg font-semibold text-bullt-tertiary h-full text-wrap tailwind-unreset border-r-2 border-gray-200 line-clamp-2"
                             dangerouslySetInnerHTML={{
                               __html: DOMPurify.sanitize(item?.heading),
                             }}

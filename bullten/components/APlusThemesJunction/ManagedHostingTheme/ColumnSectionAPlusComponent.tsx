@@ -20,7 +20,7 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
     }
   }, []);
   return (
-    <div className="container mx-auto py-4 md:py-6 lg:py-10 px-2 lg:px-8 bg-bullt-quaternary/[0.05]">
+    <div className="container mx-auto py-4 md:py-6 lg:py-10 px-2 lg:px-8">
       <div className="flex flex-col gap-3 py-6">
         {columnData?.heading ? (
           <>
@@ -62,10 +62,10 @@ const ColumnSectionAPlusComponent: React.FC<Props> = ({ columnData }) => {
           {columnData?.content?.map((item: any, index: number) => (
             <div
               key={index}
-              className="relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform flex flex-col transform bg-bullt-secondary"
+              className="relative border-[1px] p-3 rounded-lg overflow-hidden transition-transform flex flex-col transform hover:bg-[#EFEFF9] hover:shadow-md hover:scale-105"
             >
               {item?.image ? (
-                <div className="sm:h-[80px] h-[130px]  relative">
+                <div className="sm:h-[60px] h-[130px]  relative">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
                     alt={item?.heading}

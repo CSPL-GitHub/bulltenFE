@@ -21,7 +21,7 @@ const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({ columnData }) =>
       }}
     >
       <div className="relative container mx-auto flex flex-col sm:gap-4 md:flex-row">
-        {/* <div className="absolute ">
+        <div className="absolute ">
           <Image
             src="/icon-lines-6.81833a8f.png"
             alt="Heading Image"
@@ -29,7 +29,7 @@ const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({ columnData }) =>
             height={500}
             className="custom-bounce "
           />
-        </div> */}
+        </div>
         <div
           className="md:w-[40%] w-full flex flex-col justify-center items-center px-4 sm:px-10 md:h-[510px] h-full sm:py-0 py-4 text-center sm:text-start"
           style={{}}

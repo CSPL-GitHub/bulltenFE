@@ -109,7 +109,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                   <div className="h-auto bg-opacity-60 py-4 flex gap-1 flex-col justify-center items-start">
                     {item?.heading ? (
                       <div
-                        className="w-full flex flex-col items-start tailwind-unreset text-xl lg:h-12 font-semibold"
+                        className="w-full flex flex-col items-start tailwind-unreset text-xl h-12 sm:h-auto mb-2 sm:mb-0 font-semibold"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.heading),
                         }}
@@ -118,7 +118,7 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
 
                     {item?.description ? (
                       <div
-                        className="w-full text-left tailwind-unreset text-lg text-bullt-primary/[0.8] sm:h-[110px] line-clamp-4"
+                        className="w-full text-left tailwind-unreset text-lg text-bullt-primary/[0.8] h-[110px] line-clamp-3 mt-2 sm:mt-0"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(item?.description),
                         }}

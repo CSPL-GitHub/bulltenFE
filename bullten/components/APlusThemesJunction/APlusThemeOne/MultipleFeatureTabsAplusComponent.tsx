@@ -57,7 +57,7 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
           ))}
         </div>
 
-        {/* Content Cards */}
+       
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -69,12 +69,7 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
           >
             {TabData?.content[activeTab]?.loctions?.map(
               (location: any, idx: number) => (
-                <motion.div
-                  key={idx}
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -10, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                <div
                   className="bg-white bg-contain bg-no-repeat flex flex-col gap-2 py-6 px-6 border-[1px] border-gray-200 relative overflow-hidden shadow-sm hover:shadow-xl rounded-md group transition-all duration-300 ease-in-out"
                 >
                   <div>
@@ -98,8 +93,6 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
                       }}
                     />
                   ) : null}
-
-                  {/* Description */}
                   {location?.description ? (
                     <div
                       className="w-full relative flex-1 text-left text-bullt-primary/[0.7] text-lg group-hover:text-bullt-quaternary leading-relaxed"
@@ -108,7 +101,7 @@ export default function MultipleFeatureTabsAplusComponent({ TabData }: Props) {
                       }}
                     />
                   ) : null}
-                </motion.div>
+                </div>
               )
             )}
           </motion.div>
