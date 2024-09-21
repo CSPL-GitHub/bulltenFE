@@ -82,9 +82,9 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
                 </a>
               </div>
             </div>
-            <div className="flex item-center text-bullt-secondary gap-4 relative">
+            <div className="flex item-center justify-center text-bullt-secondary gap-4 relative">
               <select
-                className="bg-bullt-secondary rounded-sm shadow-md px-4 sm:px-1 text-bullt-primary focus:outline-none focus:ring-0"
+                className="bg-bullt-secondary my-auto rounded-sm shadow-md lg:h-auto h-[30px] px-3 sm:px-1 text-bullt-primary focus:outline-none focus:ring-0"
                 onChange={handleCurrencyChange} // Handle currency change
                 value={currencies?.country_name}
               >
