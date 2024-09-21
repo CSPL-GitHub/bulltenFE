@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { PriceRangeApi, ProductDataApi } from "@/apis/productsApi";
+import { FilterLoactionApi, PriceRangeApi, ProductDataApi } from "@/apis/productsApi";
 import ServerProductsComponent from "./ServerProductComponent";
 import FilterComponent from "./FilterComponet";
 import { useSelector } from "react-redux";
@@ -12,25 +12,27 @@ type Props = {
 const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
   const [selectedLocation, setSelectedLocation] = useState<string>("");
-  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
-    null,
-    null,
-  ]);
-  const [ramRange, setRamRange] = useState<[number | null, number | null]>([
-    null,
-    null,
-  ]);
+  // const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
+  //   null,
+  //   null,
+  // ]);
+  // const [ramRange, setRamRange] = useState<[number | null, number | null]>([
+  //   null,
+  //   null,
+  // ]);
+  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([null, null,]);
+  const [filterRange,setFilterRange] =useState<any>({})
+  const [ramRange, setRamRange] = useState<[number | null, number | null]>([null, null,]);
   const [selectedDisks, setSelectedDisks] = useState<string[]>([]);
   const currencyCode = useSelector((state: any) => state.currency);
-
-
+ 
   useEffect(() => {
     const fetchPriceRange = async () => {
       try {
         const response = await PriceRangeApi(decodedSlug,currencyCode?.code?.slug,);
         console.log("response--------<", response)
         if (response?.result) {
-          setPriceRange(response.result);
+          setFilterRange(response.result);
         }
       } catch (err) {
         console.error("Error fetching price range:", err);
@@ -91,9 +93,10 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         setSelectedDisks={setSelectedDisks}
         selectedDisks={selectedDisks}
         ramRange={ramRange}
-        priceRange={priceRange}
+        priceRange={filterRange}
         selectedLocation={selectedLocation}
         ProductsDetails={serverProducts}
+        decodedSlug={decodedSlug}
       />
       <ServerProductsComponent ProductsData={serverProducts} />
     </div>
