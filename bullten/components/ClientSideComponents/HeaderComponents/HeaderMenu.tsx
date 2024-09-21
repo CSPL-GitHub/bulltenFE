@@ -84,12 +84,17 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
             </div>
             <div className="flex item-center text-bullt-secondary gap-4 relative">
               <select
-                className="bg-black sm:px-1 text-white"
+                className="bg-bullt-secondary rounded-sm shadow-md px-4 sm:px-1 text-bullt-primary focus:outline-none focus:ring-0"
                 onChange={handleCurrencyChange} // Handle currency change
                 value={currencies?.country_name}
               >
                 {headerCurrency?.map((currency) => (
-                  <option key={currency.id} value={currency.country_name}>
+                  <option
+                    key={currency.id}
+                    value={currency.country_name}
+                    className="text-sm"
+                  >
+                    <img src="/bullten/public/02.jpg" />
                     {currency.country_name}
                   </option>
                 ))}
