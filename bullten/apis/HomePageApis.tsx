@@ -9,6 +9,11 @@ export const headerApi = async () => {
   return response;
 };
 
+export const HeaderCountryApi = async () => {
+  const response = await apiCore(`/api/currencies`, {}, "POST");
+  return response;
+};
+
 export const HomePageBannerApi = async () => {
   const response = await apiCore(`/api/banners`, {}, "POST");
   return response;

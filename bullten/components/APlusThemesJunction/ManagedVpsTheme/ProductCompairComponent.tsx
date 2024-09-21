@@ -39,7 +39,7 @@ const ProductCompairComponent: React.FC<Props> = ({ Data }) => {
                                 <th key={index} className="border px-4 py-2 text-center">
                                     <div className="sm:text-xl text-lg font-semibold">{plan?.plans}</div>
                                     <div className="sm:text-xl text-lg font-bold text-purple-600">
-                                        ${plan?.price}
+                                        {plan?.price}
                                     </div>
                                     <div className="text-lg">{plan?.month}</div>
                                     <button className="mt-4 bg-bullt-tertiary text-white py-2 border-[1px] px-3 rounded hover:bg-bullt-secondary hover:text-bullt-tertiary">

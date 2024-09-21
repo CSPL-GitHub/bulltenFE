@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { useSelector } from "react-redux";
+import { FilterLoactionApi } from "@/apis/productsApi";
 
 type Props = {
   setSelectedLocation: any;
@@ -14,6 +15,7 @@ type Props = {
   ramRange: any;
   selectedLocation: any;
   ProductsDetails: any;
+  decodedSlug:string;
 };
 const FilterComponent = ({
   setSelectedLocation,
@@ -25,29 +27,38 @@ const FilterComponent = ({
   ramRange,
   selectedLocation,
   ProductsDetails,
+  decodedSlug,
 }: Props) => {
-  const currencyCode = useSelector((state: any) => state.currency.code);
+  const currencyCode = useSelector((state: any) => state.currency);
   console.log("CurrencyCode", currencyCode)
-
   const disks = ["SATA", "SSD", "NVME"];
   console.log(ProductsDetails?.ram_max_price, "jhfsdjfhsdjf");
 
   console.log(ProductsDetails, "details for Filtering");
   const [isOpen, setIsOpen] = useState(false);
-  const locations = [
-    "All Locations",
-    "India",
-    "UK",
-    "Germany",
-    "Canada",
-    "France",
-  ];
+  const [loaction,setLoaction]=useState<any>({})
 
+  useEffect(() => {
+    const fetchPriceRange = async () => {
+      try {
+        const response = await FilterLoactionApi(decodedSlug);
+        console.log("response--------<", response)
+        if (response?.result) {
+          setLoaction(response.result);
+        }
+      } catch (err) {
+        console.error("Error fetching price range:", err);
+      }
+    };
+    if (currencyCode?.code?.slug) {
+      fetchPriceRange();
+    }
+  }, [decodedSlug]);
   const handleSelect = (location: any) => {
     setSelectedLocation(location);
     setIsOpen(false);
   };
-  const handleDiskChange = (disk: string) => {
+  const handleDiskChange = (disk: any) => {
     if (selectedDisks.includes(disk)) {
       setSelectedDisks(selectedDisks.filter((d: any) => d !== disk));
     } else {
@@ -80,35 +91,38 @@ const FilterComponent = ({
           className="w-full p-2 border border-gray-300 rounded-md"
         >
           <option value="">All Locations</option>
-          {["India", "UK", "Germany", "Canada", "France"].map((location) => (
+          {loaction?.location_data?.map((location:any) => (
             <option
               key={location}
               className="hover:bg-bullt-tertiary active:bg-bullt-secondary"
             >
-              {location}
+              {location?.Location}
             </option>
           ))}
         </select>
       </div>
       <div className="col-span-1 px-5 border-r-2">
         <label className="block text-md font-semibold text-gray-700 mb-4">
-          Price Range ($)
+          Price Range
         </label>
 
         <div className="flex justify-between mb-1">
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[0]}
+          {Number(priceRange?.min)}
           </span>
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[1]}
+          {Number(priceRange?.min)}
           </span>
         </div>
         <Slider
           range
-          min={0}
-          max={1000}
-          step={10}
-          defaultValue={[4, 1000]}
+          min={Number(priceRange?.min) || 0}  // Ensure min is a number
+          max={Number(priceRange?.max) || 1000}  // Ensure max is a number
+          defaultValue={[
+            Number(priceRange?.min) || 0,
+            Number(priceRange?.max) || 1000
+          ]}
+          step={4}
           onChange={handlePriceChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
           handleStyle={[
@@ -117,9 +131,11 @@ const FilterComponent = ({
           ]}
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
+
+
         <div className="flex justify-between  text-gray-500 mt-2">
-          <span className="text-md">${ProductsDetails?.ram_min_price}</span>
-          <span className="text-md">${ProductsDetails?.ram_max_price}</span>
+        <span className="text-md">{priceRange?.icon}{priceRange?.min}</span>
+        <span className="text-md">{priceRange?.icon}{priceRange?.max}</span>
         </div>
       </div>
 
@@ -160,17 +176,17 @@ const FilterComponent = ({
           Disks
         </label>
         <div className="grid grid-cols-2">
-          {disks.map((disk, index) => (
+          {loaction?.disk_data?.map((disk:any, index:any) => (
             <div key={index} className="flex flex-row items-center py-2">
               <input
                 type="checkbox"
                 id={`disk-${index}`}
-                checked={selectedDisks.includes(disk)}
-                onChange={() => handleDiskChange(disk)}
+                checked={selectedDisks.includes(disk?.Disks_all_type)}
+                onChange={() => handleDiskChange(disk?.Disks_all_type)}
                 className="mr-3 transform scale-150 bg-bullt-tertiary"
               />
-              <label htmlFor={`disk-${index}`} className="text-md ">
-                {disk}
+              <label className="text-md ">
+                {disk?.Disks_all_type}
               </label>
             </div>
           ))}

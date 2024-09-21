@@ -107,3 +107,12 @@
   } */
 
   /* <<<<<<<<<<<<<-- slider dots  css ----------->>>>>>> */
+  .card-inner {
+    --clr: #fff;
+}
+.icon { 
+    background: var(--clr);
+    border-bottom-right-radius: 60%;
+}
+
+

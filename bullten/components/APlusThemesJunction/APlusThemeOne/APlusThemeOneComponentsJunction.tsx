@@ -20,6 +20,7 @@ import FilterComponent from "./FilterProductsComponents/FilterComponet";
 import PricingTable from "./FilterProductsComponents/ServerProductComponent";
 import MainFilterProducts from "./FilterProductsComponents/MainFilterProducts";
 import Skeleton from "react-loading-skeleton";
+import MultipleFeatureTabsAplusComponent from "./MultipleFeatureTabsAplusComponent";
 
 interface Props {
   aPlusResponse: any;
@@ -125,10 +126,12 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
               <>
                 {" "}
                 {item?.testimonials_is_active?.Active ? (
-                  <div  className="container mx-auto">
-                    <Suspense fallback={<Skeleton height={"50%"} width={"100%"} />}>
-          <TestimonialsComponent color={undefined} />
-        </Suspense>
+                  <div className="container mx-auto">
+                    <Suspense
+                      fallback={<Skeleton height={"50%"} width={"100%"} />}
+                    >
+                      <TestimonialsComponent color={undefined} />
+                    </Suspense>
                   </div>
                 ) : null}
               </>
@@ -155,6 +158,13 @@ const APlusThemeOneComponentsJunction: React.FC<Props> = ({
                   </div>
                 ) : null}
               </>
+            );
+
+          case "tab":
+            return (
+              <div key={index}>
+                <MultipleFeatureTabsAplusComponent TabData={item} />
+              </div>
             );
 
           default:

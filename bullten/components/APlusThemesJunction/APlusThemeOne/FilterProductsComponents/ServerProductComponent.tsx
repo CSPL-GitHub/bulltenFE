@@ -1,8 +1,8 @@
 "use client";
-
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 type Props = {
   ProductsData: any;
@@ -10,7 +10,10 @@ type Props = {
 const ServerProductsComponent = ({ ProductsData }: Props) => {
   const [expandedPlan, setExpandedPlan] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+  const currencyCode = useSelector((state: any) => state.currency);
+  const currencyPrise = useSelector((state: any) => state.price);
 
+  console.log(ProductsData?.server_products, "Server products");
   const toggleExpanded = (planName: string) => {
     setExpandedPlan(expandedPlan === planName ? null : planName);
   };
@@ -35,9 +38,8 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                   <span className="font-semibold">
                     <IoIosArrowDown
                       size={25}
-                      className={`text-bullt-tertiary text-2xl  cursor-pointer transform transition-transform duration-300 ${
-                        expandedPlan === plan.name ? "rotate-180" : ""
-                      }`}
+                      className={`text-bullt-tertiary text-2xl  cursor-pointer transform transition-transform duration-300 ${expandedPlan === plan.name ? "rotate-180" : ""
+                        }`}
                       onClick={() => toggleExpanded(plan.name)}
                     />
                   </span>
@@ -62,8 +64,6 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                     }}
                   />
                 </div>
-
-                {/* Disks */}
                 <div className="flex flex-col items-start gap-1">
                   <span className="text-md font-semibold">Disks</span>
                   <ul className="w-full grid grid-cols-2 gap-1">
@@ -94,12 +94,21 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                 <div className="flex flex-col items-start gap-1">
                   <span className="text-md font-semibold">Starting at</span>
                   <div className="flex gap-1 items-center">
-                    <div
-                      className="text-bullt-quaternary font-semibold text-md"
-                      dangerouslySetInnerHTML={{
-                        __html: `$ ${plan?.price}`,
-                      }}
-                    />
+
+                    {/* <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${currencyCode?.code?.icon}`}
+                        alt={currencyCode?.code?.currency_name}
+                        className="w-4 h-4"
+                      /> */}
+                    {plan?.server_price?.map((price: any, index: any) => (
+                      <div className="text-bullt-quaternary font-semibold text-md" key={index}>
+                        <div className="flex">
+                        <p>{price?.icon}</p>
+                        <p>{price?.price}</p>
+                        </div>
+                      
+                      </div>
+                    ))}
                     <span className="text-sm font-semibold">/Monthly</span>
                   </div>
                 </div>
@@ -113,22 +122,19 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                   >
                     <p
                       className="transition-transform duration-500"
-                      onClick={() => handleAddToCart(plan.name)}
+                      onClick={() => handleAddToCart(plan?.name)}
                     >
                       {plan?.buttonText}
                     </p>
                   </Link>
-
-
                 </div>
               )}
-
             </div>
 
             {expandedPlan === plan.name && (
               <div className="sm:flex bg-[#F0EFF9] p-2 gap-3 rounded-b-lg">
                 <ul className="lg:w-4/5 w-full grid md:grid-cols-4 grid-cols-2 gap-4 list-inside border border-dashed p-4">
-                  {plan.server_benifits.map((benefit: any, i: number) => (
+                  {plan?.server_benifits?.map((benefit: any, i: number) => (
                     <div key={i} className="flex items-center gap-1">
                       <div className="flex justify-center items-center bg-green-500 p-2 rounded-full h-4 w-4">
                         <span className="text-bullt-secondary text-xs font-thin">
@@ -136,7 +142,7 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                         </span>
                       </div>
                       <li className="flex items-center text-sm font-normal">
-                        {benefit.title}
+                        {benefit?.title}
                       </li>
                     </div>
                   ))}

@@ -8,21 +8,20 @@ import TestimonialsComponent from "@/components/ServerSideComponents/HomePageCom
 import ChatService from "@/components/ServerSideComponents/HomePageComponents/ChatService";
 import ThemeTwoMainProducts from "../APlusThemeTwo/AplusThemeTwoFilterComponent/ThemeTwoMainProducts";
 import ColumnSectionAPlusComponent from "./ColumnSectionAPlusComponent";
-import CarouselComponentAPlus from "./CarouselComponentAPlus";
 import AccordianAPlusComponent from "./AccordianAPlusComponent";
-import WhyChooseUsManagedVPSComponent from "./WhyChooseUsManagedVPSComponent";
 import WindowsVpsHostingAPlusComponent from "./WindowsVpsHostingAPlusComponent";
-import ImageTextTwoManagedVpsAPlusComponent from "./ImageTextTwoManagedVpsAPlusComponent";
-import StickyScrollRevealDemo from "./test";
-import ProductCompairComponent from "./ProductCompairComponent";
 import ManageVpsAdvantagesComponent from "./ManageVpsAdvantagesComponent";
+import ImageTextTwoManagedHostingAPlusComponent from "./ImageTextTwoManagedHostingAPlusComponent";
+import HostingCarouselComponentAPlus from "./HostingCarouselComponentAPlus";
+import WhyChooseUsManagedHoistingComponent from "./WhyChooseUsManagedHoistingComponent";
+import ServerProductsComparisionManageHostingAplusComponent from "./ServerProductsComponent/ServerProductsComparisionManageHostingAplusComponent";
 
 interface Props {
   aPlusResponse: any;
   decodedSlug: any;
 }
 
-const APlusThemeManagedVpsJunction: React.FC<Props> = ({
+const APlusThemeManagedHostingJunction: React.FC<Props> = ({
   aPlusResponse,
   decodedSlug,
 }) => {
@@ -49,7 +48,9 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "image_text_2":
             return (
               <div key={index}>
-                <ImageTextTwoManagedVpsAPlusComponent imageTextData={item} />
+                <ImageTextTwoManagedHostingAPlusComponent
+                  imageTextData={item}
+                />
               </div>
             );
           case "column":
@@ -61,7 +62,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "carousel":
             return (
               <div key={index}>
-                <CarouselComponentAPlus carouselData={item} />
+                <HostingCarouselComponentAPlus carouselData={item} />
               </div>
             );
           case "carousel_2":
@@ -73,7 +74,7 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
           case "why_choose_column":
             return (
               <div className="">
-                <WhyChooseUsManagedVPSComponent columnData={item} />
+                <WhyChooseUsManagedHoistingComponent columnData={item} />
               </div>
             );
           case "accordion":
@@ -148,12 +149,12 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
                 </div>
               </>
             );
-          case "vps_plan":
+          case "hosting_product":
             return (
               <>
                 <div key={index}>
-                  <ProductCompairComponent
-                    Data={item}
+                  <ServerProductsComparisionManageHostingAplusComponent
+                    decodedSlug={decodedSlug}
                   />
                 </div>
               </>
@@ -167,4 +168,4 @@ const APlusThemeManagedVpsJunction: React.FC<Props> = ({
   );
 };
 
-export default APlusThemeManagedVpsJunction;
+export default APlusThemeManagedHostingJunction;

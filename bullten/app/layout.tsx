@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Rubik } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Header from "@/components/CommonComponents/HeaderComponents/Header";
 import Footer from "@/components/ServerSideComponents/FooterComponent/Footer";
 import ReduxStoreProvider from "./ReduxStoreProvider";
 import ReduxPersistStoreProvider from "./ReduxPersistStoreProvider";
 
-const inter = Rubik({ subsets: ["latin"] });
+const inter = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "BullTen",
