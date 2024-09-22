@@ -16,8 +16,8 @@ export const ProductDataApi = async (
       slug: slug,
       disk_type: disk_type,
       server_location: server_location,
-      min_ram: minram,
-      max_ram: maxram,
+      min_memory: minram,
+      max_memory: maxram,
       min_price: minprice,
       max_price: maxprice,
       currency: currencyCode,
@@ -33,7 +33,7 @@ export const PriceRangeApi = async (
 ) => {
   const response = await apiCore(
     "/api/price_filter",
-    { decodedSlug: decodedSlug, curreny_country: curreny_country },
+    { slug: decodedSlug, curreny_country: curreny_country },
     "POST"
   );
   return response;
@@ -50,7 +50,11 @@ export const ManageHostingProductsApi = async (
   );
   return response;
 };
-export const FilterLoactionApi = async (decodedSlug: string,) => {
-  const response = await apiCore("/api/locations", { decodedSlug: decodedSlug }, "POST");
+export const FilterLoactionApi = async (decodedSlug: string) => {
+  const response = await apiCore(
+    "/api/locations",
+    { decodedSlug: decodedSlug },
+    "POST"
+  );
   return response;
 };

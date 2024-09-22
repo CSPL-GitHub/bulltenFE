@@ -1,9 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FilterLoactionApi, PriceRangeApi, ProductDataApi } from "@/apis/productsApi";
+import {
+  FilterLoactionApi,
+  PriceRangeApi,
+  ProductDataApi,
+} from "@/apis/productsApi";
 import ServerProductsComponent from "./ServerProductComponent";
 import FilterComponent from "./FilterComponet";
 import { useSelector } from "react-redux";
+import LoaderComponent from "@/components/CommonComponents/LoaderComponent/LoaderComponent";
 
 type Props = {
   decodedSlug: string;
@@ -12,64 +17,83 @@ type Props = {
 const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
   const [selectedLocation, setSelectedLocation] = useState<string>("");
-  // const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
-  //   null,
-  //   null,
-  // ]);
-  // const [ramRange, setRamRange] = useState<[number | null, number | null]>([
-  //   null,
-  //   null,
-  // ]);
-  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([null, null,]);
-  const [filterRange,setFilterRange] =useState<any>({})
-  const [ramRange, setRamRange] = useState<[number | null, number | null]>([null, null,]);
+  const [filterRange, setFilterRange] = useState<any>({});
+  const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
+    null,
+    null,
+  ]);
+  const [ramRange, setRamRange] = useState<[number | null, number | null]>([
+    null,
+    null,
+  ]);
+  const [MinRamRange, setMinRamRange] = useState<any>(4);
+  const [MaxRamRange, setMaxRamRange] = useState<any>(1500);
   const [selectedDisks, setSelectedDisks] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false); // Loader state
+
   const currencyCode = useSelector((state: any) => state.currency);
- 
+
   useEffect(() => {
     const fetchPriceRange = async () => {
       try {
-        const response = await PriceRangeApi(decodedSlug,currencyCode?.code?.slug,);
-        console.log("response--------<", response)
+        setLoading(true); // Start loader
+        const response = await PriceRangeApi(
+          decodedSlug,
+          currencyCode?.code?.slug
+        );
         if (response?.result) {
           setFilterRange(response.result);
+          setPriceRange([response.result?.min, response.result?.max]);
         }
+        setLoading(false); // Stop loader
       } catch (err) {
+        setLoading(false); // Stop loader in case of error
         console.error("Error fetching price range:", err);
       }
     };
 
-
     if (currencyCode?.code?.slug) {
-
       fetchPriceRange();
-
     }
-
   }, [currencyCode, decodedSlug]);
 
   useEffect(() => {
     const fetchPlans = async () => {
       try {
+        setLoading(true); // Start loader
         const response = await ProductDataApi(
           currencyCode?.code?.slug,
           decodedSlug,
           selectedDisks,
           selectedLocation,
-          ramRange[0] !== null ? ramRange[0].toString() : "",
-          ramRange[1] !== null ? ramRange[1].toString() : "",
-          priceRange[0] !== null ? priceRange[0].toString() : "",
-          priceRange[1] !== null ? priceRange[1].toString() : ""
+          MinRamRange !== null ? MinRamRange : "",
+          MaxRamRange !== null ? MaxRamRange : "",
+          priceRange[0] !== null ? priceRange[0] : filterRange?.min,
+          priceRange[1] !== null ? priceRange[1] : filterRange?.max
         );
         setServerProducts(response?.result?.data);
+        setLoading(false); // Stop loader
       } catch (err) {
+        setLoading(false); // Stop loader in case of error
         console.error("Error fetching plans:", err);
       }
     };
 
     fetchPlans();
-  }, [selectedLocation, selectedDisks, priceRange, ramRange, currencyCode]);
-
+  }, [
+    selectedLocation,
+    selectedDisks,
+    priceRange,
+    MinRamRange,
+    MaxRamRange,
+    currencyCode,
+    filterRange,
+  ]);
+  {
+    serverProducts?.server_products?.length > 0
+      ? console.log("LenghtYes")
+      : console.log("LenghtNo");
+  }
   return (
     <div className="container mx-auto py-4 lg:py-8 px-2 lg:px-9">
       <div className="">
@@ -93,12 +117,34 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         setSelectedDisks={setSelectedDisks}
         selectedDisks={selectedDisks}
         ramRange={ramRange}
-        priceRange={filterRange}
+        selectedPriceRange={priceRange}
+        filterRange={filterRange}
         selectedLocation={selectedLocation}
         ProductsDetails={serverProducts}
         decodedSlug={decodedSlug}
+        MaxRamRange={MaxRamRange}
+        setMaxRamRange={setMaxRamRange}
+        MinRamRange={MinRamRange}
+        setMinRamRange={setMinRamRange}
       />
-      <ServerProductsComponent ProductsData={serverProducts} />
+      {loading ? (
+        <div className="flex justify-center items-center w-[20%] mx-auto mt-[20px]">
+          <LoaderComponent /> {/* Display the loader when loading */}
+        </div>
+      ) : (
+        <>
+          {serverProducts?.server_products?.length > 0 ? (
+            <ServerProductsComponent ProductsData={serverProducts} />
+          ) : (
+            <div>
+              {" "}
+              <p className="lg:text-4xl text-2xl font-bold text-center py-[50px]">
+                No Prducts Found
+              </p>
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

@@ -101,7 +101,7 @@ const ServerProductsComparisionManageHostingAplusComponent: React.FC<Props> = ({
                               className="text-bullt-primary font-semibold text-lg"
                               key={index}
                             >
-                              {price?.country === "ind" ? (
+                              {price?.country === "inr" ? (
                                 <span>₹</span>
                               ) : price?.country === "usd" ? (
                                 <span>$</span>
