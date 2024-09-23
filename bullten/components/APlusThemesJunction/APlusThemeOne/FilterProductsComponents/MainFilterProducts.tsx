@@ -16,6 +16,7 @@ type Props = {
 
 const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
+  console.log(serverProducts.length, "setServerProducts");
   const [selectedLocation, setSelectedLocation] = useState<string>("");
   const [filterRange, setFilterRange] = useState<any>({});
   const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
@@ -89,6 +90,7 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
     currencyCode,
     filterRange,
   ]);
+  console.log(serverProducts?.server_products?.length, "ServerProductsLength");
   {
     serverProducts?.server_products?.length > 0
       ? console.log("LenghtYes")
@@ -110,6 +112,9 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
           }}
         />
       </div>
+      <p className="text-xl font-semibold px-4 lg:text-left text-center bg-bullt-quaternary/[0.07] rounded-md py-2 lg:w-[20%]">
+        Result Found : {serverProducts?.server_products?.length}
+      </p>
       <FilterComponent
         setSelectedLocation={setSelectedLocation}
         setPriceRange={setPriceRange}
@@ -128,7 +133,7 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         setMinRamRange={setMinRamRange}
       />
       {loading ? (
-        <div className="flex justify-center items-center w-[20%] mx-auto mt-[20px]">
+        <div className="flex justify-center items-center w-[20%] mx-auto mt-[20px] ">
           <LoaderComponent /> {/* Display the loader when loading */}
         </div>
       ) : (
