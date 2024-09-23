@@ -38,8 +38,9 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                   <span className="font-semibold">
                     <IoIosArrowDown
                       size={25}
-                      className={`text-bullt-tertiary text-2xl  cursor-pointer transform transition-transform duration-300 ${expandedPlan === plan.name ? "rotate-180" : ""
-                        }`}
+                      className={`text-bullt-tertiary text-2xl  cursor-pointer transform transition-transform duration-300 ${
+                        expandedPlan === plan.name ? "rotate-180" : ""
+                      }`}
                       onClick={() => toggleExpanded(plan.name)}
                     />
                   </span>
@@ -94,19 +95,20 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                 <div className="flex flex-col items-start gap-1">
                   <span className="text-md font-semibold">Starting at</span>
                   <div className="flex gap-1 items-center">
-
                     {/* <img
                         src={`${process.env.NEXT_PUBLIC_BASE_URL}${currencyCode?.code?.icon}`}
                         alt={currencyCode?.code?.currency_name}
                         className="w-4 h-4"
                       /> */}
                     {plan?.server_price?.map((price: any, index: any) => (
-                      <div className="text-bullt-quaternary font-semibold text-md" key={index}>
+                      <div
+                        className="text-bullt-quaternary font-semibold text-md"
+                        key={index}
+                      >
                         <div className="flex">
-                        <p>{price?.icon}</p>
-                        <p>{price?.price}</p>
+                          <p>{price?.icon}</p>
+                          <p>{price?.price}</p>
                         </div>
-                      
                       </div>
                     ))}
                     <span className="text-sm font-semibold">/Monthly</span>
