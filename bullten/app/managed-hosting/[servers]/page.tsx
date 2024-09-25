@@ -30,11 +30,8 @@ const page = async ({
   return (
     <>
       <>
-        {"ssl-certicate" === "ssl-certicate" ? (
+        {decodedSlug === "ssl-certificates" ? (
           <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
-            {/* <OverViewPageBanner
-              content={OverViewPageDataContent?.result?.data}
-            /> */}
             <OverViewPageAllComponentJunction
               OverViewPageDataContent={OverViewPageDataContent}
             />
