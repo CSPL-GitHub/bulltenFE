@@ -1,16 +1,13 @@
 import React from "react";
 type Props = { DataContent: any };
 const AboutSslSection = ({ DataContent }: Props) => {
-  console.log(
-    DataContent?.overview_page[0]?.features,
-    "DataContent?.overview_page?.heading"
-  );
+  
   return (
     <div className="container mx-auto lg:py-16 py-6 px-4">
       {" "}
       <section className="max-w-7xl mx-auto relative  lg:px-4 px-2 flex lg:flex-row flex-col gap-8 items-start justify-between">
         {/* Left side images with overlapping design */}
-        <div className="relative lg:w-[40%] w-full flex flex-col items-center lg:items-start">
+        <div className="relative lg:w-[40%] w-full flex flex-col items-center justify-center">
           {DataContent?.overview_page[0]?.heading ? (
             <div
               className="lg:text-4xl text-3xl font-bold text-gray-800 lg:hidden block pb-4"

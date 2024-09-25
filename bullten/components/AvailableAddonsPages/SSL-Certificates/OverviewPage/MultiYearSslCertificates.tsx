@@ -3,10 +3,7 @@ import React from "react";
 type Props = { DataContent: any };
 
 const MultiYearSslCertificates = ({ DataContent }: Props) => {
-  console.log(
-    DataContent?.Multi_certificate[0]?.multiple_certificate_data?.heading,
-    "DataContentData"
-  );
+ 
   return (
     <div>
       <section className=" bg-cover bg-center lg:py-16 py-6 px-8">

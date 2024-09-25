@@ -4,10 +4,7 @@ import { SiTicktick } from "react-icons/si";
 
 type Props = { DataContent: any };
 const CertificateComparisonSection = ({ DataContent }: Props) => {
-  console.log(
-    DataContent?.type_certificate[0]?.Type_certificate_data,
-    "Certificates"
-  );
+ 
   return (
     <section className="relative lg:py-16 py-6">
       <div className="absolute top-0 left-0 w-80 h-80 opacity-60">

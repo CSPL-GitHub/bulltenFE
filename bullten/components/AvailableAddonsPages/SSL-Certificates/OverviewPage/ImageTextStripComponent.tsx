@@ -1,7 +1,7 @@
 import React from "react";
 type Props = { DataContent: any };
 const ImageTextStripComponent = ({ DataContent }: Props) => {
-  console.log(DataContent?.engine_rank[0]?.browsers_heading, "ImagTextStripe");
+ 
   return (
     <div className="w-full container mx-auto relative overflow-hidden  md:py-10 py-4 md:px-6 px-4">
       <div className="max-w-7xl grid md:grid-cols-2 grid-cols-1 mx-auto relative justify-center items-center bg-bullt-quaternary/[0.05] shadow-sm rounded-lg px-6 py-10">

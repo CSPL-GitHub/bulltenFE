@@ -11,7 +11,7 @@ const WindowsVpsHostingAPlusComponent: React.FC<Props> = ({
   LinuxVpsAccordionData,
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
-  console.log(LinuxVpsAccordionData, "LinuxVpsAccordionData");
+ 
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };

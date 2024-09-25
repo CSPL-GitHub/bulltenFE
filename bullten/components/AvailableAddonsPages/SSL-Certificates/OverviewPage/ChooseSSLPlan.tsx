@@ -7,7 +7,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 type Props = { DataContent: any };
 
 const ChooseSSLPlan = ({ DataContent }: Props) => {
-  console.log("ChooseSSLPlan", DataContent?.box_data[0]?.Box.heading);
+
   const [infinite, setInfinite] = useState<boolean>();
 
   const settings = {
@@ -19,9 +19,9 @@ const ChooseSSLPlan = ({ DataContent }: Props) => {
     slidesToShow: 3,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1143,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -79,7 +79,7 @@ const ChooseSSLPlan = ({ DataContent }: Props) => {
                     ) : null}
                     {data?.description ? (
                       <div
-                        className="text-md text-gray-600"
+                        className="text-md text-gray-600 line line-clamp-3"
                         dangerouslySetInnerHTML={{
                           __html: data?.description,
                         }}

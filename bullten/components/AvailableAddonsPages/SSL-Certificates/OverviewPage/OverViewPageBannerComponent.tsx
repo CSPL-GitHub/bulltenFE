@@ -17,7 +17,7 @@ export default function OverViewPageBannerComponent({ content }: Props) {
   ];
 
   return (
-    <section className="container mx-auto  py-8 w-full lg:h-[500px] h-[550px] bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
+    <section className=" mx-auto w-full py-8 w-full lg:h-[500px] h-[550px] bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
       <div className="max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:px-0 px-4">
           <motion.div

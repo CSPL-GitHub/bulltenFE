@@ -6,10 +6,7 @@ import MainHeadingComponent from "@/components/CommonComponents/HeadingComponent
 type Props = { DataContent: any };
 
 const SSLBrandsLogosComponent = ({ DataContent }: Props) => {
-  console.log(
-    DataContent?.online_security[0]?.online_security.online_heading,
-    "DataContentLogos"
-  );
+
 
   return (
     <>
