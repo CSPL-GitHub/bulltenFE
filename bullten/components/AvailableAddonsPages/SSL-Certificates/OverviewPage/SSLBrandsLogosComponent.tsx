@@ -11,11 +11,11 @@ const SSLBrandsLogosComponent = ({ DataContent }: Props) => {
   return (
     <>
       {DataContent?.online_security[0]?.online_security ? (
-        <div className="max-w-7xl mx-auto sm:py-16 py-6 ">
-          <div className="flex flex-col sm:justify-center sm:items-center items-start">
+        <div className="max-w-7xl mx-auto py-4">
+          <div className="flex flex-col sm:justify-center sm:items-center ">
             {DataContent?.online_security[0]?.online_security.online_heading ? (
               <div
-                className="text-3xl md:text-5xl font-bold text-gray-800"
+                className=" text-center text-2xl sm:text-4xl font-bold py-2 text-gray-800"
                 dangerouslySetInnerHTML={{
                   __html:
                     DataContent?.Multi_certificate[0]?.multiple_certificate_data

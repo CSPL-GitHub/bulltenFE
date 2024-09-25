@@ -6,14 +6,14 @@ const MultiYearSslCertificates = ({ DataContent }: Props) => {
  
   return (
     <div>
-      <section className=" bg-cover bg-center lg:py-16 py-6 px-8">
+      <section className="bg-cover bg-center px-8">
         {/* Title and Description */}
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-5xl mx-auto mb-12">
             {DataContent?.Multi_certificate[0]?.multiple_certificate_data
               ?.heading ? (
               <div
-                className="text-3xl md:text-5xl font-bold text-gray-800"
+                className="text-2xl sm:text-4xl font-bold py-2 text-gray-800"
                 dangerouslySetInnerHTML={{
                   __html:
                     DataContent?.Multi_certificate[0]?.multiple_certificate_data

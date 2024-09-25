@@ -11,12 +11,12 @@ const FeaturesContentComponent = ({ DataContent }: Props) => {
   const rightColumnFeatures = features.slice(midpoint);
 
   return (
-    <section className="container mx-auto lg:py-16 py-6 bg-bullt-quaternary/[0.02]">
+    <section className="container mx-auto py-8 bg-bullt-quaternary/[0.02]">
       <div className=" px-4 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           {DataContent?.engine_rank[0]?.heading && (
             <h2
-              className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4"
+              className="text-2xl sm:text-4xl font-bold py-2 text-gray-800 leading-tight mb-4"
               dangerouslySetInnerHTML={{
                 __html: DataContent?.engine_rank[0]?.heading,
               }}
@@ -75,7 +75,7 @@ const FeaturesContentComponent = ({ DataContent }: Props) => {
 };
 
 const FeatureColumn = ({ features }: { features: any[] }) => (
-  <div className="space-y-6">
+  <div className="sm:space-y-6 space-y-2">
     {features.map((feature: any, index: number) => (
       <div
         key={index}

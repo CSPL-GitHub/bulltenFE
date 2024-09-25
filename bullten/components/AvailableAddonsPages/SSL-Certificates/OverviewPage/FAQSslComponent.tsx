@@ -31,7 +31,7 @@ const FAQSslComponent = ({ DataContent }: Props) => {
           {DataContent?.faq[0]?.faq?.faq_heading ? (
             <>
               <div
-                className="w-full items-start font-bold sm:text-5xl text-3xl tailwind-unreset"
+                className="w-full items-starttext-2xl sm:text-4xl font-bold py-2 tailwind-unreset"
                 dangerouslySetInnerHTML={{
                   __html: DataContent?.faq[0]?.faq?.faq_heading,
                 }}

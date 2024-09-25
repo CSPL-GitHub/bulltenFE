@@ -43,7 +43,7 @@ const ChooseSSLPlan = ({ DataContent }: Props) => {
         <div>
           {DataContent?.box_data[0]?.Box?.heading ? (
             <div
-              className="w-full text-center text-3xl md:text-4xl font-bold"
+              className="w-full text-center text-2xl sm:text-4xl font-bold py-2"
               dangerouslySetInnerHTML={{
                 __html: DataContent?.box_data[0]?.Box?.heading,
               }}
