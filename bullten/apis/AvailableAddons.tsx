@@ -1,6 +1,10 @@
 import { apiCore } from "./APICore";
 
-export const OverViewPageDataApi = async () => {
-  const response = await apiCore("/api/ssl_certificate", {}, "POST");
+export const OverViewPageDataApi = async (slug: string) => {
+  const response = await apiCore(
+    "/api/ssl_certificate",
+    { slug: slug },
+    "POST"
+  );
   return response;
 };

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 type Props = { content: any };
-export default function StunningHeroSection({ content }: Props) {
+export default function OverViewPageBannerComponent({ content }: Props) {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
 
   const features = [

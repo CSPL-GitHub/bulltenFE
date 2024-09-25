@@ -11,8 +11,9 @@ import ImageTextStripComponent from "@/components/AvailableAddonsPages/SSL-Certi
 import FAQSslComponent from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/FAQSslComponent";
 import CertificateComparisonSection from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/CertificationComponents";
 import MultiYearSslCertificates from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/MultiYearSslCertificates";
-import StunningHeroSection from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/TesCard";
+import StunningHeroSection from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageBannerComponent";
 import SSLBrandsLogosComponent from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/SSLBrandsLogosComponent";
+import OverViewPageAllComponentJunction from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageAllComponentJunction";
 
 type Props = {};
 
@@ -24,7 +25,7 @@ const page = async ({
   const decodedSlug = decodeURIComponent(servers);
   console.log(decodedSlug, "decodedSlug");
   const ManagedDataResponse = await ManagedHostingDataApi(decodedSlug);
-  const OverViewPageDataContent = await OverViewPageDataApi();
+  const OverViewPageDataContent = await OverViewPageDataApi(decodedSlug);
   console.log(OverViewPageDataContent, "OverViewPageDataContent");
   return (
     <>
@@ -34,38 +35,8 @@ const page = async ({
             {/* <OverViewPageBanner
               content={OverViewPageDataContent?.result?.data}
             /> */}
-            <StunningHeroSection
-              content={OverViewPageDataContent?.result?.data}
-            />
-            <ChooseSSLPlan
-              DataContent={OverViewPageDataContent?.result?.data}
-            />
-
-            <AboutSslSection
-              DataContent={OverViewPageDataContent?.result?.data}
-            />
-
-            <ServicesSection
-              DataContent={OverViewPageDataContent?.result?.data}
-            />
-            <ImageTextStripComponent
-              DataContent={OverViewPageDataContent?.result?.data}
-            />
-
-            <FAQSslComponent
-              DataContent={OverViewPageDataContent?.result?.data}
-            />
-
-            <CertificateComparisonSection
-              DataContent={OverViewPageDataContent?.result?.data}
-            />
-
-            <MultiYearSslCertificates
-              DataContent={OverViewPageDataContent?.result?.data}
-            />
-
-            <SSLBrandsLogosComponent
-              DataContent={OverViewPageDataContent?.result?.data}
+            <OverViewPageAllComponentJunction
+              OverViewPageDataContent={OverViewPageDataContent}
             />
           </div>
         ) : (
