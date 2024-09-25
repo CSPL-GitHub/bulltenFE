@@ -4,51 +4,55 @@ import SloganHeadingComponent from "@/components/CommonComponents/HeadingCompone
 import { trustedComponies } from "@/apis/HomePageApis";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 type Props = { DataContent: any };
-const SSLBrandsLogosComponent = async ({ DataContent }: Props) => {
-  // console.log(
-  //   DataContent?.online_security[0]?.online_security,
-  //   "DataContentLogos"
-  // );
-  const trustedComponiesData = await trustedComponies();
-  const logos = trustedComponiesData?.result?.data?.trusted_company;
+
+const SSLBrandsLogosComponent = ({ DataContent }: Props) => {
+  console.log(
+    DataContent?.online_security[0]?.online_security.online_heading,
+    "DataContentLogos"
+  );
 
   return (
     <>
-      {trustedComponiesData?.result?.Active === true ? (
-        <div className="max-w-7xl mx-auto sm:py-4 py-2 ">
+      {DataContent?.online_security[0]?.online_security ? (
+        <div className="max-w-7xl mx-auto sm:py-16 py-6 ">
           <div className="flex flex-col sm:justify-center sm:items-center items-start">
-            <SloganHeadingComponent alignmentType={2} paddingTop={1}>
-              {trustedComponiesData?.result?.data?.slogan}
-            </SloganHeadingComponent>
-
-            <MainHeadingComponent alignmentType={2} paddingTop={1}>
-              {trustedComponiesData?.result?.data?.heading}
-            </MainHeadingComponent>
+            {DataContent?.online_security[0]?.online_security.online_heading ? (
+              <div
+                className="text-3xl md:text-5xl font-bold text-gray-800"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    DataContent?.Multi_certificate[0]?.multiple_certificate_data
+                      ?.heading,
+                }}
+              />
+            ) : null}
           </div>
 
-          <div className="w-full grid sm:grid-cols-4 grid-cols-3 justify-center mt-2 sm:gap-4 gap-0">
-            {logos?.map((logo: any, index: number) => (
-              <div
-                key={index}
-                className="text-center hover:bg-[#F4F5F8]  grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
-              >
-                {logo?.img ? (
-                  <div className="sm:h-[100px] h-[50px] lg:w-[170px] w-[100px] relative mx-auto">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${logo?.img}`}
-                      alt="all"
-                      className=""
-                      style={{
-                        position: "absolute",
-                        objectFit: "contain",
-                        inset: 0,
-                      }}
-                      fill={true}
-                    />
-                  </div>
-                ) : null}
-              </div>
-            ))}
+          <div className="w-full grid sm:grid-cols-3 grid-cols-3 justify-center mt-2 sm:gap-4 gap-0">
+            {DataContent?.online_security[0]?.online_security?.online_security_data?.map(
+              (logo: any, index: number) => (
+                <div
+                  key={index}
+                  className="text-center hover:bg-[#F4F5F8]  grayscale hover:grayscale-0 transition-all duration-100 ease-in-out py-2"
+                >
+                  {logo?.image ? (
+                    <div className="sm:h-[150px] h-[50px] lg:w-[170px] w-[100px] relative mx-auto">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${logo?.image}`}
+                        alt={logo?.title}
+                        className=""
+                        style={{
+                          position: "absolute",
+                          objectFit: "contain",
+                          inset: 0,
+                        }}
+                        fill={true}
+                      />
+                    </div>
+                  ) : null}
+                </div>
+              )
+            )}
           </div>
         </div>
       ) : null}
