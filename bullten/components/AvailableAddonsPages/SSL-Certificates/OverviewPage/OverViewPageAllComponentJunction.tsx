@@ -15,7 +15,7 @@ type Props = {
 const OverViewPageAllComponentJunction = ({
   OverViewPageDataContent,
 }: Props) => {
- 
+
   return (
     <div>
       <OverViewPageBannerComponent
@@ -31,14 +31,14 @@ const OverViewPageAllComponentJunction = ({
       ) : null}
 
 
-      {OverViewPageDataContent?.result?.engine_rank?.length > 0 ? <><FeaturesContentComponent
+      {OverViewPageDataContent?.result?.data?.engine_rank?.length > 0 ? <><FeaturesContentComponent
         DataContent={OverViewPageDataContent?.result?.data}
       />
       </> : null}
-      {OverViewPageDataContent?.result?.type_certificate.length > 0 ? <> <ImageTextStripComponent
+      {OverViewPageDataContent?.result?.data?.type_certificate.length > 0 ? <> <ImageTextStripComponent
         DataContent={OverViewPageDataContent?.result?.data}
       /></> : null}
-      {OverViewPageDataContent?.result?.faq?.length > 0 ? <> <FAQSslComponent DataContent={OverViewPageDataContent?.result?.data} /></> : null}
+      {OverViewPageDataContent?.result?.data?.faq?.length > 0 ? <> <FAQSslComponent DataContent={OverViewPageDataContent?.result?.data} /></> : null}
 
       <CertificateComparisonSection
         DataContent={OverViewPageDataContent?.result?.data}
