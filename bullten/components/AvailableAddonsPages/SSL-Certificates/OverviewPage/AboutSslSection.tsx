@@ -3,14 +3,14 @@ type Props = { DataContent: any };
 const AboutSslSection = ({ DataContent }: Props) => {
   
   return (
-    <div className="container mx-auto lg:py-16 py-6 px-4">
+    <div className="container mx-auto  py-6 px-4">
       {" "}
       <section className="max-w-7xl mx-auto relative  lg:px-4 px-2 flex lg:flex-row flex-col gap-8 items-start justify-between">
         {/* Left side images with overlapping design */}
-        <div className="relative lg:w-[40%] w-full flex flex-col items-center justify-center">
+        <div className="relative lg:w-[40%] w-full flex flex-col items-center justify-centertext-center text-2xl sm:text-4xl font-bold py-2">
           {DataContent?.overview_page[0]?.heading ? (
             <div
-              className="lg:text-4xl text-3xl font-bold text-gray-800 lg:hidden block pb-4"
+              className="sm:text-4xl text-2xl font-bold text-gray-800 lg:hidden block pb-4"
               dangerouslySetInnerHTML={{
                 __html: DataContent?.overview_page[0]?.heading,
               }}
@@ -44,7 +44,7 @@ const AboutSslSection = ({ DataContent }: Props) => {
         </div>
 
         {/* Right side content */}
-        <div className="lg:w-[60%] w-full text-center lg:text-left mt-10 lg:mt-0">
+        <div className="lg:w-[60%] w-full text-center lg:text-left mt-12 py-4 lg:mt-0">
           {DataContent?.overview_page[0]?.heading ? (
             <div
               className="lg:text-4xl text-3xl font-bold text-gray-800 lg:block hidden"

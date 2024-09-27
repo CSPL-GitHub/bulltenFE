@@ -19,7 +19,7 @@ const CertificateComparisonSection = ({ DataContent }: Props) => {
           {DataContent?.type_certificate[0]?.Type_certificate_data
             ?.heading_ssl_type ? (
             <div
-              className="w-full text-center text-3xl md:text-4xl font-bold"
+              className="w-full text-center text-2xl sm:text-4xl font-bold py-2"
               dangerouslySetInnerHTML={{
                 __html:
                   DataContent?.type_certificate[0]?.Type_certificate_data

@@ -8,7 +8,7 @@ const ImageTextStripComponent = ({ DataContent }: Props) => {
           {" "}
           {DataContent?.engine_rank[0]?.browsers_heading && (
             <div
-              className="w-full lg:text-left text-center text-bullt-primary lg:text-xl text-2xl font-semibold"
+              className="w-full lg:text-left text-center text-bullt-primary text-center text-2xl sm:text-4xl font-bold py-2"
               dangerouslySetInnerHTML={{
                 __html: DataContent?.engine_rank[0]?.browsers_heading,
               }}
