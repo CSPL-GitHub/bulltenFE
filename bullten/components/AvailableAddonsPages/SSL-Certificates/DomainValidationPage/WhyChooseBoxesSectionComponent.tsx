@@ -8,11 +8,11 @@ export default function WhyChooseBoxesSectionComponent({
   WhyChooseSectionBoxesData,
 }: Props) {
   return (
-    <div className="max-w-7xl mx-auto px-4 lg:py-16 py-6">
-      <h1 className="text-4xl font-bold text-center mb-12 text-primary">
+    <div className="max-w-7xl mx-auto px-4 lg:py-8 py-6">
+      <h1 className="lg:text-4xl text-3xl font-bold text-center mb-4 text-bullt-primary">
         {WhyChooseSectionBoxesData?.feature[0]?.heading}
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {WhyChooseSectionBoxesData?.feature[0]?.features.map(
           (box: any, index: number) => (
             <div
@@ -62,10 +62,10 @@ export default function WhyChooseBoxesSectionComponent({
                     className="w-14 h-14 object-contain"
                   />
                 </div>
-                <h2 className="text-2xl font-bold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-gray-900">
+                <h2 className="md:text-2xl text-xl font-bold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-gray-900">
                   {box.heading}
                 </h2>
-                <p className="text-bullt-primary leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+                <p className="text-lg text-bullt-primary leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
                   {box.description}
                 </p>
               </div>

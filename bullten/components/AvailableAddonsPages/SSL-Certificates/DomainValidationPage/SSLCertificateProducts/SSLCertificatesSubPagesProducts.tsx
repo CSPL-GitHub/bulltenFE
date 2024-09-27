@@ -35,28 +35,30 @@ const SSLCertificatesSubPagesProducts: React.FC<Props> = ({
   const planDetails = sslProductsData?.PlanDetails?.[0];
   const activeTabData = planDetails?.plan_periods?.[activeTab];
   return (
-    <div className="max-w-7xl mx-auto py-6 ">
+    <div className="max-w-7xl mx-auto lg:py-8 py-4 px-4">
       <div className="overflow-x-auto">
-        <div className="py-4 lg:px-4 px-0 ">
+        <div className="pb-4 lg:px-4 px-0 ">
           {planDetails && (
             <>
               <h2
-                className="sm:text-4xl text-2xl mb-2 text-center font-semibold"
+                className="sm:text-4xl text-3xl mb-2 text-center font-semibold"
                 dangerouslySetInnerHTML={{
                   __html: planDetails?.heading,
                 }}
               ></h2>
-              <p
-                className="text-lg lg:text-lg text-center"
-                dangerouslySetInnerHTML={{
-                  __html: planDetails?.description,
-                }}
-              ></p>
+              {planDetails?.description === false ? null : (
+                <div
+                  className="text-lg lg:text-lg text-center"
+                  dangerouslySetInnerHTML={{
+                    __html: planDetails?.description,
+                  }}
+                ></div>
+              )}
             </>
           )}
         </div>
 
-        <div className="grid lg:grid-cols-6 grid-cols-2 max-w-5xl mx-auto justify-center gap-1 gap-y-4 items-center  lg:px-0 px-4 ">
+        <div className="grid lg:grid-cols-6 grid-cols-2 max-w-5xl mx-auto justify-center gap-1 gap-y-4 items-center  lg:px-0 px-0 ">
           {planDetails?.plan_periods?.map((tab: any, index: number) => (
             <div key={index} className="text-lg group relative w-full">
               <button

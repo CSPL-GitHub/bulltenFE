@@ -8,12 +8,12 @@ export default function SabPageFeaturesSectionComponent({
   SectionBoxesData,
 }: Props) {
   return (
-    <div className="container mx-auto px-4 py-16 bg-gradient-to-br from-background to-muted">
+    <div className="w-full mx-auto px-4 lg:py-8 py-6 bg-gradient-to-br from-background to-muted">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-12 text-primary">
+        <h1 className="lg:text-4xl text-3xl font-bold text-center mb-4 text-primary">
           {SectionBoxesData?.certificate_feature_data[0]?.heading}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 gap-4">
           {SectionBoxesData?.certificate_feature_data[0]?.features?.map(
             (box: any, index: number) => (
               <div

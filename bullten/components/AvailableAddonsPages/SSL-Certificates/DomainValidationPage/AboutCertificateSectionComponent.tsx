@@ -4,9 +4,9 @@ type Props = { AboutData: any };
 
 export default function AboutCertificateSectionComponent({ AboutData }: Props) {
   return (
-    <section className="w-full lg:py-16 py-6 overflow-hidden ">
+    <section className="w-full lg:py-8 py-6 overflow-hidden ">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-start gap-10">
+        <div className="flex flex-col lg:flex-row items-center gap-10">
           <div className="lg:w-1/2">
             <div className="relative">
               <img

@@ -11,11 +11,18 @@ const inter = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = {
-  title: "BullTen",
-  description: "BullTen",
-};
+//we will uncomment this when site will be Live
+// export const metadata: Metadata = {
+//   title: "BullTen",
+//   description: "BullTen",
+// };
 
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 export default function RootLayout({
   children,
 }: Readonly<{

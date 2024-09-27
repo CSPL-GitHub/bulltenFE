@@ -27,7 +27,7 @@ const TabsSectionComponent = ({
       <div className="grid lg:grid-cols-4 grid-cols-2 max-w-7xl mx-auto justify-center gap-3 gap-y-4 items-center ">
         <Link href={`/${headerMenu?.path}/${decodedSlug}`}>
           <button
-            className={`w-full py-2 text-lg font-semibold rounded-md transition-all duration-300 ease-in-out ${
+            className={`w-full py-2 lg:h-auto h-20 px-2 text-lg font-semibold rounded-md transition-all duration-300 ease-in-out ${
               isMainPage
                 ? "bg-bullt-tertiary text-bullt-secondary border-bullt-tertiary border"
                 : "text-bullt-tertiary bg-bullt-secondary border-bullt-tertiary border"
@@ -43,7 +43,7 @@ const TabsSectionComponent = ({
               href={`/${headerMenu?.path}/${decodedSlug}/${tab.button_link}`}
             >
               <button
-                className={`w-full py-2 text-lg font-semibold rounded-md transition-all duration-300 ease-in-out ${
+                className={`w-full py-2 lg:h-auto h-20 px-2 text-lg font-semibold rounded-md transition-all duration-300 ease-in-out ${
                   decodedSubSlug === tab?.button_link
                     ? "bg-bullt-tertiary text-bullt-secondary border-bullt-tertiary border"
                     : "text-bullt-tertiary bg-bullt-secondary border-bullt-tertiary border"

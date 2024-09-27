@@ -43,9 +43,8 @@ function SSlCertificatesSubPageAllComponentJunction({
   if (loading) {
     return <div>Loading...</div>;
   }
-
   return (
-    <div className="mt-[150px]">
+    <div className="">
       {SubPageContent?.is_active ? (
         <>
           <SubPageBannerSectionComponent BannerData={SubPageContent} />
@@ -56,13 +55,28 @@ function SSlCertificatesSubPageAllComponentJunction({
             // TabsNames={TabsNames}
             DataContent={OverViewPageDataContent?.result?.data}
           />
-          <AboutCertificateSectionComponent AboutData={SubPageContent} />
+
+          {SubPageContent?.about_is_active === true ? (
+            <AboutCertificateSectionComponent AboutData={SubPageContent} />
+          ) : null}
+
           <SSLCertificatesSubPagesProducts decodedSubSlug={decodedSubSlug} />
-          <ImageTextDetailsSectionComponent ImageTextData={SubPageContent} />
-          <WhyChooseBoxesSectionComponent
-            WhyChooseSectionBoxesData={SubPageContent}
-          />
-          <SabPageFeaturesSectionComponent SectionBoxesData={SubPageContent} />
+
+          {SubPageContent?.details_is_active === true ? (
+            <ImageTextDetailsSectionComponent ImageTextData={SubPageContent} />
+          ) : null}
+
+          {SubPageContent?.feature_is_active === true ? (
+            <WhyChooseBoxesSectionComponent
+              WhyChooseSectionBoxesData={SubPageContent}
+            />
+          ) : null}
+
+          {SubPageContent?.certificate_feature_is_active === true ? (
+            <SabPageFeaturesSectionComponent
+              SectionBoxesData={SubPageContent}
+            />
+          ) : null}
         </>
       ) : null}
     </div>

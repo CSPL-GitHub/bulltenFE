@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 type Props = { BannerData: any };
 export default function SubPageBannerSectionComponent({ BannerData }: Props) {
   return (
-    <section className=" mx-auto w-full py-8 lg:h-[500px] h-[550px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
+    <section className=" mx-auto w-full py-8 lg:h-[500px] h-[500px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
       <div className="max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:px-0 px-4">
           <div className="flex flex-col justify-center space-y-8">
@@ -42,7 +42,7 @@ export default function SubPageBannerSectionComponent({ BannerData }: Props) {
               )}
             </div>
           </div>
-          <div className="relative lg:mt-8">
+          <div className="relative lg:mt-8 lg:block hidden">
             <motion.div
               className="absolute inset-0 bg-indigo-200 rounded-3xl transform rotate-3"
               initial={{ opacity: 0, scale: 0.8 }}

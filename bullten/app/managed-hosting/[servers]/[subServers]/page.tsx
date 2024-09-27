@@ -33,7 +33,7 @@ const page = async ({
   );
   return (
     <>
-      <div>
+      <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
         <SSlCertificatesSubPageAllComponentJunction
           decodedSlug={decodedSlug}
           OverViewPageDataContent={OverViewPageDataContent}
