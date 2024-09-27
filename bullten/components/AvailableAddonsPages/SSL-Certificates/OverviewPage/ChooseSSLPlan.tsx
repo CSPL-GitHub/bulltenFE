@@ -7,7 +7,6 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 type Props = { DataContent: any };
 
 const ChooseSSLPlan = ({ DataContent }: Props) => {
-
   const [infinite, setInfinite] = useState<boolean>();
 
   const settings = {
@@ -16,7 +15,7 @@ const ChooseSSLPlan = ({ DataContent }: Props) => {
     autoplay: true,
     arrows: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     responsive: [
       {
         breakpoint: 1143,

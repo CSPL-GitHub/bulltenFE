@@ -1,54 +1,58 @@
-"use client";
-import { OverViewPageDataApi } from "@/apis/AvailableAddons";
+import React from "react";
+import {
+  OverViewPageDataApi,
+  OverViewPageTabsDataApi,
+} from "@/apis/AvailableAddons";
 import { ManagedHostingDataApi } from "@/apis/ManagedHostingApi";
 import APlusThemeManagedHostingJunction from "@/components/APlusThemesJunction/ManagedHostingTheme/APlusThemeManagedHostingJunction";
-import ChooseSSLPlan from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/ChooseSSLPlan";
-import OverViewPageBanner from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageBanner";
-import React from "react";
-import ServicesSection from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/FeaturesContentComponent";
-import AboutSslSection from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/AboutSslSection";
-import ImageTextStripComponent from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/ImageTextStripComponent";
-import FAQSslComponent from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/FAQSslComponent";
-import CertificateComparisonSection from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/CertificationComponents";
-import MultiYearSslCertificates from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/MultiYearSslCertificates";
-import StunningHeroSection from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageBannerComponent";
-import SSLBrandsLogosComponent from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/SSLBrandsLogosComponent";
 import OverViewPageAllComponentJunction from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageAllComponentJunction";
+import XoviNowAllComponentsJunction from "@/components/AvailableAddonsPages/Xovi-Now/XoviNowAllComponentsJunction";
 
 type Props = {};
 
 const page = async ({
-  params: { servers },
+  params: { servers, subServers },
 }: {
-  params: { servers: string };
+  params: { servers: string; subServers: string };
 }) => {
   const decodedSlug = decodeURIComponent(servers);
-  console.log(decodedSlug, "decodedSlug");
+  const decodedSubSlug = decodeURIComponent(subServers);
   const ManagedDataResponse = await ManagedHostingDataApi(decodedSlug);
   const OverViewPageDataContent = await OverViewPageDataApi(decodedSlug);
-  console.log(OverViewPageDataContent, "OverViewPageDataContent");
+  // const OverViewPageTabsName = await OverViewPageTabsDataApi();
+  const isThirdPageConditionMet = decodedSlug === "xovi-now";
+
   return (
     <>
-      <>
-        {decodedSlug === "ssl-certificates" ? (
-          <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
-            <OverViewPageAllComponentJunction
-              OverViewPageDataContent={OverViewPageDataContent}
-            />
-          </div>
-        ) : (
-          <>
-            {ManagedDataResponse?.result?.Active === true ? (
-              <div>
-                <APlusThemeManagedHostingJunction
-                  aPlusResponse={ManagedDataResponse?.result}
-                  decodedSlug={decodedSlug}
-                />
-              </div>
-            ) : null}
-          </>
-        )}
-      </>
+      {decodedSlug === OverViewPageDataContent?.result?.data?.slug ? (
+        <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
+          {OverViewPageDataContent?.result?.Active === true ? (
+            <>
+              <OverViewPageAllComponentJunction
+                OverViewPageDataContent={OverViewPageDataContent}
+                decodedSlug={decodedSlug}
+                decodedSubSlug={decodedSubSlug}
+                // TabsNames={OverViewPageTabsName?.result}
+              />
+            </>
+          ) : null}
+        </div>
+      ) : isThirdPageConditionMet ? (
+        <div className="third-component-section">
+          {/* <XoviNowAllComponentsJunction /> */}
+        </div>
+      ) : (
+        <>
+          {ManagedDataResponse?.result?.Active === true ? (
+            <div>
+              <APlusThemeManagedHostingJunction
+                aPlusResponse={ManagedDataResponse?.result}
+                decodedSlug={decodedSlug}
+              />
+            </div>
+          ) : null}
+        </>
+      )}
     </>
   );
 };
