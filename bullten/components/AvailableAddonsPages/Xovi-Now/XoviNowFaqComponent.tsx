@@ -65,7 +65,7 @@ const XoviNowFaqComponent = ({ FaqContent }: Props) => {
                   <div className="flex justify-between p-2">
                     <div>
                       <div
-                        className={`font-normal md:text-xl text-lg select-none ${
+                        className={`font-semibold md:text-md text-lg select-none ${
                           index === activeIndex ? "text-bullt-tertiary" : ""
                         }`}
                         dangerouslySetInnerHTML={{ __html: item?.heading }}

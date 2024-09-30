@@ -7,16 +7,16 @@ import XoviNowuseCasesBoxes from "./XoviNowuseCasesBoxes";
 import XoviNowFaqComponent from "./XoviNowFaqComponent";
 import XoviNowServiceProductsComponent from "./XoviNowServiceProductsComponent";
 
-type Props = { DataContent: any };
+type Props = { DataContent: any; decodedSlug: string };
 
-const XoviNowAllComponentsJunction = ({ DataContent }: Props) => {
+const XoviNowAllComponentsJunction = ({ DataContent, decodedSlug }: Props) => {
   return (
     <div className="">
       <XoviNowBannerComponent BannerContent={DataContent} />
       <ImageSliderComponent SliderContent={DataContent} />
       <XoviNowTabsSectionComponent TabsContent={DataContent} />
       <XoviNowuseCasesBoxes useCasesContent={DataContent} />
-      <XoviNowServiceProductsComponent />
+      <XoviNowServiceProductsComponent decodedSlug={decodedSlug} />
       <XoviNowFaqComponent FaqContent={DataContent} />
     </div>
   );
