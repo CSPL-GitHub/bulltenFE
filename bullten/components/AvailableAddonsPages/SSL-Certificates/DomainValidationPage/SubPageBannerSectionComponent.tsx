@@ -4,14 +4,18 @@ type Props = { BannerData: any };
 export default function SubPageBannerSectionComponent({ BannerData }: Props) {
   return (
     <section className=" mx-auto w-full py-8 lg:h-[500px] h-[500px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:px-0 px-4">
-          <div className="flex flex-col justify-center space-y-8">
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-6xl">
-              <span className="block text-bullt-tertiary">
+          <div className="flex flex-col justify-center space-y-4">
+            {BannerData?.banner_main_ids[0]?.heading ? (
+              <div
+                className="text-5xl block text-bullt-tertiary font-bold sm:text-6xl md:text-6xl lg:leading-[0.5rem] leading-[1rem]"
+                style={{ lineHeight: "4.5rem" }}
+              >
                 {BannerData?.banner_main_ids[0]?.heading}
-              </span>
-            </h1>
+              </div>
+            ) : null}
+
             {BannerData?.banner_main_ids[0]?.description ? (
               <>
                 <div

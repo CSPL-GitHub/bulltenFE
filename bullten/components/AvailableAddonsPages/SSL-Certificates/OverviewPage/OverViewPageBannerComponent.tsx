@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -17,7 +16,7 @@ export default function OverViewPageBannerComponent({ content }: Props) {
   ];
 
   return (
-    <section className=" mx-auto w-full py-8 w-full lg:h-[500px] h-[550px] bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
+    <section className=" mx-auto w-full py-8 lg:h-[500px] min-h-[300px] bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
       <div className="max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:px-0 px-4">
           <motion.div
@@ -26,12 +25,14 @@ export default function OverViewPageBannerComponent({ content }: Props) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-6xl">
-              {/* <span className="block">Elevate Your</span> */}
-              <span className="block text-bullt-tertiary">
-                {content?.heading}
-              </span>
-            </h1>
+            {content?.heading ? (
+              <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-6xl">
+                <span className="block text-bullt-tertiary">
+                  {content?.heading}
+                </span>
+              </h1>
+            ) : null}
+
             {content?.description ? (
               <>
                 <div
@@ -64,7 +65,7 @@ export default function OverViewPageBannerComponent({ content }: Props) {
               ))}
             </motion.div>
           </motion.div>
-          <div className="relative lg:mt-8">
+          <div className="relative lg:mt-8 mt-0 lg:block hidden">
             <motion.div
               className="absolute inset-0 bg-indigo-200 rounded-3xl transform rotate-3"
               initial={{ opacity: 0, scale: 0.8 }}

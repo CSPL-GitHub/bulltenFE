@@ -39,3 +39,13 @@ export const OverViewSubPagesTabsProductsApi = async (
   );
   return response;
 };
+
+// Xovi Now Page API
+export const XoviNowPageApi = async (decodedSlug: string) => {
+  const response = await apiCore(
+    "/api/xovi_now_tab",
+    { slug: decodedSlug },
+    "POST"
+  );
+  return response;
+};
