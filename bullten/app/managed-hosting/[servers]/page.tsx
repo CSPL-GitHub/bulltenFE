@@ -29,7 +29,8 @@ const page = async ({
   const NordVpnPageContent = await NordVpnPageApi(decodedSlug);
   const isThirdPageConditionMet =
     decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
-  const nordVpn = decodedSlug === "nord-vpn";
+  const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
+
   const Email = decodedSlug === "professional-email";
   const Website = decodedSlug === "website-backup";
   const WebsiteSecurity = decodedSlug === "website-security";
