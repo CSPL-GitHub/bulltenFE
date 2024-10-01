@@ -8,7 +8,8 @@ import APlusThemeManagedHostingJunction from "@/components/APlusThemesJunction/M
 import OverViewPageAllComponentJunction from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageAllComponentJunction";
 import XoviNowAllComponentsJunction from "@/components/AvailableAddonsPages/Xovi-Now/XoviNowAllComponentsJunction";
 import { XoviNowPageApi } from "@/apis/XoviNowPageAPIs/XoviNowAPIs";
-// import NordVpnAllSectionComponents from "@/components/AvailableAddonsPages/NordVPN/NordVpnAllSectionComponents";
+import NordVpnAllSectionComponents from "@/components/AvailableAddonsPages/NordVPN/NordVpnAllSectionComponents";
+import { NordVpnPageApi } from "@/apis/NordVpnPageAPIs";
 // import ProfessionalEmailsAllComponents from "@/components/AvailableAddonsPages/ProfessionalEmail/ProfessionalEmailsAllComponents";
 // import WebsiteBackupAllComponents from "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents";
 // import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents";
@@ -25,7 +26,7 @@ const page = async ({
   const ManagedDataResponse = await ManagedHostingDataApi(decodedSlug);
   const OverViewPageDataContent = await OverViewPageDataApi(decodedSlug);
   const XoviNowPageContent = await XoviNowPageApi(decodedSlug);
-
+  const NordVpnPageContent = await NordVpnPageApi(decodedSlug);
   const isThirdPageConditionMet =
     decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === "nord-vpn";
@@ -52,6 +53,13 @@ const page = async ({
           <XoviNowAllComponentsJunction
             DataContent={XoviNowPageContent?.result?.data[0]}
             decodedSlug={decodedSlug}
+          />
+        </div>
+      ) : nordVpn ? (
+        <div className="third-component-section">
+          <NordVpnAllSectionComponents
+            decodedSlug={decodedSlug}
+            DataContent={NordVpnPageContent}
           />
         </div>
       ) : (

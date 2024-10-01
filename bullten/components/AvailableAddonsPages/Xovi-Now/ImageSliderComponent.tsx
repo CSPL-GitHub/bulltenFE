@@ -68,7 +68,7 @@ const ImageSliderComponent = ({ SliderContent }: Props) => {
   return (
     <div className="max-w-7xl mx-auto lg:py-16 py-6">
       <div>
-        <h1 className="text-3xl text-center lg:text-4xl font-bold text-gray-800 animate-fade-in-up">
+        <h1 className="text-2xl text-center lg:text-4xl font-bold text-gray-800 animate-fade-in-up">
           {SliderContent?.banner_data[0]?.heading}
         </h1>
       </div>

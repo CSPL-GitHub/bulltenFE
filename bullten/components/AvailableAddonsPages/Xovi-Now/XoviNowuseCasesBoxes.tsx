@@ -14,12 +14,12 @@ export default function XoviNowuseCasesBoxes({ useCasesContent }: Props) {
     <section className="lg:py-16 py-6 px-4">
       <div className="max-w-7xl mx-auto">
         {useCasesContent?.features[0]?.heading ? (
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          <h2 className="text-2xl text-center lg:text-4xl font-bold mb-12 text-gray-800">
             {useCasesContent?.features[0]?.heading}
           </h2>
         ) : null}
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:gap-8 gap-4">
           {useCasesContent?.features[0]?.feature_data.map(
             (box: any, index: number) => (
               <div className="relative overflow-hidden bg-white rounded-2xl shadow-lg group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">

@@ -17,13 +17,13 @@ export default function XoviNowTabsSectionComponent({ TabsContent }: Props) {
     <div className="px-4 lg:py-16 py-6 bg-bullt-quaternary/[0.05]">
       <div className="max-w-7xl mx-auto ">
         {TabsContent?.tabs[0]?.heading ? (
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          <h2 className="text-2xl text-center lg:text-4xl font-bold mb-12 text-gray-800">
             {TabsContent?.tabs[0]?.heading}
           </h2>
         ) : null}
 
         <div className="mb-12">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 justify-center gap-4">
             {TabsContent?.tabs[0]?.tab_Data.map((tab: any, index: number) => (
               <button
                 key={index}
