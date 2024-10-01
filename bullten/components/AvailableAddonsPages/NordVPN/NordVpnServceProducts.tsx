@@ -16,8 +16,6 @@ const NordVpnProductsComponent = ({ decodedSlug }: Props) => {
   const [NordVpnProducts, setNordVpnProducts] = useState<any>({});
   // const allPlans = NordVpnProducts?.ProductDetails[0]?.xovi_now_data;
 
-  console.log(NordVpnProducts, "Prodcuts__________?");
-
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {
@@ -118,31 +116,38 @@ const NordVpnProductsComponent = ({ decodedSlug }: Props) => {
               </thead>
               <tbody>
                 {[
-                  { feature: "Projects", key: "product_Time" },
+                  { feature: "No Restrictions", key: "restrictions" },
                   {
-                    feature: "Full-Access Accounts ",
-                    key: "restrictions",
+                    feature: "High Speed Network ",
+                    key: "speed_network",
                   },
-                  { feature: "Read-Only Accounts", key: "speed_network" },
+                  { feature: "Unlimited bandwidth", key: "bandwidth" },
                   {
-                    feature: "Competitor Benchmarking",
-                    key: "bandwidth",
-                  },
-                  {
-                    feature: "Competitors per project",
+                    feature: "256-bit AES Encryption",
                     key: "encryption",
                   },
-                  // {
-                  //   feature: "Keyword Research",
-                  //   key: "keyword_research",
-                  // },
-                  // { feature: "Rank Tracker", key: "rank_tracker" },
-                  // { feature: "Keyword crawls", key: "keyword_crawls" },
-                  // { feature: "Keyword check", key: "keyword_check" },
-                  // { feature: "Site Audit", key: "site_audit" },
-                  // { feature: "Pages to crawl", key: "pages_to_crawl" },
-                  // { feature: "SEO Advisor", key: "seo_advisor" },
-                  // { feature: "SEO Text Optimizer", key: "seo_text_optimizer" },
+                  {
+                    feature: "1000+ Servers",
+                    key: "servers",
+                  },
+                  {
+                    feature: "24/7 US Based Support",
+                    key: "support",
+                  },
+                  {
+                    feature: "OpenVPN, L2TP-IPsec and PPTP protocol",
+                    key: "protocols",
+                  },
+                  {
+                    feature: "Simultaneous connections on up to 5 devices",
+                    key: "devices",
+                  },
+                  {
+                    feature: "Apps for Windows, Mac, iOS,Android, and Linux",
+                    key: "apps",
+                  },
+                  { feature: "Unlimited Server Switching", key: "switching" },
+                  { feature: "40+ Countries", key: "countries" },
                 ].map((item, idx) => (
                   <tr
                     key={idx}
