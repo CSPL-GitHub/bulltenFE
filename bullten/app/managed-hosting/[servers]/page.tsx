@@ -10,7 +10,8 @@ import XoviNowAllComponentsJunction from "@/components/AvailableAddonsPages/Xovi
 import { XoviNowPageApi } from "@/apis/XoviNowPageAPIs/XoviNowAPIs";
 import NordVpnAllSectionComponents from "@/components/AvailableAddonsPages/NordVPN/NordVpnAllSectionComponents";
 import { NordVpnPageApi } from "@/apis/NordVpnPageAPIs";
-// import ProfessionalEmailsAllComponents from "@/components/AvailableAddonsPages/ProfessionalEmail/ProfessionalEmailsAllComponents";
+import ProfessionalEmailsAllComponents from "@/components/AvailableAddonsPages/ProfessionalEmail/ProfessionalEmailsAllComponents";
+import { ProfessionalEmailPageApi } from "@/apis/ProfessionalEmail";
 // import WebsiteBackupAllComponents from "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents";
 // import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents";
 
@@ -27,11 +28,16 @@ const page = async ({
   const OverViewPageDataContent = await OverViewPageDataApi(decodedSlug);
   const XoviNowPageContent = await XoviNowPageApi(decodedSlug);
   const NordVpnPageContent = await NordVpnPageApi(decodedSlug);
+  const professionalEmailPageContent = await ProfessionalEmailPageApi(
+    decodedSlug
+  );
+
   const isThirdPageConditionMet =
     decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
 
-  const Email = decodedSlug === "professional-email";
+  const ProfessionalEmail =
+    decodedSlug === professionalEmailPageContent?.result?.data[0]?.slug;
   const Website = decodedSlug === "website-backup";
   const WebsiteSecurity = decodedSlug === "website-security";
   return (
@@ -63,15 +69,14 @@ const page = async ({
             DataContent={NordVpnPageContent}
           />
         </div>
+      ) : ProfessionalEmail ? (
+        <div className="third-component-section">
+          <ProfessionalEmailsAllComponents
+            professionalEmailPageContent={professionalEmailPageContent}
+            decodedSlug={decodedSlug}
+          />
+        </div>
       ) : (
-        // ) : nordVpn ? (
-        //   <div className="third-component-section">
-        //     <NordVpnAllSectionComponents />
-        //   </div>
-        // ) : Email ? (
-        //   <div className="third-component-section">
-        //     <ProfessionalEmailsAllComponents />
-        //   </div>
         // ) : Website ? (
         //   <div className="third-component-section">
         //     <WebsiteBackupAllComponents />
