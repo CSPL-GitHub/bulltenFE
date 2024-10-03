@@ -8,7 +8,7 @@ export default function WebsiteBackupBannerComponent({ BannerData }: Props) {
   return (
     <section className=" mx-auto w-full lg:h-[480px] min-h-[300px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
       <div className="max-w-7xl mx-auto ">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 py-8 lg:px-0 px-4">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:py-0 py-8 lg:px-0 px-4">
           <div className="flex flex-col justify-center space-y-8">
             <h1 className="lg:text-left text-center text-5xl font-bold tracking-tight text-bullt-tertiary sm:text-6xl md:text-6xl leading-[4rem]">
               {BannerData?.heading}
