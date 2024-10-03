@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
 
-import { XoviNowProductsApi } from "@/apis/XoviNowPageAPIs/XoviNowAPIs";
 import { NordVpnProductsApi } from "@/apis/NordVpnPageAPIs";
 
 type Props = {
@@ -14,7 +13,6 @@ type Props = {
 const NordVpnProductsComponent = ({ decodedSlug }: Props) => {
   const currencyCode = useSelector((state: any) => state.currency);
   const [NordVpnProducts, setNordVpnProducts] = useState<any>({});
-  // const allPlans = NordVpnProducts?.ProductDetails[0]?.xovi_now_data;
 
   useEffect(() => {
     const fetchServerProducts = async () => {

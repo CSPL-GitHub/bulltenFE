@@ -12,7 +12,9 @@ import NordVpnAllSectionComponents from "@/components/AvailableAddonsPages/NordV
 import { NordVpnPageApi } from "@/apis/NordVpnPageAPIs";
 import ProfessionalEmailsAllComponents from "@/components/AvailableAddonsPages/ProfessionalEmail/ProfessionalEmailsAllComponents";
 import { ProfessionalEmailPageApi } from "@/apis/ProfessionalEmail";
-// import WebsiteBackupAllComponents from "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents";
+import WebsiteBackupAllComponents from "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents";
+import { WebsiteBackupPageApi } from "@/apis/WebsiteBackupPageApi";
+import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents";
 // import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents";
 
 type Props = {};
@@ -31,14 +33,15 @@ const page = async ({
   const professionalEmailPageContent = await ProfessionalEmailPageApi(
     decodedSlug
   );
-
+  const WebsiteBackupPageContent = await WebsiteBackupPageApi(decodedSlug);
   const isThirdPageConditionMet =
     decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
 
   const ProfessionalEmail =
     decodedSlug === professionalEmailPageContent?.result?.data[0]?.slug;
-  const Website = decodedSlug === "website-backup";
+  const Website =
+    decodedSlug === WebsiteBackupPageContent?.result?.data[0]?.slug;
   const WebsiteSecurity = decodedSlug === "website-security";
   return (
     <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
@@ -76,15 +79,18 @@ const page = async ({
             decodedSlug={decodedSlug}
           />
         </div>
+      ) : Website ? (
+        <div className="third-component-section">
+          <WebsiteBackupAllComponents
+            WebsiteBackupPageContent={WebsiteBackupPageContent}
+            decodedSlug={decodedSlug}
+          />
+        </div>
+      ) : WebsiteSecurity ? (
+        <div className="third-component-section">
+          <WebsiteSecurityAllComponents />
+        </div>
       ) : (
-        // ) : Website ? (
-        //   <div className="third-component-section">
-        //     <WebsiteBackupAllComponents />
-        //   </div>
-        // ) : WebsiteSecurity ? (
-        //   <div className="third-component-section">
-        //     <WebsiteSecurityAllComponents />
-        //   </div>
         <>
           {ManagedDataResponse?.result?.Active === true ? (
             <div>

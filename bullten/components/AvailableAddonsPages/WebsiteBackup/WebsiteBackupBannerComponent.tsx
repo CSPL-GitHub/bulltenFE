@@ -3,29 +3,28 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-type Props = { BannerContent: any };
-export default function ProfessionalEMailBannerComponent({
-  BannerContent,
-}: Props) {
+type Props = { BannerData: any };
+export default function WebsiteBackupBannerComponent({ BannerData }: Props) {
   return (
     <section className=" mx-auto w-full lg:h-[480px] min-h-[300px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 py-8 lg:px-0 px-4">
           <div className="flex flex-col justify-center space-y-8">
-            <h1 className="lg:text-left text-center text-5xl text-bullt-tertiary font-bold tracking-tight  sm:text-6xl md:text-6xl leading-[4rem]">
-              {BannerContent?.heading}
+            <h1 className="lg:text-left text-center text-5xl font-bold tracking-tight text-bullt-tertiary sm:text-6xl md:text-6xl leading-[4rem]">
+              {BannerData?.heading}
             </h1>
-            {BannerContent?.description ? (
+            {BannerData?.description ? (
               <>
                 <div
-                  className="lg:text-left text-center max-w-prose text-xl tailwind-unrested py-3  text-bullt-primary/[0.8]"
+                  className="lg:text-left text-center items-start max-w-prose text-xl tailwind-unrested py-3  text-bullt-primary/[0.8]"
                   dangerouslySetInnerHTML={{
-                    __html: BannerContent?.description,
+                    __html: BannerData?.description,
                   }}
                 ></div>
               </>
             ) : null}
           </div>
+
           <div className="relative lg:mt-8 mt-0 lg:block hidden">
             <motion.div
               className="absolute inset-0 bg-indigo-200 rounded-3xl transform rotate-3"
@@ -40,8 +39,8 @@ export default function ProfessionalEMailBannerComponent({
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${BannerContent?.img}`}
-                alt={BannerContent?.heading}
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${BannerData?.img}`}
+                alt={BannerData?.heading}
                 className="w-full h-[300px] lg:h-[350px] object-contain rounded-xl"
               />
             </motion.div>
