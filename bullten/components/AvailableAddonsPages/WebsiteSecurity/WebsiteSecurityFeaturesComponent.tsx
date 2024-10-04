@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowsLeftRight } from "react-icons/fa6";
 
 type Props = {
   FeaturesData: any;
@@ -31,7 +32,9 @@ const WebsiteSecurityFeaturesComponent = ({ FeaturesData }: Props) => {
                 }`}
               >
                 {/* Line connection */}
-                <div className="hidden md:block absolute w-6 h-6 bg-bullt-tertiary rounded-full left-1/2 transform -translate-x-1/2"></div>
+                <div className="hidden  absolute md:flex md:justify-center md:items-center w-10 h-10 bg-bullt-tertiary rounded-full left-1/2 transform -translate-x-1/2">
+                  <FaArrowsLeftRight className="text-bullt-secondary text-2xl" />
+                </div>
 
                 {/* Content on Left/Right */}
                 <div

@@ -10,39 +10,6 @@ type FAQDataType = {
   image?: string; // Optional image field
 };
 
-const FaqContent = {
-  faqs: [
-    {
-      heading: "Frequently Asked Questions",
-      video: "/another-path-to-video.mp4",
-      description: "Here are some common questions about our SEO tools.",
-      FAQ_Data: [
-        {
-          heading: "What are SEO tools?",
-          description:
-            "SEO tools help you improve your website's visibility in search engines. They provide insights into keywords, rankings, and website performance.",
-          image: "/seo-tools.jpg", // optional image
-        },
-        {
-          heading: "How can SEO tools help my business?",
-          description:
-            "SEO tools can help you analyze website traffic, monitor your competitors, and optimize your site to rank higher in search results.",
-          image: "/business-growth.jpg", // optional image
-        },
-        {
-          heading: "Are SEO tools easy to use?",
-          description:
-            "Yes, most SEO tools are designed with user-friendly interfaces and provide tutorials or guides to help you get started.",
-        },
-        {
-          heading: "How much do SEO tools cost?",
-          description:
-            "The cost varies depending on the features and provider. Some tools offer free versions with limited features, while premium versions can be more comprehensive.",
-        },
-      ],
-    },
-  ],
-};
 type Props = {
   FaqData: any;
 };
@@ -84,10 +51,11 @@ const SeoToolsFaqComponent = ({ FaqData }: Props) => {
         <div className="md:w-full w-full flex flex-col justify-center items-center px-4 sm:px-10 h-full sm:py-0 py-4 text-center sm:text-start">
           <video
             controls
-            className="w-full h-[300px] lg:h-[350px] object-contain rounded-xl"
+            className="w-full h-[300px] lg:h-[350px] object-cover rounded-xl"
           >
             <source
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqData[0]?.FAQ[0].faq_videoo}`}
+              // src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqData[0]?.FAQ[0].faq_videoo}`}
+              src="/marketgoo (720p).mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -135,13 +103,11 @@ const SeoToolsFaqComponent = ({ FaqData }: Props) => {
                           >
                             <div className="flex flex-col md:flex-row gap-6">
                               <div
-                                className={`${
-                                  item?.image ? "md:w-1/2 w-full" : "w-full"
-                                } p-3 select-none text-md text-bullt-primary/[0.8]`}
+                                className="flex p-3 select-none text-md text-bullt-primary/[0.8]"
                                 dangerouslySetInnerHTML={{
                                   __html: item?.description,
                                 }}
-                              />
+                              ></div>
                             </div>
                           </motion.div>
                         )}

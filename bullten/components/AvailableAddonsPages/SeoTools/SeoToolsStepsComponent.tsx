@@ -124,68 +124,69 @@ interface Step {
 type Props = {
   StepsData: any;
 };
+
 export default function SeoToolsStepsComponent({ StepsData }: Props) {
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-12 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-2xl font-bold text-gray-900 sm:text-4xl">
-            {StepsData[0]?.heading}
+            {StepsData[0]?.how_does_it_work_data[0]?.heading}
           </h2>
-
-          <p className="mt-4 text-xl text-gray-600">
-            {StepsData[0]?.description}
+          <p className="mt-4 text-lg sm:text-xl text-gray-600">
+            {StepsData[0]?.how_does_it_work_data[0]?.description}
           </p>
         </div>
 
-        {/* Zigzag Layout */}
         <div className="relative">
-          <div className="absolute border-l-2 border-gray-300 h-full left-1/2 transform -translate-x-1/2"></div>
+          <div className="absolute border-l-2 border-gray-300 h-full left-1/2 transform -translate-x-1/2 block"></div>
 
-          {StepsData[0]?.how_dose_it_work?.map(
+          {StepsData[0]?.how_does_it_work_data[0]?.how_dose_it_work?.map(
             (feature: any, index: number) => (
               <div
                 key={index}
-                className={`flex flex-col md:flex-row items-center relative ${
+                className={`flex flex-col md:flex-row items-center gap-2 relative lg:mb-2 mb-10 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                <div className="block md:block absolute rounded-full left-1/2 transform -translate-x-1/2">
+                <div className="block md:absolute rounded-full left-1/2 transform md:-translate-x-1/2 -translate-x-1/4 mb-0 md:mb-0">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mb-4 bg-bullt-tertiary text-white"
+                    className="w-16 h-16 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-lg sm:text-2xl font-bold bg-bullt-tertiary text-white"
                   >
                     {index + 1}
                   </motion.button>
                 </div>
 
                 <div
-                  className={`md:w-1/2 px-6 py-4 rounded-lg bg-bullt-secondary shadow-lg ${
+                  className={`w-full md:w-1/2 px-4 py-4 rounded-lg bg-bullt-secondary shadow-lg ${
                     index % 2 === 0
-                      ? "md:pl-12 text-right"
-                      : "md:pr-12 text-left"
+                      ? "md:pl-0 md:text-right"
+                      : "md:pr-0 md:text-left"
                   }`}
                 >
                   <div
-                    className={`w-full flex  p-6 ${
+                    className={`w-full flex p-2 ${
                       index % 2 === 0
-                        ? "justify-end items-end"
+                        ? "md:justify-end md:items-end justify-start items-start"
                         : "justify-start items-start"
                     }`}
                   >
-                    <div className=" bg-bullt-quaternary/10 rounded-full p-4 shadow-sm">
+                    <div className="bg-bullt-quaternary/10 rounded-full p-3 shadow-sm">
                       <img
                         src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.image}`}
                         alt={feature?.heading}
-                        className="w-14 h-14 object-contain"
+                        className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
                       />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                     {feature.heading}
                   </h3>
-                  <p className="mt-4 text-gray-600">{feature.description}</p>
+                  <p className="mt-4 text-base sm:text-lg text-gray-600">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
             )

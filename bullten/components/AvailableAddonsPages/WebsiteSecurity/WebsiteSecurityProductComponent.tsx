@@ -21,8 +21,6 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
     {}
   );
 
-  console.log(WebsiteSecurityProducts, "WebsiteSecurity");
-
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {
@@ -45,7 +43,7 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
   ) => {
     setSelectedPeriods((prevState) => ({
       ...prevState,
-      [planIndex]: e.target.value, // Set the period for the specific plan
+      [planIndex]: e.target.value,
     }));
   };
   return (

@@ -104,7 +104,10 @@ const page = async ({
         </div>
       ) : SeoTools ? (
         <div className="third-component-section">
-          <SeoToolsAllComponents SeoToolsPageContent={SeoToolsPageContent} />
+          <SeoToolsAllComponents
+            SeoToolsPageContent={SeoToolsPageContent}
+            decodedSlug={decodedSlug}
+          />
         </div>
       ) : (
         // ) : Sitebuiler ? (

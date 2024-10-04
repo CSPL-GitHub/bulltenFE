@@ -3,28 +3,27 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
-
-import { XoviNowProductsApi } from "@/apis/XoviNowPageAPIs/XoviNowAPIs";
-import { NordVpnProductsApi } from "@/apis/NordVpnPageAPIs";
-
+import { SeoToolProductsApi } from "@/apis/SeoToolsApi";
+import { SiTicktick } from "react-icons/si";
+import { RxCrossCircled } from "react-icons/rx";
 type Props = {
   decodedSlug: string;
 };
 
 const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
   const currencyCode = useSelector((state: any) => state.currency);
-  const [NordVpnProducts, setNordVpnProducts] = useState<any>({});
-  // const allPlans = NordVpnProducts?.ProductDetails[0]?.xovi_now_data;
+  const [SeoToolsProducts, setSeoToolsProducts] = useState<any>({});
 
+  console.log(SeoToolsProducts, "setSeoToolsProducts");
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {
-        const response = await NordVpnProductsApi(
+        const response = await SeoToolProductsApi(
           currencyCode?.code?.slug,
           decodedSlug
         );
 
-        setNordVpnProducts(response?.result);
+        setSeoToolsProducts(response?.result);
       } catch (error) {
         console.log(error);
       }
@@ -36,19 +35,19 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
     <div className="max-w-7xl mx-auto lg:py-16 py-6 px-4">
       <div className="overflow-x-auto">
         <div className="lg:px-4 px-0 ">
-          {NordVpnProducts?.Active === true && (
+          {SeoToolsProducts?.Active === true && (
             <>
               <div
-                className="sm:text-4xl text-3xl mb-2 text-center font-semibold"
+                className="sm:text-4xl text-2xl mb-2 text-center font-bold"
                 dangerouslySetInnerHTML={{
-                  __html: NordVpnProducts?.ProductVpnDetails[0]?.heading,
+                  __html: SeoToolsProducts?.ProductDetails[0]?.heading,
                 }}
               ></div>
-              {!NordVpnProducts?.ProductVpnDetails[0]?.description ? null : (
+              {!SeoToolsProducts?.ProductDetails[0]?.description ? null : (
                 <div
                   className="text-lg lg:text-lg text-center"
                   dangerouslySetInnerHTML={{
-                    __html: NordVpnProducts?.ProductVpnDetails[0]?.description,
+                    __html: SeoToolsProducts?.ProductDetails[0]?.description,
                   }}
                 ></div>
               )}
@@ -56,7 +55,7 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
           )}
         </div>
 
-        {NordVpnProducts?.ProductVpnDetails?.length > 0 && (
+        {SeoToolsProducts?.ProductDetails?.length > 0 && (
           <div className="overflow-x-auto mt-6">
             <table className="w-full border-collapse rounded-md">
               <thead className="rounded-md">
@@ -64,7 +63,7 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
                   <th className="p-6 text-left border border-gray-400 font-bold text-lg uppercase tracking-wider text-bullt-primary">
                     Features
                   </th>
-                  {NordVpnProducts?.ProductVpnDetails[0]?.nord_vpn_data?.map(
+                  {SeoToolsProducts?.ProductDetails[0]?.seo_tool_product_data?.map(
                     (plan: any, index: number) => (
                       <th
                         key={index}
@@ -72,7 +71,7 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
                       >
                         <div className="flex flex-col justify-center items-center gap-2">
                           <span className="font-bold text-lg uppercase tracking-wider text-bullt-primary">
-                            {plan?.product_Time}
+                            {plan?.plan_name}
                           </span>
                           <div className="flex gap-1 items-center">
                             {plan?.pricing?.map((price: any, idx: any) => (
@@ -91,7 +90,7 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
                               </div>
                             ))}
                             <span className="text-sm font-semibold text-bullt-primary">
-                              /{plan?.product_Time}
+                              /{plan?.period}
                             </span>
                           </div>
                           {plan?.button_text && (
@@ -116,38 +115,42 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
               </thead>
               <tbody>
                 {[
-                  { feature: "No Restrictions", key: "restrictions" },
                   {
-                    feature: "High Speed Network ",
-                    key: "speed_network",
-                  },
-                  { feature: "Unlimited bandwidth", key: "bandwidth" },
-                  {
-                    feature: "256-bit AES Encryption",
-                    key: "encryption",
+                    feature: "Search engine submission",
+                    key: "Search_engine_submission",
                   },
                   {
-                    feature: "1000+ Servers",
-                    key: "servers",
+                    feature: "Connect Google Analytics ",
+                    key: "connect_google_analytics",
                   },
                   {
-                    feature: "24/7 US Based Support",
-                    key: "support",
+                    feature: "Download SEO report as PDF",
+                    key: "download_seo_report_pdf",
                   },
                   {
-                    feature: "OpenVPN, L2TP-IPsec and PPTP protocol",
-                    key: "protocols",
+                    feature: "Pages scanned",
+                    key: "pages_scanned",
                   },
                   {
-                    feature: "Simultaneous connections on up to 5 devices",
-                    key: "devices",
+                    feature: "Competitor tracking",
+                    key: "competitor_tracking",
                   },
                   {
-                    feature: "Apps for Windows, Mac, iOS,Android, and Linux",
-                    key: "apps",
+                    feature: "Keyword tracking & optimization",
+                    key: "keyword_tracking_optimization",
                   },
-                  { feature: "Unlimited Server Switching", key: "switching" },
-                  { feature: "40+ Countries", key: "countries" },
+                  {
+                    feature: "Updated report & plan",
+                    key: "updated_report_plan",
+                  },
+                  {
+                    feature: "Custom SEO Plan",
+                    key: "custom_seo_plan",
+                  },
+                  {
+                    feature: "Monthly progress report",
+                    key: "monthly_progress_report",
+                  },
                 ].map((item, idx) => (
                   <tr
                     key={idx}
@@ -158,10 +161,24 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
                     <td className="border p-4 text-left font-semibold text-gray-800">
                       {item.feature}
                     </td>
-                    {NordVpnProducts?.ProductVpnDetails[0]?.nord_vpn_data?.map(
+                    {SeoToolsProducts?.ProductDetails[0]?.seo_tool_product_data?.map(
                       (plan: any, index: number) => (
                         <td key={index} className="border p-4 text-center">
-                          {plan?.[item.key]}
+                          {plan?.[item.key] === "" ? (
+                            <>
+                              <RxCrossCircled className="text-red-700 text-lg mx-auto" />
+                            </>
+                          ) : (
+                            <span>
+                              {plan?.[item.key] === "Yes" ? (
+                                <>
+                                  <SiTicktick className="text-green-700 text-lg mx-auto" />
+                                </>
+                              ) : (
+                                <>{plan?.[item.key]}</>
+                              )}
+                            </span>
+                          )}
                         </td>
                       )
                     )}

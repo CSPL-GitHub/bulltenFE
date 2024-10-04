@@ -26,11 +26,7 @@ const APlusThemeManagedHostingJunction: React.FC<Props> = ({
   decodedSlug,
 }) => {
   return (
-    <div
-      className={
-        "sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]"
-      }
-    >
+    <div className={"sm:overflow-hidden overflow-x-hidden"}>
       {aPlusResponse?.data?.components?.map((item: any, index: number) => {
         switch (item?.component) {
           case "banner":

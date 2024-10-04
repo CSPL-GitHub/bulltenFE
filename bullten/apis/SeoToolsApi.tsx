@@ -9,12 +9,12 @@ export const SeoToolsPageApi = async (decodedSlug: string) => {
   return response;
 };
 
-export const WebsiteSecurityProductsApi = async (
+export const SeoToolProductsApi = async (
   currency: string,
   decodedSlug: string
 ) => {
   const response = await apiCore(
-    "/api/fetch_website_security_product",
+    "/api/fetch_seo_tool_product",
     { currency: currency, slug: decodedSlug },
     "POST"
   );
