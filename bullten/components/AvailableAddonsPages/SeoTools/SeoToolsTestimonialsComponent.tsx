@@ -3,9 +3,22 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
+// import { Star } from "lucide-react";
+
+type Testimonial = {
+  img: string;
+  name: string;
+  position: string;
+  description: string;
+};
 
 type Props = {
-  TestimonialsData: any;
+  TestimonialsData: {
+    testimonial: {
+      heading: string;
+      testimonial_data: Testimonial[];
+    }[];
+  }[];
 };
 
 export default function SeoToolsTestimonialsComponent({
@@ -20,61 +33,70 @@ export default function SeoToolsTestimonialsComponent({
     pauseOnHover: true,
     adaptiveHeight: false,
     slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          dots: true,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
     ],
-    customPaging: (i: any) => (
-      <div className="w-2 h-2 bg-bullt-primary rounded-full mx-1 mt-4" />
+    customPaging: () => (
+      <div className="w-3 h-3 bg-bullt-primary rounded-full mx-1 mt-1 transition-all duration-300 hover:bg-bullt-primary" />
     ),
   };
 
   return (
-    <div className="px-4 py-16 bg-gradient-to-br from-bullt-primary/5 to-bullt-secondary/5 ">
-      <div className="max-w-7xl mx-auto rounded-3xl">
-        <h2 className="lg:text-4xl text-2xl font-bold text-center mb-8 text-bullt-primary">
+    <div className="px-4 lg:py-16 py-6 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="lg:text-4xl text-2xl font-bold text-center lg:mb-12 mb-4 text-primary">
           {TestimonialsData[0]?.testimonial[0].heading}
         </h2>
-        <Slider {...settings}>
+        <Slider {...settings} className="testimonial-slider">
           {TestimonialsData[0]?.testimonial[0]?.testimonial_data?.map(
-            (testimonial: any) => (
-              <div className="px-4">
-                <div className="bg-white rounded-lg shadow-sm border-gray-100 border-[1px] p-8 relative  lg:h-[300px] h-[400px] flex flex-col justify-between">
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                    <div className="relative w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial?.img}`}
-                        alt={testimonial.name}
-                        width={70}
-                        height={70}
-                        className="rounded-full"
-                      />
+            (testimonial: Testimonial, index: number) => (
+              <div key={index} className="px-4 pb-12">
+                <div className="bg-bullt-text-primary/[0.08] rounded-md lg:h-[300px] h-[350px] shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="p-8">
+                    <div className="flex items-center mb-6">
+                      <div className="relative w-16 h-16 mr-4">
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial.img}`}
+                          alt={testimonial.name}
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded-full"
+                        />
+                      </div>
+                      <div>
+                        <div className="font-bold text-xl text-primary">
+                          {testimonial.name}
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          {testimonial.position}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-gray-600 text-lg mt-8 mb-4">
-                    {testimonial.description}
-                  </div>
-                  <div>
-                    <div className="font-bold text-primary">
-                      {testimonial.name}
+                    <div className="text-gray-700 text-lg mb-6 italic">
+                      &ldquo;{testimonial.description}&rdquo;
                     </div>
-                    <div className="text-sm text-gray-500">
-                      {testimonial.position}
-                    </div>
+                    {/* <div className="flex justify-end">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-5 h-5 text-yellow-400 fill-current"
+                        />
+                      ))}
+                    </div> */}
                   </div>
                 </div>
               </div>
