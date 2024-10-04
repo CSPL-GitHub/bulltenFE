@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="text-7xl flex items-center justify-center mt-[150px] h-60">
+      page
+    </div>
+  );
+};
 
-export default page
+export default page;

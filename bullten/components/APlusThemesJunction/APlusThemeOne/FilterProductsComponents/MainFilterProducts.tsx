@@ -49,7 +49,7 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         setLoading(false); // Stop loader
       } catch (err) {
         setLoading(false); // Stop loader in case of error
-        console.error("Error fetching price range:", err);
+
       }
     };
 
@@ -90,7 +90,7 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
     currencyCode,
     filterRange,
   ]);
-  console.log(serverProducts?.server_products?.length, "ServerProductsLength");
+ 
   {
     serverProducts?.server_products?.length > 0
       ? console.log("LenghtYes")

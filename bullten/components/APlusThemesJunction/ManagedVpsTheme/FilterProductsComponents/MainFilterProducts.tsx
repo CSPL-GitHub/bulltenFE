@@ -38,7 +38,7 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         );
         setServerProducts(response?.result?.data);
       } catch (err) {
-        console.error("Error fetching plans:", err);
+      
       }
     };
 

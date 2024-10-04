@@ -75,7 +75,6 @@ const FilterComponent = ({
       setPriceRange(range);
     }
   };
-  console.log(MinRamRange, "minRamRange");
   const handleRamChange = (range: any | any[]) => {
     setMinRamRange(range[0]);
     setMaxRamRange(range[1]);
