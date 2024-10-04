@@ -33,10 +33,10 @@ const AboutWebsiteBackupComponent = ({ AboutData }: Props) => {
           </div>
         </div>
 
-        <div className="relative lg:w-[60%] w-full text-center lg:text-left mt-12 py-4 lg:mt-0">
+        <div className="relative lg:w-[60%] w-full text-center lg:text-left mt-0 py-4 lg:mt-0">
           {AboutData[0]?.heading ? (
             <div
-              className="sm:text-4xl text-2xl font-bold text-gray-800 lg:blcok block pb-4"
+              className="sm:text-4xl text-2xl font-bold text-gray-800 lg:block hidden pb-4"
               dangerouslySetInnerHTML={{
                 __html: AboutData[0]?.heading,
               }}

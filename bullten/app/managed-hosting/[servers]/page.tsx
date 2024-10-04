@@ -19,6 +19,7 @@ import { WebsiteSecurityPageApi } from "@/apis/WebsiteSecurityApi";
 import SeoToolsAllComponents from "@/components/AvailableAddonsPages/SeoTools/SeoToolsAllComponents";
 import { SeoToolsPageApi } from "@/apis/SeoToolsApi";
 // import SiteBuilderAllComponents from "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent";
+// import { SiteBuilderPageApi } from "@/apis/SiteBuilderApi";
 
 type Props = {};
 
@@ -39,6 +40,7 @@ const page = async ({
   const SeoToolsPageContent = await SeoToolsPageApi(decodedSlug);
   const WebsiteBackupPageContent = await WebsiteBackupPageApi(decodedSlug);
   const WebsiteSecurityContent = await WebsiteSecurityPageApi(decodedSlug);
+  // const SiteBuilderContent = await SiteBuilderPageApi(decodedSlug);
   const isThirdPageConditionMet =
     decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
@@ -112,7 +114,7 @@ const page = async ({
       ) : (
         // ) : Sitebuiler ? (
         //   <div className="third-component-section">
-        //     <SiteBuilderAllComponents />
+        //     <SiteBuilderAllComponents SiteBuilderContent={SiteBuilderContent} />
         //   </div>
         <>
           {ManagedDataResponse?.result?.Active === true ? (

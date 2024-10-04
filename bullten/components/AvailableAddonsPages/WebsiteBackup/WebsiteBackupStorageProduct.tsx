@@ -66,13 +66,13 @@ export default function WebsiteBackupStorageProduct({
   }, [StorageProductsData, selectedStorage, currencyCode]);
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-purple-50 py-16 px-4 min-h-screen">
+    <div className="bg-gradient-to-br from-blue-50 to-purple-50 lg:py-16 py-6 px-4 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800">
+        <h1 className="text-2xl md:text-4xl font-bold text-center mb-8 text-gray-800">
           Secure Your Website with Our Backup Solution
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3 lg:mb-16 mb-6">
           {BenifitesData?.Overview[0]?.Overview_data.map(
             (benefit: any, index: number) => (
               <div
@@ -101,8 +101,8 @@ export default function WebsiteBackupStorageProduct({
         {StorageProductsData?.Active === true ? (
           <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
             {/* Header */}
-            <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 md:mb-0 text-gray-800">
+            <div className="flex flex-col md:flex-row justify-between items-center lg:mb-12 mb-2">
+              <h2 className="lg:text-4xl text-2xl font-bold mb-4 md:mb-0 text-gray-800">
                 {StorageProductsData?.ProductDetails[0]?.heading}
               </h2>
               {/* <div className="flex items-center space-x-4">
@@ -155,9 +155,9 @@ export default function WebsiteBackupStorageProduct({
                 <div className="w-full flex justify-center ">
                   <Link
                     href={StorageProductsData?.ProductDetails[0]?.button_link}
-                    className=" px-6 font-normal bg-bullt-tertiary hover:bg-bullt-secondary hover:text-bullt-tertiary hover:border-bullt-tertiary border border-bullt-tertiary text-white py-1 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="lg:py-4 py-4  lg:px-6 px-12  bg-bullt-tertiary hover:bg-bullt-secondary hover:text-bullt-tertiary hover:border-bullt-tertiary border border-bullt-tertiary text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="group-hover:scale-100 flex gap-1">
+                    <div className="group-hover:scale-100 flex gap-1 font-semibold text-xl">
                       <BsStars size={20} />
 
                       {StorageProductsData?.ProductDetails[0]?.button_text}

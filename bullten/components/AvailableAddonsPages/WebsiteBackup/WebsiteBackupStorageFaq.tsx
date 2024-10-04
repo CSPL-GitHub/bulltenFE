@@ -65,7 +65,7 @@ const WebsiteBackupStorageFaqComponent = ({ FaqData }: Props) => {
           {FaqData?.FAQ[0]?.faq_heading_main ? (
             <>
               <div
-                className="w-full items-starttext-2xl sm:text-4xl font-bold py-2 tailwind-unreset"
+                className="w-full items-start text-2xl sm:text-4xl font-bold py-2 tailwind-unreset"
                 dangerouslySetInnerHTML={{
                   __html: FaqData?.FAQ[0]?.faq_heading_main,
                 }}

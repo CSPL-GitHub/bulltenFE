@@ -9,7 +9,7 @@ const AboutWebsiteSecurityComponent = ({ AboutData }: Props) => {
         <div className="relative lg:w-[40%] w-full flex flex-col items-center justify-centertext-center text-2xl sm:text-4xl font-bold py-2">
           {AboutData?.plan_pricing[0]?.heading ? (
             <div
-              className="sm:text-4xl text-2xl font-bold text-gray-800 lg:hidden block pb-4"
+              className="sm:text-4xl text-2xl font-bold text-gray-800 lg:hidden block pb-4 text-center"
               dangerouslySetInnerHTML={{
                 __html: AboutData?.plan_pricing[0]?.heading,
               }}
@@ -24,7 +24,7 @@ const AboutWebsiteSecurityComponent = ({ AboutData }: Props) => {
               className="custom-bounce "
             />
           </div>
-          <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden">
+          <div className="relative w-[400px] h-[350px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden">
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.plan_pricing[0]?.image}`}
               alt="Team Meeting"
@@ -41,7 +41,7 @@ const AboutWebsiteSecurityComponent = ({ AboutData }: Props) => {
           </div> */}
         </div>
 
-        <div className="lg:w-[60%] w-full text-center lg:text-left mt-12 py-4 lg:mt-0">
+        <div className="lg:w-[60%] w-full text-center lg:text-left mt-0 py-4 lg:mt-0">
           {AboutData?.plan_pricing[0]?.heading ? (
             <div
               className="sm:text-4xl text-2xl font-bold text-gray-800 lg:block hidden pb-4"

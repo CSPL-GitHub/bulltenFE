@@ -21,7 +21,7 @@ const WebsiteSecurityFeaturesComponent = ({ FeaturesData }: Props) => {
 
         {/* Zigzag Layout */}
         <div className="relative">
-          <div className="absolute border-l-2 border-gray-300 h-full left-1/2 transform -translate-x-1/2"></div>
+          <div className="absolute border-l-2 lg:border-gray-300 border-gray-200 h-full left-1/2 transform -translate-x-1/2"></div>
 
           {FeaturesData?.Feature[0]?.feature_list.map(
             (feature: any, index: number) => (
@@ -32,7 +32,7 @@ const WebsiteSecurityFeaturesComponent = ({ FeaturesData }: Props) => {
                 }`}
               >
                 {/* Line connection */}
-                <div className="hidden  absolute md:flex md:justify-center md:items-center w-10 h-10 bg-bullt-tertiary rounded-full left-1/2 transform -translate-x-1/2">
+                <div className="hidden absolute md:flex md:justify-center md:items-center w-10 h-10 bg-bullt-tertiary rounded-full left-1/2 transform -translate-x-1/2">
                   <FaArrowsLeftRight className="text-bullt-secondary text-2xl" />
                 </div>
 
@@ -47,12 +47,14 @@ const WebsiteSecurityFeaturesComponent = ({ FeaturesData }: Props) => {
                   <h3 className="text-2xl font-semibold text-gray-900">
                     {feature.heading}
                   </h3>
-                  <p className="mt-4 text-gray-600">{feature.description}</p>
+                  <p className="mt-4 text-gray-600 text-lg">
+                    {feature.description}
+                  </p>
                 </div>
 
                 {/* Icon on the Opposite Side */}
-                <div className="md:w-1/2 flex justify-center items-center p-6">
-                  <div className="text-6xl  bg-bullt-secondary rounded-full p-4 shadow-lg">
+                <div className="md:w-1/2 flex justify-center items-center lg:p-6 p-0">
+                  <div className="text-6xl bg-bullt-secondary rounded-full p-4 shadow-lg">
                     <img
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.img}`}
                       alt={feature?.heading}

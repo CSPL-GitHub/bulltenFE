@@ -35,7 +35,7 @@ export default function WebsiteSecurityHackedComponent({
 }: Props) {
   return (
     <div className="max-w-7xl mx-auto px-4 lg:py-8 py-6">
-      <h1 className="lg:text-4xl text-3xl font-bold text-center mb-2 text-bullt-primary">
+      <h1 className="lg:text-4xl text-2xl font-bold text-center mb-2 text-bullt-primary">
         {SecurityData?.website_hacker[0]?.heading}
       </h1>
       {SecurityData?.website_hacker[0]?.hack_sub_heading ? (
