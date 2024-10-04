@@ -77,14 +77,14 @@ export default function WebsiteBackupStorageProduct({
             (benefit: any, index: number) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="bg-white rounded-xl shadow-sm p-6 transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="bg-blue-100 rounded-full p-3">
+                  <div className="bg-blue-100 rounded-full p-1">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${benefit.image}`}
-                      width={24}
-                      height={24}
+                      width={30}
+                      height={30}
                       alt=""
                       className="text-blue-600"
                     />
@@ -99,7 +99,7 @@ export default function WebsiteBackupStorageProduct({
         </div>
 
         {StorageProductsData?.Active === true ? (
-          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+          <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-center mb-12">
               <h2 className="text-3xl font-bold mb-4 md:mb-0 text-gray-800">

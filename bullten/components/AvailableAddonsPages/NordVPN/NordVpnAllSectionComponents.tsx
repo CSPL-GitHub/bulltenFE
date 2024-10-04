@@ -13,7 +13,7 @@ const NordVpnAllSectionComponents = ({ decodedSlug, DataContent }: Props) => {
       <NordVpnAdvantagesComponent
         AdvantagesData={DataContent?.result?.data[0]}
       />
-      {/* <MapDataCenters /> */}
+      <MapDataCenters />
       <NordVpnProductsComponent decodedSlug={decodedSlug} />
     </div>
   );

@@ -1,9 +1,5 @@
 import React from "react";
 
-type Props = {
-  WhyChooseSectionBoxesData: any;
-};
-
 const WhyChooseSectionBoxesData = {
   feature: [
     {
@@ -31,15 +27,35 @@ const WhyChooseSectionBoxesData = {
     },
   ],
 };
-
-export default function WebsiteSecurityHackedComponent() {
+type Props = {
+  SecurityData: any;
+};
+export default function WebsiteSecurityHackedComponent({
+  SecurityData,
+}: Props) {
   return (
     <div className="max-w-7xl mx-auto px-4 lg:py-8 py-6">
-      <h1 className="lg:text-4xl text-3xl font-bold text-center mb-4 text-bullt-primary">
-        {WhyChooseSectionBoxesData?.feature[0]?.heading}
+      <h1 className="lg:text-4xl text-3xl font-bold text-center mb-2 text-bullt-primary">
+        {SecurityData?.website_hacker[0]?.heading}
       </h1>
+      {SecurityData?.website_hacker[0]?.hack_sub_heading ? (
+        <div
+          className="py-1 text-center text-xl font-bold text-gray-900 sm:text-2xl"
+          dangerouslySetInnerHTML={{
+            __html: SecurityData?.website_hacker[0]?.hack_sub_heading,
+          }}
+        />
+      ) : null}
+      {SecurityData?.website_hacker[0]?.description ? (
+        <div
+          className="py-3 text-center text-bullt-primary/[0.8] text-lg"
+          dangerouslySetInnerHTML={{
+            __html: SecurityData?.website_hacker[0]?.description,
+          }}
+        />
+      ) : null}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {WhyChooseSectionBoxesData?.feature[0]?.features.map(
+        {SecurityData?.website_hacker[0]?.Website_hacker_data.map(
           (box: any, index: number) => (
             <div
               key={index}
@@ -54,7 +70,7 @@ export default function WebsiteSecurityHackedComponent() {
               <div className="relative z-10">
                 <div className="text-6xl mb-6 inline-block p-4 rounded-full transform transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-12 bg-bullt-tertiary/55 group-hover:bg-bullt-tertiary/90">
                   <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${box?.icon}`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${box?.image}`}
                     className="w-14 h-14 object-contain"
                   />
                 </div>

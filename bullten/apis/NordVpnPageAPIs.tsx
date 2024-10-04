@@ -20,3 +20,8 @@ export const NordVpnProductsApi = async (
   );
   return response;
 };
+
+export const NordVpnCountryLocationsApi = async () => {
+  const response = await apiCore("/api/nord_vpn_map", {}, "POST");
+  return response;
+};

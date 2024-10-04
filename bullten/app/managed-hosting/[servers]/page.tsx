@@ -15,7 +15,10 @@ import { ProfessionalEmailPageApi } from "@/apis/ProfessionalEmail";
 import WebsiteBackupAllComponents from "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents";
 import { WebsiteBackupPageApi } from "@/apis/WebsiteBackupPageApi";
 import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents";
-// import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents";
+import { WebsiteSecurityPageApi } from "@/apis/WebsiteSecurityApi";
+import SeoToolsAllComponents from "@/components/AvailableAddonsPages/SeoTools/SeoToolsAllComponents";
+import { SeoToolsPageApi } from "@/apis/SeoToolsApi";
+// import SiteBuilderAllComponents from "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent";
 
 type Props = {};
 
@@ -33,7 +36,9 @@ const page = async ({
   const professionalEmailPageContent = await ProfessionalEmailPageApi(
     decodedSlug
   );
+  const SeoToolsPageContent = await SeoToolsPageApi(decodedSlug);
   const WebsiteBackupPageContent = await WebsiteBackupPageApi(decodedSlug);
+  const WebsiteSecurityContent = await WebsiteSecurityPageApi(decodedSlug);
   const isThirdPageConditionMet =
     decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
@@ -42,7 +47,11 @@ const page = async ({
     decodedSlug === professionalEmailPageContent?.result?.data[0]?.slug;
   const Website =
     decodedSlug === WebsiteBackupPageContent?.result?.data[0]?.slug;
-  const WebsiteSecurity = decodedSlug === "website-security";
+  const WebsiteSecurity =
+    decodedSlug === WebsiteSecurityContent?.result?.data[0]?.slug;
+  const SeoTools = decodedSlug === "seo-tools";
+
+  const Sitebuiler = decodedSlug === "site-builder";
   return (
     <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
       {decodedSlug === OverViewPageDataContent?.result?.data?.slug ? (
@@ -88,9 +97,20 @@ const page = async ({
         </div>
       ) : WebsiteSecurity ? (
         <div className="third-component-section">
-          <WebsiteSecurityAllComponents />
+          <WebsiteSecurityAllComponents
+            WebsiteSecurityContent={WebsiteSecurityContent}
+            decodedSlug={decodedSlug}
+          />
+        </div>
+      ) : SeoTools ? (
+        <div className="third-component-section">
+          <SeoToolsAllComponents SeoToolsPageContent={SeoToolsPageContent} />
         </div>
       ) : (
+        // ) : Sitebuiler ? (
+        //   <div className="third-component-section">
+        //     <SiteBuilderAllComponents />
+        //   </div>
         <>
           {ManagedDataResponse?.result?.Active === true ? (
             <div>

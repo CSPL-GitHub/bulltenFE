@@ -1,7 +1,7 @@
 "use client";
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
-import * as DOMPurify from "dompurify";
-import Image from "next/image";
+import React from "react";
+
 import { useState, useEffect } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
@@ -93,7 +93,6 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
         <SliderFrame settings={settings} selector={undefined}>
           {carouselData?.content?.map((item: any, index: number) => (
             <div className="px-2" key={index}>
-              
               <div
                 key={index}
                 className="flex flex-col justify-center items-center bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"

@@ -1,118 +1,93 @@
 "use client";
-import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
-import ParaGraphText from "@/components/CommonComponents/HeadingComponents/ParaGraphText";
-import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
+
+import { NordVpnCountryLocationsApi } from "@/apis/NordVpnPageAPIs";
 import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
 } from "react-simple-maps";
+import { motion } from "framer-motion";
 
-const MapDataCenters = ({ footerMapResponse }: any) => {
+export default function MapDataCenters() {
   const [hoveredMarker, setHoveredMarker] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [coordinates, setCoordinates] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchMapDataCenterLocations = async () => {
+      try {
+        const response = await NordVpnCountryLocationsApi();
+        setCoordinates(response?.result);
+      } catch (error) {
+        console.error("Failed to fetch map data:", error);
+      }
+    };
+    fetchMapDataCenterLocations();
+  }, []);
 
   const handleLocationClick = (marker: any) => {
     setSelectedLocation(marker);
   };
 
+  if (!coordinates) return <div>Loading...</div>;
+
   return (
-    <div className="relative h-auto w-full bg-[#080F2C] px-4 lg:px-8 pb-9 py-8 lg:py-0">
-      <div
-        className="absolute z-0 inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/bg-shap1.png')`,
-          filter: "brightness(0.4)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      ></div>
-      <div className="container mx-auto flex lg:flex-row items-center justify-center flex-col">
-        {/* Left Section with Text */}
-        <div className="lg:w-1/3 w-full text-white mt-0 lg:-mt-20">
-          <SloganHeadingComponent
-            alignmentType={1}
-            paddingTop={1}
-            hoverEffect="text-bullt-secondary"
-          >
-            {footerMapResponse?.slogan}
-          </SloganHeadingComponent>
-          {/* <MainHeadingComponent paddingTop={1} alignmentType={2}>
-            {footerMapResponse?.heading}
-          </MainHeadingComponent> */}
-          <h2 className="text-5xl font-bold">{footerMapResponse?.heading}</h2>
-          <ParaGraphText alignmentType={2}>
-            {footerMapResponse?.description}
-          </ParaGraphText>
-
-          <div className="w-full relative flex items-center justify-start py-3 gap-2 lg:gap-4">
-            {footerMapResponse?.button_1 ? (
-              <Link href={footerMapResponse?.button_1?.button_1_link}>
-                <button className="px-6 py-2  text-center text-bullt-secondary border bg-bullt-tertiary border-bullt-tertiary rounded hover:bg-bullt-secondary hover:text-bullt-tertiary ">
-                  {footerMapResponse?.button_1?.button_1_txt}
-                </button>
-              </Link>
-            ) : null}
-
-            {footerMapResponse?.button_2 ? (
-              <Link href={footerMapResponse?.button_2?.button_2_link}>
-                <button className="px-6 py-2  text-center bg-bullt-secondary text-bullt-tertiary border border-bullt-secondary rounded hover:bg-bullt-tertiary hover:text-white ">
-                  {footerMapResponse?.button_2?.button_2_txt}
-                </button>
-              </Link>
-            ) : null}
+    <div className="relative w-full px-4 lg:px-8 py-8 lg:py-12 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-center gap-8">
+        <div className="lg:w-2/5 w-full space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center lg:text-left text-gray-800">
+            {coordinates.map_data.heading}
+          </h2>
+          <p className="text-lg text-center lg:text-left text-gray-600">
+            {coordinates.map_data.description}
+          </p>
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            {coordinates.map_data.button_1 && (
+              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
+                {coordinates.map_data.button_1.button_1_txt}
+              </button>
+            )}
+            {coordinates.map_data.button_2 && (
+              <button className="px-6 py-2 bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition duration-300 ease-in-out transform hover:scale-105">
+                {coordinates.map_data.button_2.button_2_txt}
+              </button>
+            )}
           </div>
-
-          {/* Location List */}
-          {/* <div className="grid grid-cols-3 lg:grid-cols-4 gap-4 max-h-[20vh] overflow-auto relative">
-            {footerMapResponse?.locationMarkers?.map(
-              (marker: any, index: number) => (
-                <button
-                  key={index}
-                  onClick={() => handleLocationClick(marker)}
-                  className={`w-full text-left bg-bullt-quaternary/[0.1] text-gray-200 hover:text-black hover:bg-gray-100 px-3 py-2 rounded-md transition ${
-                    selectedLocation === marker ? "bg-gray-700 text-white" : ""
-                  }`}
-                >
-                  <div className="flex items-center justify-center">
-                    <img
+          <div className="bg-gray-50 rounded-lg ">
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">
+              Available Locations
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[40vh] overflow-y-auto pr-2">
+              {coordinates.map_data.locationMarkers.map(
+                (marker: any, index: number) => (
+                  <button
+                    key={index}
+                    onClick={() => handleLocationClick(marker)}
+                    className={`flex items-center justify-start p-2 rounded-md transition duration-300 ease-in-out ${
+                      selectedLocation === marker
+                        ? "bg-blue-100 text-blue-800"
+                        : "hover:bg-gray-100 border-gray-200 border-[1px] "
+                    }`}
+                  >
+                    <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
                       alt={marker.name}
-                      className="w-5 h-5 mr-2"
+                      width={24}
+                      height={24}
+                      className="rounded-full mr-2"
                     />
-                    <span className=" font-semibold">{marker.name}</span>
-                  </div>
-                </button>
-              )
-            )}
-          </div> */}
+                    <span className="text-sm font-medium">{marker.name}</span>
+                  </button>
+                )
+              )}
+            </div>
+          </div>
         </div>
 
-        {/* Map Section */}
-        <div className="lg:w-2/3 w-full ">
-          {/* <div className="absolute inset-0 opacity-60" /> */}
-          {/* <ComposableMap
-            className="relative outline-none focus:outline-none"
-            projectionConfig={{ scale: 200 }}
-            
-          >
-            <Geographies
-              geography="https://unpkg.com/world-atlas@2.0.2/countries-110m.json"
-              fill="#0C2340"
-              stroke="#2f4b70"
-              strokeWidth={0.1}
-            >
-              {({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography key={geo.rsmKey} geography={geo} />
-                ))
-              }
-            </Geographies> */}
-
+        <div className="lg:w-3/5 w-fullrounded-lg  p-4">
           <ComposableMap
             className="relative outline-none focus:outline-none"
             focusable={false}
@@ -137,8 +112,8 @@ const MapDataCenters = ({ footerMapResponse }: any) => {
                       },
                     }}
                     tabIndex={-1}
-                    fill="#0C2340"
-                    stroke="#2f4b70"
+                    fill="#E5E4E2"
+                    stroke="#E5E4E2"
                     strokeWidth={0.1}
                     key={geo.rsmKey}
                     geography={geo}
@@ -147,7 +122,7 @@ const MapDataCenters = ({ footerMapResponse }: any) => {
               }
             </Geographies>
 
-            {footerMapResponse?.locationMarkers?.map(
+            {coordinates.map_data.locationMarkers.map(
               (marker: any, index: number) => (
                 <Marker
                   key={index}
@@ -157,10 +132,7 @@ const MapDataCenters = ({ footerMapResponse }: any) => {
                   onClick={() => handleLocationClick(marker)}
                   className="cursor-pointer"
                 >
-                  {/* Main circle */}
-                  <circle
-                    cx={0}
-                    cy={0}
+                  <motion.circle
                     r={5}
                     fill={selectedLocation === marker ? "#FF5722" : "#3B82F6"}
                     stroke="#ffffff"
@@ -169,7 +141,6 @@ const MapDataCenters = ({ footerMapResponse }: any) => {
                       selectedLocation !== marker ? "custom-ping" : ""
                     }`}
                   />
-
                   <circle
                     cx={0}
                     cy={0}
@@ -178,14 +149,8 @@ const MapDataCenters = ({ footerMapResponse }: any) => {
                     stroke="#ffffff"
                     strokeWidth={0}
                   />
-
-                  {/* Show Tooltip for Selected Location or Hovered Marker */}
-                  {/* {(selectedLocation === marker ||
-                    hoveredMarker === marker) && ( */}
-
-                  {hoveredMarker === marker && (
-                    <g className="transition-opacity duration-300 z-">
-                      {/* Bent Line */}
+                  {selectedLocation === marker && (
+                    <g>
                       <path
                         d={`M 0,0 L -10,-40 L -50,-45`}
                         stroke="#007aff"
@@ -199,51 +164,21 @@ const MapDataCenters = ({ footerMapResponse }: any) => {
                         y={-65}
                         width={100}
                         height={25}
-                        fill="#E5E7EB"
+                        fill="#f69b00"
                         rx={15}
                         ry={15}
                         className="shadow-md"
                       />
-                      {/* <image
-                        href={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
-                        x={-130}
-                        y={-60}
-                        width={20}
-                        height={20}
-                        className="rounded object-cover"
-                      />
-                      <text
-                        textAnchor="middle"
-                        y={-43}
-                        x={-80}
-                        style={{
-                          fill: "#000",
-                          fontSize: "13px",
-                        }}
-                      >
-                        {marker?.name}
-                      </text> */}
-                      <foreignObject x={-140} y={-60} width={100} height={25}>
-                        <div className="flex items-center justify-center ">
-                          {/* <img
+                      <foreignObject x={-140} y={-60} width={100} height={35}>
+                        <div className="flex items-center justify-center space-x-2">
+                          <Image
                             src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
                             alt={marker.name}
-                            className="w-5 h-5 mr-1 object-cover rounded-full"
-                          /> */}
-                          <div className="h-4 w-4 relative mr-1">
-                            <Image
-                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
-                              alt="all"
-                              className="h-full w-full rounded-full"
-                              style={{
-                                position: "absolute",
-                                objectFit: "cover",
-                                inset: 0,
-                              }}
-                              fill={true}
-                            />
-                          </div>
-                          <span className="text-gray-800 font-nomral text-xs ">
+                            width={20}
+                            height={20}
+                            className="rounded-full"
+                          />
+                          <span className="text-xs font-medium text-bullt-secondary">
                             {marker.name}
                           </span>
                         </div>
@@ -258,6 +193,4 @@ const MapDataCenters = ({ footerMapResponse }: any) => {
       </div>
     </div>
   );
-};
-
-export default MapDataCenters;
+}

@@ -3,54 +3,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-type Props = {};
-export default function WebsiteSecurityBannerComponent(Props: Props) {
+type Props = { BannerData: any };
+export default function WebsiteSecurityBannerComponent({ BannerData }: Props) {
   return (
-    <section className=" mx-auto w-full py-8 lg:h-[500px] h-[550px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
+    <section className=" mx-auto w-full lg:h-[480px] h-[300px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
       <div className="max-w-7xl mx-auto ">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:px-0 px-4">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:py-0 py-8 lg:px-0 px-4">
           <div className="flex flex-col justify-center space-y-8">
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-6xl">
-              <span className="block text-bullt-tertiary">
-                {/* {BannerData?.banner_main_ids[0]?.heading} */}
-                Protect your website with daily automated backups
-              </span>
+            <h1 className="lg:text-left text-center text-5xl font-bold tracking-tight text-bullt-tertiary sm:text-6xl md:text-6xl leading-[4rem]">
+              {BannerData?.heading}
             </h1>
-            {/* {BannerData?.banner_main_ids[0]?.description ? (
+            {BannerData?.description ? (
               <>
                 <div
-                  className="items-start max-w-prose text-xl tailwind-unrested py-3  text-bullt-primary/[0.8]"
+                  className="lg:text-left text-center items-start max-w-prose text-xl tailwind-unrested py-3  text-bullt-primary/[0.8]"
                   dangerouslySetInnerHTML={{
-                    __html: BannerData?.banner_main_ids[0]?.description,
+                    __html: BannerData?.description,
                   }}
                 ></div>
               </>
-            ) : null} */}
-            <p className="items-start max-w-prose text-xl tailwind-unrested py-3  text-bullt-primary/[0.8]">
-              Get protection against viruses, hackers and even your own code
-              accidentally breaking your site with CodeGuard Website Backup.
-            </p>
-
-            {/* <div className="flex flex-wrap gap-4">
-              {BannerData?.banner_main_ids[0]?.Banner_multiple_data?.map(
-                (feature: any, index: number) => (
-                  <div
-                    key={feature.title}
-                    className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow-md cursor-pointer transition-colors duration-300"
-                  >
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature.icon}`}
-                      className="h-5 w-5 text-indigo-600"
-                    />
-                    <span className="text-sm font-medium text-gray-900">
-                      {feature.title}
-                    </span>
-                  </div>
-                )
-              )}
-            </div> */}
+            ) : null}
           </div>
-          <div className="relative lg:mt-8">
+
+          <div className="relative lg:mt-8 mt-0 lg:block hidden">
             <motion.div
               className="absolute inset-0 bg-indigo-200 rounded-3xl transform rotate-3"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -64,9 +39,8 @@ export default function WebsiteSecurityBannerComponent(Props: Props) {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <img
-                // src={`${process.env.NEXT_PUBLIC_BASE_URL}${BannerData?.banner_main_ids[0]?.img}`}
-                src="/01.jpg"
-                // alt={BannerData?.banner_main_ids[0]?.heading}
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${BannerData?.img}`}
+                alt={BannerData?.heading}
                 className="w-full h-[300px] lg:h-[350px] object-contain rounded-xl"
               />
             </motion.div>
