@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  OverViewPageDataApi,
-  OverViewPageTabsDataApi,
-} from "@/apis/AvailableAddons";
+import { OverViewPageDataApi } from "@/apis/AvailableAddons";
 import { ManagedHostingDataApi } from "@/apis/ManagedHostingApi";
 import APlusThemeManagedHostingJunction from "@/components/APlusThemesJunction/ManagedHostingTheme/APlusThemeManagedHostingJunction";
 import OverViewPageAllComponentJunction from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageAllComponentJunction";
@@ -18,10 +15,8 @@ import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/Webs
 import { WebsiteSecurityPageApi } from "@/apis/WebsiteSecurityApi";
 import SeoToolsAllComponents from "@/components/AvailableAddonsPages/SeoTools/SeoToolsAllComponents";
 import { SeoToolsPageApi } from "@/apis/SeoToolsApi";
-// import SiteBuilderAllComponents from "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent";
-// import { SiteBuilderPageApi } from "@/apis/SiteBuilderApi";
-
-type Props = {};
+import SiteBuilderAllComponents from "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent";
+import { SiteBuilderPageApi } from "@/apis/SiteBuilderApi";
 
 const page = async ({
   params: { servers, subServers },
@@ -40,20 +35,21 @@ const page = async ({
   const SeoToolsPageContent = await SeoToolsPageApi(decodedSlug);
   const WebsiteBackupPageContent = await WebsiteBackupPageApi(decodedSlug);
   const WebsiteSecurityContent = await WebsiteSecurityPageApi(decodedSlug);
-  // const SiteBuilderContent = await SiteBuilderPageApi(decodedSlug);
-  const isThirdPageConditionMet =
-    decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
+  const SiteBuilderContent = await SiteBuilderPageApi(decodedSlug);
+  const XoviNow = decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
 
   const ProfessionalEmail =
     decodedSlug === professionalEmailPageContent?.result?.data[0]?.slug;
-  const Website =
+  const WebsiteBackup =
     decodedSlug === WebsiteBackupPageContent?.result?.data[0]?.slug;
   const WebsiteSecurity =
     decodedSlug === WebsiteSecurityContent?.result?.data[0]?.slug;
-  const SeoTools = decodedSlug === "seo-tools";
+  const SeoTools =
+    decodedSlug === SeoToolsPageContent?.result?.data?.PlanDetails[0]?.slug;
 
-  const Sitebuiler = decodedSlug === "site-builder";
+  const Sitebuilder =
+    decodedSlug === SiteBuilderContent?.result?.seo_data[0]?.slug;
   return (
     <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
       {decodedSlug === OverViewPageDataContent?.result?.data?.slug ? (
@@ -69,53 +65,56 @@ const page = async ({
             </>
           ) : null}
         </div>
-      ) : isThirdPageConditionMet ? (
-        <div className="third-component-section">
+      ) : XoviNow ? (
+        <div className="">
           <XoviNowAllComponentsJunction
             DataContent={XoviNowPageContent?.result?.data[0]}
             decodedSlug={decodedSlug}
           />
         </div>
       ) : nordVpn ? (
-        <div className="third-component-section">
+        <div className="">
           <NordVpnAllSectionComponents
             decodedSlug={decodedSlug}
             DataContent={NordVpnPageContent}
           />
         </div>
       ) : ProfessionalEmail ? (
-        <div className="third-component-section">
+        <div className="">
           <ProfessionalEmailsAllComponents
             professionalEmailPageContent={professionalEmailPageContent}
             decodedSlug={decodedSlug}
           />
         </div>
-      ) : Website ? (
-        <div className="third-component-section">
+      ) : WebsiteBackup ? (
+        <div className="">
           <WebsiteBackupAllComponents
             WebsiteBackupPageContent={WebsiteBackupPageContent}
             decodedSlug={decodedSlug}
           />
         </div>
       ) : WebsiteSecurity ? (
-        <div className="third-component-section">
+        <div className="">
           <WebsiteSecurityAllComponents
             WebsiteSecurityContent={WebsiteSecurityContent}
             decodedSlug={decodedSlug}
           />
         </div>
       ) : SeoTools ? (
-        <div className="third-component-section">
+        <div className="">
           <SeoToolsAllComponents
             SeoToolsPageContent={SeoToolsPageContent}
             decodedSlug={decodedSlug}
           />
         </div>
+      ) : Sitebuilder ? (
+        <div className="">
+          <SiteBuilderAllComponents
+            SiteBuilderContent={SiteBuilderContent}
+            decodedSlug={decodedSlug}
+          />
+        </div>
       ) : (
-        // ) : Sitebuiler ? (
-        //   <div className="third-component-section">
-        //     <SiteBuilderAllComponents SiteBuilderContent={SiteBuilderContent} />
-        //   </div>
         <>
           {ManagedDataResponse?.result?.Active === true ? (
             <div>
