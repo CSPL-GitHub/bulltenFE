@@ -3,33 +3,33 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
-import { WebsiteSecurityProductsApi } from "@/apis/WebsiteSecurityApi";
 import { SiTicktick } from "react-icons/si";
 import { RxCrossCircled } from "react-icons/rx";
+import { SiteMonitoringProductsApi } from "@/apis/SiteAndServerMonitoring";
 
 type Props = {
   decodedSlug: string;
+  tabName: string;
 };
 
-const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
+const SiteAndServerMonitoringProducts = ({ decodedSlug, tabName }: Props) => {
   const [selectedPeriods, setSelectedPeriods] = useState<{
     [key: number]: string;
   }>({});
 
   const currencyCode = useSelector((state: any) => state.currency);
-  const [WebsiteSecurityProducts, setWebsiteSecurityProducts] = useState<any>(
-    {}
-  );
+  const [MonitoringProducts, setMonitoringProducts] = useState<any>({});
 
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {
-        const response = await WebsiteSecurityProductsApi(
+        const response = await SiteMonitoringProductsApi(
           currencyCode?.code?.slug,
-          decodedSlug
+          decodedSlug,
+          tabName
         );
 
-        setWebsiteSecurityProducts(response?.result);
+        setMonitoringProducts(response?.result);
       } catch (error) {
         console.log(error);
       }
@@ -50,21 +50,19 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
     <div className="max-w-7xl mx-auto lg:py-8 py-4 px-4">
       <div className="overflow-x-auto">
         <div className="pb-4 lg:px-4 px-0 ">
-          {WebsiteSecurityProducts?.Active === true && (
+          {MonitoringProducts?.Active === true && (
             <>
               <h2
                 className="sm:text-4xl text-2xl mb-2 text-center font-bold"
                 dangerouslySetInnerHTML={{
-                  __html: WebsiteSecurityProducts?.ProductDetails[0]?.heading,
+                  __html: MonitoringProducts?.ProductDetails[0]?.heading,
                 }}
               ></h2>
-              {!WebsiteSecurityProducts?.ProductDetails[0]
-                ?.description ? null : (
+              {!MonitoringProducts?.ProductDetails[0]?.description ? null : (
                 <div
                   className="text-lg lg:text-lg text-center"
                   dangerouslySetInnerHTML={{
-                    __html:
-                      WebsiteSecurityProducts?.ProductDetails[0]?.description,
+                    __html: MonitoringProducts?.ProductDetails[0]?.description,
                   }}
                 ></div>
               )}
@@ -72,7 +70,7 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
           )}
         </div>
 
-        {WebsiteSecurityProducts?.Active === true && (
+        {MonitoringProducts?.Active === true && (
           <div className="overflow-x-auto  lg:px-0 px-4">
             <table className="w-full border-collapse rounded-md">
               <thead className="rounded-md">
@@ -80,7 +78,7 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
                   <th className="p-6 text-left border border-gray-400 font-bold text-lg uppercase tracking-wider text-bullt-primary">
                     Features
                   </th>
-                  {WebsiteSecurityProducts?.ProductDetails[0]?.website_security_data?.map(
+                  {MonitoringProducts?.ProductDetails[0]?.site_server_data?.map(
                     (plan: any, index: number) => (
                       <th
                         key={index}
@@ -88,17 +86,16 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
                       >
                         <div className="flex flex-col justify-center items-center gap-2">
                           <span className="font-bold text-lg uppercase tracking-wider text-bullt-primary">
-                            {plan?.headings}
+                            {plan?.plan_name}
                           </span>
 
                           <span className="font-normal text-xs uppercase tracking-wider text-bullt-primary">
-                            {plan?.descriptions}
+                            {plan?.sub_heading}
                           </span>
 
-                          {/* Dropdown for selecting period */}
                           <div className="flex gap-1 items-center">
                             <select
-                              value={selectedPeriods[index] || "1 Year"}
+                              value={selectedPeriods[index]}
                               onChange={(e) => handlePeriodChange(e, index)}
                               className="border border-gray-300 rounded px-2 py-1 text-bullt-primary"
                             >
@@ -108,7 +105,7 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
                                     key={idx}
                                     value={pricingPeriod.period}
                                   >
-                                    {pricingPeriod.period} -{" "}
+                                    {pricingPeriod.period} -
                                     {pricingPeriod.pricing[0]?.country ===
                                     "eur" ? (
                                       <span>€</span>
@@ -176,54 +173,36 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
               <tbody>
                 {[
                   {
-                    feature: "Daily Malware Scanning",
-                    key: "daily_malware_scanning",
-                  },
-                  { feature: "Number of Pages", key: "number_of_pages" },
-                  {
-                    feature: "Daily Blacklist Monitoring",
-                    key: "daily_blacklist_monitoring",
+                    feature: "Servers",
+                    key: "servers",
                   },
                   {
-                    feature: "SiteLock Risk Score",
-                    key: "sitelock_risk_score",
+                    feature: "Websites",
+                    key: "websites",
+                  },
+                  { feature: "Time Intervals", key: "time_intervals" },
+                  {
+                    feature: "Alerting",
+                    key: "alerting",
                   },
                   {
-                    feature: "Website Application Scan",
-                    key: "website_application_scan",
-                  },
-                  { feature: "SQL Injection Scan", key: "sql_injection_scan" },
-                  {
-                    feature: "Cross Site (XSS) Scan",
-                    key: "cross_site_xss_scan",
+                    feature: "Data Retention",
+                    key: "data_retention",
                   },
                   {
-                    feature: "Sitelock™ Trust Seal",
-                    key: "sitelock_trust_seal",
+                    feature: "Full Site Check",
+                    key: "full_site_check",
                   },
-                  { feature: "Daily SMART Scans", key: "daily_smart_scans" },
+                  { feature: "Concurrent Crawls", key: "concurrent_crawls" },
                   {
-                    feature: "Automatic Malware Removal",
-                    key: "automatic_malware_removal",
-                  },
-                  { feature: "TrueShield Protection", key: "wordpress_scan" },
-                  { feature: "WordPress Scan", key: "wordpress_scan" },
-                  {
-                    feature: "Spam Blacklist Monitoring",
-                    key: "spam_blacklist_monitoring",
+                    feature: "High-Priority Crawls",
+                    key: "high_priority_crawls",
                   },
                   {
-                    feature: "Web Application Firewall",
-                    key: "web_application_firewall",
+                    feature: "Recurring Scheduled Crawls",
+                    key: "recurring_scheduled_crawls",
                   },
-                  {
-                    feature: "Global CDN",
-                    key: "global_cdn",
-                  },
-                  {
-                    feature: "Content Acceleration",
-                    key: "content_acceleration",
-                  },
+                  { feature: "Crawl Depth (URLs)", key: "crawl_Depth_URLs" },
                 ].map((item, idx) => (
                   <tr
                     key={idx}
@@ -234,7 +213,7 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
                     <td className="border p-4 text-left font-semibold text-gray-800">
                       {item.feature}
                     </td>
-                    {WebsiteSecurityProducts?.ProductDetails[0]?.website_security_data?.map(
+                    {MonitoringProducts?.ProductDetails[0]?.site_server_data?.map(
                       (plan: any, index: number) => (
                         <td key={index} className="border p-4 text-center">
                           {plan?.[item.key] === "" ? (
@@ -266,4 +245,4 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
   );
 };
 
-export default WebsiteSecurityProductsComponent;
+export default SiteAndServerMonitoringProducts;

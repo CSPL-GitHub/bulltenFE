@@ -14,11 +14,11 @@ export default function SiteBuilderTemplateImagesComponent({
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+    <div className="max-w-7xl mx-auto px-4 py-4">
+      <h2 className="lg:text-4xl text-2xl font-bold text-center mb-8 text-gray-800">
         {TemplateData?.template[0]?.heading}
       </h2>
-      <div className="flex justify-center mb-8">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 justify-center mb-8">
         {TemplateData?.template[0]?.template_data?.map(
           (category: any, index: number) => (
             <button

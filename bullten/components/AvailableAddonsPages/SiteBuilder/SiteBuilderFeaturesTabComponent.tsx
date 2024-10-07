@@ -12,11 +12,11 @@ export default function SiteBuilderFeaturesTabComponent({
   return (
     <div className="bg-bullt-quaternary/5 px-4 lg:py-16 py-6 ">
       <div className="max-w-7xl mx-auto ">
-        <h2 className="text-2xl lg:text-4xl font-bold text-center mb-12 text-bullt-primary">
+        <h2 className="text-2xl lg:text-4xl font-bold text-center lg:mb-12 mb-4 text-bullt-primary">
           {FeaturesData?.features_all_data[0]?.heading}
         </h2>
         <div className="mb-8 flex justify-center">
-          <div className="inline-flex rounded-lg bg-white p-1 shadow-md">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 rounded-lg bg-white p-1 shadow-md">
             {FeaturesData?.features_all_data && (
               <>
                 {FeaturesData?.features_all_data[0]?.feature?.map(
@@ -38,7 +38,7 @@ export default function SiteBuilderFeaturesTabComponent({
             )}
           </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-4">
           {FeaturesData?.features_all_data[0] && (
             <>
               {FeaturesData?.features_all_data[0]?.feature[
@@ -49,7 +49,7 @@ export default function SiteBuilderFeaturesTabComponent({
                   className="bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg p-8 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group"
                 >
                   <div className="flex items-center mb-6">
-                    <div className="w-14 h-14 mb-4 bg-gradient-to-br from-bullt-tertiary/30 to-bullt-tertiary/80 rounded-2xl p-4 mr-6 transform transition-transform duration-300 group-hover:rotate-6">
+                    <div className="w-16 h-16 mb-4 bg-gradient-to-br from-bullt-tertiary/30 to-bullt-tertiary/80 rounded-2xl p-2 mr-6 transform transition-transform duration-300 group-hover:rotate-6">
                       <div className="">
                         <img
                           src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.feature_image}`}

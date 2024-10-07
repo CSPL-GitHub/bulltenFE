@@ -17,6 +17,8 @@ import SeoToolsAllComponents from "@/components/AvailableAddonsPages/SeoTools/Se
 import { SeoToolsPageApi } from "@/apis/SeoToolsApi";
 import SiteBuilderAllComponents from "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent";
 import { SiteBuilderPageApi } from "@/apis/SiteBuilderApi";
+import SiteAndServerMonitoringAllComponent from "@/components/AvailableAddonsPages/SiteAndServerMonitoring/SiteAndServerMonitoringAllComponent";
+import { SiteMonitoringPageApi } from "@/apis/SiteAndServerMonitoring";
 
 const page = async ({
   params: { servers, subServers },
@@ -36,6 +38,7 @@ const page = async ({
   const WebsiteBackupPageContent = await WebsiteBackupPageApi(decodedSlug);
   const WebsiteSecurityContent = await WebsiteSecurityPageApi(decodedSlug);
   const SiteBuilderContent = await SiteBuilderPageApi(decodedSlug);
+  const SiteMonitoringContent = await SiteMonitoringPageApi(decodedSlug);
   const XoviNow = decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
 
@@ -50,6 +53,8 @@ const page = async ({
 
   const Sitebuilder =
     decodedSlug === SiteBuilderContent?.result?.seo_data[0]?.slug;
+
+  const SiteAndServerMonitoring = decodedSlug === "site-server-monitoring";
   return (
     <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
       {decodedSlug === OverViewPageDataContent?.result?.data?.slug ? (
@@ -112,6 +117,13 @@ const page = async ({
           <SiteBuilderAllComponents
             SiteBuilderContent={SiteBuilderContent}
             decodedSlug={decodedSlug}
+          />
+        </div>
+      ) : SiteAndServerMonitoring ? (
+        <div className="">
+          <SiteAndServerMonitoringAllComponent
+            decodedSlug={decodedSlug}
+            SiteMonitoringContent={SiteMonitoringContent}
           />
         </div>
       ) : (
