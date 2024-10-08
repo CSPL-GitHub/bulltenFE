@@ -7,7 +7,6 @@ const page = async ({
   params: { servers: string };
 }) => {
   const ManagedDataResponse = await PrivacyPolicyPageApi();
-  console.log("PrivacyPolicyPageApi", ManagedDataResponse);
   return (
     <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
       <div className="min-h-screen bg-gray-50">
