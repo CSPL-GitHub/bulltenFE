@@ -9,3 +9,8 @@ export const RefundPolicyPageApi = async () => {
   const response = await apiCore("/api/fetch_refund_policy", {}, "POST");
   return response;
 };
+
+export const TermsAndConditionsPageApi = async () => {
+  const response = await apiCore("/api/fetch_term_condition", {}, "POST");
+  return response;
+};

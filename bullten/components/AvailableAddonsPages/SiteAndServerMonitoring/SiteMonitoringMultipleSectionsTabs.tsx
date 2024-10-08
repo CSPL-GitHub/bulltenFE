@@ -6,6 +6,7 @@ import MonitoringBannerComponent from "./SearchMonitoringBannerComponent";
 import SiteAndServerAboutComponent from "./SiteAndServerAboutComponent";
 import WhyChooseMonitoring from "./WhyChooseServerMonitoringComponent";
 import SiteAndServerMonitoringProducts from "./SiteAndServerMonitoringProducts";
+import ImageTextComponent from "./ImageTextComponent";
 
 type Props = {
   SectionTabsData: any;
@@ -17,7 +18,7 @@ export default function MonitoringTabs({
   decodedSlug,
 }: Props) {
   const [activeTab, setActiveTab] = useState(0);
-
+  console.log(SectionTabsData, "sectionTabsData");
   return (
     <div className="">
       <div className="mb-8 lg:px-0 px-4">
@@ -56,6 +57,7 @@ export default function MonitoringTabs({
               decodedSlug={decodedSlug}
               tabName={item.heading}
             />
+            <ImageTextComponent />
           </div>
         </div>
       ))}
