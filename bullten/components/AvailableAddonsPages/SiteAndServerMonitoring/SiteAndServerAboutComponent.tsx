@@ -4,24 +4,26 @@ type Props = { AboutData: any };
 
 const SiteAndServerAboutComponent = ({ AboutData }: Props) => {
   return (
-    <section className="container mx-auto lg:py-6 py-6 px-4">
-      <div className="max-w-7xl mx-auto relative lg:px-4 px-2 flex flex-col justify-center items-center">
-        {AboutData?.about[0]?.heading ? (
-          <div
-            className="sm:text-4xl text-2xl font-bold text-gray-800 lg:block hidden pb-4"
-            dangerouslySetInnerHTML={{
-              __html: AboutData?.about[0]?.heading,
-            }}
-          />
-        ) : null}
-        {AboutData?.about[0]?.description ? (
-          <p
-            className="text-lg text-gray-600 mt-2 lg:text-left text-justify"
-            dangerouslySetInnerHTML={{
-              __html: AboutData?.about[0]?.description,
-            }}
-          />
-        ) : null}
+    <section className="container mx-auto lg:py-16 py-6 px-4">
+      <div className="max-w-7xl mx-auto relative lg:px-4 px-2 lg:gap-8 gap-4 flex flex-col justify-center items-center">
+        <div className="max-w-4xl">
+          {AboutData?.about[0]?.heading ? (
+            <div
+              className="sm:text-4xl text-2xl font-bold text-gray-800 block pb-2 text-center"
+              dangerouslySetInnerHTML={{
+                __html: AboutData?.about[0]?.heading,
+              }}
+            />
+          ) : null}
+          {AboutData?.about[0]?.description ? (
+            <div
+              className="text-lg text-gray-600 mt-2 lg:text-center text-justify"
+              dangerouslySetInnerHTML={{
+                __html: AboutData?.about[0]?.description,
+              }}
+            />
+          ) : null}
+        </div>
         <div className=" flex lg:flex-row flex-col lg:gap-4 gap-2 items-start justify-between">
           <div className="relative lg:w-[60%] w-full flex flex-col items-center justify-center text-center text-2xl sm:text-4xl font-bold py-2">
             <div className="absolute ">
@@ -47,9 +49,9 @@ const SiteAndServerAboutComponent = ({ AboutData }: Props) => {
               {AboutData.about[0].about_data.map((item: any, index: number) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg shadow-md p-6 flex flex-row items-start gap-2"
+                  className="bg-white rounded-lg shadow-md p-6 flex lg:flex-row flex-col items-start gap-2"
                 >
-                  <div className="w-24 h-24 relative">
+                  <div className="lg:w-24 lg:h-24 w-16 h-16 relative">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.image}`}
                       alt={item.headings}

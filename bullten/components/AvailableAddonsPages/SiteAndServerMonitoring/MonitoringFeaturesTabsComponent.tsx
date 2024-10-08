@@ -13,12 +13,12 @@ export default function MonitoringFeaturesTabsComponent({
   const [activeTab, setActiveTab] = useState(0);
   return (
     <div className="bg-bullt-quaternary/5 px-4 lg:py-16 py-6 ">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl w-full mx-auto ">
         <h2 className="text-2xl lg:text-4xl font-bold text-center lg:mb-12 mb-4 text-bullt-primary">
           {FeaturesData?.heading}
         </h2>
         <div className="mb-8 w-full flex justify-center">
-          <div className="grid lg:grid-cols-2 max-w-5xl md:grid-cols-2 grid-cols-1 rounded-lg bg-white p-1 shadow-md">
+          <div className="w-full gap-4 grid lg:grid-cols-2 max-w-5xl md:grid-cols-2 grid-cols-1 rounded-lg bg-white p-1 shadow-md">
             {FeaturesData?.monitoring_details && (
               <>
                 {FeaturesData?.monitoring_details?.map(

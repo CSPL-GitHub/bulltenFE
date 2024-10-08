@@ -146,9 +146,12 @@ const SiteAndServerMonitoringProducts = ({ decodedSlug, tabName }: Props) => {
                                   {pricingPeriod.pricing[0]?.price}
                                 </div>
                               ))}
-                            <span className="text-sm font-semibold text-bullt-primary">
-                              /{selectedPeriods[index]}
-                            </span>
+
+                            {selectedPeriods[index] ? (
+                              <span className="text-sm font-semibold text-bullt-primary">
+                                /{selectedPeriods[index]}
+                              </span>
+                            ) : null}
                           </div>
 
                           {plan?.button_text && (

@@ -46,6 +46,13 @@ export default function SiteBuilderTemplateImagesComponent({
               onMouseEnter={() => setHoveredImage(index)}
               onMouseLeave={() => setHoveredImage(null)}
             >
+              {/* <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${image?.image}`}
+                alt={image?.headings}
+                width={400}
+                height={300}
+                className="w-full h-auto object-cover"
+              />{" "} */}
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_URL}${image?.image}`}
                 alt={image?.headings}

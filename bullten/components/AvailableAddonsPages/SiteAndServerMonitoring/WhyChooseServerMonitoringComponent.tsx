@@ -21,7 +21,7 @@ const WhyChooseMonitoring = ({ WhyChooseData }: Props) => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
           {WhyChooseData?.why_choose.map((card: any, index: number) => (
             <motion.div
               key={card.id}
@@ -33,11 +33,11 @@ const WhyChooseMonitoring = ({ WhyChooseData }: Props) => {
               <div className="w-16 h-16 mb-4">
                 <img src={`${process.env.NEXT_PUBLIC_BASE_URL}${card?.icon}`} />
               </div>
-              <h3 className="text-4xl font-bold text-gray-800 mb-2">
+              <h3 className="lg:text-4xl text-3xl font-bold text-gray-800 mb-2">
                 {card.Percentage}
               </h3>
               <p className="text-lg text-gray-600 mb-4"> {card.headings}</p>
-              <p className="text-2xl font-semibold text-bullt-quaternary">
+              <p className="lg:text-2xl text-xl font-semibold text-bullt-quaternary">
                 {card.Price}
                 <span className="text-base font-normal text-gray-500">
                   {card.Period}

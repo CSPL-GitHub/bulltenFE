@@ -13,7 +13,13 @@ export default function SearchMonitoringBannerComponent({ BannerData }: any) {
     console.log("Submitted:", { url, country });
   };
   return (
-    <section className="mx-auto w-full lg:h-[500px] h-[300px] bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden">
+    <section
+      className={`mx-auto w-full bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden ${
+        BannerData?.tabs[0]?.Search === true
+          ? "lg:h-[500px] h-[600px]"
+          : "lg:h-[500px] h-[400px]"
+      } `}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:py-0 py-8 lg:px-0 px-4">
           <div className="flex flex-col justify-center space-y-8">
@@ -50,7 +56,7 @@ export default function SearchMonitoringBannerComponent({ BannerData }: any) {
                         className="w-full px-4 py-2 rounded-md bg-bullt-quaternary/10 border border-bullt-quaternary/10 text-black placeholder-bullt-primary"
                       />
                     </div>
-                    <div className="w-full sm:w-1/5">
+                    <div className="w-full sm:w-1/3">
                       <label htmlFor="country" className="sr-only">
                         Select Country
                       </label>
@@ -73,7 +79,7 @@ export default function SearchMonitoringBannerComponent({ BannerData }: any) {
                       type="submit"
                       className="w-full sm:w-auto px-6 py-2 bg-bullt-tertiary text-bullt-secondary rounded-md font-semibold flex items-center justify-center hover:bg-bullt-tertiary/20 hover:border hover:border-bullt-tertiary hover:text-bullt-primary transition-colors duration-300"
                     >
-                      <FaSearch className="mr-2" /> Start Monitoring
+                      <FaSearch className="mr-2" /> Monitoring
                     </button>
                   </form>
                 </div>

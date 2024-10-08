@@ -16,7 +16,7 @@ export default function SiteBuilderFeaturesTabComponent({
           {FeaturesData?.features_all_data[0]?.heading}
         </h2>
         <div className="mb-8 flex justify-center">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 rounded-lg bg-white p-1 shadow-md">
+          <div className="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 rounded-lg bg-white p-1 shadow-md">
             {FeaturesData?.features_all_data && (
               <>
                 {FeaturesData?.features_all_data[0]?.feature?.map(

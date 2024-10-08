@@ -25,11 +25,12 @@ const SiteAndServerMonitoringAllComponent = ({
           SiteMonitoringContent?.result?.seo_data[0]?.monitoring_details_360[0]
         }
       />
-      <SiteMonitoringFaqComponent
-        FaqData={SiteMonitoringContent?.result?.seo_data[0]?.faq_details}
-      />
+
       <SiteMonitoringAlertComponent
         AlertAppData={SiteMonitoringContent?.result?.seo_data[0]?.fav_app[0]}
+      />
+      <SiteMonitoringFaqComponent
+        FaqData={SiteMonitoringContent?.result?.seo_data[0]?.faq_details}
       />
     </div>
   );

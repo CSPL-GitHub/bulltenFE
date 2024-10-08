@@ -20,7 +20,7 @@ export default function MonitoringTabs({
 
   return (
     <div className="">
-      <div className="mb-8">
+      <div className="mb-8 lg:px-0 px-4">
         {SectionTabsData.map((item: any, index: number) => (
           <div key={index} className={activeTab === index ? "block" : "hidden"}>
             <MonitoringBannerComponent BannerData={item} />

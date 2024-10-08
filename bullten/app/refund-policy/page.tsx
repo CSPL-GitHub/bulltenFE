@@ -1,22 +1,18 @@
+"use client";
+import { RefundPolicyPageApi } from "@/apis/LegalPagesAPIs";
 import React from "react";
-import {
-  FaShieldAlt,
-  FaUserSecret,
-  FaCookieBite,
-  FaEnvelope,
-  FaLock,
-  FaUserFriends,
-} from "react-icons/fa";
+import { FaShieldAlt, FaUserSecret, FaEnvelope, FaLock } from "react-icons/fa";
 const page = async ({
   params: { servers },
 }: {
   params: { servers: string };
 }) => {
+  const RefundPolicyResponse = await RefundPolicyPageApi();
+  console.log("PrivacyPolicyPageApi", RefundPolicyResponse);
   return (
     <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
       <div className="min-h-screen bg-gray-50">
-        {/* Banner */}
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+        <div className="bg-gradient-to-r from-purple-600 to-bullt-quaternary/70 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative overflow-hidden">
             <div className="absolute inset-0 opacity-20">
               <svg className="h-full w-full" viewBox="0 0 800 800">
@@ -28,7 +24,7 @@ const page = async ({
             </div>
             <div className="relative">
               <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-                Privacy Policy
+                {RefundPolicyResponse?.result?.heading}
               </h1>
               <p className="mt-6 max-w-3xl text-xl">
                 We value your trust and are committed to protecting your
@@ -39,14 +35,13 @@ const page = async ({
           </div>
         </div>
 
-        {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="bg-white shadow-xl rounded-lg overflow-hidden">
             <div className="p-6 sm:p-10">
               {/* Information We Collect */}
               <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                  <FaShieldAlt className="mr-4 text-indigo-600 text-4xl" />
+                <h2 className="lg:text-3xl text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <FaShieldAlt className="mr-4 text-bullt-quaternary lg:text-4xl text-2xl" />
                   Information We Collect
                 </h2>
                 <p className="text-gray-600 mb-4 text-lg">
@@ -73,50 +68,34 @@ const page = async ({
               </section>
 
               {/* How We Use Your Information */}
-              <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                  <FaLock className="mr-4 text-indigo-600 text-4xl" />
-                  How We Use Your Information
-                </h2>
-                <p className="text-gray-600 mb-4 text-lg">
-                  We use the information we collect to:
-                </p>
-                <div className="bg-gradient-to-r from-indigo-100 to-purple-100 p-6 rounded-lg">
-                  <ul className="list-disc list-inside text-gray-800 space-y-2">
-                    <li>Provide, maintain, and improve our services</li>
-                    <li>Process transactions and send related information</li>
-                    <li>
-                      Send you technical notices, updates, and support messages
-                    </li>
-                    <li>Respond to your comments, questions, and requests</li>
-                  </ul>
-                </div>
-              </section>
-
-              {/* Cookies and Similar Technologies */}
-              <section className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                  <FaCookieBite className="mr-4 text-indigo-600 text-4xl" />
-                  Cookies and Similar Technologies
-                </h2>
-                <div className="bg-white border border-indigo-200 rounded-lg p-6 shadow-sm">
-                  <p className="text-gray-600 text-lg">
-                    We use cookies and similar tracking technologies to track
-                    activity on our service and hold certain information.
-                    Cookies are files with a small amount of data which may
-                    include an anonymous unique identifier.
-                  </p>
-                  <div className="mt-4 p-4 bg-indigo-50 rounded-lg">
-                    <p className="text-indigo-800 font-semibold">
-                      You can instruct your browser to refuse all cookies or to
-                      indicate when a cookie is being sent.
-                    </p>
-                  </div>
-                </div>
-              </section>
+              {RefundPolicyResponse?.result?.privacy_page_data.map(
+                (content: any, index: number) => {
+                  return (
+                    <section className="mb-12 " key={index}>
+                      <h2 className="lg:text-3xl text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <FaLock className="mr-4 text-indigo-600 text-4xl" />
+                        {content?.heading}
+                      </h2>
+                      {/* <p className="text-gray-600 mb-4 text-lg">
+                        We use the information we collect to:
+                      </p> */}
+                      <div className="bg-gradient-to-r from-indigo-100 to-purple-100 p-6 rounded-lg">
+                        {content?.description ? (
+                          <p
+                            className="text-lg text-gray-600 mt-2 lg:text-left text-justify"
+                            dangerouslySetInnerHTML={{
+                              __html: content?.description,
+                            }}
+                          />
+                        ) : null}
+                      </div>
+                    </section>
+                  );
+                }
+              )}
 
               {/* Data Sharing */}
-              <section className="mb-12">
+              {/* <section className="mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
                   <FaUserFriends className="mr-4 text-indigo-600 text-4xl" />
                   Data Sharing
@@ -136,7 +115,7 @@ const page = async ({
                     </li>
                   </ul>
                 </div>
-              </section>
+              </section> */}
 
               {/* Contact Us */}
               <section>
