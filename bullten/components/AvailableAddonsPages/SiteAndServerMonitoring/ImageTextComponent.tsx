@@ -30,7 +30,7 @@ export default function ImageTextComponent({ DataContent }: Props) {
                 {DataContent[0]?.description}
               </p>
 
-              <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-bullt-tertiary hover:bg-bullt-tertiary transition duration-150 ease-in-out">
+              <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white border-bullt-tertiary  bg-bullt-tertiary hover:bg-bullt-secondary hover:text-bullt-tertiary hover:border-bullt-tertiary transition duration-150 ease-in-out">
                 View Status Page
               </button>
             </div>
