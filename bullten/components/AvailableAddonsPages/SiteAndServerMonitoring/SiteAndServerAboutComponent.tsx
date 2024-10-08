@@ -44,8 +44,8 @@ const SiteAndServerAboutComponent = ({ AboutData }: Props) => {
             </div>
           </div>
 
-          <div className="lg:w-[40%] w-full text-center lg:text-left :mt-2 py-4 lg:mt-0">
-            <section className="max-w-7xl mx-auto mt-6 grid grid-cols-1 gap-2">
+          <div className="lg:w-[40%] w-full text-center lg:text-left mt-2 py-4 lg:mt-0">
+            <section className="w-full grid grid-cols-1 gap-2">
               {AboutData.about[0].about_data.map((item: any, index: number) => (
                 <div
                   key={index}

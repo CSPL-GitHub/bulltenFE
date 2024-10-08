@@ -57,7 +57,9 @@ export default function MonitoringTabs({
               decodedSlug={decodedSlug}
               tabName={item.heading}
             />
-            <ImageTextComponent />
+            {item?.communicate.length > 0 ? (
+              <ImageTextComponent DataContent={item?.communicate} />
+            ) : null}
           </div>
         </div>
       ))}

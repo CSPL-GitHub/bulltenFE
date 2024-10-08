@@ -16,7 +16,7 @@ export default function SearchMonitoringBannerComponent({ BannerData }: any) {
     <section
       className={`mx-auto w-full bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden ${
         BannerData?.tabs[0]?.Search === true
-          ? "lg:h-[500px] h-[600px]"
+          ? "lg:h-[500px] h-[700px]"
           : "lg:h-[500px] h-[400px]"
       } `}
     >
