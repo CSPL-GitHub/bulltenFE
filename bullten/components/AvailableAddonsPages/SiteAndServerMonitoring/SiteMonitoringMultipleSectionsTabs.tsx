@@ -33,7 +33,7 @@ export default function MonitoringTabs({
               key={index}
               className={`py-2 px-6 rounded-md font-medium text-lg transition-all duration-300 ${
                 activeTab === index
-                  ? "bg-bullt-tertiary text-bullt-secondary shadow-lg"
+                  ? "bg-bullt-quaternary text-bullt-secondary shadow-lg"
                   : "text-gray-600 hover:bg-gray-200"
               }`}
               onClick={() => setActiveTab(index)}

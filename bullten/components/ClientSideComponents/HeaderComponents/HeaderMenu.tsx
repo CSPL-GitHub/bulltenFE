@@ -28,9 +28,12 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
   const [openSubMenu, setOpenSubMenu] = useState<number | undefined>(undefined);
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
   const [moveDown, setMoveDown] = useState(false);
-  const [currencies, setCurrencies] = useState(headerCurrency?.[0]); // Default currency
+  const [defaultCurrency, setDefaultCurrency] = useState<string | undefined>();
+  const [currencies, setCurrencies] = useState<any>(undefined);
+
   const dispatch = useDispatch();
 
+  // Throttling the scroll event handler
   const handleScroll = useCallback(
     throttle(() => {
       if (window.scrollY > 150) {
@@ -49,6 +52,31 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
     };
   }, [handleScroll]);
 
+  useEffect(() => {
+    const fetchIPAddress = async () => {
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+        setDefaultCurrency(data?.currency);
+      } catch (err) {
+        console.error("Error fetching IP address or currency:", err);
+      }
+    };
+
+    fetchIPAddress();
+  }, [headerCurrency]);
+
+  useEffect(() => {
+    if (defaultCurrency) {
+      const checkDefault = headerCurrency.find(
+        (currency) => currency.country_name === defaultCurrency
+      );
+      if (checkDefault) {
+        setCurrencies(checkDefault);
+      }
+    }
+  }, [defaultCurrency, headerCurrency]);
+
   const handleCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedCurrency = headerCurrency.find(
       (currency) => currency.country_name === e.target.value
@@ -60,7 +88,9 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
   };
 
   useEffect(() => {
-    dispatch(setCurrencyCode(currencies)); // Initial dispatch
+    if (currencies) {
+      dispatch(setCurrencyCode(currencies));
+    }
   }, [currencies, dispatch]);
 
   return (
