@@ -72,7 +72,7 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                 <div className="relative  w-full lg:w-2/4 lg:h-[400px] lg:block hidden">
                   {/* <div className="absolute right-0 top-0">
                     <Image
-                      src="/services-round.png"
+                      src="/"
                       alt="Heading Image"
                       width={200}
                       height={200}
@@ -119,7 +119,6 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                 </div>
                 {imageTextData?.heading || imageTextData?.description ? (
                   <div className="relative lg:w-2/4 w-full h-auto flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4">
-                    {/* bg-cover bg-no-repeat bg-[url('/testi-bg-1.png')] */}
                     <div className="absolute right-0 top-0">
                       <Image
                         src="/testi-bg-1.png"

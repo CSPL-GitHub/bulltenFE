@@ -4,11 +4,9 @@ import HeaderMenu from "@/components/ClientSideComponents/HeaderComponents/Heade
 const Header: React.FC = async () => {
   const headerResponse = await headerApi();
   const headerCurrency = await HeaderCountryApi();
-  console.log("headerCurrency", headerCurrency);
   if (headerResponse?.result?.hasOwnProperty("error")) {
     console.log("error in header API");
   } else {
-    // console.log(headerResponse?.result?.header);
   }
 
   return (

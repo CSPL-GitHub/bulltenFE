@@ -38,7 +38,6 @@ const AdvantagesAPLusComponent = ({ AdvantagesData }: any) => {
             />
           </div>
           <div className="w-full md:[50%] md:px-20 px-4 ">
-            {/* bg-[url('/pricing_shape.png')] bg-contain bg-center bg-no-repeat */}
             <div className="" />
             {section?.heading ? (
               <div

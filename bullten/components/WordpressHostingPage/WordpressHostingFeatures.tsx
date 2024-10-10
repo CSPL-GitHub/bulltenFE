@@ -13,7 +13,7 @@ export default function WordPressHostingFeature({ FeaturesData }: Props) {
             </span>
 
             {FeaturesData?.heading ? (
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4">
                 {FeaturesData?.heading}
               </h2>
             ) : null}
@@ -37,6 +37,7 @@ export default function WordPressHostingFeature({ FeaturesData }: Props) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 border-b-gray-300 border-b-[1px]">
           {FeaturesData?.features.map((feature: any, index: number) => {
+            // Check if it's the last item in the row (3rd in a row for lg screens)
             const isLastInRow = (index + 1) % 3 === 0;
 
             return (
@@ -44,7 +45,11 @@ export default function WordPressHostingFeature({ FeaturesData }: Props) {
                 key={index}
                 className={`flex flex-col gap-3 justify-center items-center p-4
           ${!isLastInRow ? "border-r-2 border-gray-300" : ""} 
-         
+          ${
+            index < FeaturesData.features.length - 3
+              ? "border-b-2 border-gray-300"
+              : ""
+          }
         `}
               >
                 <div className="lg:w-20 lg:h-20 w-16 h-16 relative">

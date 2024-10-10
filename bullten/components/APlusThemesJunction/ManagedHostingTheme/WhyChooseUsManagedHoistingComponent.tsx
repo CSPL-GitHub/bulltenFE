@@ -7,17 +7,15 @@ interface Props {
   columnData: any;
 }
 
-const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({ columnData }) => {
+const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({
+  columnData,
+}) => {
   return (
     <div
       className=" relative lg:py-8 px-2 lg:px-8 shadow-sm py-4 bg-[#F1F5F9]"
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
-        // backgroundImage: `url('/hero-map.png')`,
-        // backgroundSize: "contain",
-        // backgroundRepeat: "no-repeat",
-        // backgroundPosition: "center",
       }}
     >
       <div className="relative container mx-auto flex flex-col sm:gap-4 md:flex-row">
@@ -56,8 +54,8 @@ const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({ columnData }) =>
             {columnData?.content?.map((item: any, index: number) => (
               <div
                 key={index}
-                className="flex flex-col p-4 border-[1px] rounded-md  hover:shadow-sm bg-bullt-secondary">
-
+                className="flex flex-col p-4 border-[1px] rounded-md  hover:shadow-sm bg-bullt-secondary"
+              >
                 <div className="relative rounded-2xl flex items-center justify-center w-24 h-24 p-4 overflow-hidden  transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
@@ -76,7 +74,6 @@ const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({ columnData }) =>
                   dangerouslySetInnerHTML={{ __html: item?.heading }}
                 ></div>
 
-
                 <div
                   className="w-full text-lg text-bullt-primary/[0.8]"
                   dangerouslySetInnerHTML={{ __html: item?.description }}
@@ -93,7 +90,7 @@ const WhyChooseUsManagedHoistingComponent: React.FC<Props> = ({ columnData }) =>
           </div>
         )}
       </div>
-    </div >
+    </div>
   );
 };
 

@@ -19,12 +19,23 @@ import SiteBuilderAllComponents from "@/components/AvailableAddonsPages/SiteBuil
 import { SiteBuilderPageApi } from "@/apis/SiteBuilderApi";
 import SiteAndServerMonitoringAllComponent from "@/components/AvailableAddonsPages/SiteAndServerMonitoring/SiteAndServerMonitoringAllComponent";
 import { SiteMonitoringPageApi } from "@/apis/SiteAndServerMonitoring";
+import { cookies } from "next/headers";
 
 const page = async ({
   params: { servers, subServers },
 }: {
   params: { servers: string; subServers: string };
 }) => {
+  const cookieStore = cookies();
+  const currency: any = cookieStore.get("BulltenCurrency")?.value;
+  // we are parsing the currency because the core value which we ar getting from the currency varibale is the string which looks like object we have to parse to convert it into a javascript Object
+  let currencySlug;
+  try {
+    const parsedCurrency = JSON.parse(currency);
+    currencySlug = parsedCurrency?.slug;
+  } catch (error) {
+    console.error("Error parsing currency cookie:", error);
+  }
   const decodedSlug = decodeURIComponent(servers);
   const decodedSubSlug = decodeURIComponent(subServers);
   const ManagedDataResponse = await ManagedHostingDataApi(decodedSlug);
@@ -36,7 +47,10 @@ const page = async ({
   );
   const SeoToolsPageContent = await SeoToolsPageApi(decodedSlug);
   const WebsiteBackupPageContent = await WebsiteBackupPageApi(decodedSlug);
-  const WebsiteSecurityContent = await WebsiteSecurityPageApi(decodedSlug);
+  const WebsiteSecurityContent = await WebsiteSecurityPageApi(
+    currencySlug,
+    decodedSlug
+  );
   const SiteBuilderContent = await SiteBuilderPageApi(decodedSlug);
   const SiteMonitoringContent = await SiteMonitoringPageApi(decodedSlug);
   const XoviNow = decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;

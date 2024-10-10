@@ -15,7 +15,7 @@ const AboutWebsiteBackupComponent = ({ AboutData }: Props) => {
               }}
             />
           ) : null}
-          <div className="absolute ">
+          {/* <div className="absolute ">
             <img
               src="/hero-1-circle-right.png"
               alt="Heading Image"
@@ -23,7 +23,7 @@ const AboutWebsiteBackupComponent = ({ AboutData }: Props) => {
               height={400}
               className="custom-bounce "
             />
-          </div>
+          </div> */}
           <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden z-0 shadow-md">
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData[0]?.image}`}

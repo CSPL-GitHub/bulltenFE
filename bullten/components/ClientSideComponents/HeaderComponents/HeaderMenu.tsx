@@ -18,7 +18,7 @@ import {
 import { FaLinkedin } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { setCurrencyCode } from "@/redux/currencySlice";
-
+import { setCookie } from "cookies-next";
 type Props = {
   headerResponse: HeaderResponse;
   headerCurrency: any[];
@@ -90,6 +90,8 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
   useEffect(() => {
     if (currencies) {
       dispatch(setCurrencyCode(currencies));
+      //Setting the CurrencyCode in the Cookies to get the currencyCode in the server Side Components
+      setCookie("BulltenCurrency", currencies);
     }
   }, [currencies, dispatch]);
 
@@ -124,7 +126,6 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
                     value={currency.country_name}
                     className="text-sm"
                   >
-                    <img src="/bullten/public/02.jpg" />
                     {currency.country_name}
                   </option>
                 ))}

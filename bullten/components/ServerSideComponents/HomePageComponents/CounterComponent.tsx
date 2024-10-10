@@ -21,26 +21,6 @@ const CounterComponent: React.FC = async () => {
             }}
           >
             <div className="">
-              {/* <div>
-                {counterData?.data?.label && (
-                  <SloganHeadingComponent paddingTop={1} alignmentType={1}>
-                    {counterData?.data?.label}
-                  </SloganHeadingComponent>
-                )}
-                {counterData?.data?.heading && (
-                  <MainHeadingComponent
-                    hoverEffect="leading-tight text-bullt-secondary"
-                    paddingTop={1}
-                  >
-                    {counterData?.data?.heading}
-                  </MainHeadingComponent>
-                )}
-                {counterData?.data?.description && (
-                  <ParaGraphText hoverEffect="max-w-4xl text-bullt-secondary">
-                    {counterData?.data?.description}
-                  </ParaGraphText>
-                )}
-              </div> */}
               <CounterSectionComponent counterData={counterData?.data} />
             </div>
           </div>

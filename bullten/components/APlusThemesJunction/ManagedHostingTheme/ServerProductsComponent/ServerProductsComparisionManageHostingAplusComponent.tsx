@@ -13,7 +13,6 @@ type Props = {
 const ServerProductsComparisionManageHostingAplusComponent: React.FC<Props> = ({
   decodedSlug,
 }) => {
-  console.log(decodedSlug, "decodedSlug");
   const currencyCode = useSelector((state: any) => state.currency);
   const [serverProductsData, setServerProductsData] = useState<any>({});
   useEffect(() => {

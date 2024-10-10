@@ -39,7 +39,6 @@ const AdvantagesAplusThemeTwoComponent = ({ AdvantagesData }: any) => {
             />
           </div>
           <div className="w-full md:[50%] md:px-16 lg:mt-0 mt-4 px-0">
-            {/* bg-[url('/pricing_shape.png')] bg-contain bg-center bg-no-repeat */}
             <div className="" />
             {section?.heading ? (
               <div

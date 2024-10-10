@@ -40,7 +40,6 @@ const DataContent = {
 };
 
 const WebsiteBackupStorageFaqComponent = ({ FaqData }: Props) => {
-  console.log(FaqData?.FAQ[0], "FaqData");
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);

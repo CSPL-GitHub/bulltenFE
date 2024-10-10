@@ -35,15 +35,6 @@ const ManageVpsAdvantagesComponent = ({ AdvantagesData }: any) => {
             />
           </div>
           <div className="w-full md:[50%] md:px-14 px-4">
-            {/* <div className="absolute ">
-              <Image
-                src="/about_bg_8_1.png"
-                alt="Heading Image"
-                width={400}
-                height={400}
-                className="custom-bounce "
-              />
-            </div> */}
             <div className="" />
             {section?.heading ? (
               <div

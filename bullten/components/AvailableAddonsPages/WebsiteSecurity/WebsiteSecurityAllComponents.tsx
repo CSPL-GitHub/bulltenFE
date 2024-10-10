@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import WebsiteSecurityBannerComponent from "./WebsiteSecurityBannerComponent";
 import AboutWebsiteSecurityComponent from "./AboutWebsiteSecurityComponent";
@@ -7,6 +6,7 @@ import WebsiteSecurityProductsComponent from "./WebsiteSecurityProductComponent"
 import WebsiteSecurityFaqComponent from "./WebsiteSecurityFaqComponent";
 import WebsiteSecurityHackedComponent from "./WebsiteSecurityHackedComponent";
 import WebsiteSecurityFeaturesComponent from "./WebsiteSecurityFeaturesComponent";
+import OneTimeProtectionStripe from "./OneTimeProtectionStripe";
 
 type Props = { WebsiteSecurityContent: any; decodedSlug: string };
 
@@ -14,15 +14,12 @@ const WebsiteSecurityAllComponents = ({
   WebsiteSecurityContent,
   decodedSlug,
 }: Props) => {
-  console.log(
-    WebsiteSecurityContent?.result?.data[0],
-    "WebsiteSecurityContent"
-  );
   return (
     <div>
       <WebsiteSecurityBannerComponent
         BannerData={WebsiteSecurityContent?.result?.data[0]}
       />
+      <OneTimeProtectionStripe decodedSlug={decodedSlug} />
       <AboutWebsiteSecurityComponent
         AboutData={WebsiteSecurityContent?.result?.data[0]}
       />

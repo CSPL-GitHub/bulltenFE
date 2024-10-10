@@ -86,14 +86,13 @@ const CounterSectionComponent: React.FC<Props> = ({ counterData }) => {
                         end={counter?.count}
                         duration={2}
                         formattingFn={formatNumber}
+                        suffix="+"
                       />
                     ) : (
                       0
                     )}
                   </div>
-                  {/* <HighlightingTextComponent>
-                    {counter?.countname}
-                  </HighlightingTextComponent> */}
+
                   <ParaGraphText alignmentType={2} paddingTop={1}>
                     {counter?.description}
                   </ParaGraphText>

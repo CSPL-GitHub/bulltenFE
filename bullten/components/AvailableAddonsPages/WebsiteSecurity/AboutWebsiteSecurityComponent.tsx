@@ -3,9 +3,9 @@ type Props = { AboutData: any };
 
 const AboutWebsiteSecurityComponent = ({ AboutData }: Props) => {
   return (
-    <div className="container mx-auto lg:py-16 py-6 px-4">
+    <div className="container mx-auto lg:py-0 py-6 px-4">
       {" "}
-      <section className="max-w-7xl mx-auto relative  lg:px-4 px-2 flex lg:flex-row flex-col gap-8 items-start justify-between">
+      <section className="max-w-7xl mx-auto relative  lg:px-4 px-2 flex lg:flex-row flex-col gap-8 items-center justify-between">
         <div className="relative lg:w-[40%] w-full flex flex-col items-center justify-centertext-center text-2xl sm:text-4xl font-bold py-2">
           {AboutData?.plan_pricing[0]?.heading ? (
             <div
@@ -28,17 +28,9 @@ const AboutWebsiteSecurityComponent = ({ AboutData }: Props) => {
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.plan_pricing[0]?.image}`}
               alt="Team Meeting"
-              className="rounded-lg w-full h-full object-cover"
+              className="rounded-lg w-full h-full object-contain"
             />
           </div>
-
-          {/* <div className="absolute bg-white  lg:bottom-[-100px] bottom-[-80px] left-[-30px] w-[180px] h-[160px] lg:w-[350px] lg:h-[350px] rounded-md overflow-hidden z-5">
-            <img
-              src="/21742843_6477175.jpg"
-              alt="Team Working"
-              className="w-full h-full object-cover rounded-md shadow-md"
-            />
-          </div> */}
         </div>
 
         <div className="lg:w-[60%] w-full text-center lg:text-left mt-0 py-4 lg:mt-0">

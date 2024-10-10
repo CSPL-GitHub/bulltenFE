@@ -47,8 +47,7 @@ export default function SeoToolsBannerComponent({ BannerData }: Props) {
                   className="w-full h-[300px] lg:h-[350px] object-cover rounded-xl"
                 >
                   <source
-                    // src={`${process.env.NEXT_PUBLIC_BASE_URL}${data.video}`}
-                    src="/marketgoo (720p).mp4"
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${data.video}`}
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

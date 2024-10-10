@@ -17,8 +17,6 @@ const WordPressHostingProducts = ({ decodedSlug }: Props) => {
     {}
   );
 
-  console.log(WordPressHostingProducts, "WordPressHostingProducts");
-
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {

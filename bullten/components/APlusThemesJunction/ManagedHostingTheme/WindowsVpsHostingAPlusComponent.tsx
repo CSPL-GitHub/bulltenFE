@@ -11,14 +11,13 @@ const WindowsVpsHostingAPlusComponent: React.FC<Props> = ({
   LinuxVpsAccordionData,
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
- 
+
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
     <div className="bg-cover bg-center bg-[url('/cirl1.jpg')]">
-      {/* bg-contain bg-center bg-[url('/hero-1-circle-right.png')] */}
       <div className=" container mx-auto w-full  py-4 lg:py-8 px-2 lg:px-8 ">
         <div className=" px-4 max-w-2xl w-full mx-auto">
           {LinuxVpsAccordionData?.heading && (
@@ -42,15 +41,6 @@ const WindowsVpsHostingAPlusComponent: React.FC<Props> = ({
 
         <div className=" grid lg:grid-cols-2 grid-cols-1 items-center justify-center gap-5 h-auto mt-6">
           <div className="relative ">
-            {/* <div className="absolute top-[350px]">
-              <Image
-                src="/choose_shape-2.png"
-                alt="Heading Image"
-                width={200}
-                height={200}
-                className="custom-bounce "
-              />
-            </div> */}
             {LinuxVpsAccordionData?.content.map((item: any, index: number) => (
               <div
                 key={index}

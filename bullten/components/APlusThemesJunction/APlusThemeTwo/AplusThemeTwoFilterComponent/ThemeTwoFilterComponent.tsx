@@ -26,9 +26,7 @@ const ThemeTwoFilterComponent = ({
   ProductsDetails,
 }: Props) => {
   const disks = ["SATA", "SSD", "NVME"];
-  console.log(ProductsDetails?.ram_max_price, "jhfsdjfhsdjf");
 
-  console.log(ProductsDetails, "details for Filtering");
   const [isOpen, setIsOpen] = useState(false);
   const locations = [
     "All Locations",

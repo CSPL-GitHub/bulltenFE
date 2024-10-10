@@ -16,7 +16,6 @@ type Props = {
 
 const MainFilterProducts = ({ decodedSlug }: Props) => {
   const [serverProducts, setServerProducts] = useState<any>({});
-  console.log(serverProducts.length, "setServerProducts");
   const [selectedLocation, setSelectedLocation] = useState<string>("");
   const [filterRange, setFilterRange] = useState<any>({});
   const [priceRange, setPriceRange] = useState<[number | null, number | null]>([
@@ -49,7 +48,6 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
         setLoading(false); // Stop loader
       } catch (err) {
         setLoading(false); // Stop loader in case of error
-
       }
     };
 
@@ -90,12 +88,7 @@ const MainFilterProducts = ({ decodedSlug }: Props) => {
     currencyCode,
     filterRange,
   ]);
- 
-  {
-    serverProducts?.server_products?.length > 0
-      ? console.log("LenghtYes")
-      : console.log("LenghtNo");
-  }
+
   return (
     <div className="container mx-auto py-4 lg:py-8 px-2 lg:px-9">
       <div className="">

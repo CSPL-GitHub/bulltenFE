@@ -18,7 +18,6 @@ export default function MonitoringTabs({
   decodedSlug,
 }: Props) {
   const [activeTab, setActiveTab] = useState(0);
-  console.log(SectionTabsData, "sectionTabsData");
   return (
     <div className="">
       <div className="mb-8 lg:px-0 px-4">

@@ -54,8 +54,7 @@ const SeoToolsFaqComponent = ({ FaqData }: Props) => {
             className="w-full h-[300px] lg:h-[350px] object-cover rounded-xl"
           >
             <source
-              // src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqData[0]?.FAQ[0].faq_videoo}`}
-              src="/marketgoo (720p).mp4"
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqData[0]?.FAQ[0].faq_videoo}`}
               type="video/mp4"
             />
             Your browser does not support the video tag.

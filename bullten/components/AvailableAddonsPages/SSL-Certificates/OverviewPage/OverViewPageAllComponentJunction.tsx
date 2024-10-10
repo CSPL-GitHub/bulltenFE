@@ -79,10 +79,6 @@ Props) => {
         />
       ) : null}
 
-      {OverViewPageDataContent?.result?.data?.faq?.length > 0 ? (
-        <FAQSslComponent DataContent={OverViewPageDataContent?.result?.data} />
-      ) : null}
-
       <CertificateComparisonSection
         DataContent={OverViewPageDataContent?.result?.data}
       />
@@ -92,6 +88,10 @@ Props) => {
       <SSLBrandsLogosComponent
         DataContent={OverViewPageDataContent?.result?.data}
       />
+
+      {OverViewPageDataContent?.result?.data?.faq?.length > 0 ? (
+        <FAQSslComponent DataContent={OverViewPageDataContent?.result?.data} />
+      ) : null}
     </div>
   );
 };

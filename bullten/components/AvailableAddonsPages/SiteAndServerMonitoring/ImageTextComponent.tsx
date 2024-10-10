@@ -4,7 +4,6 @@ type Props = {
   DataContent: any;
 };
 export default function ImageTextComponent({ DataContent }: Props) {
-  console.log(DataContent, "DataContent");
   return (
     <section className="lg:py-16 py-6 px-4">
       <div className="max-w-7xl mx-auto bg-bullt-quaternary/[0.08]">

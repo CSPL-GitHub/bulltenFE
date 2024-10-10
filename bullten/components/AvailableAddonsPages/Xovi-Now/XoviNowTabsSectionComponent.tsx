@@ -9,8 +9,6 @@ type Props = {
   TabsContent: any;
 };
 export default function XoviNowTabsSectionComponent({ TabsContent }: Props) {
-  console.log(TabsContent?.tabs[0], "SliderContentCom");
-
   const [activeTab, setActiveTab] = useState(1);
 
   return (
