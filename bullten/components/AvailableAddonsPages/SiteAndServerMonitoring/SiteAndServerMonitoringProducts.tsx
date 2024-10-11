@@ -106,16 +106,9 @@ const SiteAndServerMonitoringProducts = ({ decodedSlug, tabName }: Props) => {
                                     value={pricingPeriod.period}
                                   >
                                     {pricingPeriod.period} -
-                                    {pricingPeriod.pricing[0]?.country ===
-                                    "eur" ? (
-                                      <span>€</span>
-                                    ) : pricingPeriod.pricing[0]?.country ===
-                                      "usd" ? (
-                                      <span>$</span>
-                                    ) : (
-                                      <span>₹</span>
-                                    )}
+                                    {pricingPeriod.pricing[0]?.icon}
                                     {pricingPeriod.pricing[0]?.price}
+                                    {pricingPeriod.pricing[0]?.country}
                                   </option>
                                 )
                               )}
@@ -134,16 +127,9 @@ const SiteAndServerMonitoringProducts = ({ decodedSlug, tabName }: Props) => {
                                   className="text-bullt-primary font-semibold text-lg"
                                   key={idx}
                                 >
-                                  {pricingPeriod.pricing[0]?.country ===
-                                  "eur" ? (
-                                    <span>€</span>
-                                  ) : pricingPeriod.pricing[0]?.country ===
-                                    "usd" ? (
-                                    <span>$</span>
-                                  ) : (
-                                    <span>₹</span>
-                                  )}
+                                  {pricingPeriod.pricing[0]?.icon}
                                   {pricingPeriod.pricing[0]?.price}
+                                  {pricingPeriod.pricing[0]?.country}
                                 </div>
                               ))}
 

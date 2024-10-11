@@ -26,10 +26,7 @@ const WhyChooseBoxesComponent: React.FC<Props> = ({ BoxesData }) => {
               className="custom-bounce "
             />
           </div>
-          <div
-            className="relative w-full flex flex-col justify-center items-center px-4 sm:px-10 sm:py-0 py-4 text-center sm:text-start"
-            style={{}}
-          >
+          <div className="relative w-full flex flex-col justify-center items-center px-4 sm:px-10 sm:py-0 py-4 text-center sm:text-start">
             {BoxesData?.heading ? (
               <>
                 <div
@@ -54,31 +51,37 @@ const WhyChooseBoxesComponent: React.FC<Props> = ({ BoxesData }) => {
                   key={index}
                   className="flex flex-col p-4 border-[1px] rounded-md  hover:shadow-sm bg-bullt-secondary"
                 >
-                  <div className="relative rounded-2xl flex items-center justify-center w-24 h-24 p-4 overflow-hidden  transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                      alt={item?.heading}
-                      style={{
-                        position: "absolute",
-                        objectFit: "cover",
-                        inset: 0,
-                      }}
-                      fill={true}
-                      className="w-full h-full p-3"
-                    />
-                  </div>
-                  <div
-                    className="text-xl font-semibold w-full"
-                    dangerouslySetInnerHTML={{ __html: item?.heading }}
-                  ></div>
+                  {item?.image ? (
+                    <div className="relative rounded-2xl flex items-center justify-center w-24 h-24 p-4 overflow-hidden  transition-transform duration-100 ease-in-out hover:scale-x-[-1]">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                        alt={item?.heading}
+                        style={{
+                          position: "absolute",
+                          objectFit: "cover",
+                          inset: 0,
+                        }}
+                        fill={true}
+                        className="w-full h-full p-3"
+                      />
+                    </div>
+                  ) : null}
+                  {item?.heading ? (
+                    <div
+                      className="text-xl font-semibold w-full"
+                      dangerouslySetInnerHTML={{ __html: item?.heading }}
+                    ></div>
+                  ) : null}
+                  {item?.description ? (
+                    <div
+                      className="w-full text-lg text-bullt-primary/[0.8]"
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                    ></div>
+                  ) : null}
 
-                  <div
-                    className="w-full text-lg text-bullt-primary/[0.8]"
-                    dangerouslySetInnerHTML={{ __html: item?.description }}
-                  ></div>
                   {item?.button_text && (
                     <Link href={item?.button_link} passHref>
-                      <div className="mt-auto  font-semibold">
+                      <div className="mt-auto font-semibold">
                         {item?.button_text}
                       </div>
                     </Link>

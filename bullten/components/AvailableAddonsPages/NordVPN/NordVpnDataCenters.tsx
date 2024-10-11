@@ -10,6 +10,7 @@ import {
   Marker,
 } from "react-simple-maps";
 import { motion } from "framer-motion";
+import LoaderComponent from "@/components/CommonComponents/LoaderComponent/LoaderComponent";
 
 export default function MapDataCenters() {
   const [hoveredMarker, setHoveredMarker] = useState(null);
@@ -32,7 +33,12 @@ export default function MapDataCenters() {
     setSelectedLocation(marker);
   };
 
-  if (!coordinates) return <div>Loading...</div>;
+  if (!coordinates)
+    return (
+      <div>
+        <LoaderComponent />
+      </div>
+    );
 
   return (
     <div className="relative w-full px-4 lg:px-8 py-8 lg:py-12 bg-gradient-to-br from-gray-50 to-gray-100">
@@ -72,13 +78,16 @@ export default function MapDataCenters() {
                         : "hover:bg-gray-100 border-gray-200 border-[1px] "
                     }`}
                   >
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
-                      alt={marker.name}
-                      width={24}
-                      height={24}
-                      className="rounded-full mr-2"
-                    />
+                    {marker.flagUrl && (
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
+                        alt={marker.name}
+                        width={24}
+                        height={24}
+                        className="rounded-full mr-2"
+                      />
+                    )}
+
                     <span className="text-sm font-medium">{marker.name}</span>
                   </button>
                 )
@@ -163,13 +172,13 @@ export default function MapDataCenters() {
                         x={-140}
                         y={-65}
                         width={100}
-                        height={25}
+                        height={35}
                         fill="#f69b00"
-                        rx={15}
-                        ry={15}
+                        rx={20}
+                        ry={20}
                         className="shadow-md"
                       />
-                      <foreignObject x={-140} y={-60} width={100} height={35}>
+                      <foreignObject x={-140} y={-55} width={100} height={45}>
                         <div className="flex items-center justify-center space-x-2">
                           <Image
                             src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}

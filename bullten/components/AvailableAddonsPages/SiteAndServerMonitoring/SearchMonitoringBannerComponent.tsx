@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 import { Dialog } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 type Props = {};
 
 export default function SearchMonitoringBannerComponent({ BannerData }: any) {
@@ -28,15 +29,18 @@ export default function SearchMonitoringBannerComponent({ BannerData }: any) {
       className={`mx-auto w-full bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden ${
         BannerData?.tabs[0]?.Search === true
           ? "md:h-[500px]  h-[700px]"
-          : "md:h-[500px] h-[400px]"
+          : "md:h-[500px] h-[500px]"
       } `}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:py-0 py-8 lg:px-0 px-4">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:py-6 py-8 lg:px-0 px-4">
           <div className="flex flex-col justify-center space-y-8">
-            <h1 className="lg:text-left text-center text-5xl font-bold text-bullt-quaternary sm:text-6xl md:text-6xl leading-[15rem]">
-              {BannerData?.tabs[0]?.Sub_heading}
-            </h1>
+            {BannerData?.tabs[0]?.Sub_heading && (
+              <h1 className="lg:text-left text-center text-5xl font-bold text-bullt-quaternary sm:text-6xl md:text-6xl leading-[5rem]">
+                {BannerData?.tabs[0]?.Sub_heading}
+              </h1>
+            )}
+
             {BannerData?.tabs[0]?.desc ? (
               <div
                 className="lg:text-left text-center items-start max-w-prose text-xl tailwind-unrested py-3 text-bullt-primary/[0.8]"
@@ -99,25 +103,29 @@ export default function SearchMonitoringBannerComponent({ BannerData }: any) {
             ) : null}
           </div>
 
-          <div className="relative lg:mt-8 mt-0 lg:block hidden">
+          <div className="relative lg:mt-0 mt-0 lg:block hidden">
             <motion.div
               className="absolute inset-0 bg-indigo-200 rounded-3xl transform rotate-3"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             />
-            <motion.div
-              className="relative bg-white p-8 rounded-3xl shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${BannerData?.tabs[0]?.image}`}
-                alt={BannerData?.tabs?.heading}
-                className="w-full h-[300px] lg:h-[350px] object-contain rounded-xl"
-              />
-            </motion.div>
+            {BannerData?.tabs[0]?.image && (
+              <motion.div
+                className="relative bg-white rounded-3xl shadow-xl w-full h-[300px] lg:h-[400px]"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${BannerData?.tabs[0]?.image}`}
+                  alt={BannerData?.tabs?.heading}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className=" object-contain rounded-xl  p-8"
+                />
+              </motion.div>
+            )}
           </div>
         </div>
       </div>

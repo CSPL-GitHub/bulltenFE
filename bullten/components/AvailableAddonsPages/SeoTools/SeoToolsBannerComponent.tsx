@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -17,9 +15,12 @@ export default function SeoToolsBannerComponent({ BannerData }: Props) {
             className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:px-0 px-4"
           >
             <div className="flex flex-col justify-center space-y-2">
-              <h1 className="lg:text-left text-center text-5xl font-bold tracking-tight text-bullt-tertiary sm:text-6xl">
-                {data.heading}
-              </h1>
+              {data.heading && (
+                <h1 className="lg:text-left text-center text-5xl font-bold tracking-tight text-bullt-tertiary sm:text-6xl">
+                  {data.heading}
+                </h1>
+              )}
+
               {data.description ? (
                 <>
                   <div
@@ -36,23 +37,25 @@ export default function SeoToolsBannerComponent({ BannerData }: Props) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               />
-              <motion.div
-                className="relative bg-white rounded-3xl shadow-xl"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                <video
-                  controls
-                  className="w-full h-[300px] lg:h-[350px] object-cover rounded-xl"
+              {data.video && (
+                <motion.div
+                  className="relative bg-white rounded-3xl shadow-xl"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
                 >
-                  <source
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${data.video}`}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </motion.div>
+                  <video
+                    controls
+                    className="w-full h-[300px] lg:h-[350px] object-cover rounded-xl"
+                  >
+                    <source
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${data.video}`}
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </motion.div>
+              )}
             </div>
           </div>
         ))}

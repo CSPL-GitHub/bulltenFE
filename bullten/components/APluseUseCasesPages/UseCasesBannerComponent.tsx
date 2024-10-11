@@ -10,23 +10,22 @@ const UseCasesBannerComponent = ({ bannerData }: Props) => {
         <div className="relative w-full max-w-7xl mx-auto px-6 py-16 text-white">
           <div className="relative flex flex-col lg:flex-row gap-5 items-center justify-between">
             <div className="lg:w-3/5 mb-10 lg:mb-0 flex flex-col md:justify-start justify-center md:items-start items-center">
-              <div
-                role="alert"
-                className="max-w-[400px] p-2 bg-bullt-tertiary rounded-full items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex mb-4"
-              >
-                {bannerData?.slogan ? (
+              {bannerData?.slogan ? (
+                <div
+                  role="alert"
+                  className="max-w-[450px] p-2 bg-bullt-tertiary rounded-full items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex mb-4"
+                >
                   <div
                     className="text-white font-semibold mr-2 text-left flex-auto"
                     dangerouslySetInnerHTML={{
                       __html: bannerData?.slogan,
                     }}
                   ></div>
-                ) : null}
-              </div>
-
+                </div>
+              ) : null}
               {bannerData?.heading ? (
                 <div
-                  className="text-2xl md:text-4xl font-bold lg:mb-6 mb-2 lg:text-left text-center leading-tight text-transparent bg-clip-text bg-gradient-to-r from-bullt-quaternary/70 to-bullt-quaternary/90"
+                  className="text-2xl md:text-4xl font-bold lg:mb-0 mb-2 lg:text-left text-center leading-tight text-transparent bg-clip-text bg-gradient-to-r from-bullt-quaternary/70 to-bullt-quaternary/90"
                   dangerouslySetInnerHTML={{
                     __html: bannerData?.heading,
                   }}
@@ -41,13 +40,15 @@ const UseCasesBannerComponent = ({ bannerData }: Props) => {
                 ></div>
               ) : null}
             </div>
-            <div className="lg:w-2/5 relative md:block hidden">
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${bannerData?.image}`}
-                alt={bannerData?.heading}
-                className="w-full h-[300px] lg:h-[450px] object-contain rounded-xl"
-              />
-            </div>
+            {bannerData?.image ? (
+              <div className="lg:w-2/5 relative md:block hidden">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${bannerData?.image}`}
+                  alt={bannerData?.heading}
+                  className="w-full h-[300px] lg:h-[450px] object-contain rounded-xl"
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

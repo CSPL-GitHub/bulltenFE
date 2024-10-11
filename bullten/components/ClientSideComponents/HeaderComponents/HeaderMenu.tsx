@@ -30,9 +30,8 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
   const [moveDown, setMoveDown] = useState(false);
   const [defaultCurrency, setDefaultCurrency] = useState<string | undefined>();
   const [currencies, setCurrencies] = useState<any>(undefined);
-
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-
   // Throttling the scroll event handler
   const handleScroll = useCallback(
     throttle(() => {
@@ -54,12 +53,15 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
 
   useEffect(() => {
     const fetchIPAddress = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch("https://ipapi.co/json/");
         const data = await response.json();
         setDefaultCurrency(data?.currency);
       } catch (err) {
         console.error("Error fetching IP address or currency:", err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -73,6 +75,8 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
       );
       if (checkDefault) {
         setCurrencies(checkDefault);
+      } else {
+        setCurrencies(headerCurrency[1]);
       }
     }
   }, [defaultCurrency, headerCurrency]);
@@ -94,6 +98,14 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
       setCookie("BulltenCurrency", currencies);
     }
   }, [currencies, dispatch]);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-20">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
     <header className="w-full flex items-center justify-center fixed top-0 start-0 z-20">

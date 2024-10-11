@@ -6,6 +6,7 @@ import UseCasesFaqComponent from "./UseCasesFaqComponent";
 import HeadingAndDescrptionComponent from "./HeadingAndDescrptionComponent";
 import AdvantagesLeftRightImageTextComponent from "./AdvantagesLeftRightImageTextComponent";
 import WhyChooseBoxesComponent from "./WhyChooseBoxesComponent";
+import ImageTextUseCasesComponent from "./ImageTextUseCasesComponent";
 interface Props {
   aPlusResponse: any;
   decodedSlug: any;
@@ -55,7 +56,12 @@ const APlusUseCasesAllComponentsJunction: React.FC<Props> = ({
                 <WhyChooseBoxesComponent BoxesData={item} />
               </div>
             );
-
+          case "image_text":
+            return (
+              <div key={index}>
+                <ImageTextUseCasesComponent imageTextData={item} />
+              </div>
+            );
           default:
             return null;
         }

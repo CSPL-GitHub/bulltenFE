@@ -23,7 +23,9 @@ const WordpressHostingAllComponents = ({ Data }: Props) => {
       <MigrateWordpressHostingComponent
         AboutData={Data?.wp_wibsite_migarte_info}
       />
-      <WordpressHostingTestimonialComponent />
+      <WordpressHostingTestimonialComponent
+        TestimonialsData={Data?.testimonials_info}
+      />
       <WordpressHostingFaqComponent FaqData={Data?.faq_info} />
     </div>
   );

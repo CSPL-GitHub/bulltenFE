@@ -1,5 +1,5 @@
-"use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FaChevronRight } from "react-icons/fa";
 
 interface Feature {
@@ -26,10 +26,14 @@ export default function SeoToolsStepsComponent({ StepsData }: Props) {
     <section className="py-16 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="lg:text-4xl text-2xl font-bold text-gray-800 mb-4">
-            {heading}
-          </h2>
-          <p className="text-lg text-gray-600">{description}</p>
+          {heading && (
+            <h2 className="lg:text-4xl text-2xl font-bold text-gray-800 mb-4">
+              {heading}
+            </h2>
+          )}
+          {description && (
+            <p className="text-lg text-gray-600">{description}</p>
+          )}
         </div>
         <div className="relative">
           <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-8">
@@ -49,17 +53,26 @@ export default function SeoToolsStepsComponent({ StepsData }: Props) {
                 )}
                 <div className="block absolute left-0 top-14 w-full h-0.5 bg-gray-200" />
                 <div className="bg-white p-6 rounded-lg shadow-lg h-[250px] w-full">
-                  <div className="w-14 h-14 rounded-full bg-bullt-primary/10 p-2 mb-4">
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature.image}`}
-                      alt={feature.heading}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    {feature.heading}
-                  </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  {feature.image && (
+                    <div className="w-16 h-16 rounded-full bg-bullt-primary/10  mb-4 relative">
+                      <Image
+                        fill
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature.image}`}
+                        alt={feature.heading}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="w-full h-full object-contain p-2"
+                      />
+                    </div>
+                  )}
+                  {feature.heading && (
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      {feature.heading}
+                    </h3>
+                  )}
+
+                  {feature.description && (
+                    <p className="text-gray-600">{feature.description}</p>
+                  )}
                 </div>
               </motion.div>
             ))}

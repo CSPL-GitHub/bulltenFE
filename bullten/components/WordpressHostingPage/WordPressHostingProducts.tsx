@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
 import { WordpressHostingProductsApi } from "@/apis/WordpressHostingPageAPIs";
 import { TiTick } from "react-icons/ti";
 
 import { RxCrossCircled } from "react-icons/rx";
+import LoaderComponent from "../CommonComponents/LoaderComponent/LoaderComponent";
 type Props = {
   decodedSlug: string;
 };
@@ -17,22 +18,58 @@ const WordPressHostingProducts = ({ decodedSlug }: Props) => {
     {}
   );
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {
+        setIsLoading(true);
         const response = await WordpressHostingProductsApi(
           currencyCode?.code?.slug,
           decodedSlug
         );
 
         setWordPressHostingProducts(response?.result);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchServerProducts();
   }, [currencyCode]);
 
+  const features = useMemo(
+    () => [
+      { feature: "Websites Hosted", key: "speed_network" },
+      { feature: "CPU (Cores)", key: "cpu_cores_" },
+      { feature: "Memory", key: "memory" },
+      { feature: "Free cPanel/WHM", key: "free_cPanel" },
+      { feature: "Full Management", key: "full_Management" },
+      {
+        feature: "Priority Technical Support",
+        key: "priority_technical_support",
+      },
+      {
+        feature: "7-Days MoneyBack Guarantee",
+        key: "days_moneyBack_guarantee",
+      },
+      {
+        feature: "Multiple Server Locations",
+        key: "multiple_server_locations",
+      },
+    ],
+    []
+  );
+
+  if (isLoading) {
+    return (
+      <div className="max-w-7xl mx-auto flex justify-center items-center">
+        <LoaderComponent />
+      </div>
+    );
+  }
   return (
     <div className="max-w-7xl mx-auto lg:py-16 py-6 px-4">
       <div className="overflow-x-auto">
@@ -117,37 +154,7 @@ const WordPressHostingProducts = ({ decodedSlug }: Props) => {
                 </tr>
               </thead>
               <tbody>
-                {[
-                  {
-                    feature: "Websites Hosted",
-                    key: "speed_network",
-                  },
-                  { feature: "CPU (Cores)", key: "cpu_cores_" },
-                  {
-                    feature: "Memory",
-                    key: "memory",
-                  },
-                  {
-                    feature: "Free cPanel/WHM",
-                    key: "free_cPanel",
-                  },
-                  {
-                    feature: "Full Management",
-                    key: "full_Management",
-                  },
-                  {
-                    feature: "Priority Technical Support",
-                    key: "priority_technical_support",
-                  },
-                  {
-                    feature: "7-Days MoneyBack Guarantee",
-                    key: "days_moneyBack_guarantee",
-                  },
-                  {
-                    feature: "Multiple Server Locations",
-                    key: "multiple_server_locations",
-                  },
-                ].map((item, idx) => (
+                {features.map((item, idx) => (
                   <tr
                     key={idx}
                     className={`${

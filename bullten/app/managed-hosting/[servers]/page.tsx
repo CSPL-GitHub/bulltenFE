@@ -1,34 +1,123 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { OverViewPageDataApi } from "@/apis/AvailableAddons";
 import { ManagedHostingDataApi } from "@/apis/ManagedHostingApi";
-import APlusThemeManagedHostingJunction from "@/components/APlusThemesJunction/ManagedHostingTheme/APlusThemeManagedHostingJunction";
-import OverViewPageAllComponentJunction from "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageAllComponentJunction";
-import XoviNowAllComponentsJunction from "@/components/AvailableAddonsPages/Xovi-Now/XoviNowAllComponentsJunction";
 import { XoviNowPageApi } from "@/apis/XoviNowPageAPIs/XoviNowAPIs";
-import NordVpnAllSectionComponents from "@/components/AvailableAddonsPages/NordVPN/NordVpnAllSectionComponents";
 import { NordVpnPageApi } from "@/apis/NordVpnPageAPIs";
-import ProfessionalEmailsAllComponents from "@/components/AvailableAddonsPages/ProfessionalEmail/ProfessionalEmailsAllComponents";
 import { ProfessionalEmailPageApi } from "@/apis/ProfessionalEmail";
-import WebsiteBackupAllComponents from "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents";
 import { WebsiteBackupPageApi } from "@/apis/WebsiteBackupPageApi";
-import WebsiteSecurityAllComponents from "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents";
 import { WebsiteSecurityPageApi } from "@/apis/WebsiteSecurityApi";
-import SeoToolsAllComponents from "@/components/AvailableAddonsPages/SeoTools/SeoToolsAllComponents";
 import { SeoToolsPageApi } from "@/apis/SeoToolsApi";
-import SiteBuilderAllComponents from "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent";
 import { SiteBuilderPageApi } from "@/apis/SiteBuilderApi";
-import SiteAndServerMonitoringAllComponent from "@/components/AvailableAddonsPages/SiteAndServerMonitoring/SiteAndServerMonitoringAllComponent";
 import { SiteMonitoringPageApi } from "@/apis/SiteAndServerMonitoring";
 import { cookies } from "next/headers";
 
-const page = async ({
+// Dynamically import components
+const APlusThemeManagedHostingJunction = dynamic(
+  () =>
+    import(
+      "@/components/APlusThemesJunction/ManagedHostingTheme/APlusThemeManagedHostingJunction"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const OverViewPageAllComponentJunction = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageAllComponentJunction"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const XoviNowAllComponentsJunction = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/Xovi-Now/XoviNowAllComponentsJunction"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const NordVpnAllSectionComponents = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/NordVPN/NordVpnAllSectionComponents"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const ProfessionalEmailsAllComponents = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/ProfessionalEmail/ProfessionalEmailsAllComponents"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const WebsiteBackupAllComponents = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const WebsiteSecurityAllComponents = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const SeoToolsAllComponents = dynamic(
+  () =>
+    import("@/components/AvailableAddonsPages/SeoTools/SeoToolsAllComponents"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const SiteBuilderAllComponents = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const SiteAndServerMonitoringAllComponent = dynamic(
+  () =>
+    import(
+      "@/components/AvailableAddonsPages/SiteAndServerMonitoring/SiteAndServerMonitoringAllComponent"
+    ),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+const Page = async ({
   params: { servers, subServers },
 }: {
   params: { servers: string; subServers: string };
 }) => {
   const cookieStore = cookies();
   const currency: any = cookieStore.get("BulltenCurrency")?.value;
-  // we are parsing the currency because the core value which we ar getting from the currency varibale is the string which looks like object we have to parse to convert it into a javascript Object
   let currencySlug;
   try {
     const parsedCurrency = JSON.parse(currency);
@@ -55,7 +144,6 @@ const page = async ({
   const SiteMonitoringContent = await SiteMonitoringPageApi(decodedSlug);
   const XoviNow = decodedSlug === XoviNowPageContent?.result?.data[0]?.slug;
   const nordVpn = decodedSlug === NordVpnPageContent?.result?.data[0]?.slug;
-
   const ProfessionalEmail =
     decodedSlug === professionalEmailPageContent?.result?.data[0]?.slug;
   const WebsiteBackup =
@@ -64,25 +152,21 @@ const page = async ({
     decodedSlug === WebsiteSecurityContent?.result?.data[0]?.slug;
   const SeoTools =
     decodedSlug === SeoToolsPageContent?.result?.data?.PlanDetails[0]?.slug;
-
   const Sitebuilder =
     decodedSlug === SiteBuilderContent?.result?.seo_data[0]?.slug;
-
   const SiteAndServerMonitoring = decodedSlug === "site-server-monitoring";
+
   return (
     <div className="sm:overflow-hidden overflow-x-hidden md:mt-[125px] mt-[105px]">
       {decodedSlug === OverViewPageDataContent?.result?.data?.slug ? (
         <div className="">
-          {OverViewPageDataContent?.result?.Active === true ? (
-            <>
-              <OverViewPageAllComponentJunction
-                OverViewPageDataContent={OverViewPageDataContent}
-                decodedSlug={decodedSlug}
-                decodedSubSlug={decodedSubSlug}
-                // TabsNames={OverViewPageTabsName?.result}
-              />
-            </>
-          ) : null}
+          {OverViewPageDataContent?.result?.Active === true && (
+            <OverViewPageAllComponentJunction
+              OverViewPageDataContent={OverViewPageDataContent}
+              decodedSlug={decodedSlug}
+              decodedSubSlug={decodedSubSlug}
+            />
+          )}
         </div>
       ) : XoviNow ? (
         <div className="">
@@ -142,18 +226,18 @@ const page = async ({
         </div>
       ) : (
         <>
-          {ManagedDataResponse?.result?.Active === true ? (
+          {ManagedDataResponse?.result?.Active === true && (
             <div>
               <APlusThemeManagedHostingJunction
                 aPlusResponse={ManagedDataResponse?.result}
                 decodedSlug={decodedSlug}
               />
             </div>
-          ) : null}
+          )}
         </>
       )}
     </div>
   );
 };
 
-export default page;
+export default Page;

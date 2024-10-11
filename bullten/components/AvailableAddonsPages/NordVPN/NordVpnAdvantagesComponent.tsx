@@ -35,11 +35,13 @@ const NordVpnAdvantagesComponent = ({ AdvantagesData }: Props) => {
               }`}
             >
               <div className="w-full md:[50%] lg:px-0 px-4">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.img}`}
-                  alt={section?.heading}
-                  className="w-full h-[300px] lg:h-[400px] lg:object-contain object-cover rounded-xl"
-                />
+                {section?.img && (
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.img}`}
+                    alt={section?.heading}
+                    className="w-full h-[300px] lg:h-[400px] lg:object-contain object-cover rounded-xl"
+                  />
+                )}
               </div>
               <div className="w-full md:[50%] px-4">
                 {section?.heading ? (

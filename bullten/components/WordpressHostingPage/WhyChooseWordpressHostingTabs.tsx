@@ -14,9 +14,12 @@ export default function WhyChooseWordpressHostingTabs({
   return (
     <div className="bg-bullt-quaternary/5 px-4 lg:py-12 py-6 ">
       <div className="max-w-7xl w-full mx-auto ">
-        <h2 className="text-2xl lg:text-4xl font-bold text-center lg:mb-12 mb-4 text-bullt-primary">
-          {WhyChooseData?.heading}
-        </h2>
+        {WhyChooseData?.heading ? (
+          <h2 className="text-2xl lg:text-4xl font-bold text-center lg:mb-12 mb-4 text-bullt-primary">
+            {WhyChooseData?.heading}
+          </h2>
+        ) : null}
+
         <div className="mb-8 w-full flex justify-center">
           <div className="w-full gap-4 grid lg:grid-cols-3 max-w-5xl md:grid-cols-2 grid-cols-1 border-b-[2px] border-gray-300">
             {WhyChooseData?.why_choose && (
@@ -57,24 +60,31 @@ export default function WhyChooseWordpressHostingTabs({
                         key={index}
                         className=" bg-white p-6 flex flex-col gap-2 hover:shadow-xl hover:border-l-4 border-l-4 border-l-white  hover:border-bullt-tertiary rounded-md"
                       >
-                        <h1 className="text-xl font-semibold text-bullt-primary ">
-                          {list?.heading}
-                        </h1>
-                        <p className="text-base text-bullt-primary ">
-                          {list?.description}{" "}
-                        </p>
+                        {list?.heading ? (
+                          <h1 className="text-xl font-semibold text-bullt-primary ">
+                            {list?.heading}
+                          </h1>
+                        ) : null}
+                        {list?.description ? (
+                          <p className="text-base text-bullt-primary ">
+                            {list?.description}{" "}
+                          </p>
+                        ) : null}
                       </div>
                     )
                   )}
                 </div>
 
-                <div>
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${WhyChooseData?.why_choose[activeTab]?.image}`}
-                    alt={WhyChooseData?.why_choose[activeTab]?.subheading}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                {WhyChooseData?.why_choose[activeTab]?.image ? (
+                  <div className="relative">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${WhyChooseData?.why_choose[activeTab]?.image}`}
+                      alt={WhyChooseData?.why_choose[activeTab]?.subheading}
+                      fill
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ) : null}
               </div>
             </>
           )}

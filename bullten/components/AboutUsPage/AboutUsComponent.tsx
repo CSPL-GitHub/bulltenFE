@@ -67,10 +67,14 @@ export default function AboutUsSection({ AboutData }: Props) {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {feature.heading}
-                    </h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    {feature.heading ? (
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        {feature.heading}
+                      </h3>
+                    ) : null}
+                    {feature.description ? (
+                      <p className="text-gray-600">{feature.description}</p>
+                    ) : null}
                   </div>
                 </div>
               ))}

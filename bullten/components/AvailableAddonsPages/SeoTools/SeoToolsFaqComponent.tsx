@@ -40,7 +40,7 @@ const SeoToolsFaqComponent = ({ FaqData }: Props) => {
         <div className="absolute">
           <Image
             src="/icon-lines-6.81833a8f.png"
-            alt="Heading Image"
+            alt="HeadingImage"
             width={500}
             height={500}
             className=""
@@ -49,16 +49,18 @@ const SeoToolsFaqComponent = ({ FaqData }: Props) => {
 
         {/* FAQ Heading */}
         <div className="md:w-full w-full flex flex-col justify-center items-center px-4 sm:px-10 h-full sm:py-0 py-4 text-center sm:text-start">
-          <video
-            controls
-            className="w-full h-[300px] lg:h-[350px] object-cover rounded-xl"
-          >
-            <source
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqData[0]?.FAQ[0].faq_videoo}`}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+          {FaqData[0]?.FAQ[0].faq_videoo && (
+            <video
+              controls
+              className="w-full h-[300px] lg:h-[350px] object-cover rounded-xl"
+            >
+              <source
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${FaqData[0]?.FAQ[0].faq_videoo}`}
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          )}
         </div>
 
         {/* FAQ Items */}
@@ -74,14 +76,21 @@ const SeoToolsFaqComponent = ({ FaqData }: Props) => {
                       onClick={() => handleToggle(index)}
                     >
                       <div className="flex justify-between p-2">
-                        <div>
-                          <div
-                            className={`font-semibold md:text-md text-lg select-none ${
-                              index === activeIndex ? "text-bullt-tertiary" : ""
-                            }`}
-                            dangerouslySetInnerHTML={{ __html: item?.heading }}
-                          />
-                        </div>
+                        {item?.heading && (
+                          <div>
+                            <div
+                              className={`font-semibold md:text-md text-lg select-none ${
+                                index === activeIndex
+                                  ? "text-bullt-tertiary"
+                                  : ""
+                              }`}
+                              dangerouslySetInnerHTML={{
+                                __html: item?.heading,
+                              }}
+                            />
+                          </div>
+                        )}
+
                         <div className="relative w-[100px] flex justify-end items-center px-1">
                           {activeIndex === index ? (
                             <FiMinus className="text-bullt-tertiary text-2xl cursor-pointer" />
@@ -90,27 +99,28 @@ const SeoToolsFaqComponent = ({ FaqData }: Props) => {
                           )}
                         </div>
                       </div>
-
-                      <AnimatePresence>
-                        {activeIndex === index && (
-                          <motion.div
-                            className="overflow-hidden"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                          >
-                            <div className="flex flex-col md:flex-row gap-6">
-                              <div
-                                className="flex p-3 select-none text-md text-bullt-primary/[0.8]"
-                                dangerouslySetInnerHTML={{
-                                  __html: item?.description,
-                                }}
-                              ></div>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      {item?.description && (
+                        <AnimatePresence>
+                          {activeIndex === index && (
+                            <motion.div
+                              className="overflow-hidden"
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                            >
+                              <div className="flex flex-col md:flex-row gap-6">
+                                <div
+                                  className="flex p-3 select-none text-md text-bullt-primary/[0.8]"
+                                  dangerouslySetInnerHTML={{
+                                    __html: item?.description,
+                                  }}
+                                ></div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      )}
                     </div>
                   )
                 )}

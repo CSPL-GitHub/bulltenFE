@@ -13,8 +13,6 @@ type Props = {
 const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
   const currencyCode = useSelector((state: any) => state.currency);
   const [SeoToolsProducts, setSeoToolsProducts] = useState<any>({});
-
-  console.log(SeoToolsProducts, "setSeoToolsProducts");
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {
@@ -79,14 +77,9 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
                                 className="text-bullt-primary font-semibold text-lg"
                                 key={idx}
                               >
-                                {price?.country === "eur" ? (
-                                  <span>€</span>
-                                ) : price?.country === "usd" ? (
-                                  <span>$</span>
-                                ) : (
-                                  <span>₹</span>
-                                )}
+                                {price?.icon}
                                 {price?.price}
+                                {price?.country}
                               </div>
                             ))}
                             <span className="text-sm font-semibold text-bullt-primary">
@@ -97,7 +90,7 @@ const SeoToolsProductsComponent = ({ decodedSlug }: Props) => {
                             <div className="w-full flex justify-center ">
                               <Link
                                 href={plan?.button_link}
-                                className=" px-6 font-normal bg-bullt-tertiary hover:bg-bullt-secondary hover:text-bullt-tertiary hover:border-bullt-tertiary border border-bullt-tertiary text-white py-1 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                                className=" px-6 font-normal bg-bullt-tertiary hover:bg-bullt-secondary hover:text-bullt-tertiary hover:border-bullt-tertiary border border-bullt-tertiary text-white py-1 rounded-lg  hover:shadow-xl transition-all duration-300"
                               >
                                 <div className="group-hover:scale-100 flex gap-1">
                                   <BsStars size={20} />

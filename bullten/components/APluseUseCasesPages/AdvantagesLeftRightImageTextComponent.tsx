@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
@@ -30,13 +31,20 @@ const AdvantagesLeftRightImageTextComponent = ({ AdvantagesData }: Props) => {
               index % 2 === 0 ? "md:flex-row-reverse" : ""
             }`}
           >
-            <div className="w-full md:[50%]">
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
-                alt={section?.heading}
-                className="w-full h-[300px] lg:h-[400px] object-contain rounded-xl"
-              />
-            </div>
+            {section?.image ? (
+              <div className="w-full md:[50%]">
+                <div className="relative w-full h-[300px] lg:h-[400px]">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
+                    alt={section?.heading}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className=" object-contain rounded-xl"
+                  />
+                </div>
+              </div>
+            ) : null}
+
             <div className="w-full md:[50%] md:px-1 px-4">
               <div className="" />
               {section?.heading ? (

@@ -18,13 +18,15 @@ const MigrateWordpressHostingComponent = ({ AboutData }: Props) => {
                 className="custom-bounce "
               />
             </div>
-            <div className="relative w-[400px] h-[250px] lg:w-full lg:h-full rounded-sm overflow-hidden lg:px-4 px-0">
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.image}`}
-                alt={AboutData?.heading}
-                className="rounded-lg w-full h-full object-contain"
-              />
-            </div>
+            {AboutData?.image ? (
+              <div className="relative w-[400px] h-[250px] lg:w-full lg:h-full rounded-sm overflow-hidden lg:px-4 px-0">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.image}`}
+                  alt={AboutData?.heading}
+                  className="rounded-lg w-full h-full object-contain"
+                />
+              </div>
+            ) : null}
           </div>
 
           <div className="lg:w-[50%] w-full  mt-2 py-4 lg:mt-0">
@@ -50,21 +52,28 @@ const MigrateWordpressHostingComponent = ({ AboutData }: Props) => {
                   key={index}
                   className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-start gap-2"
                 >
-                  <div className="lg:w-20 lg:h-20 w-16 h-16 relative">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.image}`}
-                      alt={item.heading}
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
+                  {item.image ? (
+                    <div className="lg:w-20 lg:h-20 w-16 h-16 relative">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.image}`}
+                        alt={item.heading}
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                  ) : null}
+
                   <div className="flex flex-col gap-1 justify-center items-start">
-                    <h3 className="text-xl font-semibold text-left">
-                      {item.heading}
-                    </h3>
-                    <p className="text-gray-600 text-left">
-                      {item.description}
-                    </p>
+                    {item.heading ? (
+                      <h3 className="text-xl font-semibold text-left">
+                        {item.heading}
+                      </h3>
+                    ) : null}
+                    {item.description ? (
+                      <p className="text-gray-600 text-left">
+                        {item.description}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
               ))}

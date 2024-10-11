@@ -88,14 +88,16 @@ const EmailFaqComponent = ({ FaqContent }: Props) => {
               >
                 <div className="flex justify-between p-2">
                   <div className="">
-                    <div
-                      className={`px-2 text-lg select-none ${
-                        index + halfwayIndex === activeIndex
-                          ? "text-bullt-tertiary"
-                          : ""
-                      }`}
-                      dangerouslySetInnerHTML={{ __html: item?.heading }}
-                    ></div>
+                    {item?.heading && (
+                      <div
+                        className={`px-2 text-lg select-none ${
+                          index + halfwayIndex === activeIndex
+                            ? "text-bullt-tertiary"
+                            : ""
+                        }`}
+                        dangerouslySetInnerHTML={{ __html: item?.heading }}
+                      ></div>
+                    )}
                   </div>
                   <div className="relative w-[100px] flex justify-end items-center px-1">
                     {activeIndex === index + halfwayIndex ? (
@@ -106,24 +108,26 @@ const EmailFaqComponent = ({ FaqContent }: Props) => {
                   </div>
                 </div>
 
-                <AnimatePresence>
-                  {activeIndex === index + halfwayIndex && (
-                    <motion.div
-                      className="overflow-hidden"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                      <div
-                        className="flex p-3 select-none text-md text-bullt-primary/[0.8]"
-                        dangerouslySetInnerHTML={{
-                          __html: item?.description,
-                        }}
-                      ></div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {item?.description && (
+                  <AnimatePresence>
+                    {activeIndex === index + halfwayIndex && (
+                      <motion.div
+                        className="overflow-hidden"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div
+                          className="flex p-3 select-none text-md text-bullt-primary/[0.8]"
+                          dangerouslySetInnerHTML={{
+                            __html: item?.description,
+                          }}
+                        ></div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
               </div>
             ))}
           </div>

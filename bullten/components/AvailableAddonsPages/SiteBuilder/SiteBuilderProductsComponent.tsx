@@ -78,14 +78,9 @@ const SiteBuilderProductsComponent = ({ decodedSlug }: Props) => {
                                 className="text-bullt-primary font-semibold text-lg"
                                 key={idx}
                               >
-                                {price?.country === "eur" ? (
-                                  <span>€</span>
-                                ) : price?.country === "usd" ? (
-                                  <span>$</span>
-                                ) : (
-                                  <span>₹</span>
-                                )}
+                                {price?.icon}
                                 {price?.price}
+                                {price?.country}
                               </div>
                             ))}
 

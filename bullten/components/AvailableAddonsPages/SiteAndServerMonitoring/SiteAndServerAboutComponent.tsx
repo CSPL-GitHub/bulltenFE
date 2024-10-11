@@ -35,13 +35,19 @@ const SiteAndServerAboutComponent = ({ AboutData }: Props) => {
                 className="custom-bounce "
               />
             </div>
-            <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden lg:px-4 px-0">
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.about[0]?.image}`}
-                alt={AboutData?.about[0]?.heading}
-                className="rounded-lg w-full h-full object-cover"
-              />
-            </div>
+
+            {AboutData?.about[0]?.image && (
+              <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden lg:px-4 px-0">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.about[0]?.image}`}
+                  alt={AboutData?.about[0]?.heading}
+                  className="rounded-lg w-full h-full object-cover"
+                  width={400}
+                  height={400}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+            )}
           </div>
 
           <div className="lg:w-[40%] w-full text-center lg:text-left mt-2 py-4 lg:mt-0">

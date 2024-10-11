@@ -53,12 +53,16 @@ const AboutUsCounterComponent = ({ CounterData }: Props) => {
           <div className="relative flex justify-center items-center px-6 ">
             <div className="sm:flex justify-center items-center">
               <div className="max-w-5xl mx-auto w-full">
-                <p className="lg:text-4xl text-2xl font-bold text-center text-white">
-                  {CounterData?.heading}
-                </p>
-                <p className="lg:text-lg text-lg font-medium text-center text-white">
-                  {CounterData?.description}
-                </p>
+                {CounterData?.heading ? (
+                  <div className="lg:text-4xl text-2xl font-bold text-center text-white">
+                    {CounterData?.heading}
+                  </div>
+                ) : null}
+                {CounterData?.description ? (
+                  <p className="lg:text-lg text-lg font-medium text-center text-white">
+                    {CounterData?.description}
+                  </p>
+                ) : null}
               </div>
             </div>
           </div>
@@ -83,10 +87,11 @@ const AboutUsCounterComponent = ({ CounterData }: Props) => {
                           0
                         )}
                       </div>
-
-                      <h4 className="text-xl font-semibold text-white ">
-                        {counter?.heading}
-                      </h4>
+                      {counter?.heading ? (
+                        <h4 className="text-xl font-semibold text-white ">
+                          {counter?.heading}
+                        </h4>
+                      ) : null}
                     </div>
                   </div>
                 ))}
