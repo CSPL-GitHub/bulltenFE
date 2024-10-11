@@ -1,7 +1,5 @@
-"use client";
 import { AboutUsPageApi } from "@/apis/AboutUsPageAPIs";
 import AboutUsAllComponent from "@/components/AboutUsPage/AboutUsAllComponent";
-import React from "react";
 const page = async ({
   params: { servers },
 }: {

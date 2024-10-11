@@ -17,7 +17,7 @@ const HeaderUseCases: React.FC<Props> = ({ insideSubMenu }) => {
             {insideSubMenu?.usecases?.map((useCase: any, index: number) => {
               return (
                 <a
-                  href={`use-cases/${useCase?.link_url}`}
+                  href={`/use-cases/${useCase?.link_url}`}
                   key={index}
                   className="text-bullt-quaternary hover:bg-bullt-quaternary/[0.05] text-sm hover:underline underline-offset-2 px-1.5 py-1 rounded-sm"
                 >

@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import APlusUseCasesAllComponentsJunction from "@/components/APluseUseCasesPages/APlusUseCasesAllComponentsJunction";
 import { UseCasesDataApi } from "@/apis/UseCasesAPIs";

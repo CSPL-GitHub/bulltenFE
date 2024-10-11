@@ -5,7 +5,7 @@ type Props = { bannerData: any };
 
 const UseCasesBannerComponent = ({ bannerData }: Props) => {
   return (
-    <div className="relative w-full md:h-[500px] h-[400px]  overflow-hidden bg-gradient-to-r from-indigo-50 to-purple-100 object-cover object-center">
+    <div className="relative w-full md:h-[500px] h-[500px]  overflow-hidden bg-gradient-to-r from-indigo-50 to-purple-100 object-cover object-center">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative w-full max-w-7xl mx-auto px-6 py-16 text-white">
           <div className="relative flex flex-col lg:flex-row gap-5 items-center justify-between">
@@ -26,7 +26,7 @@ const UseCasesBannerComponent = ({ bannerData }: Props) => {
 
               {bannerData?.heading ? (
                 <div
-                  className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-bullt-quaternary/70 to-bullt-quaternary/90"
+                  className="text-2xl md:text-4xl font-bold lg:mb-6 mb-2 lg:text-left text-center leading-tight text-transparent bg-clip-text bg-gradient-to-r from-bullt-quaternary/70 to-bullt-quaternary/90"
                   dangerouslySetInnerHTML={{
                     __html: bannerData?.heading,
                   }}
@@ -34,7 +34,7 @@ const UseCasesBannerComponent = ({ bannerData }: Props) => {
               ) : null}
               {bannerData?.description ? (
                 <div
-                  className="md:text-xl text-lg font-400 py-4 text-left text-bullt-primary"
+                  className="md:text-xl text-lg font-400 py-4  text-bullt-primary lg:text-left text-center "
                   dangerouslySetInnerHTML={{
                     __html: bannerData?.description,
                   }}
