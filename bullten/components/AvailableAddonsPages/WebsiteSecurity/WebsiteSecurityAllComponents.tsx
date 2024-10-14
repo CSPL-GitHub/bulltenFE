@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import WebsiteSecurityBannerComponent from "./WebsiteSecurityBannerComponent";
 import AboutWebsiteSecurityComponent from "./AboutWebsiteSecurityComponent";

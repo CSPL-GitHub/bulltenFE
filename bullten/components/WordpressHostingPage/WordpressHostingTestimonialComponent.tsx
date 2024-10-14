@@ -2,7 +2,7 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-
+import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
 type Testimonial = {
   image: string;
   name: string;
@@ -64,7 +64,7 @@ export default function WordpressHostingTestimonialComponent({
           </h2>
         )}
 
-        <Slider {...settings} className="testimonial-slider">
+        <SliderFrame {...settings} settings={settings} selector={undefined}>
           {TestimonialsData.testimonials.map(
             (testimonial: Testimonial, index: number) => (
               <div key={index} className="px-4 pb-12">
@@ -106,7 +106,7 @@ export default function WordpressHostingTestimonialComponent({
               </div>
             )
           )}
-        </Slider>
+        </SliderFrame>
       </div>
     </div>
   );

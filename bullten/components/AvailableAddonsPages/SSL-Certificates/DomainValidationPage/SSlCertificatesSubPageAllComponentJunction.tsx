@@ -8,6 +8,7 @@ import SabPageFeaturesSectionComponent from "./SabPageFeaturesSectionComponent";
 import WhyChooseBoxesSectionComponent from "./WhyChooseBoxesSectionComponent";
 import ImageTextDetailsSectionComponent from "./ImageTextDetailsSectionComponent";
 import SSLCertificatesSubPagesProducts from "./SSLCertificateProducts/SSLCertificatesSubPagesProducts";
+import LoaderComponent from "@/components/CommonComponents/LoaderComponent/LoaderComponent";
 
 type Props = {
   decodedSlug: string;
@@ -41,7 +42,11 @@ function SSlCertificatesSubPageAllComponentJunction({
     fetchHeaderData();
   }, []);
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="max-w-3xl mx-auto">
+        <LoaderComponent />
+      </div>
+    );
   }
   return (
     <div className="">

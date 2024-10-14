@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 type Props = { AboutData: any };
 
@@ -24,13 +25,18 @@ const AboutWebsiteSecurityComponent = ({ AboutData }: Props) => {
               className="custom-bounce "
             />
           </div>
-          <div className="relative w-[400px] h-[350px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden">
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.plan_pricing[0]?.image}`}
-              alt="Team Meeting"
-              className="rounded-lg w-full h-full object-contain"
-            />
-          </div>
+
+          {AboutData?.plan_pricing[0]?.image && (
+            <div className="relative w-[400px] h-[350px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.plan_pricing[0]?.image}`}
+                alt={AboutData?.plan_pricing[0]?.heading}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="rounded-lg w-full h-full object-contain"
+              />
+            </div>
+          )}
         </div>
 
         <div className="lg:w-[60%] w-full text-center lg:text-left mt-0 py-4 lg:mt-0">

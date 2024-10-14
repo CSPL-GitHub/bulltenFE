@@ -32,20 +32,31 @@ const OneTimeProtectionStripe = ({ decodedSlug }: Props) => {
       {OneTimeProtectionProducts?.data ? (
         <div className="w-full max-w-7xl mx-auto flex md:flex-row flex-col justify-between items-center gap-4 py-6">
           <div className="flex lg:flex-row flex-col justify-center items-center gap-1">
-            <h3 className="md:text-2xl text-xl font-semibold text-white">
-              {OneTimeProtectionProducts?.data[0]?.One_Time_protection?.heading}
-            </h3>
-            {OneTimeProtectionProducts?.data[0]?.One_Time_protection?.One_Time_Price?.map(
-              (price: any, idx: any) => (
-                <div
-                  className="md:text-2xl text-xl font-semibold text-white underline "
-                  key={idx}
-                >
-                  {price?.icon}
-                  {price?.price}
-                  {price?.country}
-                </div>
-              )
+            {OneTimeProtectionProducts?.data[0]?.One_Time_protection
+              ?.heading && (
+              <h3 className="md:text-2xl text-xl font-semibold text-white">
+                {
+                  OneTimeProtectionProducts?.data[0]?.One_Time_protection
+                    ?.heading
+                }
+              </h3>
+            )}
+            {OneTimeProtectionProducts?.data[0]?.One_Time_protection
+              ?.One_Time_Price.length > 0 && (
+              <>
+                {OneTimeProtectionProducts?.data[0]?.One_Time_protection?.One_Time_Price?.map(
+                  (price: any, idx: any) => (
+                    <div
+                      className="md:text-2xl text-xl font-semibold text-white underline "
+                      key={idx}
+                    >
+                      {price?.icon}
+                      {price?.price}
+                      {price?.country}
+                    </div>
+                  )
+                )}
+              </>
             )}
           </div>
           <div>

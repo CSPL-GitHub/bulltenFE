@@ -61,12 +61,18 @@ export default function XoviNowTabsSectionComponent({ TabsContent }: Props) {
                   />
                 </div>
                 <div className="md:w-1/2 p-8">
-                  <h3 className="text-3xl font-bold mb-4 text-gray-800">
-                    {tab.heading}
-                  </h3>
-                  <p className="text-gray-600 mb-6 text-lg">
-                    {tab.description}
-                  </p>
+                  {tab.heading && (
+                    <h3 className="text-3xl font-bold mb-4 text-gray-800">
+                      {tab.heading}
+                    </h3>
+                  )}
+
+                  {tab.description && (
+                    <p className="text-gray-600 mb-6 text-lg">
+                      {tab.description}
+                    </p>
+                  )}
+
                   <h4 className="text-xl font-semibold mb-4 text-gray-700">
                     Key Features:
                   </h4>

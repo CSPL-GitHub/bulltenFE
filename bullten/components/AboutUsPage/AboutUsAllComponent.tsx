@@ -14,9 +14,9 @@ const AboutUsAllComponent = ({ ContentData }: Props) => {
       <AboutUsSection AboutData={ContentData?.our_story_info} />
       <AboutUsCounterComponent CounterData={ContentData?.counter_info} />
       <CallToActionComponent CtaData={ContentData?.chat_to_action} />
-      {/* <ClientsReviewComponent
+      <ClientsReviewComponent
         TestimonialsData={ContentData?.testimonials_info}
-      /> */}
+      />
     </div>
   );
 };

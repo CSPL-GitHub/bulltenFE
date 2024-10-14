@@ -11,6 +11,7 @@ import { SeoToolsPageApi } from "@/apis/SeoToolsApi";
 import { SiteBuilderPageApi } from "@/apis/SiteBuilderApi";
 import { SiteMonitoringPageApi } from "@/apis/SiteAndServerMonitoring";
 import { cookies } from "next/headers";
+import Skeleton from "react-loading-skeleton";
 
 // Dynamically import components
 const APlusThemeManagedHostingJunction = dynamic(
@@ -19,7 +20,7 @@ const APlusThemeManagedHostingJunction = dynamic(
       "@/components/APlusThemesJunction/ManagedHostingTheme/APlusThemeManagedHostingJunction"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -29,7 +30,7 @@ const OverViewPageAllComponentJunction = dynamic(
       "@/components/AvailableAddonsPages/SSL-Certificates/OverviewPage/OverViewPageAllComponentJunction"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -39,7 +40,7 @@ const XoviNowAllComponentsJunction = dynamic(
       "@/components/AvailableAddonsPages/Xovi-Now/XoviNowAllComponentsJunction"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -49,7 +50,7 @@ const NordVpnAllSectionComponents = dynamic(
       "@/components/AvailableAddonsPages/NordVPN/NordVpnAllSectionComponents"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -59,7 +60,7 @@ const ProfessionalEmailsAllComponents = dynamic(
       "@/components/AvailableAddonsPages/ProfessionalEmail/ProfessionalEmailsAllComponents"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -69,7 +70,7 @@ const WebsiteBackupAllComponents = dynamic(
       "@/components/AvailableAddonsPages/WebsiteBackup/WebsiteBackupAllComponents"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -79,7 +80,7 @@ const WebsiteSecurityAllComponents = dynamic(
       "@/components/AvailableAddonsPages/WebsiteSecurity/WebsiteSecurityAllComponents"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -87,7 +88,7 @@ const SeoToolsAllComponents = dynamic(
   () =>
     import("@/components/AvailableAddonsPages/SeoTools/SeoToolsAllComponents"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -97,7 +98,7 @@ const SiteBuilderAllComponents = dynamic(
       "@/components/AvailableAddonsPages/SiteBuilder/SiteBuilderAllComponent"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 
@@ -107,7 +108,7 @@ const SiteAndServerMonitoringAllComponent = dynamic(
       "@/components/AvailableAddonsPages/SiteAndServerMonitoring/SiteAndServerMonitoringAllComponent"
     ),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Skeleton height="50%" width="100%" />,
   }
 );
 

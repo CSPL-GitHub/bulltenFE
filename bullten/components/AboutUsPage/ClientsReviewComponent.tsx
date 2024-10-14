@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Slider from "react-slick";
 import Image from "next/image";
+import SliderFrame from "../ClientSideComponents/SliderComponents/SliderFrame";
 
 type Testimonial = {
   image: string;
@@ -55,14 +55,14 @@ export default function ClientsReviewComponent({ TestimonialsData }: Props) {
           </h2>
         ) : null}
 
-        {TestimonialsData?.testimonials.length > 0 ? (
-          <Slider {...settings} className="testimonial-slider">
+        {TestimonialsData?.testimonials?.length > 0 ? (
+          <SliderFrame {...settings} settings={settings} selector={undefined}>
             {TestimonialsData?.testimonials?.map(
               (testimonial: Testimonial, index: number) => (
                 <div key={index} className="px-4 pb-12">
                   <div
                     key={index}
-                    className="lg:max-h-[300px] h-[350px] min-h-[250px] rounded-lg bg-bullt-text-primary/[0.08] p-6 shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    className="lg:max-h-[250px] h-[300px] min-h-[250px] rounded-lg bg-bullt-text-primary/[0.08] p-6 shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   >
                     <div className="mb-7.5 flex justify-between border-b pb-6 ">
                       <div>
@@ -89,7 +89,7 @@ export default function ClientsReviewComponent({ TestimonialsData }: Props) {
                       ) : null}
                     </div>
                     {testimonial?.description ? (
-                      <p className="text-base font-normal text-bullt-primary">
+                      <p className="text-base font-normal text-bullt-primary pt-4">
                         {testimonial?.description}
                       </p>
                     ) : null}
@@ -97,7 +97,7 @@ export default function ClientsReviewComponent({ TestimonialsData }: Props) {
                 </div>
               )
             )}
-          </Slider>
+          </SliderFrame>
         ) : null}
       </div>
     </div>
