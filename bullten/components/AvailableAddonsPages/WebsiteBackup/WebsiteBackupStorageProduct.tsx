@@ -20,7 +20,7 @@ export default function WebsiteBackupStorageProduct({
 
   const currencyCode = useSelector((state: any) => state.currency);
   const [selectedStorage, setSelectedStorage] = useState(defaultStorage);
-  const [price, setPrice] = useState<number | null>(null);
+  const [price, setPrice] = useState<any | null>({});
   useEffect(() => {
     const fetchServerProducts = async () => {
       try {
@@ -44,6 +44,7 @@ export default function WebsiteBackupStorageProduct({
       setSelectedStorage(firstBackupData?.storage); // set the default selected storage
     }
   }, [StorageProductsData]);
+
   useEffect(() => {
     if (StorageProductsData?.ProductDetails?.length > 0) {
       const selectedData =
@@ -57,7 +58,7 @@ export default function WebsiteBackupStorageProduct({
         );
 
         if (selectedPricing) {
-          setPrice(selectedPricing.price);
+          setPrice(selectedPricing);
         } else {
           setPrice(null);
         }
@@ -89,9 +90,11 @@ export default function WebsiteBackupStorageProduct({
                       className="text-blue-600"
                     />
                   </div>
-                  <h3 className="font-semibold text-lg text-gray-800">
-                    {benefit.heading}
-                  </h3>
+                  {benefit?.heading && (
+                    <h3 className="font-semibold text-lg text-gray-800">
+                      {benefit.heading}
+                    </h3>
+                  )}
                 </div>
               </div>
             )
@@ -102,9 +105,12 @@ export default function WebsiteBackupStorageProduct({
           <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-center lg:mb-12 mb-2">
-              <h2 className="lg:text-4xl text-2xl font-bold mb-4 md:mb-0 text-gray-800">
-                {StorageProductsData?.ProductDetails[0]?.heading}
-              </h2>
+              {StorageProductsData?.ProductDetails[0]?.heading && (
+                <h2 className="lg:text-4xl text-2xl font-bold mb-4 md:mb-0 text-gray-800">
+                  {StorageProductsData?.ProductDetails[0]?.heading}
+                </h2>
+              )}
+
               {/* <div className="flex items-center space-x-4">
                 <label className="text-gray-600">Currency:</label>
                 <select
@@ -139,15 +145,17 @@ export default function WebsiteBackupStorageProduct({
             </div>
 
             {/* Pricing Section */}
-            <div className="text-center mb-12">
-              <div className="text-5xl font-bold mb-2 text-bullt-quaternary">
-                {price ? price : "N/A"}
-                <span className="text-2xl font-normal text-gray-600">
-                  /month
-                </span>
+            {price && (
+              <div className="text-center mb-12">
+                <div className="text-5xl font-bold mb-2 text-bullt-quaternary">
+                  {price?.icon} {price ? price?.price : "N/A"} {price?.country}
+                  <span className="text-2xl font-normal text-gray-600">
+                    /month
+                  </span>
+                </div>
+                <p className="text-gray-600">Billed annually</p>
               </div>
-              <p className="text-gray-600">Billed annually</p>
-            </div>
+            )}
 
             {/* Order Now Button */}
             <div className="text-center">

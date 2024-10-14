@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 type Props = { AboutData: any };
 
@@ -24,13 +25,17 @@ const AboutWebsiteBackupComponent = ({ AboutData }: Props) => {
               className="custom-bounce "
             />
           </div> */}
-          <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden z-0 shadow-md">
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData[0]?.image}`}
-              alt="Team Meeting"
-              className="rounded-lg w-full h-full object-cover shadow-md"
-            />
-          </div>
+          {AboutData[0]?.image && (
+            <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden z-0 shadow-md">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData[0]?.image}`}
+                alt="Team Meeting"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="rounded-lg w-full h-full object-cover shadow-md"
+              />
+            </div>
+          )}
         </div>
 
         <div className="relative lg:w-[60%] w-full text-center lg:text-left mt-0 py-4 lg:mt-0">

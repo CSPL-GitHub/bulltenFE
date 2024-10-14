@@ -11,7 +11,10 @@ type Testimonial = {
 };
 
 type Props = {
-  TestimonialsData: any;
+  TestimonialsData: {
+    heading?: string;
+    testimonials: Testimonial[];
+  };
 };
 
 export default function WordpressHostingTestimonialComponent({
@@ -24,7 +27,7 @@ export default function WordpressHostingTestimonialComponent({
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
-    adaptiveHeight: false,
+    adaptiveHeight: true,
     slidesToShow: 2,
     slidesToScroll: 1,
     responsive: [
@@ -48,59 +51,62 @@ export default function WordpressHostingTestimonialComponent({
     ),
   };
 
+  if (!TestimonialsData || TestimonialsData.testimonials.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="px-4 lg:py-16 py-6 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <div className="px-4 lg:py-8 py-6 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="max-w-7xl mx-auto">
-        {TestimonialsData?.heading ? (
+        {TestimonialsData.heading && (
           <h2 className="lg:text-4xl text-2xl font-bold text-center lg:mb-12 mb-4 text-primary">
-            {TestimonialsData?.heading}
+            {TestimonialsData.heading}
           </h2>
-        ) : null}
+        )}
 
-        {TestimonialsData?.testimonials.length > 0 ? (
-          <Slider {...settings} className="testimonial-slider">
-            {TestimonialsData?.testimonials?.map(
-              (testimonial: Testimonial, index: number) => (
-                <div key={index} className="px-4 pb-12">
-                  <div
-                    key={index}
-                    className="lg:max-h-[300px] h-[350px] min-h-[250px] rounded-lg bg-bullt-text-primary/[0.08] p-6 shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                  >
-                    <div className="mb-7.5 flex justify-between border-b pb-6 ">
-                      <div>
-                        {testimonial?.name ? (
-                          <h3 className="mb-1.5  text-black font-semibold text-lg">
-                            {testimonial?.name}
-                          </h3>
-                        ) : null}
-                        {testimonial?.designation ? (
-                          <p className="text-gray-600 font-medium text-base">
-                            {testimonial?.designation}
-                          </p>
-                        ) : null}
-                      </div>
-
-                      {testimonial?.image ? (
-                        <Image
-                          width={60}
-                          height={50}
-                          className="rounded-full "
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial?.image}`}
-                          alt={testimonial?.name}
-                        />
-                      ) : null}
+        <Slider {...settings} className="testimonial-slider">
+          {TestimonialsData.testimonials.map(
+            (testimonial: Testimonial, index: number) => (
+              <div key={index} className="px-4 pb-12">
+                <div className="rounded-lg lg:h-[300px] h-[250px] bg-bullt-text-primary/[0.08] p-6 shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="mb-7.5 flex justify-between border-b pb-6">
+                    <div>
+                      {testimonial.name && (
+                        <h3 className="mb-1.5 text-black font-semibold text-lg">
+                          {testimonial.name}
+                        </h3>
+                      )}
+                      {testimonial.designation && (
+                        <p className="text-gray-600 font-medium text-base">
+                          {testimonial.designation}
+                        </p>
+                      )}
                     </div>
-                    {testimonial?.description ? (
-                      <p className="text-base font-normal text-bullt-primary">
-                        {testimonial?.description}
-                      </p>
-                    ) : null}
+
+                    {testimonial.image && (
+                      <div className="relative w-[60px] h-[60px]">
+                        <Image
+                          fill
+                          className="rounded-full object-cover"
+                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial.image}`}
+                          alt={testimonial.name || "Testimonial"}
+                          onError={(e) => {
+                            e.currentTarget.src = "/placeholder.svg";
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
+                  {testimonial.description && (
+                    <p className="text-base font-normal text-bullt-primary">
+                      {testimonial.description}
+                    </p>
+                  )}
                 </div>
-              )
-            )}
-          </Slider>
-        ) : null}
+              </div>
+            )
+          )}
+        </Slider>
       </div>
     </div>
   );

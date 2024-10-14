@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import SloganHeadingComponent from "@/components/CommonComponents/HeadingComponents/SloganHeadingComponent";
-import { trustedComponies } from "@/apis/HomePageApis";
 import MainHeadingComponent from "@/components/CommonComponents/HeadingComponents/MainHeadingComponent";
 type Props = {
   Logos: any;
@@ -12,9 +10,9 @@ const CustomerLogosComponent = async ({ Logos }: Props) => {
       <div className="max-w-7xl mx-auto sm:py-10 py-6 px-4">
         <div className="flex flex-col sm:justify-center sm:items-center items-start">
           {Logos?.heading ? (
-            <SloganHeadingComponent alignmentType={2} paddingTop={1}>
+            <div className="lg:text-4xl text-2xl font-semibold text-bullt-primary">
               {Logos?.heading}
-            </SloganHeadingComponent>
+            </div>
           ) : null}
           {Logos?.description ? (
             <MainHeadingComponent alignmentType={2} paddingTop={1}>

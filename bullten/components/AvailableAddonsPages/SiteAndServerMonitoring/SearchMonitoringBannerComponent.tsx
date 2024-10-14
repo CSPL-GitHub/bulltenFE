@@ -28,15 +28,15 @@ export default function SearchMonitoringBannerComponent({ BannerData }: any) {
     <section
       className={`mx-auto w-full bg-gradient-to-br from-bullt-tertiary/[0.07] via-white to-bullt-quaternary/[0.1] overflow-hidden ${
         BannerData?.tabs[0]?.Search === true
-          ? "md:h-[500px]  h-[700px]"
-          : "md:h-[500px] h-[500px]"
+          ? "lg:h-[500px] md:h-[400px] h-[700px]"
+          : "lg:h-[500px] md:h-[300px] h-[500px]"
       } `}
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:py-6 py-8 lg:px-0 px-4">
           <div className="flex flex-col justify-center space-y-8">
             {BannerData?.tabs[0]?.Sub_heading && (
-              <h1 className="lg:text-left text-center text-5xl font-bold text-bullt-quaternary sm:text-6xl md:text-6xl leading-[5rem]">
+              <h1 className="lg:text-left text-center text-5xl font-bold text-bullt-quaternary sm:text-6xl md:text-6xl leading-[3rem]">
                 {BannerData?.tabs[0]?.Sub_heading}
               </h1>
             )}

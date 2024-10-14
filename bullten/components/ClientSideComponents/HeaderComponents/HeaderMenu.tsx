@@ -32,6 +32,9 @@ const HeaderMenu = ({ headerResponse, headerCurrency }: Props) => {
   const [currencies, setCurrencies] = useState<any>(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+
+  console.log(currencies, "currencies");
+  console.log(defaultCurrency, "defaultCurrency");
   // Throttling the scroll event handler
   const handleScroll = useCallback(
     throttle(() => {

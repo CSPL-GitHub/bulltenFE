@@ -10,7 +10,7 @@ const AdvantagesLeftRightImageTextComponent = ({ AdvantagesData }: Props) => {
   return (
     <div className="bg-bullt-quaternary/[0.02] container mx-auto mt-6 py-4 lg:py-8 px-4 lg:px-0 space-y-8">
       <div className="max-w-7xl mx-auto ">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center lg:pt-0 pt-8">
           {AdvantagesData?.heading ? (
             <div
               className="w-full text-center sm:text-4xl text-2xl font-semibold"
