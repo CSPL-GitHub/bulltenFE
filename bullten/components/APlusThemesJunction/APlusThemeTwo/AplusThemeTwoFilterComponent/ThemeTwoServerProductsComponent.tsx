@@ -107,6 +107,7 @@ const ThemeTwoServerProductsComponent = ({ ProductsData }: Props) => {
                         <div className="flex">
                           <p>{price?.icon}</p>
                           <p>{price?.price}</p>
+                          <p>{price?.country}</p>
                         </div>
                       </div>
                     ))}

@@ -85,13 +85,17 @@ const WindowsVpsHostingAPlusComponent: React.FC<Props> = ({
             ))}
           </div>
 
-          <div className="flex items-center px-4">
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${LinuxVpsAccordionData?.image}`}
-              alt="Accordion"
-              className="w-full h-[300px] lg:h-[500px] object-contain rounded-xl"
-            />
-          </div>
+          {LinuxVpsAccordionData?.image && (
+            <div className="relative flex items-center  w-full h-[300px] lg:h-[500px]">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${LinuxVpsAccordionData?.image}`}
+                alt="Accordion"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className=" object-contain rounded-xl px-4"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import UseCasesBannerComponent from "./UseCasesBannerComponent";
 import ImageTextMultipleBoxesComponent from "./ImageTextMultipleBoxesComponent";

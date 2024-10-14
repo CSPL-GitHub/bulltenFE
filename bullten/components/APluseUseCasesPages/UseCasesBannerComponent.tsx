@@ -41,11 +41,13 @@ const UseCasesBannerComponent = ({ bannerData }: Props) => {
               ) : null}
             </div>
             {bannerData?.image ? (
-              <div className="lg:w-2/5 relative md:block hidden">
-                <img
+              <div className=" lg:w-2/5 w-full h-[300px] lg:h-[450px] relative md:block hidden">
+                <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${bannerData?.image}`}
                   alt={bannerData?.heading}
-                  className="w-full h-[300px] lg:h-[450px] object-contain rounded-xl"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className=" object-contain rounded-xl"
                 />
               </div>
             ) : null}
