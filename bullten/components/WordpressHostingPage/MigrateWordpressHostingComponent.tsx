@@ -10,7 +10,7 @@ const MigrateWordpressHostingComponent = ({ AboutData }: Props) => {
         <div className=" flex lg:flex-row flex-col lg:gap-4 gap-2 items-start justify-between">
           <div className="relative lg:w-[50%] w-full flex flex-col items-center justify-center text-center text-2xl sm:text-4xl font-bold py-2">
             <div className="absolute ">
-              <img
+              <Image
                 src="/icon-lines-6.81833a8f.png"
                 alt="Heading Image"
                 width={400}
@@ -20,9 +20,11 @@ const MigrateWordpressHostingComponent = ({ AboutData }: Props) => {
             </div>
             {AboutData?.image ? (
               <div className="relative w-[400px] h-[250px] lg:w-full lg:h-full rounded-sm overflow-hidden lg:px-4 px-0">
-                <img
+                <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.image}`}
                   alt={AboutData?.heading}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="rounded-lg w-full h-full object-contain"
                 />
               </div>

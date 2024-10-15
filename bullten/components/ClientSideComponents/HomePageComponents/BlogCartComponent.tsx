@@ -80,11 +80,15 @@ const BlogCartComponent: React.FC<Props> = ({ blogResponse }) => {
             <div key={blog?.id} className="px-10 sm:px-3 lg:px-4 py-4 lg:py-0 ">
               <div className="relative flex flex-col w-full h-[370px] overflow-hidden rounded-lg shadow-lg group">
                 <div className="h-[70%] ">
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${blog?.img}`}
-                    alt="Blog Image"
-                    className="w-full h-[220px] object-cover transition-transform duration-500 "
-                  />{" "}
+                  {blog?.img && (
+                    <div className="w-full h-[220px] relative">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${blog?.img}`}
+                        alt="Blog Image"
+                        className=" object-cover transition-transform duration-500 "
+                      />
+                    </div>
+                  )}
                   <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
                   {blog?.date && (
                     <div className="absolute top-0 right-0 p-2  bg-bullt-tertiary text-white rounded-bl-lg">

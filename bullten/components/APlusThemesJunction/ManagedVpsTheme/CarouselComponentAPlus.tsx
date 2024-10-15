@@ -53,18 +53,15 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                   >
                     <div className="mx-3 transform transition-transform duration-300  before:transition-all before:duration-500">
                       {item?.image ? (
-                        <>
-                          <div className="w-full h-[80px] flex items-center">
-                            <img
-                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                              alt={item?.heading}
-                              style={{
-                                objectFit: "contain",
-                              }}
-                              className="max-w-[100%] max-h-[100%] h-[250px] rounded-md"
-                            />
-                          </div>
-                        </>
+                        <div className="relative w-full max-w-[100%] max-h-[100%] h-[250px] flex items-center">
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                            alt={item?.heading}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className=" rounded-md object-contain"
+                          />
+                        </div>
                       ) : null}
                       {item?.heading || item?.description ? (
                         <div className="bg-opacity-60 py-4 flex flex-col gap-3 items-start">

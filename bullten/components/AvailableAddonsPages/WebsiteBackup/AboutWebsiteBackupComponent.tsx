@@ -16,15 +16,7 @@ const AboutWebsiteBackupComponent = ({ AboutData }: Props) => {
               }}
             />
           ) : null}
-          {/* <div className="absolute ">
-            <img
-              src="/hero-1-circle-right.png"
-              alt="Heading Image"
-              width={400}
-              height={400}
-              className="custom-bounce "
-            />
-          </div> */}
+
           {AboutData[0]?.image && (
             <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden z-0 shadow-md">
               <Image

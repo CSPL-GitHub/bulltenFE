@@ -44,12 +44,17 @@ export default function MapDataCenters() {
     <div className="relative w-full px-4 lg:px-8 py-8 lg:py-12 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-center gap-8">
         <div className="lg:w-2/5 w-full space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center lg:text-left text-gray-800">
-            {coordinates.map_data.heading}
-          </h2>
-          <p className="text-lg text-center lg:text-left text-gray-600">
-            {coordinates.map_data.description}
-          </p>
+          {coordinates.map_data.heading && (
+            <h2 className="text-3xl sm:text-4xl font-bold text-center lg:text-left text-gray-800">
+              {coordinates.map_data.heading}
+            </h2>
+          )}
+          {coordinates.map_data.description && (
+            <p className="text-lg text-center lg:text-left text-gray-600">
+              {coordinates.map_data.description}
+            </p>
+          )}
+
           <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             {coordinates.map_data.button_1 && (
               <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
@@ -179,14 +184,16 @@ export default function MapDataCenters() {
                         className="shadow-md"
                       />
                       <foreignObject x={-140} y={-55} width={100} height={45}>
-                        <div className="flex items-center justify-center space-x-2">
-                          <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
-                            alt={marker.name}
-                            width={20}
-                            height={20}
-                            className="rounded-full"
-                          />
+                        <div className="flex items-center justify-center gap-1 ">
+                          <div className="w-6 h-6 rounded-full relative">
+                            <Image
+                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
+                              alt={marker.name}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="rounded-full object-contain"
+                            />
+                          </div>
                           <span className="text-xs font-medium text-bullt-secondary">
                             {marker.name}
                           </span>

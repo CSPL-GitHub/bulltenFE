@@ -27,7 +27,7 @@ const SiteAndServerAboutComponent = ({ AboutData }: Props) => {
         <div className=" flex lg:flex-row flex-col lg:gap-4 gap-2 items-start justify-between">
           <div className="relative lg:w-[60%] w-full flex flex-col items-center justify-center text-center text-2xl sm:text-4xl font-bold py-2">
             <div className="absolute ">
-              <img
+              <Image
                 src="/icon-lines-6.81833a8f.png"
                 alt="Heading Image"
                 width={400}

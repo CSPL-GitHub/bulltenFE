@@ -1,12 +1,10 @@
 import React from "react";
 
-type Props = {};
-
-const LoaderComponent = (props: Props) => {
+const LoaderComponent = () => {
   return (
-    /* From Uiverse.io by Nawsome */
-    <div className="w-[10%] mx-auto py-[150px] spinner"></div>
-    // <span class="loader"></span>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+      <div className="w-[10%] mx-auto py-[150px] spinner"></div>
+    </div>
   );
 };
 

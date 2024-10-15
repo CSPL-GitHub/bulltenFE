@@ -37,18 +37,6 @@ export default function ProfessionalEMailBannerComponent({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             />
-            {/* <motion.div
-              className="relative bg-white p-8 rounded-3xl shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${BannerContent?.img}`}
-                alt={BannerContent?.heading}
-                className="w-full h-[300px] lg:h-[350px] object-contain rounded-xl"
-              />
-            </motion.div> */}
 
             {BannerContent?.img && (
               <motion.div

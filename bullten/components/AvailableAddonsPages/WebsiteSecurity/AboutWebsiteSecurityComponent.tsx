@@ -17,7 +17,7 @@ const AboutWebsiteSecurityComponent = ({ AboutData }: Props) => {
             />
           ) : null}
           <div className="absolute ">
-            <img
+            <Image
               src="/icon-lines-6.81833a8f.png"
               alt="Heading Image"
               width={400}

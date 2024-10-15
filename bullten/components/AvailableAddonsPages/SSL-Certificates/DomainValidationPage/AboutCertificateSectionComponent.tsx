@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 type Props = { AboutData: any };
 
@@ -25,6 +25,16 @@ export default function AboutCertificateSectionComponent({ AboutData }: Props) {
             </div>
           </div>
 
+          {/* <div className="lg:w-1/2 w-full relative">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}${AboutData?.about_page_data[0]?.img}`}
+              alt={AboutData?.about_page_data[0]?.heading}
+              className="rounded-2xl shadow-xl "
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div> */}
+
           <div className="lg:w-1/2 flex flex-col gap-3">
             {AboutData?.about_page_data[0]?.heading ? (
               <h3 className="text-2xl lg:text-4xl font-bold text-gray-800 leading-tight">
@@ -46,10 +56,18 @@ export default function AboutCertificateSectionComponent({ AboutData }: Props) {
                       key={index}
                       className="bg-bullt-quaternary/[0.02] border border-gray-200 flex flex-col gap-3 justify-center items-center p-3 rounded-xl shadow-sm  hover:shadow-xl transition-shadow duration-300"
                     >
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.icon}`}
-                        className="w-10 h-10 text-bullt-quaternary "
-                      />
+                      {feature?.icon && (
+                        <div className="w-10 h-10 relative">
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.icon}`}
+                            className=" text-bullt-quaternary"
+                            alt={feature?.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </div>
+                      )}
+
                       <h4 className="text-md font-medium text-gray-800">
                         {feature?.title}
                       </h4>

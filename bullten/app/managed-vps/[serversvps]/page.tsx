@@ -13,7 +13,6 @@ const page = ({
   const [ManagedDataResponse, setManagedDataResponse] = useState<any>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  console.log(ManagedDataResponse, "ManAgentHosting");
   const currencyCode = useSelector((state: any) => state.currency);
   useEffect(() => {
     const fetchPlans = async () => {

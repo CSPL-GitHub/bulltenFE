@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
@@ -118,11 +119,8 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                       {plan?.buttonText}
                     </p>
                   </Link>
-
-
                 </div>
               )}
-
             </div>
 
             {expandedPlan === plan.name && (
@@ -148,11 +146,17 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                   <div className="flex space-x-2">
                     {plan.server_locations.map((location: any, i: number) => (
                       <span key={i}>
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${location?.location_flag}`}
-                          alt={location.alt_text || "Flag"}
-                          className="w-6 h-4"
-                        />
+                        {location?.location_flag && (
+                          <div className="w-6 h-4 relative">
+                            <Image
+                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${location?.location_flag}`}
+                              alt={location.alt_text}
+                              className=""
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
+                          </div>
+                        )}
                       </span>
                     ))}
                   </div>

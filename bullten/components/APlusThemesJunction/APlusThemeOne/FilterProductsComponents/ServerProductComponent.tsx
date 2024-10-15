@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
@@ -94,11 +95,6 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                 <div className="flex flex-col items-start gap-1">
                   <span className="text-md font-semibold">Starting at</span>
                   <div className="flex gap-1 items-center">
-                    {/* <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${currencyCode?.code?.icon}`}
-                        alt={currencyCode?.code?.currency_name}
-                        className="w-4 h-4"
-                      /> */}
                     {plan?.server_price?.map((price: any, index: any) => (
                       <div
                         className="text-bullt-quaternary font-semibold text-md"
@@ -155,11 +151,17 @@ const ServerProductsComponent = ({ ProductsData }: Props) => {
                   <div className="flex space-x-2">
                     {plan.server_locations.map((location: any, i: number) => (
                       <span key={i}>
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${location?.location_flag}`}
-                          alt={location.alt_text || "Flag"}
-                          className="w-6 h-4"
-                        />
+                        {location?.location_flag && (
+                          <div className="w-6 h-4 relative">
+                            <Image
+                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${location?.location_flag}`}
+                              alt={location?.alt_text}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="object-contain"
+                            />
+                          </div>
+                        )}
                       </span>
                     ))}
                   </div>

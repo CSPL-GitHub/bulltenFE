@@ -34,12 +34,14 @@ const NordVpnAdvantagesComponent = ({ AdvantagesData }: Props) => {
                 index % 2 === 0 ? "md:flex-row-reverse" : ""
               }`}
             >
-              <div className="w-full md:[50%] lg:px-0 px-4">
+              <div className="md:[50%] lg:px-0 px-4 w-full h-[300px] lg:h-[400px] relative">
                 {section?.img && (
-                  <img
+                  <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.img}`}
                     alt={section?.heading}
-                    className="w-full h-[300px] lg:h-[400px] lg:object-contain object-cover rounded-xl"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className=" lg:object-contain object-cover rounded-xl"
                   />
                 )}
               </div>

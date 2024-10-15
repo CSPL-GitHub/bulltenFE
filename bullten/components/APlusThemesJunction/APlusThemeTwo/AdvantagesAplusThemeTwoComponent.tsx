@@ -31,13 +31,18 @@ const AdvantagesAplusThemeTwoComponent = ({ AdvantagesData }: any) => {
             index % 2 === 0 ? "md:flex-row-reverse" : ""
           }`}
         >
-          <div className="w-full md:[50%]">
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
-              alt={section?.heading}
-              className="w-full h-[250px] lg:h-[350px] object-cover object-left rounded-xl"
-            />
-          </div>
+          {section?.image && (
+            <div className="relative w-full h-[250px] lg:h-[350px] md:[50%]">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
+                alt={section?.heading}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-left rounded-xl"
+              />
+            </div>
+          )}
+
           <div className="w-full md:[50%] md:px-16 lg:mt-0 mt-4 px-0">
             <div className="" />
             {section?.heading ? (

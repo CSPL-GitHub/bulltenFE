@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
 import { WordpressHostingProductsApi } from "@/apis/WordpressHostingPageAPIs";
 import { TiTick } from "react-icons/ti";
-
 import { RxCrossCircled } from "react-icons/rx";
 import LoaderComponent from "../CommonComponents/LoaderComponent/LoaderComponent";
 type Props = {

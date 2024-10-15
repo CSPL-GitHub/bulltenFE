@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 interface Price {
   country_price: string;
   location_center: string;
@@ -8,7 +10,7 @@ interface Price {
 interface Plan {
   title: boolean;
   plans: string;
-  month: string;
+  year: string;
   button_text: string;
   button_link: string;
   price: Price[];
@@ -48,7 +50,21 @@ interface Props {
 
 const ProductCompairComponent: React.FC<Props> = ({ Data }) => {
   const plansData = Data?.content[0];
+  const [selectedPeriods, setSelectedPeriods] = useState<{
+    [key: number]: string;
+  }>({});
 
+  const currencyCode = useSelector((state: any) => state.currency);
+
+  const handlePeriodChange = (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    planIndex: number
+  ) => {
+    setSelectedPeriods((prevState) => ({
+      ...prevState,
+      [planIndex]: e.target.value,
+    }));
+  };
   return (
     <div
       className="container mx-auto py-5 px-4"
@@ -82,19 +98,38 @@ const ProductCompairComponent: React.FC<Props> = ({ Data }) => {
                   <div className="sm:text-xl text-lg font-semibold">
                     {plan.plans}
                   </div>
-                  {plan?.price.map((SinglePrice: any, index: number) => (
-                    <>
-                      <div className="flex gap-1 justify-center items-center sm:text-xl text-lg font-bold text-bullt-quaternary">
-                        <p>{SinglePrice?.country_price}</p>
-                        <p>{SinglePrice?.location_center}</p>
-                      </div>
-                    </>
-                  ))}
 
-                  <div className="text-lg">{plan.month}</div>
-                  <button className="mt-4 bg-bullt-tertiary text-white py-2 border-[1px] px-3 rounded hover:bg-bullt-secondary hover:text-bullt-tertiary">
-                    {plan.button_text}
-                  </button>
+                  <div className="flex gap-1 justify-center items-center">
+                    <select
+                      value={selectedPeriods[index]}
+                      onChange={(e) => handlePeriodChange(e, index)}
+                      className="border border-gray-300 rounded px-2 py-1 text-bullt-primary"
+                    >
+                      {plan?.price?.map((pricingPeriod: any, idx: number) => (
+                        <option key={idx} value={pricingPeriod.period}>
+                          {pricingPeriod?.year} - {pricingPeriod?.icon}
+                          {pricingPeriod?.country_price}
+                          {pricingPeriod?.location_center}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="flex justify-center items-center">
+                    {selectedPeriods[index] ? (
+                      <span className="text-sm font-semibold text-bullt-primary">
+                        {selectedPeriods[index]}
+                      </span>
+                    ) : null}
+                  </div>
+
+                  {plan.button_text && plan.button_link && (
+                    <Link href={plan.button_link}>
+                      <button className="mt-4 bg-bullt-tertiary text-white py-2 border-[1px] px-3 rounded hover:bg-bullt-secondary hover:text-bullt-tertiary">
+                        {plan.button_text}
+                      </button>
+                    </Link>
+                  )}
                 </th>
               ))}
             </tr>

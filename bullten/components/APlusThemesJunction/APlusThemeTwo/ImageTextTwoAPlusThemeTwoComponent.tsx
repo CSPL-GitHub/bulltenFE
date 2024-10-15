@@ -72,18 +72,21 @@ const ImageTextTwoAPlusThemeTwoComponent: React.FC<Props> = ({
                 </div>
               ) : null}
 
-              <div className="w-full lg:w-2/4 relative md:h-[400px] h-[300px] flex px-0 lg:px-14">
-                <div className=" absolute left-[550px] right-0 top-[100px] ">
-                  <img src="/shape-17.png" />
-                </div>
+              {imageTextData?.image && (
+                <div className="w-full lg:w-2/4 relative md:h-[400px] h-[300px] flex px-0 lg:px-14">
+                  <div className=" absolute left-[550px] right-0 top-[100px] ">
+                    <img src="/shape-17.png" />
+                  </div>
 
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
-                  alt={imageTextData?.heading}
-                  className="rounded-md w-full h-full md:object-contain object-contain"
-                  style={{ height: "100%" }}
-                />
-              </div>
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
+                    alt={imageTextData?.heading}
+                    className="rounded-md w-full h-full md:object-contain object-contain"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              )}
             </div>
           </>
         ) : null}

@@ -126,12 +126,13 @@ const APlusThemeTwoBannerComponent: React.FC<Props> = ({ GamebannerData }) => {
         <SliderFrame settings={settings} selector={undefined}>
           {GamebannerData?.content?.map((item: any, index: number) => (
             <div className="px-2" key={index}>
-              <div className="lg:h-[500px] h-[400px] flex justify-center items-center rounded-md overflow-hidden">
-                <img
+              <div className="relative lg:h-[500px] h-[400px] flex justify-center items-center rounded-md overflow-hidden">
+                <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.game_image}`}
                   alt={item.alt}
-                  style={{ objectFit: "contain" }}
-                  className="w-full h-full"
+                  className="w-full h-full object-contain"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             </div>

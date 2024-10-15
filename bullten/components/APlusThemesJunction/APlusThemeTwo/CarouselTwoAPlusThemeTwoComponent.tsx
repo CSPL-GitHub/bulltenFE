@@ -196,11 +196,13 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
             <CardWithEffect key={index}>
               <div className="flex flex-col justify-center gap-4 px-4 min-h-[300px]">
                 {item?.image && (
-                  <div className="relative bg-black border-2 border-white/70 rounded-2xl flex items-center justify-center w-16 h-16 p-4 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2]">
-                    <img
+                  <div className="relative bg-black border-2 border-white/70 rounded-2xl flex items-center justify-center w-16 h-16 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2]">
+                    <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                      alt="Logo"
-                      className="filter invert brightness-0"
+                      alt={item?.heading}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="filter invert brightness-0 p-4"
                     />
                     <motion.div
                       className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
