@@ -69,31 +69,13 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                   </div>
                 </div>
 
-                <div className="relative  w-full lg:w-2/4 lg:h-[400px] lg:block hidden">
-                  {/* <div className="absolute right-0 top-0">
-                    <Image
-                      src="/services-round.png"
-                      alt="Heading Image"
-                      width={200}
-                      height={200}
-                    />
-                  </div> */}
-                  {/* <Image
+                <div className="relative w-full lg:w-2/4 lg:h-[400px] lg:block hidden">
+                  <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
                     alt={imageTextData?.heading}
-                    style={{
-                      position: "absolute",
-                      objectFit: "cover",
-                      inset: 0,
-                    }}
-                    fill={true}
-                    className="rounded-xl h-full w-[400px]"
-                  /> */}
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
-                    alt={imageTextData?.heading}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="rounded-md w-full h-full object-contain"
-                    style={{ height: "100%" }}
                   />
                 </div>
               </div>
@@ -119,7 +101,6 @@ const ImageTextTwoManagedHostingAPlusComponent: React.FC<Props> = ({
                 </div>
                 {imageTextData?.heading || imageTextData?.description ? (
                   <div className="relative lg:w-2/4 w-full h-auto flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4">
-                    {/* bg-cover bg-no-repeat bg-[url('/testi-bg-1.png')] */}
                     <div className="absolute right-0 top-0">
                       <Image
                         src="/testi-bg-1.png"

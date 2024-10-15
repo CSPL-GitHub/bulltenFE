@@ -5,42 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 type Props = { FaqData: any };
 
-const DataContent = {
-  faq: [
-    {
-      faq: {
-        faq_heading: "Frequently Asked Questions",
-        faq_description:
-          "Here are some of the most frequently asked questions by our users.",
-        faq_data: [
-          {
-            heading: "What is Xovi Now?",
-            description:
-              "Xovi Now is an all-in-one SEO tool that helps you monitor, analyze, and improve your website's ranking and performance.",
-          },
-          {
-            heading: "How do I use Xovi Now?",
-            description:
-              "You can start using Xovi Now by creating an account, adding your website, and following the step-by-step SEO audit to optimize your site.",
-          },
-          {
-            heading: "Is there a free trial available?",
-            description:
-              "Yes, we offer a 14-day free trial so that you can explore all the features and see how Xovi Now can help your website grow.",
-          },
-          {
-            heading: "Can I cancel my subscription anytime?",
-            description:
-              "Absolutely! You can cancel your subscription at any time without any additional fees or obligations.",
-          },
-        ],
-      },
-    },
-  ],
-};
-
 const WebsiteBackupStorageFaqComponent = ({ FaqData }: Props) => {
-  console.log(FaqData?.FAQ[0], "FaqData");
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -72,12 +37,12 @@ const WebsiteBackupStorageFaqComponent = ({ FaqData }: Props) => {
               ></div>
             </>
           ) : null}
-          {DataContent?.faq[0]?.faq?.faq_description ? (
+          {FaqData?.FAQ[0]?.faq_description ? (
             <>
               <div
                 className="items-start tailwind-unrested py-3 text-xl  text-bullt-primary/[0.8]"
                 dangerouslySetInnerHTML={{
-                  __html: DataContent?.faq[0]?.faq?.faq_description,
+                  __html: FaqData?.FAQ[0]?.faq?.faq_description,
                 }}
               ></div>
             </>

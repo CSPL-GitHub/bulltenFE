@@ -108,17 +108,10 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
                                     key={idx}
                                     value={pricingPeriod.period}
                                   >
-                                    {pricingPeriod.period} -{" "}
-                                    {pricingPeriod.pricing[0]?.country ===
-                                    "eur" ? (
-                                      <span>€</span>
-                                    ) : pricingPeriod.pricing[0]?.country ===
-                                      "usd" ? (
-                                      <span>$</span>
-                                    ) : (
-                                      <span>₹</span>
-                                    )}
+                                    {pricingPeriod.period} -
+                                    {pricingPeriod.pricing[0]?.icon}
                                     {pricingPeriod.pricing[0]?.price}
+                                    {pricingPeriod.pricing[0]?.country}
                                   </option>
                                 )
                               )}
@@ -137,21 +130,16 @@ const WebsiteSecurityProductsComponent = ({ decodedSlug }: Props) => {
                                   className="text-bullt-primary font-semibold text-lg"
                                   key={idx}
                                 >
-                                  {pricingPeriod.pricing[0]?.country ===
-                                  "eur" ? (
-                                    <span>€</span>
-                                  ) : pricingPeriod.pricing[0]?.country ===
-                                    "usd" ? (
-                                    <span>$</span>
-                                  ) : (
-                                    <span>₹</span>
-                                  )}
+                                  {pricingPeriod.pricing[0]?.icon}
                                   {pricingPeriod.pricing[0]?.price}
+                                  {pricingPeriod.pricing[0]?.country}
                                 </div>
                               ))}
-                            <span className="text-sm font-semibold text-bullt-primary">
-                              /{selectedPeriods[index]}
-                            </span>
+                            {selectedPeriods[index] ? (
+                              <span className="text-sm font-semibold text-bullt-primary">
+                                /{selectedPeriods[index]}
+                              </span>
+                            ) : null}
                           </div>
 
                           {plan?.button_text && (

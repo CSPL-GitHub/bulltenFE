@@ -14,7 +14,7 @@ const AboutSslSection = ({ DataContent }: Props) => {
               }}
             />
           ) : null}
-          <div className="absolute ">
+          {/* <div className="absolute ">
             <img
               src="/hero-1-circle-right.png"
               alt="Heading Image"
@@ -22,7 +22,7 @@ const AboutSslSection = ({ DataContent }: Props) => {
               height={400}
               className="custom-bounce "
             />
-          </div>
+          </div> */}
           <div className="relative w-[400px] h-[250px] lg:w-full lg:h-[400px] rounded-sm overflow-hidden z-0 shadow-md">
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_URL}${DataContent?.overview_page[0]?.img}`}

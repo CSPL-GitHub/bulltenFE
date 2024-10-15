@@ -93,7 +93,6 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
         <SliderFrame settings={settings} selector={undefined}>
           {carouselData?.content?.map((item: any, index: number) => (
             <div className="px-2" key={index}>
-              
               <div
                 key={index}
                 className="flex flex-col justify-center items-center bg-white hover:border-b-bullt-quaternary hover:border-b-4 hover:shadow-lg shadow-sm mb-3 border-[1px] border-b-4 border-b-white rounded-md overflow-hidden"
@@ -107,16 +106,17 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                     }}
                   >
                     <div className="flex flex-col justify-center items-start w-full gap-2 px-4 ">
-                      <div className=" flex items-start justify-start transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                          alt={item?.heading}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                          className="w-[80px] h-[80px] rounded-md"
-                        />
-                      </div>
+                      {item?.image && (
+                        <div className="relative flex items-start justify-start transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[80px] h-[80px]">
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                            alt={item?.heading}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-cover rounded-md"
+                          />
+                        </div>
+                      )}
 
                       <div className="lex flex-col justify-center items-start w-full">
                         <div

@@ -68,9 +68,11 @@ const ImageSliderComponent = ({ SliderContent }: Props) => {
   return (
     <div className="max-w-7xl mx-auto lg:py-16 py-6">
       <div>
-        <h1 className="text-2xl text-center lg:text-4xl font-bold text-gray-800 animate-fade-in-up">
-          {SliderContent?.banner_data[0]?.heading}
-        </h1>
+        {SliderContent?.banner_data[0]?.heading && (
+          <h1 className="text-2xl text-center lg:text-4xl font-bold text-gray-800 animate-fade-in-up">
+            {SliderContent?.banner_data[0]?.heading}
+          </h1>
+        )}
       </div>
       <div className="flex flex-col lg:flex-row md:gap-0 gap-8">
         <div className="lg:w-1/2 p-4">
@@ -95,15 +97,20 @@ const ImageSliderComponent = ({ SliderContent }: Props) => {
           </Slider>
         </div>
         <div className="lg:w-1/2 p-4 flex flex-col justify-center">
-          <h1 className="text-2xl md:text-left text-center lg:text-4xl font-bold mb-6 text-gray-800 animate-fade-in-up">
-            {SliderContent?.banner_data[0]?.description}
-          </h1>
+          {SliderContent?.banner_data[0]?.description && (
+            <h1 className="text-2xl md:text-left text-center lg:text-4xl font-bold mb-6 text-gray-800 animate-fade-in-up">
+              {SliderContent?.banner_data[0]?.description}
+            </h1>
+          )}
+
           {SliderContent?.fingertips[0]?.fingertips_data.map(
             (text: any, index: number) => (
               <div key={index} className="flex flex-col gap-3">
-                <p className="text-lg mb-6 text-gray-600 animate-fade-in-up animation-delay-300">
-                  {text?.description}
-                </p>
+                {text?.description && (
+                  <p className="text-lg mb-6 text-gray-600 animate-fade-in-up animation-delay-300">
+                    {text?.description}
+                  </p>
+                )}
               </div>
             )
           )}

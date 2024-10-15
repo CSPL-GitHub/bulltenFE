@@ -1,10 +1,13 @@
 //
 import { apiCore } from "./APICore";
 
-export const WebsiteSecurityPageApi = async (decodedSlug: string) => {
+export const WebsiteSecurityPageApi = async (
+  currencySlug: string,
+  decodedSlug: string
+) => {
   const response = await apiCore(
     "/api/website_security_data",
-    { slug: decodedSlug },
+    { currency: currencySlug, slug: decodedSlug },
     "POST"
   );
   return response;

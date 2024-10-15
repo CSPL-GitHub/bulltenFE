@@ -58,9 +58,12 @@ export default function SeoToolsTestimonialsComponent({
   return (
     <div className="px-4 lg:py-16 py-6 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="max-w-7xl mx-auto">
-        <h2 className="lg:text-4xl text-2xl font-bold text-center lg:mb-12 mb-4 text-primary">
-          {TestimonialsData[0]?.testimonial[0].heading}
-        </h2>
+        {TestimonialsData[0]?.testimonial[0].heading && (
+          <h2 className="lg:text-4xl text-2xl font-bold text-center lg:mb-12 mb-4 text-primary">
+            {TestimonialsData[0]?.testimonial[0].heading}
+          </h2>
+        )}
+
         <Slider {...settings} className="testimonial-slider">
           {TestimonialsData[0]?.testimonial[0]?.testimonial_data?.map(
             (testimonial: Testimonial, index: number) => (
@@ -68,35 +71,36 @@ export default function SeoToolsTestimonialsComponent({
                 <div className="bg-bullt-text-primary/[0.08] rounded-md lg:h-[300px] h-[350px] shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   <div className="p-8">
                     <div className="flex items-center mb-6">
-                      <div className="relative w-16 h-16 mr-4">
-                        <Image
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial.img}`}
-                          alt={testimonial.name}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-full"
-                        />
-                      </div>
+                      {testimonial.img && (
+                        <div className="relative w-16 h-16 mr-4">
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${testimonial.img}`}
+                            alt={testimonial.name}
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-full"
+                          />
+                        </div>
+                      )}
+
                       <div>
-                        <div className="font-bold text-xl text-primary">
-                          {testimonial.name}
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          {testimonial.position}
-                        </div>
+                        {testimonial.name && (
+                          <div className="font-bold text-xl text-primary">
+                            {testimonial.name}
+                          </div>
+                        )}
+                        {testimonial.position && (
+                          <div className="text-sm text-gray-600">
+                            {testimonial.position}
+                          </div>
+                        )}
                       </div>
                     </div>
-                    <div className="text-gray-700 text-lg mb-6 italic">
-                      &ldquo;{testimonial.description}&rdquo;
-                    </div>
-                    {/* <div className="flex justify-end">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 text-yellow-400 fill-current"
-                        />
-                      ))}
-                    </div> */}
+                    {testimonial.description && (
+                      <div className="text-gray-700 text-lg mb-6 italic">
+                        &ldquo;{testimonial.description}&rdquo;
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

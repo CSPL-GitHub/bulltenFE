@@ -105,16 +105,17 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                   }}
                 >
                   <div className="flex flex-row justify-center items-start w-full gap-2">
-                    <div className=" flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[20%]">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                        alt={item?.heading}
-                        style={{
-                          objectFit: "contain",
-                        }}
-                        className="w-[60px] h-[60px] "
-                      />
-                    </div>
+                    {item?.image && (
+                      <div className="relative  h-[60px]  flex items-start justify-center transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[20%]">
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                          alt={item?.heading}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
 
                     <div className="w-[80%]">
                       {item?.heading ? (

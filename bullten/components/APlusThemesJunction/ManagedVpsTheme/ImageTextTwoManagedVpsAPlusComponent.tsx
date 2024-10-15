@@ -89,7 +89,6 @@ const ImageTextTwoManagedVpsAPlusComponent: React.FC<Props> = ({
               </div>
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="relative lg:w-2/4 w-full h-auto flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4">
-                  {/* bg-cover bg-no-repeat bg-[url('/testi-bg-1.png')] */}
                   <div className="absolute right-0 top-0">
                     <Image
                       src="/testi-bg-1.png"

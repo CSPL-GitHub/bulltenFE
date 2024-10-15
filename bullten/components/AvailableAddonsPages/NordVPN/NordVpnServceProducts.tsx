@@ -78,19 +78,16 @@ const NordVpnProductsComponent = ({ decodedSlug }: Props) => {
                                 className="text-bullt-primary font-semibold text-lg"
                                 key={idx}
                               >
-                                {price?.country === "eur" ? (
-                                  <span>€</span>
-                                ) : price?.country === "usd" ? (
-                                  <span>$</span>
-                                ) : (
-                                  <span>₹</span>
-                                )}
+                                {price?.icon}
                                 {price?.price}
+                                {price?.country}
                               </div>
                             ))}
-                            <span className="text-sm font-semibold text-bullt-primary">
-                              /{plan?.product_Time}
-                            </span>
+                            {plan?.product_Time && (
+                              <span className="text-sm font-semibold text-bullt-primary">
+                                /{plan?.product_Time}
+                              </span>
+                            )}
                           </div>
                           {plan?.button_text && (
                             <div className="w-full flex justify-center ">

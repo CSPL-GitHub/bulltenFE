@@ -1,5 +1,6 @@
 "use client";
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
+import Image from "next/image";
 import React from "react";
 
 import { useState, useEffect } from "react";
@@ -106,30 +107,35 @@ const CarouselTwoAPlusComponent: React.FC<Props> = ({ carouselData }) => {
                     }}
                   >
                     <div className="flex flex-col justify-center items-start w-full gap-2 px-4 ">
-                      <div className=" flex items-start justify-start transition-transform duration-300 ease-in-out hover:scale-x-[-1]">
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                          alt={item?.heading}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                          className="w-[80px] h-[80px] rounded-md"
-                        />
-                      </div>
+                      {item?.image && (
+                        <div className=" flex items-start justify-start transition-transform duration-300 ease-in-out hover:scale-x-[-1] w-[80px] h-[80px]">
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                            alt={item?.heading}
+                            className=" rounded-md"
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </div>
+                      )}
 
                       <div className="lex flex-col justify-center items-start w-full">
-                        <div
-                          className="w-full text-xl items-start font-normal tailwind-unreset py-2 "
-                          dangerouslySetInnerHTML={{
-                            __html: item?.heading,
-                          }}
-                        />
-                        <div
-                          className="w-full tailwind-unreset text-md text-bullt-primary/[0.8] "
-                          dangerouslySetInnerHTML={{
-                            __html: item?.description,
-                          }}
-                        />
+                        {item?.heading && (
+                          <div
+                            className="w-full text-xl items-start font-normal tailwind-unreset py-2 "
+                            dangerouslySetInnerHTML={{
+                              __html: item?.heading,
+                            }}
+                          />
+                        )}
+                        {item?.description && (
+                          <div
+                            className="w-full tailwind-unreset text-md text-bullt-primary/[0.8] "
+                            dangerouslySetInnerHTML={{
+                              __html: item?.description,
+                            }}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

@@ -70,47 +70,56 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
                 </div>
               ) : null}
 
-              <div className="w-full lg:w-2/4 relative  h-[400px] flex px-0 lg:px-14">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
-                  alt={imageTextData?.heading}
-                  className="rounded-md w-full h-full object-cover"
-                  style={{ height: "100%" }}
-                />
+              {imageTextData?.image && (
+                <div className="w-full lg:w-2/4 relative h-[400px] flex px-0 lg:px-14">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
+                    alt={imageTextData?.heading}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="rounded-md w-full h-full object-cover"
+                  />
 
-                {imageTextData?.small_box_image ? (
-                  <>
-                    {" "}
-                    <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
-                        alt={imageTextData?.image_alternate_text}
-                        className="w-10 h-10"
-                      />
-                      {imageTextData?.small_box_text ? (
-                        <>
-                          {" "}
-                          <span className="text-sm font-semibold">
-                            {imageTextData?.small_box_text}
-                          </span>
-                        </>
-                      ) : null}
-                    </div>
-                  </>
-                ) : null}
+                  {imageTextData?.small_box_image ? (
+                    <>
+                      {" "}
+                      <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
+                        {imageTextData?.small_box_image && (
+                          <div className="w-10 h-10 p-1 relative">
+                            <Image
+                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
+                              alt={imageTextData?.image_alternate_text}
+                              className=""
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
+                          </div>
+                        )}
 
-                {imageTextData?.single_box ? (
-                  <>
-                    <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
-                        alt={imageTextData?.heading}
-                        className="w-15 h-15"
-                      />
-                    </div>
-                  </>
-                ) : null}
-              </div>
+                        {imageTextData?.small_box_text ? (
+                          <>
+                            <span className="text-sm font-semibold">
+                              {imageTextData?.small_box_text}
+                            </span>
+                          </>
+                        ) : null}
+                      </div>
+                    </>
+                  ) : null}
+
+                  {imageTextData?.single_box ? (
+                    <>
+                      <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
+                        <img
+                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
+                          alt={imageTextData?.heading}
+                          className="w-15 h-15"
+                        />
+                      </div>
+                    </>
+                  ) : null}
+                </div>
+              )}
             </div>
           </>
         ) : null}
@@ -118,46 +127,50 @@ const ImageTextTwoAPlusComponent: React.FC<Props> = ({ imageTextData }) => {
         {imageTextData?.align_element === "right" && imageTextData?.image ? (
           <>
             <div className="W-full flex items-start justify-center relative ">
-              <div className="w-full lg:w-2/4 relative h-[400px] flex px-0 lg:px-14">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
-                  alt={imageTextData?.heading}
-                  className="rounded-md w-full object-cover"
-                  style={{ height: "100%" }}
-                />
+              {imageTextData?.image && (
+                <div className="w-full lg:w-2/4 relative h-[400px] flex px-0 lg:px-14">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.image}`}
+                    alt={imageTextData?.heading}
+                    className="rounded-md w-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
 
-                {/* Annotations */}
-                {imageTextData?.small_box_image ? (
-                  <>
-                    <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
-                        alt={imageTextData?.image_alternate_text}
-                        className="w-10 h-10"
-                      />
-                      {imageTextData?.small_box_text ? (
-                        <>
-                          <span className="text-sm font-semibold">
-                            {imageTextData?.small_box_text}
-                          </span>
-                        </>
-                      ) : null}
-                    </div>
-                  </>
-                ) : null}
+                  {/* Annotations */}
+                  {imageTextData?.small_box_image ? (
+                    <>
+                      <div className="absolute top-[80px] left-[0px] p-4 bg-white shadow-md rounded-md flex items-center gap-2">
+                        <img
+                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.small_box_image}`}
+                          alt={imageTextData?.image_alternate_text}
+                          className="w-10 h-10"
+                        />
+                        {imageTextData?.small_box_text ? (
+                          <>
+                            <span className="text-sm font-semibold">
+                              {imageTextData?.small_box_text}
+                            </span>
+                          </>
+                        ) : null}
+                      </div>
+                    </>
+                  ) : null}
 
-                {imageTextData?.single_box ? (
-                  <>
-                    <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
-                        alt={imageTextData?.heading}
-                        className="w-15 h-15"
-                      />
-                    </div>
-                  </>
-                ) : null}
-              </div>
+                  {imageTextData?.single_box ? (
+                    <>
+                      <div className="absolute bottom-[-30px] right-[30px] p-4 bg-white shadow-md rounded-xl flex items-center gap-2">
+                        <img
+                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${imageTextData?.single_box}`}
+                          alt={imageTextData?.heading}
+                          className="w-15 h-15"
+                        />
+                      </div>
+                    </>
+                  ) : null}
+                </div>
+              )}
+
               {imageTextData?.heading || imageTextData?.description ? (
                 <div className="w-2/4 flex gap-2 flex-col items-start justify-center sm:mt-0 mt-4 ">
                   {imageTextData?.heading ? (

@@ -2,6 +2,7 @@
 import SliderFrame from "@/components/ClientSideComponents/SliderComponents/SliderFrame";
 import HomePageButtonOne from "@/components/CommonComponents/ButtonsComponent/HomePageButton";
 import DOMPurify from "dompurify";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
@@ -95,17 +96,19 @@ const CarouselComponentAPlus: React.FC<Props> = ({ carouselData }) => {
                 key={index}
                 className="w-full h-auto flex flex-col item-center justify-center relative mb-4"
               >
-                <div className="mx-3 rounded-md  hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-50 p-4 border-[1px]">
-                  <div className="w-1/4 h-[100px]">
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
-                      alt={item?.heading}
-                      style={{
-                        objectFit: "contain",
-                      }}
-                      className="h-full w-full rounded-md"
-                    />
-                  </div>
+                <div className="mx-3 rounded-md hover:scale-[1.01] transform transition-transform duration-300  before:transition-all before:duration-500 bg-gray-50 p-4 border-[1px]">
+                  {item?.image && (
+                    <div className="relative w-1/4 h-[100px]">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${item?.image}`}
+                        alt={item?.heading}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="h-full w-full rounded-md object-contain"
+                      />
+                    </div>
+                  )}
+
                   <div className="h-auto bg-opacity-60 py-4 flex gap-1 flex-col justify-center items-start">
                     {item?.heading ? (
                       <div

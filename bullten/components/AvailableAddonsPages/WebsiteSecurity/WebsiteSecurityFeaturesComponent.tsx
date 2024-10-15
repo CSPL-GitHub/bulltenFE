@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { FaArrowsLeftRight } from "react-icons/fa6";
 
@@ -10,13 +11,16 @@ const WebsiteSecurityFeaturesComponent = ({ FeaturesData }: Props) => {
     <section className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 sm:text-4xl">
-            {FeaturesData?.Feature[0]?.heading}
-          </h2>
-
-          <p className="mt-4 text-xl text-gray-600">
-            {FeaturesData?.Feature[0]?.description}
-          </p>
+          {FeaturesData?.Feature[0]?.heading && (
+            <h2 className="text-2xl font-bold text-gray-900 sm:text-4xl">
+              {FeaturesData?.Feature[0]?.heading}
+            </h2>
+          )}
+          {FeaturesData?.Feature[0]?.description && (
+            <p className="mt-4 text-xl text-gray-600">
+              {FeaturesData?.Feature[0]?.description}
+            </p>
+          )}
         </div>
 
         {/* Zigzag Layout */}
@@ -44,23 +48,31 @@ const WebsiteSecurityFeaturesComponent = ({ FeaturesData }: Props) => {
                       : "md:pr-12 text-left"
                   }`}
                 >
-                  <h3 className="text-2xl font-semibold text-gray-900">
-                    {feature.heading}
-                  </h3>
-                  <p className="mt-4 text-gray-600 text-lg">
-                    {feature.description}
-                  </p>
+                  {feature.heading && (
+                    <h3 className="text-2xl font-semibold text-gray-900">
+                      {feature.heading}
+                    </h3>
+                  )}
+                  {feature.description && (
+                    <p className="mt-4 text-gray-600 text-lg">
+                      {feature.description}
+                    </p>
+                  )}
                 </div>
 
                 {/* Icon on the Opposite Side */}
                 <div className="md:w-1/2 flex justify-center items-center lg:p-6 p-0">
-                  <div className="text-6xl bg-bullt-secondary rounded-full p-4 shadow-lg">
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.img}`}
-                      alt={feature?.heading}
-                      className="w-14 h-14 object-contain"
-                    />
-                  </div>
+                  {feature?.img && (
+                    <div className="relative  w-14 h-14 bg-bullt-secondary rounded-full shadow-lg">
+                      <Image
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${feature?.img}`}
+                        alt={feature?.heading}
+                        className="object-contain p-2"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             )

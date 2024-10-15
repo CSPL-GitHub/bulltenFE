@@ -6,7 +6,6 @@ import Image from "next/image";
 type Props = { DataContent: any };
 
 const FAQSslComponent = ({ DataContent }: Props) => {
-  console.log(DataContent?.faq[0]?.faq, "DataContentFAQ");
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);

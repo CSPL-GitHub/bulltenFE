@@ -6,10 +6,6 @@ type Props = {
 };
 
 export default function XoviNowuseCasesBoxes({ useCasesContent }: Props) {
-  console.log(
-    useCasesContent?.features[0].feature_data,
-    "XoviNowuseCasesBoxes"
-  );
   return (
     <section className="lg:py-16 py-6 px-4">
       <div className="max-w-7xl mx-auto">

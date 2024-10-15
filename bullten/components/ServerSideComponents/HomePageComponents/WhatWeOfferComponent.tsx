@@ -48,11 +48,13 @@ const WhatWeOfferComponent = () => {
               key={index}
               className="bg-gray-800 flex flex-col justify-around h-full items-center p-4 rounded transform transition-transform hover:bg-bullt-quaternary hover:text-black duration-300 ease-in-out group"
             >
-              <img
-                src={item.icon}
-                alt={item.label}
-                className="w-12 h-12 mb-4 transition-transform duration-300 ease-in-out group-hover:scale-x-[-1]"
-              />
+              <div className="w-12 h-12 relative">
+                <img
+                  src={item.icon}
+                  alt={item.label}
+                  className=" mb-4 transition-transform duration-300 ease-in-out group-hover:scale-x-[-1]"
+                />
+              </div>
               <p className="text-white text-center">{item.label}</p>
             </div>
           ))}

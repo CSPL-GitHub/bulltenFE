@@ -104,35 +104,47 @@ const CountryLocationsCarouselComponentAPlus: React.FC<Props> = ({
                   </div>
                   <div className="w-full flex flex-col justify-center items-start gap-4">
                     <div className="w-full flex justify-start items-center gap-4">
-                      <div className="h-[30px] w-[30px] rounded-full overflow-hidden ">
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.icon}`}
-                          alt={item.CountryName}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
+                      {item.icon && (
+                        <div className="relative h-[30px] w-[30px] rounded-full overflow-hidden ">
+                          <Image
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.icon}`}
+                            alt={item.CountryName}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      )}
+
                       <div className="flex flex-col justify-center items-start">
-                        <div
-                          className="text-lg font-semibold"
-                          dangerouslySetInnerHTML={{
-                            __html: item?.countryname,
-                          }}
-                        />
-                        <div
-                          className="text-sm text-gray-500"
-                          dangerouslySetInnerHTML={{
-                            __html: item?.countrystate,
-                          }}
-                        />
+                        {item?.countryname && (
+                          <div
+                            className="text-lg font-semibold"
+                            dangerouslySetInnerHTML={{
+                              __html: item?.countryname,
+                            }}
+                          />
+                        )}
+                        {item?.countrystate && (
+                          <div
+                            className="text-sm text-gray-500"
+                            dangerouslySetInnerHTML={{
+                              __html: item?.countrystate,
+                            }}
+                          />
+                        )}
                       </div>
                     </div>
                     <div className="w-full flex flex-col gap-1">
-                      <div
-                        className="text-[.875em] text-black font-semibold"
-                        dangerouslySetInnerHTML={{
-                          __html: item?.country_flag,
-                        }}
-                      />
+                      {item?.country_flag && (
+                        <div
+                          className="text-[.875em] text-black font-semibold"
+                          dangerouslySetInnerHTML={{
+                            __html: item?.country_flag,
+                          }}
+                        />
+                      )}
+
                       <div className="flex flex-wrap gap-1 w-full">
                         {item?.loctions.map((product: any, pIndex: any) => (
                           <div
@@ -159,17 +171,21 @@ const CountryLocationsCarouselComponentAPlus: React.FC<Props> = ({
                       </div>
                     ) : null}
                     <div className="w-full flex items-center gap-1 mt-3 text-sm text-gray-600">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: item?.ip_name,
-                        }}
-                      />
-                      <div
-                        className="font-semibold text-gray-800"
-                        dangerouslySetInnerHTML={{
-                          __html: item?.ip_address,
-                        }}
-                      />
+                      {item?.ip_name && (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: item?.ip_name,
+                          }}
+                        />
+                      )}
+                      {item?.ip_address && (
+                        <div
+                          className="font-semibold text-gray-800"
+                          dangerouslySetInnerHTML={{
+                            __html: item?.ip_address,
+                          }}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

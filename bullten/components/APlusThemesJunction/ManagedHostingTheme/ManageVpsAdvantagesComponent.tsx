@@ -27,23 +27,19 @@ const ManageVpsAdvantagesComponent = ({ AdvantagesData }: any) => {
             index % 2 === 0 ? "md:flex-row-reverse" : ""
           }`}
         >
-          <div className="w-full md:[50%]">
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
-              alt={section?.heading}
-              className="w-full h-[300px] lg:h-[400px] object-contain rounded-xl"
-            />
-          </div>
-          <div className="w-full md:[50%] md:px-14 px-4">
-            {/* <div className="absolute ">
+          {section?.image && (
+            <div className="relative w-full h-[300px] lg:h-[400px]md:[50%]">
               <Image
-                src="/about_bg_8_1.png"
-                alt="Heading Image"
-                width={400}
-                height={400}
-                className="custom-bounce "
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}${section?.image}`}
+                alt={section?.heading}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className=" object-contain rounded-xl"
               />
-            </div> */}
+            </div>
+          )}
+
+          <div className="w-full md:[50%] md:px-14 px-4">
             <div className="" />
             {section?.heading ? (
               <div

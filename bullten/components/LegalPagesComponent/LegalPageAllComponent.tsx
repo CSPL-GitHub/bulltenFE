@@ -1,4 +1,3 @@
-import { PrivacyPolicyPageApi } from "@/apis/LegalPagesAPIs";
 import React from "react";
 import { FaShieldAlt, FaUserSecret, FaEnvelope, FaLock } from "react-icons/fa";
 const LegalPageAllComponent = async ({ Data }: any) => {

@@ -1,7 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import { useSelector } from "react-redux";
+import { FilterLoactionApi } from "@/apis/productsApi";
 
 type Props = {
   setSelectedLocation: any;
@@ -9,10 +11,16 @@ type Props = {
   setPriceRange: any;
   setRamRange: any;
   selectedDisks: any;
-  priceRange: any;
+  filterRange: any;
   ramRange: any;
   selectedLocation: any;
   ProductsDetails: any;
+  decodedSlug: string;
+  MaxRamRange: any;
+  setMaxRamRange: any;
+  MinRamRange: any;
+  setMinRamRange: any;
+  selectedPriceRange: any;
 };
 const ThemeTwoFilterComponent = ({
   setSelectedLocation,
@@ -20,30 +28,41 @@ const ThemeTwoFilterComponent = ({
   setPriceRange,
   setRamRange,
   selectedDisks,
-  priceRange,
+  filterRange,
   ramRange,
   selectedLocation,
   ProductsDetails,
+  decodedSlug,
+  MaxRamRange,
+  setMaxRamRange,
+  MinRamRange,
+  setMinRamRange,
+  selectedPriceRange,
 }: Props) => {
-  const disks = ["SATA", "SSD", "NVME"];
-  console.log(ProductsDetails?.ram_max_price, "jhfsdjfhsdjf");
+  const currencyCode = useSelector((state: any) => state.currency);
 
-  console.log(ProductsDetails, "details for Filtering");
   const [isOpen, setIsOpen] = useState(false);
-  const locations = [
-    "All Locations",
-    "India",
-    "UK",
-    "Germany",
-    "Canada",
-    "France",
-  ];
-
+  const [loaction, setLoaction] = useState<any>({});
+  useEffect(() => {
+    const fetchPriceRange = async () => {
+      try {
+        const response = await FilterLoactionApi(decodedSlug);
+        if (response?.result) {
+          setLoaction(response.result);
+        }
+      } catch (err) {
+        console.error("Error fetching price range:", err);
+      }
+    };
+    if (currencyCode?.code?.slug) {
+      fetchPriceRange();
+    }
+  }, [decodedSlug]);
   const handleSelect = (location: any) => {
     setSelectedLocation(location);
     setIsOpen(false);
   };
-  const handleDiskChange = (disk: string) => {
+  const handleDiskChange = (disk: any) => {
     if (selectedDisks.includes(disk)) {
       setSelectedDisks(selectedDisks.filter((d: any) => d !== disk));
     } else {
@@ -56,17 +75,14 @@ const ThemeTwoFilterComponent = ({
       setPriceRange(range);
     }
   };
-
-  const handleRamChange = (range: number | number[]) => {
-    if (Array.isArray(range)) {
-      setRamRange(range);
-    }
+  const handleRamChange = (range: any | any[]) => {
+    setMinRamRange(range[0]);
+    setMaxRamRange(range[1]);
   };
-
   return (
-    <div className="p-3 lg:p-4 mt-4 shadow-md lg:shadow-sm bg-white/10 border border-white/20 rounded-md backdrop-blur-md sm:grid md:grid-cols-4 sm:grid-cols-2 w-full gap-10 md:gap-4 lg:gap-10 justify-center items-center">
-      <div className="mb-4 col-span-1 px-5 lg:border-r-2 border-bullt-secondary/[0.4] h-full">
-        <label className="block text-md font-semibold text-bullt-secondary mb-4">
+    <div className="p-3 lg:p-4 mt-4 shadow-md lg:shadow-sm bg-bullt-secondary rounded-md  sm:grid md:grid-cols-4 sm:grid-cols-2 w-full gap-10 md:gap-4 lg:gap-10 justify-center items-center">
+      <div className="mb-4 col-span-1 px-5 lg:border-r-2 h-full">
+        <label className="block text-md font-semibold text-gray-700 mb-4">
           Server Location
         </label>
         <select
@@ -75,93 +91,77 @@ const ThemeTwoFilterComponent = ({
           className="w-full p-2 border border-gray-300 rounded-md"
         >
           <option value="">All Locations</option>
-          {["India", "UK", "Germany", "Canada", "France"].map((location) => (
+          {loaction?.location_data?.map((location: any) => (
             <option
               key={location}
               className="hover:bg-bullt-tertiary active:bg-bullt-secondary"
             >
-              {location}
+              {location?.Location}
             </option>
           ))}
         </select>
       </div>
 
-      {/* <div className="relative mb-4 col-span-1 px-5  lg:border-r-2 h-full">
+      <div className="col-span-1 px-5 border-r-2">
         <label className="block text-md font-semibold text-gray-700 mb-4">
-          Server Location
-        </label>
-        <div
-          className="w-full p-2 border border-gray-300 rounded-sm cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {selectedLocation || "Select Location"}
-        </div>
-
-        {isOpen && (
-          <ul className="absolute z-10 w-full border border-gray-300 bg-white rounded-md shadow-lg">
-            {locations.map((location) => (
-              <li
-                key={location}
-                className="p-2 hover:bg-bullt-tertiary hover:text-bullt-secondary active:bg-bullt-quaternary active:text-bullt-secondary cursor-pointer"
-                onClick={() => handleSelect(location)}
-              >
-                {location}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div> */}
-      <div className="col-span-1 px-5 border-r-2 border-bullt-secondary/[0.4]">
-        <label className="block text-md font-semibold text-bullt-secondary mb-4">
-          Price Range ($)
+          Price Range
         </label>
 
         <div className="flex justify-between mb-1">
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[0]}
+            {Number(selectedPriceRange[0])}
           </span>
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded text-sm">
-            ${priceRange[1]}
+            {Number(selectedPriceRange[1])}
           </span>
         </div>
-        <Slider
-          range
-          min={priceRange}
-          max={priceRange}
-          value={priceRange}
-          onChange={handlePriceChange}
-          trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
-          handleStyle={[
-            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
-            { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
-          ]}
-          railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
-        />
-        <div className="flex justify-between  text-gray-500 mt-2">
-          <span className="text-md">${ProductsDetails?.ram_min_price}</span>
-          <span className="text-md">${ProductsDetails?.ram_max_price}</span>
+        {filterRange?.max ? (
+          <Slider
+            range
+            min={filterRange?.min} // Ensure min is a number
+            max={filterRange?.max} // Ensure max is a number
+            defaultValue={[filterRange?.min, filterRange?.max]}
+            step={4}
+            onChange={handlePriceChange}
+            trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
+            handleStyle={[
+              { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
+              { borderColor: "#3b82f6", height: 17, width: 17, marginTop: -4 },
+            ]}
+            railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
+          />
+        ) : null}
+
+        <div className="flex justify-between text-gray-500 mt-2">
+          <span className="text-md">
+            {filterRange?.icon}
+            {filterRange?.min}
+          </span>
+          <span className="text-md">
+            {filterRange?.icon}
+            {filterRange?.max}
+          </span>
         </div>
       </div>
 
-      <div className="col-span-1 px-5 border-r-2 border-bullt-secondary/[0.4]">
-        <label className="block text-md font-semibold text-bullt-secondary mb-4">
+      <div className="col-span-1 px-5 border-r-2">
+        <label className="block text-md font-semibold text-gray-700 mb-4">
           RAM
         </label>
         <div className="flex justify-between items-center mb-2">
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded">
-            {ramRange[0]}GB
+            {MinRamRange}GB
           </span>
           <span className="bg-bullt-tertiary text-bullt-secondary p-1 rounded">
-            {ramRange[1]}GB
+            {MaxRamRange}GB
           </span>
         </div>
-
         <Slider
           range
           min={4}
-          max={1000}
-          defaultValue={[4, 1000]}
-          value={ramRange}
+          max={1500}
+          defaultValue={[4, 1500]}
+          step={4}
           onChange={handleRamChange}
           trackStyle={[{ backgroundColor: "#F69C2C", height: 8 }]}
           handleStyle={[
@@ -171,31 +171,26 @@ const ThemeTwoFilterComponent = ({
           railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
         />
         <div className="flex justify-between text-gray-500 mt-2">
-          <span className=" text-md">{ProductsDetails?.min_memory}Gb</span>
-          <span className=" text-md">{ProductsDetails?.max_memory}Gb</span>
+          <span className=" text-md">4 GB</span>
+          <span className=" text-md">1500 GB</span>
         </div>
       </div>
 
       <div className="px-6 col-span-1 ">
-        <label className="block text-md font-semibold text-bullt-text-secondary">
+        <label className="block text-md font-semibold text-gray-700">
           Disks
         </label>
         <div className="grid grid-cols-2">
-          {disks.map((disk, index) => (
+          {loaction?.disk_data?.map((disk: any, index: any) => (
             <div key={index} className="flex flex-row items-center py-2">
               <input
                 type="checkbox"
                 id={`disk-${index}`}
-                checked={selectedDisks.includes(disk)}
-                onChange={() => handleDiskChange(disk)}
+                checked={selectedDisks.includes(disk?.Disks_all_type)}
+                onChange={() => handleDiskChange(disk?.Disks_all_type)}
                 className="mr-3 transform scale-150 bg-bullt-tertiary"
               />
-              <label
-                htmlFor={`disk-${index}`}
-                className="text-md text-bullt-secondary"
-              >
-                {disk}
-              </label>
+              <label className="text-md ">{disk?.Disks_all_type}</label>
             </div>
           ))}
           {/* </div> */}

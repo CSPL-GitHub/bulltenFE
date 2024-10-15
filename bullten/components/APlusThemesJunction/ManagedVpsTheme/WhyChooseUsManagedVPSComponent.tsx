@@ -14,10 +14,6 @@ const WhyChooseUsManagedVPSComponent: React.FC<Props> = ({ columnData }) => {
       style={{
         marginTop: `${columnData?.gap_top / 4}rem`,
         marginBottom: `${columnData?.gap_bottom / 4}rem`,
-        // backgroundImage: `url('/hero-map.png')`,
-        // backgroundSize: "contain",
-        // backgroundRepeat: "no-repeat",
-        // backgroundPosition: "center",
       }}
     >
       <div className="relative container mx-auto flex flex-col sm:gap-4 md:flex-row">

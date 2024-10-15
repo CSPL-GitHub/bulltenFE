@@ -104,13 +104,18 @@ const CountryLocationsCarouselComponentAPlus: React.FC<Props> = ({
                   </div>
                   <div className="w-full flex flex-col justify-center items-start gap-4">
                     <div className="w-full flex justify-start items-center gap-4">
-                      <div className="h-[30px] w-[30px] rounded-full overflow-hidden ">
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.icon}`}
-                          alt={item.CountryName}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
+                      {item.icon && (
+                        <div className="relative h-[30px] w-[30px] rounded-full overflow-hidden ">
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.icon}`}
+                            alt={item.CountryName}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      )}
+
                       <div className="flex flex-col justify-center items-start">
                         <div
                           className="text-lg font-semibold"

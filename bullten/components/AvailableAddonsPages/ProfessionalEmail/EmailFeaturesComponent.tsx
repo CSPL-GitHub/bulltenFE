@@ -1,52 +1,8 @@
+import Image from "next/image";
 import React from "react";
 
 type Props = {
   FeaturesContent: any;
-};
-const SectionBoxesData = {
-  certificate_feature_data: [
-    {
-      heading: "Why Choose Our Certification Services?",
-      features: [
-        {
-          icon: "/images/certification_icon1.png", // Update the image paths
-          title: "Cloud File Storage",
-          description:
-            "Store and share your important documents safely in the cloud. And with (up to) 50 GBs, you'll have plenty of room for years to come.",
-        },
-        {
-          icon: "/images/certification_icon2.png",
-          title: "Calendaring & Contacts",
-          description:
-            "Communicate like an enterprise with shared calendaring, scheduling wizard, iCal support and Global Address List!",
-        },
-        {
-          icon: "/images/certification_icon1.png", // Update the image paths
-          title: "Cloud File Storage",
-          description:
-            "Store and share your important documents safely in the cloud. And with (up to) 50 GBs, you'll have plenty of room for years to come.",
-        },
-        {
-          icon: "/images/certification_icon2.png",
-          title: "Calendaring & Contacts",
-          description:
-            "Communicate like an enterprise with shared calendaring, scheduling wizard, iCal support and Global Address List!",
-        },
-        {
-          icon: "/images/certification_icon1.png", // Update the image paths
-          title: "Cloud File Storage",
-          description:
-            "Store and share your important documents safely in the cloud. And with (up to) 50 GBs, you'll have plenty of room for years to come.",
-        },
-        {
-          icon: "/images/certification_icon2.png",
-          title: "Calendaring & Contacts",
-          description:
-            "Communicate like an enterprise with shared calendaring, scheduling wizard, iCal support and Global Address List!",
-        },
-      ],
-    },
-  ],
 };
 
 export default function EmailFeaturesSectionComponent({
@@ -55,9 +11,12 @@ export default function EmailFeaturesSectionComponent({
   return (
     <div className="w-full mx-auto px-4 lg:py-8 py-6 bg-gradient-to-br from-background to-muted">
       <div className="max-w-7xl mx-auto">
-        <h1 className="lg:text-4xl text-3xl font-bold text-center mb-4 text-primary">
-          {FeaturesContent?.Feature[0]?.heading}
-        </h1>
+        {FeaturesContent?.Feature[0]?.heading && (
+          <h1 className="lg:text-4xl text-3xl font-bold text-center mb-4 text-primary">
+            {FeaturesContent?.Feature[0]?.heading}
+          </h1>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-4">
           {FeaturesContent?.Feature[0]?.feature_list?.map(
             (box: any, index: number) => (
@@ -92,27 +51,35 @@ export default function EmailFeaturesSectionComponent({
 
                 <div className="relative z-10 h-full flex flex-col justify-between p-4">
                   <div>
-                    <div
-                      className={`
-                        mb-4 inline-block p-2 rounded-lg
+                    {box.img && (
+                      <div
+                        className={`
+                       relative mb-4 inline-block rounded-lg w-16 h-16
                         ${index % 4 === 0 ? "bg-bullt-tertiary/10" : ""}
                         ${index % 4 === 1 ? "bg-bullt-quaternary/10" : ""}
                         ${index % 4 === 2 ? "bg-bullt-tertiary/10" : ""}
                         ${index % 4 === 3 ? "bg-bullt-quaternary/10" : ""}
                       `}
-                    >
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${box.img}`}
-                        alt={box.heading}
-                        className="w-14 h-14 object-contain "
-                      />
-                    </div>
-                    <h2 className="text-xl font-semibold mb-2 text-foreground">
-                      {box.heading}
-                    </h2>
-                    <p className="text-lg text-bullt-primary leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
-                      {box.description}
-                    </p>
+                      >
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${box.img}`}
+                          alt={box.heading}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-contain p-2"
+                        />
+                      </div>
+                    )}
+                    {box.heading && (
+                      <h2 className="text-xl font-semibold mb-2 text-foreground">
+                        {box.heading}
+                      </h2>
+                    )}
+                    {box.description && (
+                      <p className="text-lg text-bullt-primary leading-relaxed transition-colors duration-300 group-hover:text-gray-700">
+                        {box.description}
+                      </p>
+                    )}
                   </div>
                 </div>
 

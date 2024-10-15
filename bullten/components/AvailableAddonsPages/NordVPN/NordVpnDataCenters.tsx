@@ -10,6 +10,7 @@ import {
   Marker,
 } from "react-simple-maps";
 import { motion } from "framer-motion";
+import LoaderComponent from "@/components/CommonComponents/LoaderComponent/LoaderComponent";
 
 export default function MapDataCenters() {
   const [hoveredMarker, setHoveredMarker] = useState(null);
@@ -32,18 +33,28 @@ export default function MapDataCenters() {
     setSelectedLocation(marker);
   };
 
-  if (!coordinates) return <div>Loading...</div>;
+  if (!coordinates)
+    return (
+      <div>
+        <LoaderComponent />
+      </div>
+    );
 
   return (
     <div className="relative w-full px-4 lg:px-8 py-8 lg:py-12 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-center gap-8">
         <div className="lg:w-2/5 w-full space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center lg:text-left text-gray-800">
-            {coordinates.map_data.heading}
-          </h2>
-          <p className="text-lg text-center lg:text-left text-gray-600">
-            {coordinates.map_data.description}
-          </p>
+          {coordinates.map_data.heading && (
+            <h2 className="text-3xl sm:text-4xl font-bold text-center lg:text-left text-gray-800">
+              {coordinates.map_data.heading}
+            </h2>
+          )}
+          {coordinates.map_data.description && (
+            <p className="text-lg text-center lg:text-left text-gray-600">
+              {coordinates.map_data.description}
+            </p>
+          )}
+
           <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             {coordinates.map_data.button_1 && (
               <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
@@ -72,13 +83,16 @@ export default function MapDataCenters() {
                         : "hover:bg-gray-100 border-gray-200 border-[1px] "
                     }`}
                   >
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
-                      alt={marker.name}
-                      width={24}
-                      height={24}
-                      className="rounded-full mr-2"
-                    />
+                    {marker.flagUrl && (
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
+                        alt={marker.name}
+                        width={24}
+                        height={24}
+                        className="rounded-full mr-2"
+                      />
+                    )}
+
                     <span className="text-sm font-medium">{marker.name}</span>
                   </button>
                 )
@@ -163,21 +177,23 @@ export default function MapDataCenters() {
                         x={-140}
                         y={-65}
                         width={100}
-                        height={25}
+                        height={35}
                         fill="#f69b00"
-                        rx={15}
-                        ry={15}
+                        rx={20}
+                        ry={20}
                         className="shadow-md"
                       />
-                      <foreignObject x={-140} y={-60} width={100} height={35}>
-                        <div className="flex items-center justify-center space-x-2">
-                          <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
-                            alt={marker.name}
-                            width={20}
-                            height={20}
-                            className="rounded-full"
-                          />
+                      <foreignObject x={-140} y={-55} width={100} height={45}>
+                        <div className="flex items-center justify-center gap-1 ">
+                          <div className="w-6 h-6 rounded-full relative">
+                            <Image
+                              src={`${process.env.NEXT_PUBLIC_BASE_URL}${marker.flagUrl}`}
+                              alt={marker.name}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="rounded-full object-contain"
+                            />
+                          </div>
                           <span className="text-xs font-medium text-bullt-secondary">
                             {marker.name}
                           </span>

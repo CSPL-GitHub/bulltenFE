@@ -35,13 +35,17 @@ const OverViewPageBanner = ({ content }: Props) => {
           ) : null}
         </div>
 
-        <div className="w-full">
-          <img
-            src={`${process.env.NEXT_PUBLIC_BASE_URL}${content?.img}`}
-            alt={content?.heading}
-            className="w-full h-[300px] lg:h-[350px] object-contain rounded-xl"
-          />
-        </div>
+        {content?.img && (
+          <div className="w-full h-[300px] lg:h-[350px] relative">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}${content?.img}`}
+              alt={content?.heading}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className=" object-contain rounded-xl"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

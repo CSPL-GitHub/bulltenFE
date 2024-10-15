@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 
 type Props = { content: any };
@@ -57,7 +58,15 @@ export default function OverViewPageBannerComponent({ content }: Props) {
                   onHoverStart={() => setHoveredFeature(feature.label)}
                   onHoverEnd={() => setHoveredFeature(null)}
                 >
-                  <img src={feature.icon} className="h-5 w-5 text-indigo-600" />
+                  <div className="h-5 w-5 relative">
+                    <Image
+                      alt={feature.label}
+                      src={feature.icon}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className=" text-indigo-600"
+                    />
+                  </div>
                   <span className="text-sm font-medium text-gray-900">
                     {feature.label}
                   </span>
@@ -72,19 +81,23 @@ export default function OverViewPageBannerComponent({ content }: Props) {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             />
-            <motion.div
-              className="relative bg-white p-8 rounded-3xl shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              {" "}
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${content?.img}`}
-                alt={content?.heading}
-                className="w-full h-[300px] lg:h-[350px] object-contain rounded-xl"
-              />
-            </motion.div>
+
+            {content?.img && (
+              <motion.div
+                className="relative w-full h-[300px] lg:h-[350px] bg-white rounded-3xl shadow-xl"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_URL}${content?.img}`}
+                  alt={content?.heading}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className=" object-contain rounded-xl  p-8"
+                />
+              </motion.div>
+            )}
           </div>
         </div>
       </div>

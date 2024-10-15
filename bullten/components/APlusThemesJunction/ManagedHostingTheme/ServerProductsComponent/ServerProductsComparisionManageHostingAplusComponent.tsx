@@ -13,7 +13,6 @@ type Props = {
 const ServerProductsComparisionManageHostingAplusComponent: React.FC<Props> = ({
   decodedSlug,
 }) => {
-  console.log(decodedSlug, "decodedSlug");
   const currencyCode = useSelector((state: any) => state.currency);
   const [serverProductsData, setServerProductsData] = useState<any>({});
   useEffect(() => {
@@ -101,14 +100,9 @@ const ServerProductsComparisionManageHostingAplusComponent: React.FC<Props> = ({
                               className="text-bullt-primary font-semibold text-lg"
                               key={index}
                             >
-                              {price?.country === "inr" ? (
-                                <span>₹</span>
-                              ) : price?.country === "usd" ? (
-                                <span>$</span>
-                              ) : (
-                                <span>€</span>
-                              )}
+                              {price?.icon}
                               {price?.price}
+                              {price?.country}
                             </div>
                           ))}
                           <span className="text-sm font-semibold text-bullt-primary">
